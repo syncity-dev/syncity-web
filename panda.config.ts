@@ -4,7 +4,9 @@ const fonts = {
   body: { value: "Sintony, serif" },
   heading: { value: ["Russo_One", "sans-serif"] },
 };
+
 const breakpoints = { "3xl": "1800px" };
+
 const colors = {
   red: { value: "#A20104" },
   "dark-red": { value: "#700102" },
@@ -15,6 +17,7 @@ const colors = {
   "light-gray": { value: "#E7E7E7" },
   "dark-gray": { value: "#373739" },
 };
+
 const shadows = {
   "3xl": { value: "5px 5px 0px 0px rgba(1, 1, 1, 1)" },
   "4xl": { value: "8px 8px 0px 0px rgba(1, 1, 1, 1)" },
