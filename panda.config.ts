@@ -30,6 +30,7 @@ export default defineConfig({
   // Where to look for your css declarations
   include: [
     "./src/components/**/*.{ts,tsx,js,jsx}",
+    "./src/recipes/**/*.{ts,tsx,js,jsx}",
     "./src/app/**/*.{ts,tsx,js,jsx}",
     "./src/styled-system/**/*.{ts,tsx,js,jsx}",
   ],
@@ -48,6 +49,8 @@ export default defineConfig({
       },
     },
   },
+
+  jsxFramework: "react",
 
   // The output directory for your css system
   outdir: "styled-system",
