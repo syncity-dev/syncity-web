@@ -26,7 +26,7 @@ export default function Home() {
           Hello Syncity 🐼!
         </h2>
         <Button
-          label="Go to Core"
+          label="Core Components"
           visual="outline"
           color="red"
           size="md"

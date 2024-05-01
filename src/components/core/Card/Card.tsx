@@ -1,8 +1,8 @@
 import { cardRecipe } from "@/recipes/cardRecipe";
-import { styled } from "../../../../styled-system/jsx";
+import { HTMLStyledProps, styled } from "../../../../styled-system/jsx";
 import { ReactNode } from "react";
 
-interface ICardProps {
+interface ICardProps extends HTMLStyledProps<"div"> {
   as?: "div" | "section" | "article";
   outlined?: boolean;
   heavyShadow?: boolean;

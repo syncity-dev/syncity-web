@@ -3,15 +3,14 @@ import { SystemStyleObject } from "@pandacss/dev";
 import { styled } from "../../../../styled-system/jsx";
 import Link from "next/link";
 
-type ButtonProps = React.ButtonHTMLAttributes<
-  HTMLButtonElement | HTMLAnchorElement
-> & {
+interface IButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
   label: string;
   href?: string;
   visual?: "solid" | "outline";
   size?: "sm" | "md" | "lg";
   color?: "red" | "yellow" | "gray";
-};
+}
 
 export function Button({
   label,
@@ -20,7 +19,7 @@ export function Button({
   size,
   color = "red",
   ...restProps
-}: ButtonProps) {
+}: IButtonProps) {
   const StyledLink = styled(Link);
 
   return href ? (
