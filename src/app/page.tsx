@@ -25,7 +25,13 @@ export default function Home() {
         >
           Hello Syncity 🐼!
         </h2>
-        <Button label="Get Panda" visual="outline" color="red" size="md" />
+        <Button
+          label="Go to Core"
+          visual="outline"
+          color="red"
+          size="md"
+          href="/core"
+        />
       </Card>
     </section>
   );

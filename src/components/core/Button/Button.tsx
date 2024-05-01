@@ -21,12 +21,17 @@ export function Button({
   color = "red",
   ...restProps
 }: ButtonProps) {
+  const StyledLink = styled(Link);
+
   return href ? (
-    <Link href={href} passHref {...restProps}>
-      <styled.a className={buttonRecipe({ visual, size, color })}>
-        {label}
-      </styled.a>
-    </Link>
+    <StyledLink
+      href={href}
+      passHref
+      className={buttonRecipe({ visual, size, color })}
+      {...restProps}
+    >
+      {label}
+    </StyledLink>
   ) : (
     <styled.button
       className={buttonRecipe({ visual, size, color })}
