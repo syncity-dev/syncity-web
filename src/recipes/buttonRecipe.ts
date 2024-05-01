@@ -58,19 +58,19 @@ export const buttonRecipe = cva({
       css: {
         borderColor: "gray",
         bg: "gray",
-        color: "light-gray",
+        color: "black",
       },
     },
     {
       visual: "outline",
       color: "gray",
       css: {
-        borderColor: "gray",
+        borderColor: "dark-gray",
         bg: "transparent",
-        color: "gray",
+        color: "dark-gray",
         _hover: {
-          bg: "gray",
-          color: "light-gray",
+          bg: "dark-gray",
+          color: "white",
         },
       },
     },
@@ -89,10 +89,10 @@ export const buttonRecipe = cva({
       css: {
         borderColor: "yellow",
         bg: "transparent",
-        color: "yellow",
+        color: "dark-gray",
         _hover: {
           bg: "yellow",
-          color: "light-gray",
+          color: "dark-gray",
         },
       },
     },

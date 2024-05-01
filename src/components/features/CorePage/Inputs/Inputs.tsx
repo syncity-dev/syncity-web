@@ -1,0 +1,34 @@
+"use client";
+
+import { useState } from "react";
+import { CoreSectionWrapper } from "../CoreSectionWrapper/CoreSectionWrapper";
+import { Card } from "@/components/core/Card/Card";
+import { css } from "../../../../../styled-system/css";
+import { Checkbox } from "@/components/core/Checkbox/Checkbox";
+import { TextInput } from "@/components/core/TextInput/TextInput";
+import { TextArea } from "@/components/core/TextArea/TextArea";
+
+export function Inputs() {
+  const [checked, setChecked] = useState(false);
+
+  return (
+    <CoreSectionWrapper
+      title="Inputs"
+      display="flex"
+      flexDirection="column"
+      gap="4"
+    >
+      <Card outlined gap="10">
+        <TextInput label="Text Input Label" controlSize="md" />
+        <TextArea label="Text Area Label" controlSize="md" />
+        <Checkbox
+          label="Checkbox Label"
+          checked={checked}
+          value={checked}
+          onChange={(event) => setChecked(event.target.checked)}
+          controlSize="md"
+        />
+      </Card>
+    </CoreSectionWrapper>
+  );
+}

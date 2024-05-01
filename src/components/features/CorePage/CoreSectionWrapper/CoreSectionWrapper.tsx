@@ -1,10 +1,7 @@
 import { ReactNode, HTMLAttributes } from "react";
 import { css } from "../../../../../styled-system/css";
-import { StyledComponent, styled } from "../../../../../styled-system/jsx";
-import {
-  JsxStyleProps,
-  HTMLStyledProps,
-} from "../../../../../styled-system/types";
+import { styled } from "../../../../../styled-system/jsx";
+import { HTMLStyledProps } from "../../../../../styled-system/types";
 
 interface ICoreSectionWrapperProps extends HTMLStyledProps<"section"> {
   children: ReactNode;

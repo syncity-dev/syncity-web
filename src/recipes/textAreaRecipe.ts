@@ -1,28 +1,34 @@
 import { sva } from "../../styled-system/css";
 
-export const checkboxRecipe = sva({
+export const textAreaRecipe = sva({
   slots: ["root", "control", "label"],
   base: {
-    root: { display: "flex", alignItems: "center", gap: "2" },
+    root: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "flex-start",
+    },
     control: {
       accentColor: "black",
+      borderWidth: "2px",
+      borderRadius: "4px",
+      boxShadow: "3xl",
       outlineColor: "yellow",
-      outlineOffset: "0",
     },
-    label: { marginStart: "1", fontWeight: "bold" },
+    label: { fontWeight: "bold" },
   },
   variants: {
     size: {
       sm: {
-        control: { width: "6", height: "6" },
+        control: { paddingInline: "2", paddingBlock: "2" },
         label: { fontSize: "sm" },
       },
       md: {
-        control: { width: "8", height: "8" },
+        control: { paddingInline: "4", paddingBlock: "4" },
         label: { fontSize: "md" },
       },
       lg: {
-        control: { width: "10", height: "10" },
+        control: { paddingInline: "6", paddingBlock: "6" },
         label: { fontSize: "lg" },
       },
     },
