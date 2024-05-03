@@ -2,11 +2,14 @@
 
 import { InputHTMLAttributes } from "react";
 import { textAreaRecipe } from "@/recipes/textAreaRecipe";
+import { styled } from "../../../../styled-system/jsx";
 
 interface ICheckboxProps extends InputHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
   controlSize?: "sm" | "md" | "lg";
 }
+
+const StyledTextArea = styled("textarea");
 
 export function TextArea({
   label,
@@ -17,7 +20,7 @@ export function TextArea({
   return (
     <label className={classes.root}>
       {label ? <span className={classes.label}>{label}</span> : null}
-      <textarea className={classes.control} {...restProps} />
+      <StyledTextArea className={classes.control} {...restProps} />
     </label>
   );
 }

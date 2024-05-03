@@ -1,23 +1,26 @@
 "use client";
 
-import { InputHTMLAttributes, useState } from "react";
+import { InputHTMLAttributes } from "react";
 import { textInputRecipe } from "@/recipes/textInputRecipe";
+import { styled } from "../../../../styled-system/jsx";
 
-interface ICheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
+interface ITextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   controlSize?: "sm" | "md" | "lg";
 }
+
+const StyledInput = styled("input");
 
 export function TextInput({
   label,
   controlSize = "sm",
   ...restProps
-}: ICheckboxProps) {
+}: ITextInputProps) {
   const classes = textInputRecipe({ size: controlSize });
   return (
     <label className={classes.root}>
       {label ? <span className={classes.label}>{label}</span> : null}
-      <input className={classes.control} {...restProps} />
+      <StyledInput className={classes.control} {...restProps} />
     </label>
   );
 }

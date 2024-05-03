@@ -1,12 +1,13 @@
 import { checkboxRecipe } from "@/recipes/checkboxRecipe";
-import { InputHTMLAttributes } from "react";
+import { styled, HTMLStyledProps } from "../../../../styled-system/jsx";
 
-interface ICheckboxProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, "value"> {
+interface ICheckboxProps extends Omit<HTMLStyledProps<"input">, "value"> {
   label?: string;
   controlSize?: "sm" | "md" | "lg";
   value: boolean;
 }
+
+const StyledInput = styled("input");
 
 export function Checkbox({
   label,
@@ -17,7 +18,7 @@ export function Checkbox({
   const classes = checkboxRecipe({ size: controlSize, checked: value });
   return (
     <label className={classes.root}>
-      <input
+      <StyledInput
         type="checkbox"
         className={classes.control}
         value={value ? "on" : "off"}

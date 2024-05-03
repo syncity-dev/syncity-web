@@ -19,8 +19,16 @@ export function Inputs() {
       gap="4"
     >
       <Card outlined gap="10">
-        <TextInput label="Text Input Label" controlSize="md" />
-        <TextArea label="Text Area Label" controlSize="md" />
+        <TextInput
+          label="Text Input Label"
+          placeholder="Text Placeholder"
+          controlSize="md"
+        />
+        <TextArea
+          label="Text Area Label"
+          placeholder="TextArea Placeholder"
+          controlSize="md"
+        />
         <Checkbox
           label="Checkbox Label"
           checked={checked}
