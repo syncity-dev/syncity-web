@@ -7,7 +7,7 @@ export const buttonRecipe = cva({
     justifyContent: "center",
     fontWeight: "bold",
     cursor: "pointer",
-    borderRadius: "4px",
+    rounded: "sm",
     borderWidth: "2px",
     shadow: "3xl",
     transition: "all 0.3s ease-in",

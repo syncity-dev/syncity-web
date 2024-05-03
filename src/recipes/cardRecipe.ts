@@ -3,7 +3,7 @@ import { cva } from "../../styled-system/css";
 export const cardRecipe = cva({
   base: {
     padding: "5",
-    borderRadius: "4px",
+    rounded: "sm",
     display: "flex",
     flexDirection: "column",
     gap: "8px",

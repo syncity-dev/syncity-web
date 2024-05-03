@@ -11,7 +11,7 @@ export const textAreaRecipe = sva({
     control: {
       accentColor: "black",
       borderWidth: "2px",
-      borderRadius: "4px",
+      rounded: "sm",
       boxShadow: "3xl",
       outlineColor: "yellow",
     },
