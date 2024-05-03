@@ -88,9 +88,9 @@ export const badgeRecipe = cva({
       visual: "outline",
       status: "success",
       css: {
-        borderColor: "success",
+        borderColor: "success-dark",
         bg: "transparent",
-        color: "success",
+        color: "success-dark",
       },
     },
     {

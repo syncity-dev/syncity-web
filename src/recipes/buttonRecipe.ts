@@ -13,7 +13,7 @@ export const buttonRecipe = cva({
     transition: "all 0.3s ease-in",
     _hover: {
       shadow: "4xl",
-      transform: "scale(1.025)",
+      transform: "translateX(-4px)",
       transition: "all 0.3s ease-out",
     },
   },
@@ -69,8 +69,9 @@ export const buttonRecipe = cva({
         bg: "transparent",
         color: "dark-gray",
         _hover: {
-          bg: "dark-gray",
-          color: "white",
+          bg: "gray",
+          borderColor: "gray",
+          color: "black",
         },
       },
     },

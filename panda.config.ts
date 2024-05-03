@@ -17,6 +17,7 @@ const colors = {
   "light-gray": { value: "#E7E7E7" },
   "dark-gray": { value: "#373739" },
   success: { value: "#26de81" },
+  "success-dark": { value: "#20bf6b" },
   warning: { value: "#fa8231" },
 };
 

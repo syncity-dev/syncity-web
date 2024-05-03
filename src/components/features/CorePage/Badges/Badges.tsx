@@ -8,7 +8,7 @@ export function Badges() {
   return (
     <CoreSectionWrapper title="Badges">
       <Card outlined>
-        <Flex flexDirection={{ base: "column", md: "row" }} gap="4">
+        <Flex flexDirection={{ base: "column", md: "row" }} gap="10">
           <VStack alignItems="flex-start">
             <h4
               className={css({
