@@ -1,7 +1,7 @@
 import { sva } from "../../styled-system/css";
 
 export const checkboxRecipe = sva({
-  slots: ["root", "control", "label"],
+  slots: ["root", "control", "label", "required"],
   base: {
     root: { display: "flex", alignItems: "center", gap: "2" },
     control: {
@@ -10,6 +10,7 @@ export const checkboxRecipe = sva({
       outlineOffset: "0",
     },
     label: { marginStart: "1", fontWeight: "bold" },
+    required: { color: "red" },
   },
   variants: {
     size: {

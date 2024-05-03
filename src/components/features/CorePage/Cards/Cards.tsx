@@ -8,13 +8,15 @@ export function Cards() {
       title="Cards"
       display="flex"
       flexDirection="column"
-      gap="4"
+      w="full"
     >
-      <Card outlined heavyShadow>
-        <div className={css({ w: "sm", h: "48" })}></div>
-      </Card>
-      <Card outlined>
-        <div className={css({ w: "sm", h: "48" })}></div>
+      <Card w="full">
+        <Card outlined heavyShadow mb="4">
+          <div className={css({ w: "sm", h: "48" })}></div>
+        </Card>
+        <Card outlined>
+          <div className={css({ w: "sm", h: "48" })}></div>
+        </Card>
       </Card>
     </CoreSectionWrapper>
   );

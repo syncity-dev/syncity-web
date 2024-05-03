@@ -13,6 +13,7 @@ export function Checkbox({
   label,
   controlSize = "sm",
   value,
+  required,
   ...restProps
 }: ICheckboxProps) {
   const classes = checkboxRecipe({ size: controlSize, checked: value });
@@ -22,9 +23,15 @@ export function Checkbox({
         type="checkbox"
         className={classes.control}
         value={value ? "on" : "off"}
+        required={required}
         {...restProps}
       />
-      {label ? <span className={classes.label}>{label}</span> : null}
+      {label ? (
+        <span className={classes.label}>
+          {label}
+          {required && <span className={classes.required}>*</span>}
+        </span>
+      ) : null}
     </label>
   );
 }

@@ -16,18 +16,22 @@ export function Inputs() {
       title="Inputs"
       display="flex"
       flexDirection="column"
-      gap="4"
+      w="full"
     >
-      <Card outlined gap="10">
+      <Card outlined gap="10" w="full">
         <TextInput
           label="Text Input Label"
           placeholder="Text Placeholder"
           controlSize="md"
+          w="full"
+          required
         />
         <TextArea
           label="Text Area Label"
           placeholder="TextArea Placeholder"
           controlSize="md"
+          w="full"
+          required
         />
         <Checkbox
           label="Checkbox Label"
@@ -35,6 +39,7 @@ export function Inputs() {
           value={checked}
           onChange={(event) => setChecked(event.target.checked)}
           controlSize="md"
+          required
         />
       </Card>
     </CoreSectionWrapper>

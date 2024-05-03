@@ -1,7 +1,7 @@
 import { sva } from "../../styled-system/css";
 
 export const textInputRecipe = sva({
-  slots: ["root", "control", "label"],
+  slots: ["root", "control", "label", "required"],
   base: {
     root: {
       display: "flex",
@@ -16,6 +16,7 @@ export const textInputRecipe = sva({
       outlineColor: "yellow",
     },
     label: { fontWeight: "bold" },
+    required: { color: "red" },
   },
   variants: {
     size: {
