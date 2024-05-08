@@ -2,7 +2,7 @@ import { CoreSectionWrapper } from "../CoreSectionWrapper/CoreSectionWrapper";
 import { Card } from "@/components/core/Card/Card";
 import { css } from "../../../../../styled-system/css";
 
-export function Cards() {
+export const Cards = () => {
   return (
     <CoreSectionWrapper
       title="Cards"
@@ -20,4 +20,4 @@ export function Cards() {
       </Card>
     </CoreSectionWrapper>
   );
-}
+};

@@ -8,11 +8,11 @@ interface ICoreSectionWrapperProps extends HTMLStyledProps<"section"> {
   title: string;
 }
 
-export function CoreSectionWrapper({
+export const CoreSectionWrapper = ({
   children,
   title,
   ...restProps
-}: ICoreSectionWrapperProps) {
+}: ICoreSectionWrapperProps) => {
   return (
     <styled.section {...restProps}>
       <h3
@@ -27,4 +27,4 @@ export function CoreSectionWrapper({
       {children}
     </styled.section>
   );
-}
+};

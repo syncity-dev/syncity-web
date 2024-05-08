@@ -36,7 +36,6 @@ export function Inputs() {
         <Checkbox
           label="Checkbox Label"
           checked={checked}
-          value={checked}
           onChange={(event) => setChecked(event.target.checked)}
           controlSize="md"
           required

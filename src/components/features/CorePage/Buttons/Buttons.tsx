@@ -4,7 +4,7 @@ import { Button } from "@/components/core/Button/Button";
 import { Flex, HStack, VStack } from "../../../../../styled-system/jsx";
 import { css } from "../../../../../styled-system/css";
 
-export function Buttons() {
+export const Buttons = () => {
   return (
     <CoreSectionWrapper title="Buttons">
       <Card outlined>
@@ -88,4 +88,4 @@ export function Buttons() {
       </Card>
     </CoreSectionWrapper>
   );
-}
+};

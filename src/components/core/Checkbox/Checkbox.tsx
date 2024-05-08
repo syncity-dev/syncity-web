@@ -4,26 +4,26 @@ import { styled, HTMLStyledProps } from "../../../../styled-system/jsx";
 interface ICheckboxProps extends Omit<HTMLStyledProps<"input">, "value"> {
   label?: string;
   controlSize?: "sm" | "md" | "lg";
-  value: boolean;
 }
 
 const StyledInput = styled("input");
 
-export function Checkbox({
+export const Checkbox = ({
   label,
   controlSize = "sm",
-  value,
   required,
+  checked,
   ...restProps
-}: ICheckboxProps) {
-  const classes = checkboxRecipe({ size: controlSize, checked: value });
+}: ICheckboxProps) => {
+  const classes = checkboxRecipe({ size: controlSize, checked });
+
   return (
     <label className={classes.root}>
       <StyledInput
         type="checkbox"
         className={classes.control}
-        value={value ? "on" : "off"}
         required={required}
+        checked={checked}
         {...restProps}
       />
       {label ? (
@@ -34,4 +34,4 @@ export function Checkbox({
       ) : null}
     </label>
   );
-}
+};

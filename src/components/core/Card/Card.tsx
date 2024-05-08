@@ -9,18 +9,8 @@ interface ICardProps extends HTMLStyledProps<"div"> {
   children: ReactNode;
 }
 
-export function Card({
-  as = "div",
-  outlined,
-  heavyShadow,
-  children,
-  ...restProps
-}: ICardProps) {
-  const Tag = styled(as, cardRecipe);
+export const Card = ({ as = "div", children, ...restProps }: ICardProps) => {
+  const StyledCard = styled(as, cardRecipe);
 
-  return (
-    <Tag outlined={outlined} heavyShadow={heavyShadow} {...restProps}>
-      {children}
-    </Tag>
-  );
-}
+  return <StyledCard {...restProps}>{children}</StyledCard>;
+};

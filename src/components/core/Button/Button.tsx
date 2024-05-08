@@ -18,7 +18,7 @@ type LinkProps = ButtonBaseProps & HTMLStyledProps<"a"> & { href: Url };
 const StyledButton = styled("button");
 const StyledLink = styled(Link);
 
-export function Button(props: ButtonProps | LinkProps) {
+export const Button = (props: ButtonProps | LinkProps) => {
   const { label, visual, size, color = "red", ...restProps } = props;
 
   if ("href" in props && typeof props.href === "string") {
@@ -34,14 +34,14 @@ export function Button(props: ButtonProps | LinkProps) {
         {label}
       </StyledLink>
     );
-  } else {
-    return (
-      <StyledButton
-        {...(restProps as HTMLStyledProps<"button">)}
-        className={buttonRecipe({ visual, size, color })}
-      >
-        {label}
-      </StyledButton>
-    );
   }
-}
+
+  return (
+    <StyledButton
+      {...(restProps as HTMLStyledProps<"button">)}
+      className={buttonRecipe({ visual, size, color })}
+    >
+      {label}
+    </StyledButton>
+  );
+};

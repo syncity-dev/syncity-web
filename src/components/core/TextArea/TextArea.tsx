@@ -10,13 +10,14 @@ interface ICheckboxProps extends HTMLStyledProps<"textarea"> {
 
 const StyledTextArea = styled("textarea");
 
-export function TextArea({
+export const TextArea = ({
   label,
   controlSize = "sm",
   required,
   ...restProps
-}: ICheckboxProps) {
+}: ICheckboxProps) => {
   const classes = textAreaRecipe({ size: controlSize });
+
   return (
     <label className={classes.root}>
       {label ? (
@@ -32,4 +33,4 @@ export function TextArea({
       />
     </label>
   );
-}
+};

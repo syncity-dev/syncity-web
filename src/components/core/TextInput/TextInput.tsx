@@ -10,13 +10,14 @@ interface ITextInputProps extends HTMLStyledProps<"input"> {
 
 const StyledInput = styled("input");
 
-export function TextInput({
+export const TextInput = ({
   label,
   controlSize = "sm",
   required,
   ...restProps
-}: ITextInputProps) {
+}: ITextInputProps) => {
   const classes = textInputRecipe({ size: controlSize });
+
   return (
     <label className={classes.root}>
       {label ? (
@@ -32,4 +33,4 @@ export function TextInput({
       />
     </label>
   );
-}
+};

@@ -4,7 +4,7 @@ import { Badge } from "@/components/core/Badge/Badge";
 import { Flex, HStack, VStack } from "../../../../../styled-system/jsx";
 import { css } from "../../../../../styled-system/css";
 
-export function Badges() {
+export const Badges = () => {
   return (
     <CoreSectionWrapper title="Badges">
       <Card outlined>
@@ -184,4 +184,4 @@ export function Badges() {
       </Card>
     </CoreSectionWrapper>
   );
-}
+};

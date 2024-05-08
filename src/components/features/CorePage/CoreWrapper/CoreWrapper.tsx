@@ -3,7 +3,7 @@ import { container } from "../../../../../styled-system/patterns";
 import { css } from "../../../../../styled-system/css";
 import { VStack } from "../../../../../styled-system/jsx";
 
-export function CoreWrapper({ children }: { children: ReactNode }) {
+export const CoreWrapper = ({ children }: { children: ReactNode }) => {
   return (
     <section
       className={container({
@@ -28,4 +28,4 @@ export function CoreWrapper({ children }: { children: ReactNode }) {
       </VStack>
     </section>
   );
-}
+};

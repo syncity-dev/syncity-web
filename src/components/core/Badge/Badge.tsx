@@ -10,13 +10,13 @@ interface IBadgeProps extends HTMLStyledProps<"span"> {
 
 const StyledBadge = styled("span");
 
-export function Badge({
+export const Badge = ({
   label,
   status = "default",
   size = "md",
   visual = "solid",
   ...restProps
-}: IBadgeProps) {
+}: IBadgeProps) => {
   return (
     <StyledBadge
       className={badgeRecipe({ status, size, visual })}
@@ -25,4 +25,4 @@ export function Badge({
       {label}
     </StyledBadge>
   );
-}
+};
