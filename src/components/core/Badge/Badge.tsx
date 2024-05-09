@@ -1,10 +1,11 @@
+import { Size } from "@/types/core";
 import { styled, HTMLStyledProps } from "../../../../styled-system/jsx";
 import { badgeRecipe } from "@/recipes/badgeRecipe";
 
 interface IBadgeProps extends HTMLStyledProps<"span"> {
   label: string;
   status?: "default" | "success" | "warning" | "danger";
-  size?: "sm" | "md" | "lg";
+  size?: Size;
   visual?: "solid" | "outline";
 }
 

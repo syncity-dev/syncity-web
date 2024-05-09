@@ -1,7 +1,7 @@
 import { sva } from "../../styled-system/css";
 
 export const textAreaRecipe = sva({
-  slots: ["root", "control", "label", "required"],
+  slots: ["root", "control", "required"],
   base: {
     root: {
       display: "flex",
@@ -15,22 +15,17 @@ export const textAreaRecipe = sva({
       boxShadow: "3xl",
       outlineColor: "yellow",
     },
-    label: { fontWeight: "bold" },
-    required: { color: "red" },
   },
   variants: {
     size: {
       sm: {
         control: { paddingInline: "2", paddingBlock: "2" },
-        label: { fontSize: "sm" },
       },
       md: {
         control: { paddingInline: "4", paddingBlock: "4" },
-        label: { fontSize: "md" },
       },
       lg: {
         control: { paddingInline: "6", paddingBlock: "6" },
-        label: { fontSize: "lg" },
       },
     },
     checked: {

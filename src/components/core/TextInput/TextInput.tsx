@@ -1,36 +1,20 @@
-"use client";
-
 import { textInputRecipe } from "@/recipes/textInputRecipe";
 import { styled, HTMLStyledProps } from "../../../../styled-system/jsx";
+import { Size } from "@/types/core";
 
-interface ITextInputProps extends HTMLStyledProps<"input"> {
+interface ITextInputProps extends Omit<HTMLStyledProps<"input">, "size"> {
   label?: string;
-  controlSize?: "sm" | "md" | "lg";
+  size?: Size;
 }
 
 const StyledInput = styled("input");
 
 export const TextInput = ({
   label,
-  controlSize = "sm",
-  required,
+  size = "sm",
   ...restProps
 }: ITextInputProps) => {
-  const classes = textInputRecipe({ size: controlSize });
+  const classes = textInputRecipe({ size });
 
-  return (
-    <label className={classes.root}>
-      {label ? (
-        <span className={classes.label}>
-          {label}
-          {required && <span className={classes.required}>*</span>}
-        </span>
-      ) : null}
-      <StyledInput
-        className={classes.control}
-        required={required}
-        {...restProps}
-      />
-    </label>
-  );
+  return <StyledInput className={classes.control} {...restProps} />;
 };

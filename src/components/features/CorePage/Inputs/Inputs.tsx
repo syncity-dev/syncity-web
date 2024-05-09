@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import { CoreSectionWrapper } from "../CoreSectionWrapper/CoreSectionWrapper";
 import { Card } from "@/components/core/Card/Card";
-import { css } from "../../../../../styled-system/css";
 import { Checkbox } from "@/components/core/Checkbox/Checkbox";
 import { TextInput } from "@/components/core/TextInput/TextInput";
 import { TextArea } from "@/components/core/TextArea/TextArea";
+import { HStack, VStack } from "../../../../../styled-system/jsx";
+import { Text } from "@/components/core/Text/Text";
 
 export function Inputs() {
   const [checked, setChecked] = useState(false);
@@ -19,27 +20,42 @@ export function Inputs() {
       w="full"
     >
       <Card outlined gap="10" w="full">
-        <TextInput
-          label="Text Input Label"
-          placeholder="Text Placeholder"
-          controlSize="md"
-          w="full"
-          required
-        />
-        <TextArea
-          label="Text Area Label"
-          placeholder="TextArea Placeholder"
-          controlSize="md"
-          w="full"
-          required
-        />
-        <Checkbox
-          label="Checkbox Label"
-          checked={checked}
-          onChange={(event) => setChecked(event.target.checked)}
-          controlSize="md"
-          required
-        />
+        <VStack alignItems="flex-start">
+          <Text as="label" fontWeight="bold" htmlFor="textInput">
+            Text Input Label
+          </Text>
+          <TextInput
+            id="textInput"
+            placeholder="Text Input Placeholder"
+            controlSize="md"
+            w="full"
+            required
+          />
+        </VStack>
+        <VStack alignItems="flex-start">
+          <Text as="label" fontWeight="bold" htmlFor="textarea">
+            Text Area Label
+          </Text>
+          <TextArea
+            id="textarea"
+            placeholder="TextArea Placeholder"
+            controlSize="md"
+            w="full"
+            required
+          />
+        </VStack>
+        <HStack>
+          <Checkbox
+            id="checkbox"
+            checked={checked}
+            onChange={(event) => setChecked(event.target.checked)}
+            controlSize="md"
+            required
+          />
+          <Text as="label" fontWeight="bold" htmlFor="checkbox">
+            Checkbox Label
+          </Text>
+        </HStack>
       </Card>
     </CoreSectionWrapper>
   );

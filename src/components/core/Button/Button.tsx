@@ -2,13 +2,14 @@ import Link from "next/link";
 import { UrlObject } from "url";
 import { buttonRecipe } from "@/recipes/buttonRecipe";
 import { styled, HTMLStyledProps } from "../../../../styled-system/jsx";
+import { Size } from "@/types/core";
 
 type Url = string | UrlObject;
 
 type ButtonBaseProps = {
   label: string;
   visual?: "solid" | "outline";
-  size?: "sm" | "md" | "lg";
+  size?: Size;
   color?: "red" | "yellow" | "gray";
 };
 

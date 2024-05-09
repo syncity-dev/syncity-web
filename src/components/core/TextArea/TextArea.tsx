@@ -1,36 +1,19 @@
-"use client";
-
 import { textAreaRecipe } from "@/recipes/textAreaRecipe";
 import { styled, HTMLStyledProps } from "../../../../styled-system/jsx";
+import { Size } from "@/types/core";
 
-interface ICheckboxProps extends HTMLStyledProps<"textarea"> {
-  label?: string;
-  controlSize?: "sm" | "md" | "lg";
+interface ICheckboxProps extends Omit<HTMLStyledProps<"textarea">, "size"> {
+  size?: Size;
 }
 
 const StyledTextArea = styled("textarea");
 
 export const TextArea = ({
-  label,
-  controlSize = "sm",
+  size = "sm",
   required,
   ...restProps
 }: ICheckboxProps) => {
-  const classes = textAreaRecipe({ size: controlSize });
+  const classes = textAreaRecipe({ size });
 
-  return (
-    <label className={classes.root}>
-      {label ? (
-        <span className={classes.label}>
-          {label}
-          {required && <span className={classes.required}>*</span>}
-        </span>
-      ) : null}
-      <StyledTextArea
-        className={classes.control}
-        required={required}
-        {...restProps}
-      />
-    </label>
-  );
+  return <StyledTextArea className={classes.control} {...restProps} />;
 };

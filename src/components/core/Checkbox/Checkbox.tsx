@@ -1,37 +1,26 @@
 import { checkboxRecipe } from "@/recipes/checkboxRecipe";
 import { styled, HTMLStyledProps } from "../../../../styled-system/jsx";
+import { Size } from "@/types/core";
 
-interface ICheckboxProps extends Omit<HTMLStyledProps<"input">, "value"> {
-  label?: string;
-  controlSize?: "sm" | "md" | "lg";
+interface ICheckboxProps extends Omit<HTMLStyledProps<"input">, "size"> {
+  size?: Size;
 }
 
 const StyledInput = styled("input");
 
 export const Checkbox = ({
-  label,
-  controlSize = "sm",
-  required,
+  size = "sm",
   checked,
   ...restProps
 }: ICheckboxProps) => {
-  const classes = checkboxRecipe({ size: controlSize, checked });
+  const classes = checkboxRecipe({ size: size, checked });
 
   return (
-    <label className={classes.root}>
-      <StyledInput
-        type="checkbox"
-        className={classes.control}
-        required={required}
-        checked={checked}
-        {...restProps}
-      />
-      {label ? (
-        <span className={classes.label}>
-          {label}
-          {required && <span className={classes.required}>*</span>}
-        </span>
-      ) : null}
-    </label>
+    <StyledInput
+      type="checkbox"
+      className={classes.control}
+      checked={checked}
+      {...restProps}
+    />
   );
 };
