@@ -27,7 +27,7 @@ export function Inputs() {
           <TextInput
             id="textInput"
             placeholder="Text Input Placeholder"
-            controlSize="md"
+            size="md"
             w="full"
             required
           />
@@ -39,7 +39,7 @@ export function Inputs() {
           <TextArea
             id="textarea"
             placeholder="TextArea Placeholder"
-            controlSize="md"
+            size="md"
             w="full"
             required
           />
@@ -49,7 +49,7 @@ export function Inputs() {
             id="checkbox"
             checked={checked}
             onChange={(event) => setChecked(event.target.checked)}
-            controlSize="md"
+            size="md"
             required
           />
           <Text as="label" fontWeight="bold" htmlFor="checkbox">
