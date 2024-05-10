@@ -1,13 +1,8 @@
 import { sva } from "../../styled-system/css";
 
 export const textInputRecipe = sva({
-  slots: ["root", "control", "label", "required"],
+  slots: ["control"],
   base: {
-    root: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "flex-start",
-    },
     control: {
       accentColor: "black",
       borderWidth: "2px",
@@ -15,8 +10,6 @@ export const textInputRecipe = sva({
       boxShadow: "3xl",
       outlineColor: "yellow",
     },
-    label: { fontWeight: "bold" },
-    required: { color: "red" },
   },
   variants: {
     size: {

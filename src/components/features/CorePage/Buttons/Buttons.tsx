@@ -23,34 +23,37 @@ export const Buttons = () => {
             </h4>
             <HStack justifyContent="flex-start" alignItems="flex-start" gap="4">
               <VStack gap="4" flex={1}>
-                <Button label="Label" visual="outline" color="gray" size="sm" />
-                <Button label="Label" visual="outline" color="red" size="sm" />
-                <Button
-                  label="Label"
-                  visual="outline"
-                  color="yellow"
-                  size="sm"
-                />
+                <Button visual="outline" color="gray" size="sm">
+                  Label
+                </Button>
+                <Button visual="outline" color="red" size="sm">
+                  Label
+                </Button>
+                <Button visual="outline" color="yellow" size="sm">
+                  Label
+                </Button>
               </VStack>
               <VStack gap="4" flex={1}>
-                <Button label="Label" visual="outline" color="gray" size="md" />
-                <Button label="Label" visual="outline" color="red" size="md" />
-                <Button
-                  label="Label"
-                  visual="outline"
-                  color="yellow"
-                  size="md"
-                />
+                <Button visual="outline" color="gray" size="md">
+                  Label
+                </Button>
+                <Button visual="outline" color="red" size="md">
+                  Label
+                </Button>
+                <Button visual="outline" color="yellow" size="md">
+                  Label
+                </Button>
               </VStack>
               <VStack gap="4" flex={1}>
-                <Button label="Label" visual="outline" color="gray" size="lg" />
-                <Button label="Label" visual="outline" color="red" size="lg" />
-                <Button
-                  label="Label"
-                  visual="outline"
-                  color="yellow"
-                  size="lg"
-                />
+                <Button visual="outline" color="gray" size="lg">
+                  Label
+                </Button>
+                <Button visual="outline" color="red" size="lg">
+                  Label
+                </Button>
+                <Button visual="outline" color="yellow" size="lg">
+                  Label
+                </Button>
               </VStack>
             </HStack>
           </VStack>
@@ -68,19 +71,37 @@ export const Buttons = () => {
             </h4>
             <HStack justifyContent="flex-start" alignItems="flex-start" gap="4">
               <VStack gap="4" flex={1}>
-                <Button label="Label" visual="solid" color="gray" size="sm" />
-                <Button label="Label" visual="solid" color="red" size="sm" />
-                <Button label="Label" visual="solid" color="yellow" size="sm" />
+                <Button visual="solid" color="gray" size="sm">
+                  Label
+                </Button>
+                <Button visual="solid" color="red" size="sm">
+                  Label
+                </Button>
+                <Button visual="solid" color="yellow" size="sm">
+                  Label
+                </Button>
               </VStack>
               <VStack gap="4" flex={1}>
-                <Button label="Label" visual="solid" color="gray" size="md" />
-                <Button label="Label" visual="solid" color="red" size="md" />
-                <Button label="Label" visual="solid" color="yellow" size="md" />
+                <Button visual="solid" color="gray" size="md">
+                  Label
+                </Button>
+                <Button visual="solid" color="red" size="md">
+                  Label
+                </Button>
+                <Button visual="solid" color="yellow" size="md">
+                  Label
+                </Button>
               </VStack>
               <VStack gap="4" flex={1}>
-                <Button label="Label" visual="solid" color="gray" size="lg" />
-                <Button label="Label" visual="solid" color="red" size="lg" />
-                <Button label="Label" visual="solid" color="yellow" size="lg" />
+                <Button visual="solid" color="gray" size="lg">
+                  Label
+                </Button>
+                <Button visual="solid" color="red" size="lg">
+                  Label
+                </Button>
+                <Button visual="solid" color="yellow" size="lg">
+                  Label
+                </Button>
               </VStack>
             </HStack>
           </VStack>

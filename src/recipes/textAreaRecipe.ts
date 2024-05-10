@@ -1,14 +1,10 @@
 import { sva } from "../../styled-system/css";
 
 export const textAreaRecipe = sva({
-  slots: ["root", "control", "required"],
+  slots: ["control"],
   base: {
-    root: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "flex-start",
-    },
     control: {
+      fontFamily: "body",
       accentColor: "black",
       borderWidth: "2px",
       rounded: "sm",

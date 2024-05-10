@@ -20,5 +20,5 @@ type TextProps = HTMLStyledProps<TextElement> & {
 export const Text = ({ as = "p", size = "md", ...restProps }: TextProps) => {
   const StyledText = styled(as);
 
-  return <StyledText className={textRecipe({ size })} {...restProps} />;
+  return <StyledText className={textRecipe({ size, as })} {...restProps} />;
 };

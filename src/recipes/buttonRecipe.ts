@@ -5,6 +5,7 @@ export const buttonRecipe = cva({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    fontFamily: "body",
     fontWeight: "bold",
     cursor: "pointer",
     rounded: "sm",
@@ -21,6 +22,7 @@ export const buttonRecipe = cva({
     visual: {
       solid: {},
       outline: {},
+      link: {},
     },
     size: {
       sm: { paddingInline: "3", paddingBlock: "1.5", fontSize: "12px" },
@@ -53,6 +55,20 @@ export const buttonRecipe = cva({
       },
     },
     {
+      visual: "link",
+      color: "red",
+      css: {
+        border: "none",
+        bg: "transparent",
+        color: "red",
+        shadow: "none",
+        _hover: {
+          color: "dark-red",
+          shadow: "none",
+        },
+      },
+    },
+    {
       visual: "solid",
       color: "gray",
       css: {
@@ -76,6 +92,20 @@ export const buttonRecipe = cva({
       },
     },
     {
+      visual: "link",
+      color: "gray",
+      css: {
+        border: "none",
+        bg: "transparent",
+        color: "dark-gray",
+        shadow: "none",
+        _hover: {
+          color: "black",
+          shadow: "none",
+        },
+      },
+    },
+    {
       visual: "solid",
       color: "yellow",
       css: {
@@ -94,6 +124,21 @@ export const buttonRecipe = cva({
         _hover: {
           bg: "yellow",
           color: "dark-gray",
+        },
+      },
+    },
+
+    {
+      visual: "link",
+      color: "yellow",
+      css: {
+        border: "none",
+        bg: "transparent",
+        color: "yellow",
+        shadow: "none",
+        _hover: {
+          color: "dark-gray",
+          shadow: "none",
         },
       },
     },

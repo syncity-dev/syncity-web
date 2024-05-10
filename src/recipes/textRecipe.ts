@@ -14,6 +14,16 @@ export const textRecipe = cva({
         label: { fontSize: "lg" },
       },
     },
+    as: {
+      p: { fontFamily: "body" },
+      label: { fontFamily: "body" },
+      h1: { fontFamily: "heading" },
+      h2: { fontFamily: "heading" },
+      h3: { fontFamily: "heading" },
+      h4: { fontFamily: "heading" },
+      h5: { fontFamily: "heading" },
+      h6: { fontFamily: "heading" },
+    },
   },
   defaultVariants: {
     size: "md",

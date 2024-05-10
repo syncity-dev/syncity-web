@@ -1,8 +1,8 @@
 import { defineConfig } from "@pandacss/dev";
 
 const fonts = {
-  body: { value: "Sintony, serif" },
-  heading: { value: ["Russo_One", "sans-serif"] },
+  body: { value: "var(--font-sintony), serif" },
+  heading: { value: "var(--font-russo-one), sans-serif" },
 };
 
 const breakpoints = { "3xl": "1800px" };

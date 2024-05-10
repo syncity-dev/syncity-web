@@ -2,6 +2,7 @@ import { cva } from "../../styled-system/css";
 
 export const badgeRecipe = cva({
   base: {
+    fontFamily: "body",
     rounded: "sm",
     borderWidth: "2",
     borderColor: "gray-light",

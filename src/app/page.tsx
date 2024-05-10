@@ -21,17 +21,14 @@ export default function Home() {
             fontWeight: "bold",
             bgColor: "",
             color: "",
+            letterSpacing: "wider",
           })}
         >
           Hello Syncity 🐼!
         </h2>
-        <Button
-          label="Core Components"
-          visual="outline"
-          color="red"
-          size="md"
-          href="/core"
-        />
+        <Button visual="outline" color="red" size="md" href="/core">
+          Core Components
+        </Button>
       </Card>
     </section>
   );
