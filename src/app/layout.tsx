@@ -2,8 +2,16 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Russo_One, Sintony } from "next/font/google";
 
-const russoOne = Russo_One({ subsets: ["latin"], weight: "400" });
-const sintony = Sintony({ subsets: ["latin"], weight: ["400", "700"] });
+const russoOne = Russo_One({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-russo-one",
+});
+const sintony = Sintony({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-sintony",
+});
 
 export const metadata: Metadata = {
   title: "Syncity",
@@ -16,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${russoOne.className} ${sintony.className}`}>
+    <html lang="en" className={`${russoOne.variable} ${sintony.variable}`}>
       <body>{children}</body>
     </html>
   );

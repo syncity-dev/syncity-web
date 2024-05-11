@@ -1,8 +1,8 @@
 import { defineConfig } from "@pandacss/dev";
 
 const fonts = {
-  body: { value: "Sintony, serif" },
-  heading: { value: ["Russo_One", "sans-serif"] },
+  body: { value: "var(--font-sintony), serif" },
+  heading: { value: "var(--font-russo-one), sans-serif" },
 };
 
 const breakpoints = { "3xl": "1800px" };
@@ -16,6 +16,9 @@ const colors = {
   gray: { value: "#ADA294" },
   "light-gray": { value: "#E7E7E7" },
   "dark-gray": { value: "#373739" },
+  success: { value: "#26de81" },
+  "success-dark": { value: "#20bf6b" },
+  warning: { value: "#fa8231" },
 };
 
 const shadows = {
@@ -30,6 +33,7 @@ export default defineConfig({
   // Where to look for your css declarations
   include: [
     "./src/components/**/*.{ts,tsx,js,jsx}",
+    "./src/recipes/**/*.{ts,tsx,js,jsx}",
     "./src/app/**/*.{ts,tsx,js,jsx}",
     "./src/styled-system/**/*.{ts,tsx,js,jsx}",
   ],
@@ -48,6 +52,8 @@ export default defineConfig({
       },
     },
   },
+
+  jsxFramework: "react",
 
   // The output directory for your css system
   outdir: "styled-system",
