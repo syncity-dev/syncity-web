@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Russo_One, Sintony } from "next/font/google";
+import { Navigation } from "@/components/shared/Navigation";
 
 const russoOne = Russo_One({ subsets: ["latin"], weight: "400" });
 const sintony = Sintony({ subsets: ["latin"], weight: ["400", "700"] });
@@ -16,8 +17,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${russoOne.className} ${sintony.className}`}>
-      <body>{children}</body>
+    <html lang="en" className={`${russoOne.variable} ${sintony.variable}`}>
+      <body>
+        <Navigation />
+        {children}
+      </body>
     </html>
   );
 }
