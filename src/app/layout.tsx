@@ -3,8 +3,16 @@ import type { Metadata } from "next";
 import { Russo_One, Sintony } from "next/font/google";
 import { Navigation } from "@/components/shared/Navigation";
 
-const russoOne = Russo_One({ subsets: ["latin"], weight: "400" });
-const sintony = Sintony({ subsets: ["latin"], weight: ["400", "700"] });
+const russoOne = Russo_One({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-russo-one",
+});
+const sintony = Sintony({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-sintony",
+});
 
 export const metadata: Metadata = {
   title: "Syncity",
