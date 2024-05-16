@@ -3,16 +3,18 @@ import { Box, HStack, Container } from "../../../styled-system/jsx";
 import Image from "next/image";
 import { Button } from "../core/Button/Button";
 import { Text } from "../core/Text/Text";
+import { MobileDrawerMenu } from "./MobileDrawerMenu";
+import { Z_INDEX } from "@/constants/styles";
 
 export const Navigation = () => {
   return (
     <HStack
       w="$full"
-      p={5}
+      p={{ base: 2, md: 5 }}
       borderBottom={"2px solid"}
       position="sticky"
       top={0}
-      zIndex={9999}
+      zIndex={Z_INDEX.header}
       bgColor="white"
       justifyContent="center"
       alignItems="center"
@@ -22,10 +24,15 @@ export const Navigation = () => {
         display="flex"
         justifyContent="space-between"
         w="full"
+        padding={0}
       >
         <Link href="/">
           <HStack>
-            <Box position="relative" w="20" h="20">
+            <Box
+              position="relative"
+              w={{ base: 14, md: 20 }}
+              h={{ base: 14, md: 20 }}
+            >
               <Image
                 src="/Logo, v4.png"
                 width={200}
@@ -52,10 +59,11 @@ export const Navigation = () => {
           <Button href="/about" visual="link">
             Blog
           </Button>
-          <Button href="/about" visual="link">
-            Contact us
+          <Button href="/about" visual="solid">
+            Contact
           </Button>
         </HStack>
+        <MobileDrawerMenu />
       </Container>
     </HStack>
   );

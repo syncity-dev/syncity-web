@@ -13,6 +13,7 @@ const colors = {
   "darkest-red": { value: "#4B0102" },
   yellow: { value: "#DB9B48" },
   black: { value: "#010101" },
+  overlay: { value: "rgba(1, 1, 1, 0.85)" },
   gray: { value: "#ADA294" },
   "light-gray": { value: "#E7E7E7" },
   "dark-gray": { value: "#373739" },
@@ -33,6 +34,7 @@ export default defineConfig({
   // Where to look for your css declarations
   include: [
     "./src/components/**/*.{ts,tsx,js,jsx}",
+    "./src/constants/**/*.{ts,tsx,js,jsx}",
     "./src/recipes/**/*.{ts,tsx,js,jsx}",
     "./src/app/**/*.{ts,tsx,js,jsx}",
     "./src/styled-system/**/*.{ts,tsx,js,jsx}",
