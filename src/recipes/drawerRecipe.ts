@@ -25,7 +25,7 @@ export const drawerRecipe = sva({
       zIndex: Z_INDEX.modal,
       marginTop: 24,
       display: "flex",
-      height: "auto",
+      height: "full",
       flexDirection: "column",
       background: "white",
     },

@@ -25,7 +25,7 @@ export const MobileDrawerMenu = ({ ...restProps }: MobileDrawerMenuProps) => {
       <DrawerTrigger asChild cursor="pointer">
         <LuMenu size={36} />
       </DrawerTrigger>
-      <DrawerContent height="full">
+      <DrawerContent>
         <DrawerHeader
           display="flex"
           mt={-8}
