@@ -27,7 +27,6 @@ export const drawerRecipe = sva({
       display: "flex",
       height: "auto",
       flexDirection: "column",
-      border: "1px solid",
       background: "white",
     },
     contentInner: {

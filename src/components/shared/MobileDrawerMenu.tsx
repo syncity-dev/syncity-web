@@ -2,15 +2,14 @@ import {
   Drawer,
   DrawerClose,
   DrawerContent,
-  DrawerDescription,
   DrawerFooter,
   DrawerHeader,
   DrawerProps,
-  DrawerTitle,
   DrawerTrigger,
 } from "../core/Drawer/Drawer";
-import { Button } from "../core/Button/Button";
-import { BiMenu, BiX } from "react-icons/bi";
+import { LuX, LuMenu } from "react-icons/lu";
+import { Logo } from "../core/Logo/Logo";
+import { NavLinks } from "../features/Navigation/NavLinks";
 
 type MobileDrawerMenuProps = DrawerProps;
 
@@ -20,20 +19,26 @@ export const MobileDrawerMenu = ({ ...restProps }: MobileDrawerMenuProps) => {
       direction="right"
       display={{ base: "block", md: "none" }}
       alignSelf="center"
+      backgroundColor="transparent"
+      {...restProps}
     >
-      <DrawerTrigger asChild>
-        <BiMenu size={24} />
+      <DrawerTrigger asChild cursor="pointer">
+        <LuMenu size={36} />
       </DrawerTrigger>
-      <DrawerContent height="100vh">
-        <DrawerHeader display="flex">
-          <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-          <DrawerClose>
-            <BiX size={40} />
+      <DrawerContent height="full">
+        <DrawerHeader
+          display="flex"
+          mt={-8}
+          alignItems="center"
+          justifyContent="flex-end"
+        >
+          <Logo />
+          <DrawerClose mr={-2} cursor="pointer">
+            <LuX size={36} />
           </DrawerClose>
         </DrawerHeader>
-        <DrawerFooter gap={5}>
-          <Button>Submit</Button>
-        </DrawerFooter>
+        <NavLinks orientation="vertical" haveIcons={true} size="lg" />
+        <DrawerFooter gap={5}></DrawerFooter>
       </DrawerContent>
     </Drawer>
   );

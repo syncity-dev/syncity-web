@@ -2,18 +2,21 @@ import { ReactNode } from "react";
 import { container } from "../../../../../styled-system/patterns";
 import { css } from "../../../../../styled-system/css";
 import { VStack } from "../../../../../styled-system/jsx";
+import { Text } from "@/components/core/Text/Text";
 
 export const CoreWrapper = ({ children }: { children: ReactNode }) => {
   return (
     <section
       className={container({
+        position: "unset",
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
         py: "10",
       })}
     >
-      <h2
+      <Text
+        as="h2"
         className={css({
           fontSize: "3xl",
           fontFamily: "heading",
@@ -22,7 +25,7 @@ export const CoreWrapper = ({ children }: { children: ReactNode }) => {
         })}
       >
         Core Components
-      </h2>
+      </Text>
       <VStack gap="4" alignItems="flex-start">
         {children}
       </VStack>
