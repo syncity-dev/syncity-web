@@ -25,7 +25,7 @@ export default function Home() {
             letterSpacing: "wider",
           })}
         >
-          Hello Syncity 🐼!
+          Hello Synced 🐼!
         </h2>
         <Text as="p" fontSize="sm">
           Check out some of the core components built
