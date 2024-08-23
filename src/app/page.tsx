@@ -24,7 +24,7 @@ export default function Home() {
             letterSpacing: "wider",
           })}
         >
-          Hello Syncity 🐼!
+          Hello Synced 🐼!
         </h2>
         <Button visual="outline" color="red" size="md" href="/core">
           Core Components
