@@ -10,13 +10,7 @@ export const buttonRecipe = cva({
     cursor: "pointer",
     rounded: "sm",
     borderWidth: "2px",
-    shadow: "3xl",
     transition: "all 0.3s ease-in",
-    _hover: {
-      shadow: "4xl",
-      transform: "translateX(-4px)",
-      transition: "all 0.3s ease-out",
-    },
   },
   variants: {
     visual: {
@@ -25,9 +19,9 @@ export const buttonRecipe = cva({
       link: {},
     },
     size: {
-      sm: { paddingInline: "3", paddingBlock: "1.5", fontSize: "12px" },
-      md: { paddingInline: "4", paddingBlock: "2", fontSize: "16px" },
-      lg: { paddingInline: "6", paddingBlock: "3", fontSize: "20px" },
+      sm: { paddingInline: "3", paddingBlock: "1", fontSize: "12px" },
+      md: { paddingInline: "4", paddingBlock: "1.5", fontSize: "16px" },
+      lg: { paddingInline: "6", paddingBlock: "2", fontSize: "20px" },
     },
     color: {
       red: {},

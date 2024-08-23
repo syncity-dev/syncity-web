@@ -11,7 +11,7 @@ export const Cards = () => {
       w="full"
     >
       <Card w="full">
-        <Card outlined heavyShadow mb="4">
+        <Card outlined mb="4">
           <div className={css({ w: "sm", h: "48" })}></div>
         </Card>
         <Card outlined>

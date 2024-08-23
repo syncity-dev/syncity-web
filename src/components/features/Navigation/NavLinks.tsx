@@ -28,16 +28,12 @@ export const NavLinks = ({
         <Button
           key={id}
           href={path}
-          visual={
-            orientation === "horizontal" && label === "Contact"
-              ? "solid"
-              : "link"
-          }
+          visual={"link"}
           size={size}
           gap={2.5}
           w="fit"
         >
-          {haveIcons ? <Icon /> : null}
+          {/* {haveIcons ? <Icon /> : null} */}
           {label}
         </Button>
       ))}

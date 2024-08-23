@@ -16,14 +16,8 @@ export const cardRecipe = cva({
         borderStyle: "solid",
       },
     },
-    heavyShadow: {
-      true: {
-        boxShadow: "3xl",
-      },
-    },
   },
   defaultVariants: {
     outlined: true,
-    heavyShadow: false,
   },
 });

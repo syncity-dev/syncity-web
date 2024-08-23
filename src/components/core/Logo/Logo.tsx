@@ -11,14 +11,16 @@ export const Logo = () => {
           position="relative"
           w={{ base: 14, md: 16 }}
           h={{ base: 14, md: 16 }}
+          rounded="full"
+          border="2px solid"
         >
-          <Image
+          {/* <Image
             src="/Logo, v4.png"
             width={200}
             height={200}
             alt="Syncity Logo"
             style={{ position: "absolute", inset: 0 }}
-          />
+          /> */}
         </Box>
         <Text
           as="h1"
@@ -27,7 +29,7 @@ export const Logo = () => {
           fontWeight="bold"
           letterSpacing="wider"
         >
-          Syncity
+          Synced
         </Text>
       </HStack>
     </Link>

@@ -5,3 +5,5 @@ export const NAV_LINKS = [
   { id: 2, label: "Blog", path: "/blog", Icon: LuBookOpen },
   { id: 3, label: "Contact", path: "/contact", Icon: LuMail },
 ];
+
+// export const NAV_LINKS = [];

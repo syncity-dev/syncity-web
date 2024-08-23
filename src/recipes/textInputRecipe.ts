@@ -7,7 +7,6 @@ export const textInputRecipe = sva({
       accentColor: "black",
       borderWidth: "2px",
       rounded: "sm",
-      boxShadow: "3xl",
       outlineColor: "yellow",
     },
   },
