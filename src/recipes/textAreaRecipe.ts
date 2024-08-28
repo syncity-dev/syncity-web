@@ -8,7 +8,6 @@ export const textAreaRecipe = sva({
       accentColor: "black",
       borderWidth: "2px",
       rounded: "sm",
-      outlineColor: "yellow",
     },
   },
   variants: {

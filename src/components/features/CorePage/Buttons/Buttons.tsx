@@ -105,6 +105,54 @@ export const Buttons = () => {
               </VStack>
             </HStack>
           </VStack>
+          <VStack alignItems="flex-start">
+            <h4
+              className={css({
+                fontSize: "xl",
+                fontFamily: "heading",
+                fontWeight: "bold",
+                bgColor: "",
+                color: "",
+              })}
+            >
+              Link
+            </h4>
+            <HStack justifyContent="flex-start" alignItems="flex-start" gap="4">
+              <VStack gap="4" flex={1}>
+                <Button visual="link" color="gray" size="sm">
+                  Label
+                </Button>
+                <Button visual="link" color="red" size="sm">
+                  Label
+                </Button>
+                <Button visual="link" color="yellow" size="sm">
+                  Label
+                </Button>
+              </VStack>
+              <VStack gap="4" flex={1}>
+                <Button visual="link" color="gray" size="md">
+                  Label
+                </Button>
+                <Button visual="link" color="red" size="md">
+                  Label
+                </Button>
+                <Button visual="link" color="yellow" size="md">
+                  Label
+                </Button>
+              </VStack>
+              <VStack gap="4" flex={1}>
+                <Button visual="link" color="gray" size="lg">
+                  Label
+                </Button>
+                <Button visual="link" color="red" size="lg">
+                  Label
+                </Button>
+                <Button visual="link" color="yellow" size="lg">
+                  Label
+                </Button>
+              </VStack>
+            </HStack>
+          </VStack>
         </Flex>
       </Card>
     </CoreSectionWrapper>

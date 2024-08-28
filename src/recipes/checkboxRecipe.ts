@@ -6,20 +6,19 @@ export const checkboxRecipe = sva({
     control: {
       fontFamily: "body",
       accentColor: "black",
-      outlineColor: "yellow",
       outlineOffset: "0",
     },
   },
   variants: {
     size: {
       sm: {
-        control: { width: "6", height: "6" },
+        control: { width: "4", height: "4" },
       },
       md: {
-        control: { width: "8", height: "8" },
+        control: { width: "5", height: "5" },
       },
       lg: {
-        control: { width: "10", height: "10" },
+        control: { width: "6", height: "6" },
       },
     },
     checked: {

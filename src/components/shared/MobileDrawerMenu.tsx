@@ -9,7 +9,7 @@ import {
 } from "../core/Drawer/Drawer";
 import { LuX, LuMenu } from "react-icons/lu";
 import { Logo } from "../core/Logo/Logo";
-import { NavLinks } from "../features/Navigation/NavLinks";
+import { NavItems } from "../features/Navigation/NavItems";
 
 type MobileDrawerMenuProps = DrawerProps;
 
@@ -37,7 +37,7 @@ export const MobileDrawerMenu = ({ ...restProps }: MobileDrawerMenuProps) => {
             <LuX size={36} />
           </DrawerClose>
         </DrawerHeader>
-        <NavLinks orientation="vertical" haveIcons={true} size="lg" />
+        <NavItems orientation="vertical" haveIcons={true} size="lg" />
         <DrawerFooter gap={5}></DrawerFooter>
       </DrawerContent>
     </Drawer>
