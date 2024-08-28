@@ -5,26 +5,29 @@ import {
   VstackProps,
 } from "../../../../styled-system/jsx";
 import { Button } from "@/components/core/Button/Button";
-import { NAV_LINKS } from "@/constants/navigation";
+import { NAV_ITEMS } from "@/constants/navigation";
 import { Size } from "@/types/core";
 
-interface INavLinksProps extends HstackProps, VstackProps {
+type NavItem = (typeof NAV_ITEMS)[number];
+
+interface INavItemsProps extends HstackProps, VstackProps {
   orientation?: "vertical" | "horizontal";
   haveIcons?: boolean;
   size?: Size;
 }
 
-export const NavLinks = ({
+export const NavItems = ({
   orientation = "horizontal",
   haveIcons = false,
   size = "md",
   ...restProps
-}: INavLinksProps) => {
+}: INavItemsProps) => {
   const Stack = orientation === "vertical" ? VStack : HStack;
+  const navItems: NavItem[] | [] = [];
 
   return (
     <Stack {...restProps}>
-      {NAV_LINKS.map(({ id, label, path, Icon }) => (
+      {navItems?.map(({ id, label, path, Icon }) => (
         <Button
           key={id}
           href={path}
@@ -33,7 +36,7 @@ export const NavLinks = ({
           gap={2.5}
           w="fit"
         >
-          {/* {haveIcons ? <Icon /> : null} */}
+          {haveIcons ? <Icon /> : null}
           {label}
         </Button>
       ))}
