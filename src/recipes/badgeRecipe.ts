@@ -6,7 +6,6 @@ export const badgeRecipe = cva({
     rounded: "sm",
     borderWidth: "2",
     borderColor: "gray-light",
-    shadow: "3xl",
     fontWeight: "medium",
   },
   variants: {
@@ -34,9 +33,9 @@ export const badgeRecipe = cva({
       },
     },
     size: {
-      sm: { paddingInline: "3", paddingBlock: "1.5", fontSize: "12px" },
-      md: { paddingInline: "4", paddingBlock: "2", fontSize: "16px" },
-      lg: { paddingInline: "6", paddingBlock: "3", fontSize: "20px" },
+      sm: { paddingInline: "3", paddingBlock: "1", fontSize: "12px" },
+      md: { paddingInline: "4", paddingBlock: "1.5", fontSize: "16px" },
+      lg: { paddingInline: "6", paddingBlock: "2", fontSize: "20px" },
     },
   },
   compoundVariants: [

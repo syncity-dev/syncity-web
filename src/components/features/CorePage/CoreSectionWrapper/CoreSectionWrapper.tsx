@@ -2,6 +2,7 @@ import { ReactNode, HTMLAttributes } from "react";
 import { css } from "../../../../../styled-system/css";
 import { styled } from "../../../../../styled-system/jsx";
 import { HTMLStyledProps } from "../../../../../styled-system/types";
+import { Text } from "@/components/core/Text/Text";
 
 interface ICoreSectionWrapperProps extends HTMLStyledProps<"section"> {
   children: ReactNode;
@@ -15,7 +16,8 @@ export const CoreSectionWrapper = ({
 }: ICoreSectionWrapperProps) => {
   return (
     <styled.section {...restProps}>
-      <h3
+      <Text
+        as="h3"
         className={css({
           fontSize: "2xl",
           fontFamily: "heading",
@@ -23,7 +25,7 @@ export const CoreSectionWrapper = ({
         })}
       >
         {title}
-      </h3>
+      </Text>
       {children}
     </styled.section>
   );

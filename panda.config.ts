@@ -7,19 +7,20 @@ const fonts = {
 
 const breakpoints = { "3xl": "1800px" };
 
-const colors = {
-  red: { value: "#A20104" },
-  "dark-red": { value: "#700102" },
-  "darkest-red": { value: "#4B0102" },
-  yellow: { value: "#DB9B48" },
-  black: { value: "#010101" },
-  gray: { value: "#ADA294" },
-  "light-gray": { value: "#E7E7E7" },
-  "dark-gray": { value: "#373739" },
-  success: { value: "#26de81" },
-  "success-dark": { value: "#20bf6b" },
-  warning: { value: "#fa8231" },
-};
+// const colors = {
+//   red: { value: "#A20104" },
+//   "dark-red": { value: "#700102" },
+//   "darkest-red": { value: "#4B0102" },
+//   yellow: { value: "#DB9B48" },
+//   black: { value: "#010101" },
+//   overlay: { value: "rgba(1, 1, 1, 0.85)" },
+//   gray: { value: "#ADA294" },
+//   "light-gray": { value: "#E7E7E7" },
+//   "dark-gray": { value: "#373739" },
+//   success: { value: "#26de81" },
+//   "success-dark": { value: "#20bf6b" },
+//   warning: { value: "#fa8231" },
+// };
 
 const shadows = {
   "3xl": { value: "5px 5px 0px 0px rgba(1, 1, 1, 1)" },
@@ -33,6 +34,7 @@ export default defineConfig({
   // Where to look for your css declarations
   include: [
     "./src/components/**/*.{ts,tsx,js,jsx}",
+    "./src/constants/**/*.{ts,tsx,js,jsx}",
     "./src/recipes/**/*.{ts,tsx,js,jsx}",
     "./src/app/**/*.{ts,tsx,js,jsx}",
     "./src/styled-system/**/*.{ts,tsx,js,jsx}",
@@ -46,7 +48,6 @@ export default defineConfig({
     extend: {
       breakpoints,
       tokens: {
-        colors,
         fonts,
         shadows,
       },

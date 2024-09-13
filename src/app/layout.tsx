@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Russo_One, Sintony } from "next/font/google";
+import { Navigation } from "@/components/shared/Navigation";
 
 const russoOne = Russo_One({
   subsets: ["latin"],
@@ -25,7 +26,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${russoOne.variable} ${sintony.variable}`}>
-      <body>{children}</body>
+      <body>
+        <Navigation />
+        {children}
+      </body>
     </html>
   );
 }
