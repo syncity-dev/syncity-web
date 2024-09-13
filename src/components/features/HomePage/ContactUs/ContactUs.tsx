@@ -7,7 +7,7 @@ export const ContactUs = () => {
   return (
     <Section bg="stone.200" py="16">
       <Container mx="auto" px="4">
-        <Text as="h2" fontSize="3xl" textAlign="center" mb="12">
+        <Text as="h2" fontSize="3xl" textAlign="center" mb="6">
           Contact us
         </Text>
         <ContactForm />
