@@ -7,8 +7,8 @@ import { css } from "../../../../../styled-system/css";
 export const Buttons = () => {
   return (
     <CoreSectionWrapper title="Buttons">
-      <Card outlined>
-        <Flex flexDirection={{ base: "column", md: "row" }} gap="10">
+      <Card>
+        <Flex flexWrap="wrap" gap="10">
           <VStack alignItems="flex-start">
             <h4
               className={css({
@@ -22,8 +22,8 @@ export const Buttons = () => {
               Outline
             </h4>
             <HStack justifyContent="flex-start" alignItems="flex-start" gap="4">
-              <VStack gap="4" flex={1}>
-                <Button visual="outline" color="gray" size="sm">
+              <VStack flexDir="column-reverse" gap="4" flex={1}>
+                <Button visual="outline" color="black" size="sm">
                   Label
                 </Button>
                 <Button visual="outline" color="red" size="sm">
@@ -33,8 +33,8 @@ export const Buttons = () => {
                   Label
                 </Button>
               </VStack>
-              <VStack gap="4" flex={1}>
-                <Button visual="outline" color="gray" size="md">
+              <VStack flexDir="column-reverse" gap="4" flex={1}>
+                <Button visual="outline" color="black" size="md">
                   Label
                 </Button>
                 <Button visual="outline" color="red" size="md">
@@ -44,8 +44,8 @@ export const Buttons = () => {
                   Label
                 </Button>
               </VStack>
-              <VStack gap="4" flex={1}>
-                <Button visual="outline" color="gray" size="lg">
+              <VStack flexDir="column-reverse" gap="4" flex={1}>
+                <Button visual="outline" color="black" size="lg">
                   Label
                 </Button>
                 <Button visual="outline" color="red" size="lg">
@@ -70,8 +70,8 @@ export const Buttons = () => {
               Solid
             </h4>
             <HStack justifyContent="flex-start" alignItems="flex-start" gap="4">
-              <VStack gap="4" flex={1}>
-                <Button visual="solid" color="gray" size="sm">
+              <VStack flexDir="column-reverse" gap="4" flex={1}>
+                <Button visual="solid" color="black" size="sm">
                   Label
                 </Button>
                 <Button visual="solid" color="red" size="sm">
@@ -81,8 +81,8 @@ export const Buttons = () => {
                   Label
                 </Button>
               </VStack>
-              <VStack gap="4" flex={1}>
-                <Button visual="solid" color="gray" size="md">
+              <VStack flexDir="column-reverse" gap="4" flex={1}>
+                <Button visual="solid" color="black" size="md">
                   Label
                 </Button>
                 <Button visual="solid" color="red" size="md">
@@ -92,8 +92,8 @@ export const Buttons = () => {
                   Label
                 </Button>
               </VStack>
-              <VStack gap="4" flex={1}>
-                <Button visual="solid" color="gray" size="lg">
+              <VStack flexDir="column-reverse" gap="4" flex={1}>
+                <Button visual="solid" color="black" size="lg">
                   Label
                 </Button>
                 <Button visual="solid" color="red" size="lg">
@@ -118,8 +118,8 @@ export const Buttons = () => {
               Link
             </h4>
             <HStack justifyContent="flex-start" alignItems="flex-start" gap="4">
-              <VStack gap="4" flex={1}>
-                <Button visual="link" color="gray" size="sm">
+              <VStack flexDir="column-reverse" gap="4" flex={1}>
+                <Button visual="link" color="black" size="sm">
                   Label
                 </Button>
                 <Button visual="link" color="red" size="sm">
@@ -129,8 +129,8 @@ export const Buttons = () => {
                   Label
                 </Button>
               </VStack>
-              <VStack gap="4" flex={1}>
-                <Button visual="link" color="gray" size="md">
+              <VStack flexDir="column-reverse" gap="4" flex={1}>
+                <Button visual="link" color="black" size="md">
                   Label
                 </Button>
                 <Button visual="link" color="red" size="md">
@@ -140,8 +140,8 @@ export const Buttons = () => {
                   Label
                 </Button>
               </VStack>
-              <VStack gap="4" flex={1}>
-                <Button visual="link" color="gray" size="lg">
+              <VStack flexDir="column-reverse" gap="4" flex={1}>
+                <Button visual="link" color="black" size="lg">
                   Label
                 </Button>
                 <Button visual="link" color="red" size="lg">

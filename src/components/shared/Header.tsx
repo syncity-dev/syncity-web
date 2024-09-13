@@ -1,14 +1,14 @@
 import { MobileDrawerMenu } from "./MobileDrawerMenu";
 import { Logo } from "../core/Logo/Logo";
 import { NavItems } from "../features/Navigation/NavItems";
-import { NavWrapper } from "../features/Navigation/NavWrapper";
+import { HeaderWrapper } from "../features/Header/HeaderWrapper";
 
-export const Navigation = () => {
+export const Header = () => {
   return (
-    <NavWrapper>
+    <HeaderWrapper>
       <Logo />
       <NavItems gap={10} display={{ base: "none", md: "flex" }} />
       <MobileDrawerMenu />
-    </NavWrapper>
+    </HeaderWrapper>
   );
 };

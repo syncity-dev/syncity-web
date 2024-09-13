@@ -1,17 +1,18 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Russo_One, Sintony } from "next/font/google";
-import { Navigation } from "@/components/shared/Navigation";
+import { Sintony, Poppins } from "next/font/google";
+import { Header } from "@/components/shared/Header";
+import { Main } from "@/components/core/Main/Main";
 
-const russoOne = Russo_One({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-russo-one",
-});
 const sintony = Sintony({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: "700",
   variable: "--font-sintony",
+});
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {
@@ -25,10 +26,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${russoOne.variable} ${sintony.variable}`}>
+    <html lang="en" className={`${sintony.variable} ${poppins.variable}`}>
       <body>
-        <Navigation />
-        {children}
+        <Main bg="stone.50">
+          <Header />
+          {children}
+        </Main>
       </body>
     </html>
   );

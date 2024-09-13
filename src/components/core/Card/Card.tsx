@@ -4,8 +4,6 @@ import { ReactNode } from "react";
 
 interface ICardProps extends HTMLStyledProps<"div"> {
   as?: "div" | "section" | "article";
-  outlined?: boolean;
-  heavyShadow?: boolean;
   children: ReactNode;
 }
 

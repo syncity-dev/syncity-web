@@ -1,5 +1,4 @@
 import { sva } from "../../styled-system/css";
-import { Z_INDEX } from "../constants/styles";
 
 export const drawerRecipe = sva({
   slots: [
@@ -15,14 +14,14 @@ export const drawerRecipe = sva({
     overlay: {
       position: "fixed",
       inset: 0,
-      zIndex: Z_INDEX.overlay,
+      zIndex: "overlay",
       backgroundColor: "overlay",
     },
     content: {
       position: "fixed",
       insetInline: 0,
       bottom: 0,
-      zIndex: Z_INDEX.modal,
+      zIndex: "modal",
       marginTop: 24,
       display: "flex",
       height: "full",

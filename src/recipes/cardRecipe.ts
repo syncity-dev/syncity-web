@@ -7,17 +7,10 @@ export const cardRecipe = cva({
     display: "flex",
     flexDirection: "column",
     gap: "8px",
-  },
-  variants: {
-    outlined: {
-      true: {
-        borderWidth: "2px",
-        borderColor: "black",
-        borderStyle: "solid",
-      },
-    },
-  },
-  defaultVariants: {
-    outlined: true,
+    borderWidth: "thin",
+    borderColor: "stone.200",
+    borderStyle: "solid",
+    bgColor: "white",
+    shadow: "md",
   },
 });

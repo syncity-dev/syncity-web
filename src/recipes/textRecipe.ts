@@ -17,12 +17,12 @@ export const textRecipe = cva({
     as: {
       p: { fontFamily: "body" },
       label: { fontFamily: "body" },
-      h1: { fontFamily: "heading" },
-      h2: { fontFamily: "heading" },
-      h3: { fontFamily: "heading" },
-      h4: { fontFamily: "heading" },
-      h5: { fontFamily: "heading" },
-      h6: { fontFamily: "heading" },
+      h1: { fontFamily: "heading", color: "stone.900" },
+      h2: { fontFamily: "heading", color: "stone.900" },
+      h3: { fontFamily: "heading", color: "stone.900" },
+      h4: { fontFamily: "heading", color: "stone.900" },
+      h5: { fontFamily: "heading", color: "stone.900" },
+      h6: { fontFamily: "heading", color: "stone.900" },
     },
   },
   defaultVariants: {

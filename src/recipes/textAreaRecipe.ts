@@ -5,9 +5,17 @@ export const textAreaRecipe = sva({
   base: {
     control: {
       fontFamily: "body",
-      accentColor: "black",
-      borderWidth: "2px",
+      borderWidth: "1px",
+      borderColor: "stone.200",
+      bgColor: "white",
+      color: "stone.900",
       rounded: "sm",
+      outlineOffset: "1",
+      outlineColor: "sky.600",
+      shadow: "md",
+      _placeholder: {
+        color: "stone.400",
+      },
     },
   },
   variants: {

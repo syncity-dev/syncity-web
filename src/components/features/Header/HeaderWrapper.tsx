@@ -1,22 +1,26 @@
-import { HStack, Container, HstackProps } from "../../../../styled-system/jsx";
-import { Z_INDEX } from "@/constants/styles";
+import { Container, HstackProps, styled } from "../../../../styled-system/jsx";
 
-interface INavWrapperProps extends HstackProps {
+interface IHeaderWrapperProps extends HstackProps {
   children: React.ReactNode;
 }
 
-export const NavWrapper = ({ children, ...restProps }: INavWrapperProps) => {
+export const HeaderWrapper = ({
+  children,
+  ...restProps
+}: IHeaderWrapperProps) => {
   return (
-    <HStack
-      w="$full"
+    <styled.header
+      display="flex"
+      shadow="md"
+      w="full"
       p={2.5}
-      borderBottom={"2px solid"}
       position="sticky"
       top={0}
-      zIndex={Z_INDEX.header}
-      backgroundColor="white"
+      zIndex="header"
       justifyContent="center"
       alignItems="center"
+      bg="inherit"
+      isolation="isolate"
       {...restProps}
     >
       <Container
@@ -29,6 +33,6 @@ export const NavWrapper = ({ children, ...restProps }: INavWrapperProps) => {
       >
         {children}
       </Container>
-    </HStack>
+    </styled.header>
   );
 };

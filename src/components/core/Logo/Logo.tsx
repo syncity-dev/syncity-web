@@ -8,11 +8,11 @@ export const Logo = () => {
     <Link href="/">
       <HStack>
         <Box
-          position="relative"
           w={{ base: 14, md: 16 }}
           h={{ base: 14, md: 16 }}
           rounded="full"
-          border="2px solid"
+          bgColor="stone.200"
+          shadow="inner-sm"
         >
           {/* <Image
             src="/Logo, v4.png"
@@ -28,6 +28,7 @@ export const Logo = () => {
           fontSize="2xl"
           fontWeight="bold"
           letterSpacing="wider"
+          color="stone.900"
         >
           Synced
         </Text>
