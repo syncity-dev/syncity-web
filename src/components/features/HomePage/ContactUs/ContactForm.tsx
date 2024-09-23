@@ -8,8 +8,8 @@ import { Button } from "@/components/core/Button/Button";
 export const ContactForm = () => {
   return (
     <Form maxW="md" mx="auto" spaceY="5">
-      <VStack alignItems="flex-start">
-        <Text as="label" htmlFor="name" gap="0.5">
+      <VStack alignItems="flex-start" gap="0.5">
+        <Text as="label" htmlFor="name" fontWeight="semibold">
           Name
         </Text>
         <TextInput
@@ -21,7 +21,7 @@ export const ContactForm = () => {
         />
       </VStack>
       <VStack alignItems="flex-start" gap="0.5">
-        <Text as="label" htmlFor="email">
+        <Text as="label" htmlFor="email" fontWeight="semibold">
           Email
         </Text>
         <TextInput
@@ -33,12 +33,12 @@ export const ContactForm = () => {
         />
       </VStack>
       <VStack alignItems="flex-start" gap="0.5">
-        <Text as="label" htmlFor="textInput">
-          Reason for Contacting
+        <Text as="label" htmlFor="textInput" fontWeight="semibold">
+          Message
         </Text>
         <TextArea
           id="reason"
-          placeholder="Enter your reason for contacting"
+          placeholder="Enter your message"
           w="full"
           required
         />
