@@ -8,7 +8,7 @@ interface ICheckboxProps extends Omit<HTMLStyledProps<"textarea">, "size"> {
 
 const StyledTextArea = styled.textarea;
 
-export const TextArea = ({ size = "sm", ...restProps }: ICheckboxProps) => {
+export const TextArea = ({ size, ...restProps }: ICheckboxProps) => {
   const classes = textAreaRecipe({ size });
 
   return <StyledTextArea className={classes.control} {...restProps} />;

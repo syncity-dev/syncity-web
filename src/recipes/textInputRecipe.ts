@@ -12,10 +12,10 @@ export const textInputRecipe = sva({
       rounded: "sm",
       outlineOffset: "1",
       outlineColor: "sky.600",
+      shadow: "md",
       _placeholder: {
         color: "stone.400",
       },
-      shadow: "md",
     },
   },
   variants: {
@@ -31,11 +31,6 @@ export const textInputRecipe = sva({
       lg: {
         control: { paddingInline: "6", paddingBlock: "6" },
         label: { fontSize: "lg" },
-      },
-    },
-    checked: {
-      true: {
-        control: { backgroundColor: "stone.900" },
       },
     },
   },

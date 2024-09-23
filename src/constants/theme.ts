@@ -1,6 +1,8 @@
+import { defineGlobalStyles } from "@pandacss/dev";
+
 export const fonts = {
-  body: { value: "var(--font-poppins), serif" },
-  heading: { value: "var(--font-sintony), sans-serif" },
+  body: { value: "var(--font-roboto), sans-serif" },
+  heading: { value: "var(--font-roboto-condensed), sans-serif" },
 } as const;
 
 export const breakpoints = { "3xl": "1800px" } as const;
@@ -18,3 +20,9 @@ export const zIndex = {
   overlay: { value: 8000 },
   modal: { value: 9000 },
 } as const;
+
+export const globalCss = defineGlobalStyles({
+  body: {
+    bg: { base: "white", _dark: "stone.900" },
+  },
+});

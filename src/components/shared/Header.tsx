@@ -8,7 +8,7 @@ export const Header = () => {
     <HeaderWrapper>
       <Logo />
       <NavItems gap={10} display={{ base: "none", md: "flex" }} />
-      <MobileDrawerMenu />
+      {/* <MobileDrawerMenu /> */}
     </HeaderWrapper>
   );
 };

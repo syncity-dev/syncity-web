@@ -1,7 +1,8 @@
 import { ComponentProps } from "react";
 import { Section } from "@/components/core/Section/Section";
-import { Container, Grid } from "../../../../../styled-system/jsx";
+import { Grid } from "../../../../../styled-system/jsx";
 import { Text } from "@/components/core/Text/Text";
+import { PageContainer } from "@/components/shared/PageContainer";
 
 type MembersWrapperProps = ComponentProps<typeof Section>;
 
@@ -11,7 +12,7 @@ export const MembersWrapper = ({
 }: MembersWrapperProps) => {
   return (
     <Section py="16" {...restProps}>
-      <Container mx="auto" px="4">
+      <PageContainer mx="auto" px="4">
         <Text as="h2" fontSize="3xl" textAlign="center" mb="12">
           Who We Are
         </Text>
@@ -24,7 +25,7 @@ export const MembersWrapper = ({
         >
           {children}
         </Grid>
-      </Container>
+      </PageContainer>
     </Section>
   );
 };

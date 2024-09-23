@@ -1,18 +1,19 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Sintony, Poppins } from "next/font/google";
+import { Roboto_Condensed, Roboto } from "next/font/google";
 import { Header } from "@/components/shared/Header";
 import { Main } from "@/components/core/Main/Main";
+import { Footer } from "@/components/shared/Footer";
 
-const sintony = Sintony({
+const robotCondensed = Roboto_Condensed({
   subsets: ["latin"],
-  weight: "700",
-  variable: "--font-sintony",
+  weight: "500",
+  variable: "--font-roboto-condensed",
 });
-const poppins = Poppins({
+const roboto = Roboto({
   subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-poppins",
+  weight: ["400", "700", "900"],
+  variable: "--font-roboto",
 });
 
 export const metadata: Metadata = {
@@ -26,11 +27,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${sintony.variable} ${poppins.variable}`}>
+    <html lang="en" className={`${robotCondensed.variable} ${roboto.variable}`}>
       <body>
         <Main bg="stone.50">
           <Header />
           {children}
+          <Footer />
         </Main>
       </body>
     </html>

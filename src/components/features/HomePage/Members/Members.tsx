@@ -5,8 +5,14 @@ import { Member } from "./Member";
 export const Members = () => {
   return (
     <MembersWrapper>
-      {teamMembers.map(({ id, name, title, description }, index) => (
-        <Member key={id} name={name} title={title} description={description} />
+      {teamMembers.map(({ id, name, title, description, imgSrc }) => (
+        <Member
+          key={id}
+          name={name}
+          title={title}
+          description={description}
+          imgSrc={imgSrc}
+        />
       ))}
     </MembersWrapper>
   );

@@ -21,18 +21,13 @@ export const textAreaRecipe = sva({
   variants: {
     size: {
       sm: {
-        control: { paddingInline: "2", paddingBlock: "2" },
+        control: { paddingInline: "2", paddingBlock: "2", fontSize: "sm" },
       },
       md: {
-        control: { paddingInline: "4", paddingBlock: "4" },
+        control: { paddingInline: "4", paddingBlock: "4", fontSize: "md" },
       },
       lg: {
-        control: { paddingInline: "6", paddingBlock: "6" },
-      },
-    },
-    checked: {
-      true: {
-        control: { backgroundColor: "black" },
+        control: { paddingInline: "6", paddingBlock: "6", fontSize: "lg" },
       },
     },
   },
