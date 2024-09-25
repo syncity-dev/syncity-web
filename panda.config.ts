@@ -1,31 +1,11 @@
 import { defineConfig } from "@pandacss/dev";
-
-const fonts = {
-  body: { value: "var(--font-sintony), serif" },
-  heading: { value: "var(--font-russo-one), sans-serif" },
-};
-
-const breakpoints = { "3xl": "1800px" };
-
-// const colors = {
-//   red: { value: "#A20104" },
-//   "dark-red": { value: "#700102" },
-//   "darkest-red": { value: "#4B0102" },
-//   yellow: { value: "#DB9B48" },
-//   black: { value: "#010101" },
-//   overlay: { value: "rgba(1, 1, 1, 0.85)" },
-//   gray: { value: "#ADA294" },
-//   "light-gray": { value: "#E7E7E7" },
-//   "dark-gray": { value: "#373739" },
-//   success: { value: "#26de81" },
-//   "success-dark": { value: "#20bf6b" },
-//   warning: { value: "#fa8231" },
-// };
-
-const shadows = {
-  "3xl": { value: "5px 5px 0px 0px rgba(1, 1, 1, 1)" },
-  "4xl": { value: "8px 8px 0px 0px rgba(1, 1, 1, 1)" },
-};
+import {
+  fonts,
+  shadows,
+  breakpoints,
+  zIndex,
+  globalCss,
+} from "@/constants/theme";
 
 export default defineConfig({
   // Whether to use css reset
@@ -50,6 +30,7 @@ export default defineConfig({
       tokens: {
         fonts,
         shadows,
+        zIndex,
       },
     },
   },
@@ -58,4 +39,5 @@ export default defineConfig({
 
   // The output directory for your css system
   outdir: "styled-system",
+  globalCss,
 });

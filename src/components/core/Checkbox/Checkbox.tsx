@@ -20,6 +20,7 @@ export const Checkbox = ({
       type="checkbox"
       className={classes.control}
       checked={checked}
+      cursor="pointer"
       {...restProps}
     />
   );

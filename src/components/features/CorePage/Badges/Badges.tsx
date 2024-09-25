@@ -1,26 +1,25 @@
 import { CoreSectionWrapper } from "../CoreSectionWrapper/CoreSectionWrapper";
 import { Card } from "@/components/core/Card/Card";
 import { Badge } from "@/components/core/Badge/Badge";
+import { Text } from "@/components/core/Text/Text";
 import { Flex, HStack, VStack } from "../../../../../styled-system/jsx";
 import { css } from "../../../../../styled-system/css";
 
 export const Badges = () => {
   return (
     <CoreSectionWrapper title="Badges">
-      <Card outlined>
-        <Flex flexDirection={{ base: "column", md: "row" }} gap="10">
-          <VStack alignItems="flex-start">
-            <h4
-              className={css({
-                fontSize: "xl",
-                fontFamily: "heading",
-                fontWeight: "bold",
-                bgColor: "",
-                color: "",
-              })}
-            >
+      <Card>
+        <Flex flexWrap="wrap" gap="10">
+          <VStack
+            alignItems="flex-start"
+            bg="stone.900"
+            p="5"
+            rounded="sm"
+            w="full"
+          >
+            <Text as="h4" fontSize="xl" fontWeight="bold" color="stone.50">
               Outline
-            </h4>
+            </Text>
             <HStack justifyContent="flex-start" alignItems="flex-start" gap="4">
               <VStack gap="4" flex={1}>
                 <Badge status="default" size="sm" visual="outline">
@@ -66,18 +65,16 @@ export const Badges = () => {
               </VStack>
             </HStack>
           </VStack>
-          <VStack alignItems="flex-start">
-            <h4
-              className={css({
-                fontSize: "xl",
-                fontFamily: "heading",
-                fontWeight: "bold",
-                bgColor: "",
-                color: "",
-              })}
-            >
+          <VStack
+            alignItems="flex-start"
+            bg="stone.50"
+            p="5"
+            rounded="sm"
+            w="full"
+          >
+            <Text as="h4" fontSize="xl" fontFamily="heading" color="stone.900">
               Solid
-            </h4>
+            </Text>
             <HStack justifyContent="flex-start" alignItems="flex-start" gap="4">
               <VStack gap="4" flex={1}>
                 <Badge status="default" size="sm" visual="solid">

@@ -1,17 +1,19 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Russo_One, Sintony } from "next/font/google";
-import { Navigation } from "@/components/shared/Navigation";
+import { Roboto_Condensed, Roboto } from "next/font/google";
+import { Header } from "@/components/shared/Header";
+import { Main } from "@/components/core/Main/Main";
+import { Footer } from "@/components/shared/Footer";
 
-const russoOne = Russo_One({
+const robotCondensed = Roboto_Condensed({
   subsets: ["latin"],
-  weight: "400",
-  variable: "--font-russo-one",
+  weight: "500",
+  variable: "--font-roboto-condensed",
 });
-const sintony = Sintony({
+const roboto = Roboto({
   subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-sintony",
+  weight: ["400", "700", "900"],
+  variable: "--font-roboto",
 });
 
 export const metadata: Metadata = {
@@ -25,10 +27,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${russoOne.variable} ${sintony.variable}`}>
+    <html lang="en" className={`${robotCondensed.variable} ${roboto.variable}`}>
       <body>
-        <Navigation />
-        {children}
+        <Main bg="stone.50">
+          <Header />
+          {children}
+          <Footer />
+        </Main>
       </body>
     </html>
   );

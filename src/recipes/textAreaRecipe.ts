@@ -5,26 +5,29 @@ export const textAreaRecipe = sva({
   base: {
     control: {
       fontFamily: "body",
-      accentColor: "black",
-      borderWidth: "2px",
+      borderWidth: "1px",
+      borderColor: "stone.200",
+      bgColor: "white",
+      color: "stone.900",
       rounded: "sm",
+      outlineOffset: "1",
+      outlineColor: "sky.600",
+      shadow: "md",
+      _placeholder: {
+        color: "stone.400",
+      },
     },
   },
   variants: {
     size: {
       sm: {
-        control: { paddingInline: "2", paddingBlock: "2" },
+        control: { paddingInline: "2", paddingBlock: "2", fontSize: "sm" },
       },
       md: {
-        control: { paddingInline: "4", paddingBlock: "4" },
+        control: { paddingInline: "4", paddingBlock: "4", fontSize: "md" },
       },
       lg: {
-        control: { paddingInline: "6", paddingBlock: "6" },
-      },
-    },
-    checked: {
-      true: {
-        control: { backgroundColor: "black" },
+        control: { paddingInline: "6", paddingBlock: "6", fontSize: "lg" },
       },
     },
   },

@@ -19,7 +19,7 @@ export function Inputs() {
       flexDirection="column"
       w="full"
     >
-      <Card outlined gap="10" w="full">
+      <Card gap="10" w="full">
         <VStack alignItems="flex-start">
           <Text as="label" fontWeight="bold" htmlFor="textInput">
             Text Input Label
