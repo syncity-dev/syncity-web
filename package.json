@@ -12,6 +12,8 @@
   "dependencies": {
     "@formspree/react": "^2.5.1",
     "@hookform/resolvers": "^3.9.0",
+    "@pandacss/types": "^0.46.1",
+    "@radix-ui/react-toast": "^1.2.1",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",

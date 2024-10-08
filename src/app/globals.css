@@ -1,6 +1,17 @@
 @layer reset, base, tokens, recipes, utilities;
 
 :root {
+  --enter-opacity: 1;
+  --enter-scale: 1;
+  --enter-rotate: 0deg;
+  --enter-translate-x: 0px;
+  --enter-translate-y: 0px;
+
+  --exit-opacity: 1;
+  --exit-scale: 1;
+  --exit-rotate: 0deg;
+  --exit-translate-x: 0px;
+  --exit-translate-y: 0px;
   --outlineColor: hsl(210deg 90% 50%);
   --duration: 0.35s;
   --padding: 0.675rem;
@@ -24,6 +35,26 @@
     0.9735 81.21%,
     0.9865 85%,
     0.9949 89.15%,
+    1 100%
+  );
+  --ease-in: linear(
+    0 0%,
+    0.005,
+    0.02 2.1%,
+    0.081 4.7%,
+    0.467 15.7%,
+    0.563,
+    0.645,
+    0.717,
+    0.778 28.5%,
+    0.829 32%,
+    0.872 35.8%,
+    0.909 40.1%,
+    0.938 44.9%,
+    0.961 50.3%,
+    0.977 56.5%,
+    0.987 63.6%,
+    0.994 72.3%,
     1 100%
   );
   --ease-out: linear(

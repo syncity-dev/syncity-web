@@ -4,6 +4,7 @@ import { Roboto_Condensed, Roboto } from "next/font/google";
 import { Header } from "@/components/shared/Header";
 import { Main } from "@/components/core/Main/Main";
 import { Footer } from "@/components/shared/Footer";
+import { Toaster } from "@/components/shared/Toaster";
 
 const robotCondensed = Roboto_Condensed({
   subsets: ["latin"],
@@ -34,6 +35,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </Main>
+        <Toaster />
       </body>
     </html>
   );

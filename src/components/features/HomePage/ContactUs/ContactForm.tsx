@@ -1,9 +1,9 @@
 "use client";
 
+import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSubmit } from "@formspree/react";
 import { useForm, Controller } from "react-hook-form";
-import * as z from "zod";
 import { VStack } from "../../../../../styled-system/jsx";
 import { Form } from "@/components/core/Form/Form";
 import { TextInput } from "@/components/core/TextInput/TextInput";
@@ -12,7 +12,7 @@ import { Text } from "@/components/core/Text/Text";
 import { Button } from "@/components/core/Button/Button";
 import { PiSpinnerBold } from "react-icons/pi";
 import { styled } from "../../../../../styled-system/jsx";
-import { useEffect, useState } from "react";
+import { useToast } from "@/hooks/useToast";
 
 const defaultValues = {
   name: "",
@@ -29,20 +29,20 @@ const ContactFormSchema = z.object({
     .email({ message: "Invalid email address" }),
   message: z
     .string({ required_error: "Message is required" })
-    .min(1, { message: "Name is required" }),
+    .min(1, { message: "Message is required" }),
 });
 
 type FormData = z.infer<typeof ContactFormSchema>;
 
 export const ContactForm = () => {
-  const [showThankYouMessage, setShowThankYouMessage] =
-    useState<boolean>(false);
+  const { toast } = useToast();
+
   const {
     handleSubmit,
     control,
     setError,
     reset,
-    formState: { errors, isSubmitSuccessful, isSubmitting },
+    formState: { errors, isSubmitting },
   } = useForm<FormData>({
     resolver: zodResolver(ContactFormSchema),
     defaultValues,
@@ -51,8 +51,20 @@ export const ContactForm = () => {
   const onSubmit = useSubmit<FormData>(
     process.env.NEXT_PUBLIC_CONTACT_FORM_ID ?? "",
     {
+      onSuccess(res) {
+        if (res?.kind === "success") {
+          toast({
+            title: "Success!",
+            description:
+              "Your message has been sent successfully. We will get back to you soon.",
+            variant: "success",
+          });
+          reset(defaultValues);
+        }
+      },
       onError(errs) {
         const formErrs = errs.getFormErrors();
+        console.log({ formErrs });
         for (const { code, message } of formErrs) {
           setError(`root.${code}`, {
             type: code,
@@ -66,30 +78,17 @@ export const ContactForm = () => {
             message: errs.map((e) => e.message).join(", "),
           });
         }
+
+        if (!formErrs) {
+          toast({
+            title: "Error!",
+            description: "Something went wrong. Please try again later",
+            variant: "danger",
+          });
+        }
       },
     }
   );
-
-  useEffect(() => {
-    if (!isSubmitting && isSubmitSuccessful) {
-      setShowThankYouMessage(true);
-
-      const timerId = setTimeout(() => {
-        setShowThankYouMessage(false);
-        reset(defaultValues);
-      }, 5000);
-
-      return () => clearTimeout(timerId);
-    }
-  }, [isSubmitSuccessful, isSubmitting, reset]);
-
-  if (showThankYouMessage && isSubmitSuccessful) {
-    return (
-      <Text textAlign="center" pb="410px">
-        Your message has been sent successfully. We will get back to you soon.
-      </Text>
-    );
-  }
 
   return (
     <Form maxW="md" mx="auto" spaceY="8" onSubmit={handleSubmit(onSubmit)}>

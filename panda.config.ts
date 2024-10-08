@@ -1,11 +1,12 @@
 import { defineConfig } from "@pandacss/dev";
-import {
-  fonts,
-  shadows,
-  breakpoints,
-  zIndex,
-  globalCss,
-} from "@/constants/theme";
+import { breakpoints } from "@/theme/breakpoints";
+import { shadows } from "@/theme/tokens/shadows";
+import { fonts } from "@/theme/tokens/fonts";
+import { globalCss } from "@/theme/global-css";
+import { zIndex } from "@/theme/tokens/z-index";
+import { keyframes } from "@/theme/keyframes";
+import { colors } from "@/theme/semantic-tokens/colors";
+import { animations } from "@/theme/tokens/animations";
 
 export default defineConfig({
   // Whether to use css reset
@@ -31,8 +32,13 @@ export default defineConfig({
         fonts,
         shadows,
         zIndex,
+        animations,
+      },
+      semanticTokens: {
+        colors,
       },
     },
+    keyframes,
   },
 
   jsxFramework: "react",
