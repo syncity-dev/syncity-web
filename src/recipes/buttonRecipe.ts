@@ -10,7 +10,7 @@ export const buttonRecipe = cva({
     cursor: "pointer",
     rounded: "sm",
     borderWidth: "2px",
-    transition: "all 0.3s ease-in",
+    transition: "all 0.3s var(--ease-in)",
     outlineOffset: "1",
     outlineColor: "sky.600",
   },

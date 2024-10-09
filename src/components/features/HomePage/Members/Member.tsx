@@ -31,7 +31,9 @@ export const Member = ({ name, title, description, imgSrc }: MemberProps) => {
           translateX: "100px",
         }}
       >
-        {imgSrc ? <Image src={imgSrc} alt={name} fill priority /> : null}
+        {imgSrc ? (
+          <Image src={imgSrc} alt={name} fill priority sizes="(100vw, 100vh)" />
+        ) : null}
       </Avatar>
 
       <Text as="h3" fontSize="xl" mb="2">
