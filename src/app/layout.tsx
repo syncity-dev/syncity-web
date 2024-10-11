@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${robotCondensed.variable} ${roboto.variable}`}>
       <body>
-        <Main bg="stone.50">
+        <Main>
           <Header />
           {children}
           <Footer />

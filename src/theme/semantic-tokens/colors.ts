@@ -1,4 +1,17 @@
 export const colors = {
+  brand: {
+    50: { value: "{colors.teal.100}" },
+    100: { value: "{colors.teal.100}" },
+    200: { value: "{colors.teal.200}" },
+    300: { value: "{colors.teal.300}" },
+    400: { value: "{colors.teal.400}" },
+    500: { value: "{colors.teal.500}" },
+    600: { value: "{colors.teal.600}" },
+    700: { value: "{colors.teal.700}" },
+    800: { value: "{colors.teal.800}" },
+    900: { value: "{colors.teal.900}" },
+    950: { value: "{colors.teal.950}" },
+  },
   danger: {
     50: { value: "{colors.red.100}" },
     100: { value: "{colors.red.100}" },

@@ -25,7 +25,7 @@ export const Member = ({ name, title, description, imgSrc }: MemberProps) => {
         bg="stone.200"
         shadow="xl"
         outlineOffset={0.5}
-        outlineColor="sky.600"
+        outlineColor="brand.600"
         overflow="hidden"
         _hover={{
           translateX: "100px",

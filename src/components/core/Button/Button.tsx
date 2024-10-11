@@ -9,7 +9,7 @@ type Url = string | UrlObject;
 type ButtonBaseProps = {
   visual?: "solid" | "outline" | "link";
   size?: Size;
-  color?: "red" | "yellow" | "black";
+  color?: "red" | "yellow" | "black" | "brand";
 };
 
 type ButtonProps = ButtonBaseProps & HTMLStyledProps<"button">;
@@ -19,7 +19,7 @@ const StyledButton = styled("button");
 const StyledLink = styled(Link);
 
 export const Button = (props: ButtonProps | LinkProps) => {
-  const { visual, size, color = "black", ...restProps } = props;
+  const { visual, size, color, ...restProps } = props;
 
   if ("href" in props && typeof props.href === "string") {
     const { href, ...linkProps } = restProps as HTMLStyledProps<"a">;

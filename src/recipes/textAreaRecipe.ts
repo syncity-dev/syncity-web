@@ -11,7 +11,7 @@ export const textAreaRecipe = sva({
       color: "stone.900",
       rounded: "sm",
       outlineOffset: "1",
-      outlineColor: "sky.600",
+      outlineColor: "brand.600",
       shadow: "md",
       _placeholder: {
         color: "stone.400",
