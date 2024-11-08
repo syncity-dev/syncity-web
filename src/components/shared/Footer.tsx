@@ -4,7 +4,7 @@ import { Text } from "../core/Text/Text";
 export const Footer = () => {
   return (
     <styled.footer
-      p="10"
+      p={{ base: "5", sm: "10" }}
       display="flex"
       alignItems="center"
       justifyContent="center"

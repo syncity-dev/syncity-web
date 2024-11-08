@@ -8,8 +8,20 @@ export const ContactUs = () => {
   return (
     <Section py="16" bg="white">
       <PageContainer>
-        <Card border="1px solid" maxW="md" mx="auto" rounded="lg" shadow="md">
-          <Text as="h2" fontSize="3xl" textAlign="center" mb="6">
+        <Card
+          border="1px solid"
+          maxW="md"
+          mx="auto"
+          rounded="lg"
+          shadow="md"
+          p={{ base: "4", sm: "8" }}
+        >
+          <Text
+            as="h2"
+            fontSize={{ base: "3xl", md: "4xl" }}
+            textAlign="center"
+            mb="6"
+          >
             Contact us
           </Text>
           <ContactForm />

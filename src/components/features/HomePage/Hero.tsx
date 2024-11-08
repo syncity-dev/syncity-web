@@ -1,10 +1,12 @@
 import { Section } from "@/components/core/Section/Section";
 import { Text } from "@/components/core/Text/Text";
 import { PageContainer } from "@/components/shared/PageContainer";
+import { Logo } from "@/components/core/Logo/Logo";
+import { Flex } from "../../../../styled-system/jsx";
 
 export const Hero = () => {
   return (
-    <Section py="40" position="relative" bg="brand.50">
+    <Section py="20" position="relative">
       <PageContainer
         mx="auto"
         px="4"
@@ -14,15 +16,24 @@ export const Hero = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <Text
-          as="h1"
-          fontSize="6xl"
-          color="brand.950"
-          fontWeight="bold"
-          mt="10"
+        <Flex
+          flexDir={{ base: "column", sm: "row" }}
+          justifyContent="center"
+          alignItems="center"
+          gap={{ base: "2.5", sm: "5" }}
+          mb={{ base: "5", sm: "2.5" }}
         >
-          Welcome to Synced
-        </Text>
+          <Text
+            as="h1"
+            fontSize={{ base: "6xl", md: "7xl" }}
+            color="brand.950"
+            fontWeight="bold"
+            m="0"
+          >
+            Welcome to
+          </Text>
+          <Logo width={96} height={96} />
+        </Flex>
         <Text
           as="p"
           fontSize="xl"

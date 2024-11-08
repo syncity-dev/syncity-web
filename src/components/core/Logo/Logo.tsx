@@ -4,10 +4,10 @@ import Image from "next/image";
 
 const StyledLink = styled(Link);
 
-export const Logo = () => {
+export const Logo = ({ width = 65, height = 65 }) => {
   return (
     <StyledLink href="/" rounded="full" outlineColor="brand.600">
-      <Image src="/Logo, v5.png" width={65} height={65} alt="Synced Logo" />
+      <Image src="/Logo.png" width={width} height={height} alt="Synced Logo" />
     </StyledLink>
   );
 };
