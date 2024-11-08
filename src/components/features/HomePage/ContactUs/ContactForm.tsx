@@ -91,7 +91,7 @@ export const ContactForm = () => {
   );
 
   return (
-    <Form maxW="md" mx="auto" spaceY="8" onSubmit={handleSubmit(onSubmit)}>
+    <Form maxW="md" mx="auto" spaceY="2.5" onSubmit={handleSubmit(onSubmit)}>
       <VStack alignItems="flex-start" gap="0.5">
         <Text as="label" htmlFor="name" fontWeight="semibold">
           Name

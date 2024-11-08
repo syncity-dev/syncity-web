@@ -11,9 +11,14 @@ export const MembersWrapper = ({
   ...restProps
 }: MembersWrapperProps) => {
   return (
-    <Section py="16" {...restProps}>
+    <Section py={{ base: "0", sm: "16" }} {...restProps}>
       <PageContainer mx="auto" px="4">
-        <Text as="h2" fontSize="3xl" textAlign="center" mb="12">
+        <Text
+          as="h2"
+          fontSize={{ base: "3xl", md: "4xl" }}
+          textAlign="center"
+          mb="12"
+        >
           Who We Are
         </Text>
         <Grid

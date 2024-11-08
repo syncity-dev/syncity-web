@@ -1,7 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Roboto_Condensed, Roboto } from "next/font/google";
-import { Header } from "@/components/shared/Header";
 import { Main } from "@/components/core/Main/Main";
 import { Footer } from "@/components/shared/Footer";
 import { Toaster } from "@/components/shared/Toaster";
@@ -30,8 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${robotCondensed.variable} ${roboto.variable}`}>
       <body>
-        <Main bg="stone.50">
-          <Header />
+        <Main>
           {children}
           <Footer />
         </Main>

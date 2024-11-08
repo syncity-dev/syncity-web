@@ -1,4 +1,4 @@
-import { MobileDrawerMenu } from "./MobileDrawerMenu";
+// import { MobileDrawerMenu } from "./MobileDrawerMenu";
 import { Logo } from "../core/Logo/Logo";
 import { NavItems } from "../features/Navigation/NavItems";
 import { HeaderWrapper } from "../features/Header/HeaderWrapper";

@@ -12,7 +12,7 @@ export const buttonRecipe = cva({
     borderWidth: "2px",
     transition: "all 0.3s var(--ease-in)",
     outlineOffset: "1",
-    outlineColor: "sky.600",
+    outlineColor: "brand.600",
   },
   variants: {
     visual: {
@@ -29,9 +29,53 @@ export const buttonRecipe = cva({
       red: {},
       black: {},
       yellow: {},
+      brand: {},
     },
   },
   compoundVariants: [
+    {
+      visual: "solid",
+      color: "brand",
+      css: {
+        borderColor: "brand.600",
+        bg: "brand.600",
+        color: "white",
+        _hover: {
+          borderColor: "brand.500",
+          bg: "brand.500",
+        },
+      },
+    },
+    {
+      visual: "outline",
+      color: "brand",
+      css: {
+        borderColor: "brand.600",
+        bg: "transparent",
+        color: "brand.600",
+        _hover: {
+          borderColor: "brand.600",
+          bg: "brand.600",
+          color: "white",
+        },
+      },
+    },
+
+    {
+      visual: "link",
+      color: "brand",
+      css: {
+        border: "none",
+        bg: "transparent",
+        color: "brand.700",
+        shadow: "none",
+        _hover: {
+          color: "brand.800",
+          shadow: "none",
+        },
+      },
+    },
+
     {
       visual: "solid",
       color: "red",
@@ -157,6 +201,6 @@ export const buttonRecipe = cva({
   defaultVariants: {
     visual: "solid",
     size: "md",
-    color: "red",
+    color: "brand",
   },
 });
