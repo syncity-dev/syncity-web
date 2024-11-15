@@ -35,6 +35,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-## Panda
+# PandaCSS
 styled-system
 styled-system-studio
+
+# Deploy and update scripts
+deploy.sh
+update.sh
