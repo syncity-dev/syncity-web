@@ -45,7 +45,7 @@ const LOGOS = [
 
 export const TechStack = ({ ...restProps }) => {
   return (
-    <Section py={{ base: "16", sm: "16" }} {...restProps}>
+    <Section pt="16" pb="6" {...restProps}>
       <Text
         as="h2"
         fontSize={{ base: "3xl", md: "4xl" }}
@@ -55,17 +55,20 @@ export const TechStack = ({ ...restProps }) => {
         Our Tech Stack
       </Text>
       <Flex
-        overflowX="hidden"
         gap={{ base: "10", sm: "16" }}
         className="group"
         maskImage="linear-gradient(to right, transparent, white 15%, white 90%, transparent)"
         color="stone.900"
+        _motionSafe={{ overflowX: "hidden" }}
+        _motionReduce={{ overflowX: "scroll", px: "20" }}
+        pb="10"
       >
         <styled.ul
           display="flex"
           gap={{ base: "10", sm: "16" }}
-          animation="infinite-scroll"
           _groupHover={{ animationPlayState: "paused" }}
+          _motionSafe={{ animation: "infinite-scroll" }}
+          _motionReduce={{ animation: "none" }}
           maxW="none"
         >
           {LOGOS.map(({ id, Icon, name }) => (
@@ -81,9 +84,10 @@ export const TechStack = ({ ...restProps }) => {
         <styled.ul
           display="flex"
           gap={{ base: "10", sm: "16" }}
-          animation="infinite-scroll"
           aria-hidden="true"
           _groupHover={{ animationPlayState: "paused" }}
+          _motionSafe={{ animation: "infinite-scroll" }}
+          _motionReduce={{ animation: "none", display: "none" }}
           maxW="none"
         >
           {LOGOS.map(({ id, Icon }) => (
