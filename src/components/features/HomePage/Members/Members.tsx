@@ -2,9 +2,9 @@ import { teamMembers } from "@/constants/team";
 import { MembersWrapper } from "./MembersWrapper";
 import { Member } from "./Member";
 
-export const Members = () => {
+export const Members = ({ ...restProps }) => {
   return (
-    <MembersWrapper>
+    <MembersWrapper {...restProps}>
       {teamMembers.map(
         ({
           id,

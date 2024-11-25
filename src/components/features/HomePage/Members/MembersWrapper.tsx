@@ -10,7 +10,11 @@ export const MembersWrapper = ({
   ...restProps
 }: MembersWrapperProps) => {
   return (
-    <Section py={{ base: "0", sm: "16" }} {...restProps}>
+    <Section
+      py={{ base: "0", sm: "16" }}
+      pb={{ base: "12", sm: "16" }}
+      {...restProps}
+    >
       <Text
         as="h2"
         fontSize={{ base: "3xl", md: "4xl" }}

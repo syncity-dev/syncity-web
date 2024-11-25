@@ -45,7 +45,7 @@ const LOGOS = [
 
 export const TechStack = ({ ...restProps }) => {
   return (
-    <Section py={{ base: "16", sm: "8" }} {...restProps}>
+    <Section py={{ base: "16", sm: "16" }} {...restProps}>
       <Text
         as="h2"
         fontSize={{ base: "3xl", md: "4xl" }}
