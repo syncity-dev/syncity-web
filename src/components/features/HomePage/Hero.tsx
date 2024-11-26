@@ -1,13 +1,12 @@
 import { Section } from "@/components/core/Section/Section";
 import { Text } from "@/components/core/Text/Text";
-import { PageContainer } from "@/components/shared/PageContainer";
 import { Logo } from "@/components/core/Logo/Logo";
-import { Flex } from "../../../../styled-system/jsx";
+import { Box, Flex } from "../../../../styled-system/jsx";
 
 export const Hero = () => {
   return (
     <Section py="20" position="relative">
-      <PageContainer
+      <Box
         mx="auto"
         px="4"
         textAlign="center"
@@ -45,7 +44,7 @@ export const Hero = () => {
           We are a team of independent consultants primarily focused on
           long-term projects.
         </Text>
-      </PageContainer>
+      </Box>
     </Section>
   );
 };
