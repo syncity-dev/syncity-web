@@ -117,13 +117,6 @@ export const colors = {
   },
 } as const;
 
-export const gradients = {
-  "side-fog": {
-    value:
-      "linear-gradient(to right, transparent 0, #000 128px, #000 calc(100%-128px), transparent 100%)",
-  },
-} as const;
-
 export const keyframes = {
   enter: {
     from: {
@@ -206,7 +199,6 @@ export default defineConfig({
         shadows,
         zIndex,
         animations,
-        gradients,
       },
       semanticTokens: {
         colors,
