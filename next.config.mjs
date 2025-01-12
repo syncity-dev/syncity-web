@@ -6,6 +6,7 @@ const nextConfig = {
   output: "export",
   images: { unoptimized: true },
   basePath: '/syncity-web',
+  assetPrefix: '/syncity-web/public', // Optional: Ensures assets are loaded from the correct path
   // Optional: bring your own cache handler
   // cacheHandler: path.resolve('./cache-handler.mjs'),
   // cacheMaxMemorySize: 0, // Disable default in-memory caching
