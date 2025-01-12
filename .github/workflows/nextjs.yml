@@ -26,7 +26,10 @@ jobs:
           node-version: "20"
           cache: "pnpm"
       - name: Install pnpm
-        run: npm install -g pnpm
+        run: |
+          npm install -g pnpm
+          echo "::add-path::$(npm root -g)/pnpm/bin"
+          pnpm --version # Verify pnpm installation
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
