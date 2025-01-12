@@ -6,14 +6,13 @@ const nextConfig = {
   output: "export",
   images: { unoptimized: true },
   basePath: '/syncity-web',
-  assetPrefix: '/syncity-web/public', // Optional: Ensures assets are loaded from the correct path
   // Optional: bring your own cache handler
   // cacheHandler: path.resolve('./cache-handler.mjs'),
   // cacheMaxMemorySize: 0, // Disable default in-memory caching
   // Nginx will do gzip compression. We disable
   // compression here so we can prevent buffering
   // streaming responses
-  compress: false,
+  // compress: false,
   // Optional: override the default (1 year) `stale-while-revalidate`
   // header time for static pages
   // swrDelta: 3600 // seconds
