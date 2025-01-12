@@ -17,7 +17,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Synced",
+  title: "Syncity",
   description:
     "A team of independent consultants primarily focused on long-term projects.",
 };

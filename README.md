@@ -45,7 +45,7 @@ The Bash deploy script does the following:
 Once the deployment completes, the site will be available at:
 
 ```bash
-https://www.synced.dev
+https://www.syncity.dev
 ```
 
 For pushing subsequent updates, use the update.sh script.
