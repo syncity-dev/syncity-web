@@ -4,6 +4,7 @@ const nextConfig = {
   // Recommended: this will reduce output
   // Docker image size by 80%+
   output: "export",
+  images: { unoptimized: true },
   basePath: '/syncity-web',
   // Optional: bring your own cache handler
   // cacheHandler: path.resolve('./cache-handler.mjs'),
