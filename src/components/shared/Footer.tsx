@@ -2,6 +2,8 @@ import { styled } from "../../../styled-system/jsx";
 import { Text } from "../core/Text/Text";
 
 export const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <styled.footer
       p={{ base: "5", sm: "10" }}
@@ -11,7 +13,7 @@ export const Footer = () => {
       shadow="5px 5px 15px rgb(0 0 0 / 0.1), 2px 5px 10px rgb(0 0 0 / 0.1), 0 5px 10px rgb(0 0 0 / 0.1)"
     >
       <Text color="stone.500" fontSize="sm" fontWeight="semibold">
-        © 2024 Syncity
+        © {currentYear} Syncity
       </Text>
     </styled.footer>
   );

@@ -21,16 +21,13 @@ export const textInputRecipe = sva({
   variants: {
     size: {
       sm: {
-        control: { paddingInline: "2", paddingBlock: "2" },
-        label: { fontSize: "sm" },
+        control: { paddingInline: "1", paddingBlock: "1", fontSize: "sm" },
       },
       md: {
-        control: { paddingInline: "4", paddingBlock: "4" },
-        label: { fontSize: "md" },
+        control: { paddingInline: "2", paddingBlock: "2", fontSize: "md" },
       },
       lg: {
-        control: { paddingInline: "6", paddingBlock: "6" },
-        label: { fontSize: "lg" },
+        control: { paddingInline: "4", paddingBlock: "4", fontSize: "lg" },
       },
     },
   },

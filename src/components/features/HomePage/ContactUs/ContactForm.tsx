@@ -91,8 +91,8 @@ export const ContactForm = () => {
   );
 
   return (
-    <Form maxW="md" mx="auto" spaceY="2.5" onSubmit={handleSubmit(onSubmit)}>
-      <VStack alignItems="flex-start" gap="0.5">
+    <Form maxW="md" mx="auto" spaceY="5" onSubmit={handleSubmit(onSubmit)}>
+      <VStack alignItems="flex-start" gap="1">
         <Text as="label" htmlFor="name" fontWeight="semibold">
           Name
         </Text>
@@ -106,17 +106,16 @@ export const ContactForm = () => {
               id="name"
               placeholder="Enter your name"
               w="full"
-              _invalid={{ border: "1px solid", borderColor: "red.600" }}
             />
           )}
         />
         {errors?.name?.message ? (
-          <Text color="red.600" mb="-6" fontSize="sm">
+          <Text color="red.600" mb="-2.5" fontSize="sm">
             {errors.name.message}
           </Text>
         ) : null}
       </VStack>
-      <VStack alignItems="flex-start" gap="0.5">
+      <VStack alignItems="flex-start" gap="1">
         <Text as="label" htmlFor="email" fontWeight="semibold">
           Email
         </Text>
@@ -134,12 +133,12 @@ export const ContactForm = () => {
           )}
         />
         {errors?.email?.message ? (
-          <Text color="red.600" mb="-6" fontSize="sm">
+          <Text color="red.600" mb="-2.5" fontSize="sm">
             {errors.email.message}
           </Text>
         ) : null}
       </VStack>
-      <VStack alignItems="flex-start" gap="0.5">
+      <VStack alignItems="flex-start" gap="1">
         <Text as="label" htmlFor="textInput" fontWeight="semibold">
           Message
         </Text>
@@ -158,7 +157,7 @@ export const ContactForm = () => {
         />
 
         {errors?.message?.message ? (
-          <Text color="red.600" mt="0.5" mb="-6" fontSize="sm">
+          <Text color="red.600" mb="-2.5" fontSize="sm">
             {errors?.message?.message}
           </Text>
         ) : null}
