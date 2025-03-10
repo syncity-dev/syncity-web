@@ -12,7 +12,7 @@ type Ref = HTMLInputElement;
 const StyledInput = styled("input");
 
 export const TextInput = forwardRef<Ref, ITextInputProps>(
-  ({ size = "sm", ...restProps }, ref) => {
+  ({ size, ...restProps }, ref) => {
     const classes = textInputRecipe({ size });
 
     return <StyledInput ref={ref} className={classes.control} {...restProps} />;
