@@ -1,7 +1,7 @@
 import { Section } from "@/components/core/Section/Section";
 import { Text } from "@/components/core/Text/Text";
 import { Logo } from "@/components/core/Logo/Logo";
-import { Box, Flex } from "../../../../styled-system/jsx";
+import { Box, Flex } from "@/styled-system/jsx";
 
 export const Hero = () => {
   return (

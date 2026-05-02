@@ -1,5 +1,5 @@
 import { Size } from "@/types/core";
-import { styled, HTMLStyledProps } from "../../../../styled-system/jsx";
+import { styled, HTMLStyledProps } from "@/styled-system/jsx";
 import { badgeRecipe } from "@/recipes/badgeRecipe";
 
 interface IBadgeProps extends HTMLStyledProps<"span"> {

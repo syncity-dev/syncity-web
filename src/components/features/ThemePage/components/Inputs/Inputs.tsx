@@ -4,7 +4,7 @@ import { Card } from "@/components/core/Card/Card";
 import { Checkbox } from "@/components/core/Checkbox/Checkbox";
 import { TextInput } from "@/components/core/TextInput/TextInput";
 import { TextArea } from "@/components/core/TextArea/TextArea";
-import { HStack, VStack } from "../../../../../../styled-system/jsx";
+import { HStack, VStack } from "@/styled-system/jsx";
 import { Text } from "@/components/core/Text/Text";
 
 export function Inputs() {

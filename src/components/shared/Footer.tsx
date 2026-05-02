@@ -1,4 +1,4 @@
-import { styled } from "../../../styled-system/jsx";
+import { styled } from "@/styled-system/jsx";
 import { Text } from "../core/Text/Text";
 
 export const Footer = () => {

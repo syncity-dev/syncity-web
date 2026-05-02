@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as ToastPrimitive from "@radix-ui/react-toast";
 import { LuX } from "react-icons/lu";
-import { styled } from "../../../../styled-system/jsx";
+import { styled } from "@/styled-system/jsx";
 import { toast } from "@/recipes/toastRecipe";
 import { toastViewport } from "@/recipes/toastViewportRecipe";
 import { createStyleContext } from "@/utils/style-context";

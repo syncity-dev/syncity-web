@@ -1,8 +1,6 @@
-import { GridItem } from "../../../../../styled-system/jsx";
+import { GridItem } from "@/styled-system/jsx";
 import { Text } from "@/components/core/Text/Text";
-import { Box } from "../../../../../styled-system/jsx";
-import { Flex } from "../../../../../styled-system/jsx";
-import { styled } from "../../../../../styled-system/jsx";
+import { Flex, styled } from "@/styled-system/jsx";
 import { Link } from "@/components/core/Link/Link";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 
@@ -49,7 +47,11 @@ export const Member = ({
         }}
       >
         {imgSrc ? (
-          <img src={imgSrc} alt={name} style={{ objectFit: "cover", width: "100%", height: "100%" }} />
+          <img
+            src={imgSrc}
+            alt={name}
+            style={{ objectFit: "cover", width: "100%", height: "100%" }}
+          />
         ) : null}
       </Avatar>
 

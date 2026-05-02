@@ -7,7 +7,7 @@ import {
   ToastViewport,
 } from "../core/Toast/Toast";
 import { useToast } from "@/hooks/useToast";
-import { styled } from "../../../styled-system/jsx";
+import { styled } from "@/styled-system/jsx";
 
 export function Toaster() {
   const { toasts } = useToast();

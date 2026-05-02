@@ -3,7 +3,7 @@ import {
   HStack,
   HstackProps,
   VstackProps,
-} from "../../../../styled-system/jsx";
+} from "@/styled-system/jsx";
 import { Button } from "@/components/core/Button/Button";
 import { NAV_ITEMS } from "@/constants/navigation";
 import { Size } from "@/types/core";

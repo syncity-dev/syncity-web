@@ -1,6 +1,6 @@
 import { ComponentProps } from "react";
 import { Section } from "@/components/core/Section/Section";
-import { Grid } from "../../../../../styled-system/jsx";
+import { Grid } from "@/styled-system/jsx";
 import { Text } from "@/components/core/Text/Text";
 
 type MembersWrapperProps = ComponentProps<typeof Section>;

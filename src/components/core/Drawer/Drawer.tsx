@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Drawer as DrawerPrimitive } from "vaul";
-import { HTMLStyledProps, styled } from "../../../../styled-system/jsx";
+import { HTMLStyledProps, styled } from "@/styled-system/jsx";
 import { drawerRecipe } from "@/recipes/drawerRecipe";
 
 export type DrawerProps = HTMLStyledProps<"div"> &

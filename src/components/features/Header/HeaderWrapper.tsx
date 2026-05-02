@@ -1,4 +1,4 @@
-import { Container, HstackProps, styled } from "../../../../styled-system/jsx";
+import { Container, HstackProps, styled } from "@/styled-system/jsx";
 
 interface IHeaderWrapperProps extends HstackProps {
   children: React.ReactNode;

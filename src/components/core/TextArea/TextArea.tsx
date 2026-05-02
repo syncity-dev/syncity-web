@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import { textAreaRecipe } from "@/recipes/textAreaRecipe";
-import { styled, HTMLStyledProps } from "../../../../styled-system/jsx";
+import { styled, HTMLStyledProps } from "@/styled-system/jsx";
 import { Size } from "@/types/core";
 
 interface ICheckboxProps extends Omit<HTMLStyledProps<"textarea">, "size"> {

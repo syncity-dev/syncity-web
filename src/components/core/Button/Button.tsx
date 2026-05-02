@@ -1,5 +1,5 @@
 import { buttonRecipe } from "@/recipes/buttonRecipe";
-import { styled, HTMLStyledProps } from "../../../../styled-system/jsx";
+import { styled, HTMLStyledProps } from "@/styled-system/jsx";
 import { Size } from "@/types/core";
 
 type ButtonBaseProps = {

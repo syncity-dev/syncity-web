@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { HTMLStyledProps } from "../../../../../../styled-system/types";
+import { HTMLStyledProps } from "@/styled-system/types";
 import { Text } from "@/components/core/Text/Text";
 import { Section } from "@/components/core/Section/Section";
 

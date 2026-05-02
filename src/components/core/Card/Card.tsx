@@ -1,5 +1,5 @@
 import { cardRecipe } from "@/recipes/cardRecipe";
-import { HTMLStyledProps, styled } from "../../../../styled-system/jsx";
+import { HTMLStyledProps, styled } from "@/styled-system/jsx";
 import { ReactNode } from "react";
 
 interface ICardProps extends HTMLStyledProps<"div"> {
