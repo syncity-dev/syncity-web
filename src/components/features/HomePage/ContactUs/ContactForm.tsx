@@ -2,7 +2,7 @@
 
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useSubmit } from "@formspree/react";
+import { useFormspree } from "@formspree/react";
 import { useForm, Controller } from "react-hook-form";
 import { VStack } from "../../../../../styled-system/jsx";
 import { Form } from "@/components/core/Form/Form";
@@ -21,18 +21,12 @@ const defaultValues = {
 };
 
 const ContactFormSchema = z.object({
-  name: z
-    .string({ required_error: "Name is required" })
-    .min(1, { message: "Name is required" }),
-  email: z
-    .string({ required_error: "Email is required" })
-    .email({ message: "Invalid email address" }),
-  message: z
-    .string({ required_error: "Message is required" })
-    .min(1, { message: "Message is required" }),
+  name: z.string().min(1, { message: "Name is required" }),
+  email: z.email({ error: "Invalid email address" }),
+  message: z.string().min(1, { message: "Message is required" }),
 });
 
-type FormData = z.infer<typeof ContactFormSchema>;
+type ContactFormData = z.infer<typeof ContactFormSchema>;
 
 export const ContactForm = () => {
   const { toast } = useToast();
@@ -43,52 +37,45 @@ export const ContactForm = () => {
     setError,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<FormData>({
+  } = useForm<ContactFormData>({
     resolver: zodResolver(ContactFormSchema),
     defaultValues,
   });
 
-  const onSubmit = useSubmit<FormData>(
-    process.env.NEXT_PUBLIC_CONTACT_FORM_ID ?? "",
-    {
-      onSuccess(res) {
-        if (res?.kind === "success") {
-          toast({
-            title: "Success!",
-            description:
-              "Your message has been sent successfully. We will get back to you soon.",
-            variant: "success",
-          });
-          reset(defaultValues);
-        }
-      },
-      onError(errs) {
-        const formErrs = errs.getFormErrors();
-        console.log({ formErrs });
-        for (const { code, message } of formErrs) {
-          setError(`root.${code}`, {
-            type: code,
-            message,
-          });
-        }
+  const { client } = useFormspree();
 
-        const fieldErrs = errs.getAllFieldErrors();
-        for (const [field, errs] of fieldErrs) {
-          setError(field, {
-            message: errs.map((e) => e.message).join(", "),
-          });
-        }
-
-        if (!formErrs) {
-          toast({
-            title: "Error!",
-            description: "Something went wrong. Please try again later",
-            variant: "danger",
-          });
-        }
-      },
+  const onSubmit = async (data: ContactFormData) => {
+    const result = await client.submitForm(
+      process.env.NEXT_PUBLIC_CONTACT_FORM_ID ?? "",
+      data
+    );
+    if (result.kind === "success") {
+      toast({
+        title: "Success!",
+        description:
+          "Your message has been sent successfully. We will get back to you soon.",
+        variant: "success",
+      });
+      reset(defaultValues);
+    } else {
+      const formErrs = result.getFormErrors();
+      console.log({ formErrs });
+      for (const { code, message } of formErrs) {
+        setError(`root.${code}`, { type: code, message });
+      }
+      const fieldErrs = result.getAllFieldErrors();
+      for (const [field, errs] of fieldErrs) {
+        setError(field, { message: errs.map((e) => e.message).join(", ") });
+      }
+      if (!formErrs.length) {
+        toast({
+          title: "Error!",
+          description: "Something went wrong. Please try again later",
+          variant: "danger",
+        });
+      }
     }
-  );
+  };
 
   return (
     <Form maxW="md" mx="auto" spaceY="5" onSubmit={handleSubmit(onSubmit)}>

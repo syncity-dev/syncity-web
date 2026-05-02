@@ -10,26 +10,26 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@formspree/react": "^2.5.1",
-    "@hookform/resolvers": "^3.9.0",
-    "@pandacss/types": "^0.46.1",
-    "@radix-ui/react-toast": "^1.2.1",
-    "next": "14.2.3",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-hook-form": "^7.53.0",
-    "react-icons": "^5.2.0",
-    "sharp": "^0.33.5",
-    "vaul": "^0.9.1",
-    "zod": "^3.23.8"
+    "@formspree/react": "^3.0.0",
+    "@hookform/resolvers": "^5.2.2",
+    "@pandacss/types": "^1.10.0",
+    "@radix-ui/react-toast": "^1.2.15",
+    "next": "16.2.4",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "react-hook-form": "^7.74.0",
+    "react-icons": "^5.6.0",
+    "sharp": "^0.34.5",
+    "vaul": "^1.1.2",
+    "zod": "^4.4.1"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.37.2",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.3",
-    "typescript": "^5"
+    "@pandacss/dev": "^1.10.0",
+    "@types/node": "^25.6.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^10.3.0",
+    "eslint-config-next": "16.2.4",
+    "typescript": "^6.0.3"
   }
 }

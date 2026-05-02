@@ -1,10 +1,13 @@
 /** @type {import('next').NextConfig} */
 
+const isProd = process.env.NODE_ENV === "production";
+
 const nextConfig = {
   // Recommended: this will reduce output
   // Docker image size by 80%+
   output: "export",
-  basePath: '/syncity-web',
+  basePath: isProd ? '/syncity-web' : '',
+  images: { unoptimized: true },
   // Optional: bring your own cache handler
   // cacheHandler: path.resolve('./cache-handler.mjs'),
   // cacheMaxMemorySize: 0, // Disable default in-memory caching
