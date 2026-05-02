@@ -1,8 +1,8 @@
 import { CoreSectionWrapper } from "../CoreSectionWrapper/CoreSectionWrapper";
 import { Card } from "@/components/core/Card/Card";
 import { Button } from "@/components/core/Button/Button";
-import { Flex, HStack, VStack } from "../../../../../styled-system/jsx";
-import { css } from "../../../../../styled-system/css";
+import { Flex, HStack, VStack } from "../../../../../../styled-system/jsx";
+import { css } from "../../../../../../styled-system/css";
 
 export const Buttons = () => {
   return (
