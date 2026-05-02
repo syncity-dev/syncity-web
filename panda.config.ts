@@ -186,7 +186,6 @@ export default defineConfig({
     "./src/constants/**/*.{ts,tsx,js,jsx}",
     "./src/recipes/**/*.{ts,tsx,js,jsx}",
     "./src/app/**/*.{ts,tsx,js,jsx}",
-    "./src/styled-system/**/*.{ts,tsx,js,jsx}",
   ],
 
   // Files to exclude
