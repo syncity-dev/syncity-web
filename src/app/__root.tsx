@@ -25,7 +25,10 @@ export const Route = createRootRoute({
           "A team of independent consultants primarily focused on long-term projects.",
       },
     ],
-    links: [{ rel: "stylesheet", href: appCss }],
+    links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: "/favicon.ico" },
+    ],
   }),
   component: RootLayout,
 });
