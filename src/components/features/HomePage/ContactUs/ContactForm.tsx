@@ -1,5 +1,3 @@
-"use client";
-
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useFormspree } from "@formspree/react";

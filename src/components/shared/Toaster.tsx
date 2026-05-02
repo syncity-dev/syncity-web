@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Toast,
   ToastClose,
@@ -19,8 +17,10 @@ export function Toaster() {
       {toasts.map(({ id, title, description, action, ...props }) => (
         <Toast key={id} {...props} mt="2">
           <styled.div display="grid" gap="1">
-            {title && <ToastTitle>{title}</ToastTitle>}
-            {description && <ToastDescription>{description}</ToastDescription>}
+            {title ? <ToastTitle>{title}</ToastTitle> : null}
+            {description ? (
+              <ToastDescription>{description}</ToastDescription>
+            ) : null}
             <ToastClose />
           </styled.div>
           {action}

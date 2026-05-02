@@ -1,10 +1,8 @@
-"use client";
-
 import { useState, useEffect } from "react";
 import type {
   ToastActionElement,
   ToastProps,
-} from "../components/core/Toast/Toast";
+} from "@/components/core/Toast/Toast";
 
 const TOAST_LIMIT = 3;
 const TOAST_REMOVE_DELAY = 10000;
@@ -94,7 +92,7 @@ export const reducer = (state: State, action: Action): State => {
       return {
         ...state,
         toasts: state.toasts.map((t) =>
-          t.id === action.toast.id ? { ...t, ...action.toast } : t
+          t.id === action.toast.id ? { ...t, ...action.toast } : t,
         ),
       };
 
@@ -119,7 +117,7 @@ export const reducer = (state: State, action: Action): State => {
                 ...t,
                 open: false,
               }
-            : t
+            : t,
         ),
       };
     }

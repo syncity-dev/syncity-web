@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import * as ToastPrimitive from "@radix-ui/react-toast";
 import { LuX } from "react-icons/lu";
