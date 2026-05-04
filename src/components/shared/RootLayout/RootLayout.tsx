@@ -11,7 +11,7 @@ import { ToastProvider } from "@/components/core/Toast/Toast.context";
 
 export const RootLayout = () => {
   return (
-    <html lang="en">
+    <html lang="en" data-color-mode="light">
       <head>
         <HeadContent />
       </head>
