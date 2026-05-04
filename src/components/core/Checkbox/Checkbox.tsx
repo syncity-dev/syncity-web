@@ -1,5 +1,5 @@
 import { checkboxRecipe } from "@/recipes/checkboxRecipe";
-import { styled, HTMLStyledProps } from "../../../../styled-system/jsx";
+import { styled, HTMLStyledProps } from "@/styled-system/jsx";
 import { Size } from "@/types/core";
 
 interface ICheckboxProps extends Omit<HTMLStyledProps<"input">, "size"> {

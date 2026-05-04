@@ -1,10 +1,6 @@
-import Link from "next/link";
-import { UrlObject } from "url";
 import { buttonRecipe } from "@/recipes/buttonRecipe";
-import { styled, HTMLStyledProps } from "../../../../styled-system/jsx";
+import { styled, HTMLStyledProps } from "@/styled-system/jsx";
 import { Size } from "@/types/core";
-
-type Url = string | UrlObject;
 
 type ButtonBaseProps = {
   visual?: "solid" | "outline" | "link";
@@ -13,22 +9,20 @@ type ButtonBaseProps = {
 };
 
 type ButtonProps = ButtonBaseProps & HTMLStyledProps<"button">;
-type LinkProps = ButtonBaseProps & HTMLStyledProps<"a"> & { href: Url };
+type LinkProps = ButtonBaseProps & HTMLStyledProps<"a"> & { href: string };
 
 const StyledButton = styled("button");
-const StyledLink = styled(Link);
+const StyledLink = styled("a");
 
 export const Button = (props: ButtonProps | LinkProps) => {
   const { visual, size, color, ...restProps } = props;
 
   if ("href" in props && typeof props.href === "string") {
     const { href, ...linkProps } = restProps as HTMLStyledProps<"a">;
-
     return (
       <StyledLink
-        href={href as Url}
+        href={href}
         className={buttonRecipe({ visual, size, color })}
-        passHref
         {...linkProps}
       />
     );

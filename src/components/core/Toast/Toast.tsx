@@ -1,9 +1,7 @@
-"use client";
-
 import * as React from "react";
 import * as ToastPrimitive from "@radix-ui/react-toast";
 import { LuX } from "react-icons/lu";
-import { styled } from "../../../../styled-system/jsx";
+import { styled } from "@/styled-system/jsx";
 import { toast } from "@/recipes/toastRecipe";
 import { toastViewport } from "@/recipes/toastViewportRecipe";
 import { createStyleContext } from "@/utils/style-context";
@@ -25,7 +23,7 @@ export const ToastClose = withContext(styled(ToastPrimitive.Close), "close", {
 export const ToastTitle = withContext(styled(ToastPrimitive.Title), "title");
 export const ToastDescription = withContext(
   styled(ToastPrimitive.Description),
-  "description"
+  "description",
 );
 
 export type ToastProps = React.ComponentPropsWithoutRef<typeof Toast>;

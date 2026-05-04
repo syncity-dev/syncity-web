@@ -1,18 +1,15 @@
-"use client";
-
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useFormspree } from "@formspree/react";
 import { useForm, Controller } from "react-hook-form";
-import { VStack } from "../../../../../styled-system/jsx";
 import { Form } from "@/components/core/Form/Form";
 import { TextInput } from "@/components/core/TextInput/TextInput";
 import { TextArea } from "@/components/core/TextArea/TextArea";
 import { Text } from "@/components/core/Text/Text";
 import { Button } from "@/components/core/Button/Button";
 import { PiSpinnerBold } from "react-icons/pi";
-import { styled } from "../../../../../styled-system/jsx";
-import { useToast } from "@/hooks/useToast";
+import { VStack, styled } from "@/styled-system/jsx";
+import { useToast } from "@/components/core/Toast/Toast.hooks";
 
 const defaultValues = {
   name: "",
@@ -46,8 +43,8 @@ export const ContactForm = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     const result = await client.submitForm(
-      process.env.NEXT_PUBLIC_CONTACT_FORM_ID ?? "",
-      data
+      import.meta.env.VITE_CONTACT_FORM_ID ?? "",
+      data,
     );
     if (result.kind === "success") {
       toast({

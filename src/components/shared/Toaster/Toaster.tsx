@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Toast,
   ToastClose,
@@ -7,9 +5,9 @@ import {
   ToastProvider,
   ToastTitle,
   ToastViewport,
-} from "../core/Toast/Toast";
-import { useToast } from "@/hooks/useToast";
-import { styled } from "../../../styled-system/jsx";
+} from "@/components/core/Toast/Toast";
+import { useToast } from "@/components/core/Toast/Toast.hooks";
+import { styled } from "@/styled-system/jsx";
 
 export function Toaster() {
   const { toasts } = useToast();
@@ -19,8 +17,10 @@ export function Toaster() {
       {toasts.map(({ id, title, description, action, ...props }) => (
         <Toast key={id} {...props} mt="2">
           <styled.div display="grid" gap="1">
-            {title && <ToastTitle>{title}</ToastTitle>}
-            {description && <ToastDescription>{description}</ToastDescription>}
+            {title ? <ToastTitle>{title}</ToastTitle> : null}
+            {description ? (
+              <ToastDescription>{description}</ToastDescription>
+            ) : null}
             <ToastClose />
           </styled.div>
           {action}

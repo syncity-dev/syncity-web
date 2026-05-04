@@ -6,10 +6,10 @@ import {
   DrawerHeader,
   DrawerProps,
   DrawerTrigger,
-} from "../core/Drawer/Drawer";
+} from "@/components/core/Drawer/Drawer";
 import { LuX, LuMenu } from "react-icons/lu";
-import { Logo } from "../core/Logo/Logo";
-import { NavItems } from "../features/Navigation/NavItems";
+import { Logo } from "@/components/core/Logo/Logo";
+import { NavItems } from "@/components/features/Navigation/NavItems";
 
 type MobileDrawerMenuProps = DrawerProps;
 

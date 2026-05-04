@@ -1,4 +1,4 @@
-import { sva } from "../../styled-system/css";
+import { sva } from "@/styled-system/css";
 
 export const toast = sva({
   slots: ["root", "viewport", "action", "close", "title", "description"],

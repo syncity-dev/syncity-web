@@ -1,13 +1,9 @@
-import { styled } from "../../../../styled-system/jsx";
-import Link from "next/link";
-import Image from "next/image";
-
-const StyledLink = styled(Link);
+import { RouteLink } from "@/components/core/RouteLink/RouteLink";
 
 export const Logo = ({ width = 65, height = 65 }) => {
   return (
-    <StyledLink href="/" rounded="full" outlineColor="brand.600">
-      <Image src="/Logo.png" width={width} height={height} alt="Syncity Logo" />
-    </StyledLink>
+    <RouteLink to="/" rounded="full" outlineColor="brand.600">
+      <img src="/Logo.png" width={width} height={height} alt="Syncity Logo" />
+    </RouteLink>
   );
 };

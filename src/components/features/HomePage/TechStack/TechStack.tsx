@@ -1,5 +1,5 @@
 import { Section } from "@/components/core/Section/Section";
-import { Flex, styled } from "../../../../../styled-system/jsx";
+import { Flex, styled } from "@/styled-system/jsx";
 import { Text } from "@/components/core/Text/Text";
 import {
   SiTypescript,

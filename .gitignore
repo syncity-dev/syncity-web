@@ -9,12 +9,15 @@
 # testing
 /coverage
 
-# next.js
-/.next/
-/out/
+# build output
+/dist/
+/.output/
 
-# production
-/build
+# tanstack router (auto-generated)
+src/routeTree.gen.ts
+
+# nitro cache
+node_modules/.nitro/
 
 # misc
 .DS_Store
@@ -33,10 +36,9 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
 
 # PandaCSS
-styled-system
+src/styled-system
 styled-system-studio
 
 # Deploy and update scripts

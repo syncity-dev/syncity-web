@@ -1,5 +1,3 @@
-"use client";
-
 import {
   type ElementType,
   type ForwardRefExoticComponent,
@@ -14,7 +12,7 @@ import {
   HTMLStyledProps,
   isCssProperty,
   styled,
-} from "../../styled-system/jsx";
+} from "@/styled-system/jsx";
 
 type Props = Record<string, unknown>;
 type Recipe = {

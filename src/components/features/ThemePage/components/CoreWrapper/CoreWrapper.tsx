@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
-import { VStack } from "../../../../../styled-system/jsx";
 import { Text } from "@/components/core/Text/Text";
-import { Container } from "../../../../../styled-system/jsx";
+import { Container, VStack } from "@/styled-system/jsx";
 
 export const CoreWrapper = ({ children }: { children: ReactNode }) => {
   return (
