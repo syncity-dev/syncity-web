@@ -2,6 +2,8 @@ import { defineGlobalStyles } from "@pandacss/dev";
 
 export const globalCss = defineGlobalStyles({
   ":root": {
+    "--font-roboto": "'Roboto'",
+    "--font-roboto-condensed": "'Roboto Condensed'",
     "--ease":
       "linear(0 0%,0.0036 9.62%,0.0185 16.66%,0.0489 23.03%,0.0962 28.86%,0.1705 34.93%,0.269 40.66%,0.3867 45.89%,0.5833 52.95%,0.683 57.05%,0.7829 62.14%,0.8621 67.46%,0.8991 70.68%,0.9299 74.03%,0.9545 77.52%,0.9735 81.21%,0.9865 85%,0.9949 89.15%,1 100%)",
     "--ease-out":
@@ -16,6 +18,8 @@ export const globalCss = defineGlobalStyles({
     WebkitTextSizeAdjust: "100%",
   },
   body: {
-    bg: { base: "white", _dark: "stone.900" },
+    backgroundColor: "{colors.bg.default}",
+    color: "{colors.fg.default}",
+    fontFamily: "body",
   },
 });
