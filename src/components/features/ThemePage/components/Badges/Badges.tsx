@@ -1,7 +1,7 @@
 import { CoreSectionWrapper } from "../CoreSectionWrapper/CoreSectionWrapper";
 import { Card } from "@/components/core/Card/Card";
 import { Badge } from "@/components/core/Badge/Badge";
-import { Text } from "@/components/core/Text/Text";
+import { Heading } from "@/components/core/Heading/Heading";
 import { Flex, HStack, VStack } from "@/styled-system/jsx";
 import { css } from "@/styled-system/css";
 
@@ -12,14 +12,14 @@ export const Badges = () => {
         <Flex flexWrap="wrap" gap="10">
           <VStack
             alignItems="flex-start"
-            bg="stone.900"
+            bg="slate.12"
             p="5"
             rounded="sm"
             w="full"
           >
-            <Text as="h4" fontSize="xl" fontWeight="bold" color="stone.50">
+            <Heading as="h4" color="slate.1">
               Outline
-            </Text>
+            </Heading>
             <HStack justifyContent="flex-start" alignItems="flex-start" gap="4">
               <VStack gap="4" flex={1}>
                 <Badge status="default" size="sm" visual="outline">
@@ -67,14 +67,14 @@ export const Badges = () => {
           </VStack>
           <VStack
             alignItems="flex-start"
-            bg="stone.50"
+            bg="bg.subtle"
             p="5"
             rounded="sm"
             w="full"
           >
-            <Text as="h4" fontSize="xl" fontFamily="heading" color="stone.900">
+            <Heading as="h4">
               Solid
-            </Text>
+            </Heading>
             <HStack justifyContent="flex-start" alignItems="flex-start" gap="4">
               <VStack gap="4" flex={1}>
                 <Badge status="default" size="sm" visual="solid">

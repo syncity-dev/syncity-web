@@ -1,5 +1,5 @@
 import { Section } from "@/components/core/Section/Section";
-import { Text } from "@/components/core/Text/Text";
+import { Heading } from "@/components/core/Heading/Heading";
 import { ContactForm } from "./ContactForm";
 import { Card } from "@/components/core/Card/Card";
 
@@ -14,14 +14,14 @@ export const ContactUs = ({ ...restProps }) => {
         shadow="md"
         p={{ base: "4", sm: "8" }}
       >
-        <Text
+        <Heading
           as="h2"
           fontSize={{ base: "3xl", md: "4xl" }}
           textAlign="center"
           mb="6"
         >
           Contact us
-        </Text>
+        </Heading>
         <ContactForm />
       </Card>
     </Section>

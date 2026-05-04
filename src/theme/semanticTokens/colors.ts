@@ -3,7 +3,9 @@ import { defineSemanticTokens } from "@pandacss/dev";
 export const colors = defineSemanticTokens.colors({
   bg: {
     default: { value: { _light: "{colors.white}", _dark: "{colors.slate.1}" } },
-    subtle: { value: { _light: "{colors.slate.2}", _dark: "{colors.slate.2}" } },
+    subtle: {
+      value: { _light: "{colors.slate.2}", _dark: "{colors.slate.2}" },
+    },
     muted: { value: { _light: "{colors.slate.3}", _dark: "{colors.slate.3}" } },
   },
   fg: {
@@ -19,7 +21,7 @@ export const colors = defineSemanticTokens.colors({
   },
   border: {
     default: {
-      value: { _light: "{colors.slate.6}", _dark: "{colors.slate.6}" },
+      value: { _light: "{colors.slate.2}", _dark: "{colors.slate.2}" },
     },
     strong: {
       value: { _light: "{colors.slate.8}", _dark: "{colors.slate.8}" },
@@ -35,7 +37,9 @@ export const colors = defineSemanticTokens.colors({
   },
   danger: {
     default: { value: { _light: "{colors.red.9}", _dark: "{colors.red.9}" } },
-    emphasis: { value: { _light: "{colors.red.10}", _dark: "{colors.red.10}" } },
+    emphasis: {
+      value: { _light: "{colors.red.10}", _dark: "{colors.red.10}" },
+    },
     muted: { value: { _light: "{colors.red.3}", _dark: "{colors.red.3}" } },
     fg: { value: { _light: "{colors.red.11}", _dark: "{colors.red.11}" } },
   },
@@ -63,7 +67,9 @@ export const colors = defineSemanticTokens.colors({
   },
   info: {
     default: { value: { _light: "{colors.sky.9}", _dark: "{colors.sky.9}" } },
-    emphasis: { value: { _light: "{colors.sky.10}", _dark: "{colors.sky.10}" } },
+    emphasis: {
+      value: { _light: "{colors.sky.10}", _dark: "{colors.sky.10}" },
+    },
     muted: { value: { _light: "{colors.sky.3}", _dark: "{colors.sky.3}" } },
     fg: { value: { _light: "{colors.sky.11}", _dark: "{colors.sky.11}" } },
   },

@@ -1,7 +1,7 @@
 import { ComponentProps } from "react";
 import { Section } from "@/components/core/Section/Section";
 import { Grid } from "@/styled-system/jsx";
-import { Text } from "@/components/core/Text/Text";
+import { Heading } from "@/components/core/Heading/Heading";
 
 type MembersWrapperProps = ComponentProps<typeof Section>;
 
@@ -15,14 +15,14 @@ export const MembersWrapper = ({
       pb={{ base: "12", sm: "16" }}
       {...restProps}
     >
-      <Text
+      <Heading
         as="h2"
         fontSize={{ base: "3xl", md: "4xl" }}
         textAlign="center"
         mb="12"
       >
         Who We Are
-      </Text>
+      </Heading>
       <Grid
         gridTemplateColumns={{
           base: "repeat(1, minmax(0, 1fr))",
