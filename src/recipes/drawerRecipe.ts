@@ -15,7 +15,7 @@ export const drawerRecipe = sva({
       position: "fixed",
       inset: 0,
       zIndex: "overlay",
-      backgroundColor: "overlay",
+      backgroundColor: "black.a7",
     },
     content: {
       position: "fixed",
@@ -26,7 +26,7 @@ export const drawerRecipe = sva({
       display: "flex",
       height: "full",
       flexDirection: "column",
-      background: "white",
+      background: "bg.default",
     },
     contentInner: {
       marginInline: "auto",
@@ -34,7 +34,7 @@ export const drawerRecipe = sva({
       h: 2,
       w: "100px",
       rounded: "full",
-      background: "muted",
+      background: "bg.muted",
     },
     header: {
       display: "flex",
@@ -59,7 +59,7 @@ export const drawerRecipe = sva({
     },
     description: {
       fontSize: "sm",
-      color: "muted",
+      color: "fg.muted",
     },
   },
   variants: {},

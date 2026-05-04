@@ -5,7 +5,7 @@ export const badgeRecipe = cva({
     fontFamily: "body",
     rounded: "sm",
     borderWidth: "2",
-    borderColor: "stone.200",
+    borderColor: "border.default",
     fontWeight: "medium",
   },
   variants: {
@@ -14,23 +14,10 @@ export const badgeRecipe = cva({
       outline: {},
     },
     status: {
-      default: {
-        color: "stone.200",
-        bg: "white",
-      },
-      success: {
-        color: "black",
-        bg: "success",
-      },
-      warning: {
-        color: "black",
-        bg: "warning",
-      },
-      danger: {
-        color: "white",
-        bg: "red.500",
-        borderColor: "stone.950",
-      },
+      default: {},
+      success: {},
+      warning: {},
+      danger: {},
     },
     size: {
       sm: { paddingInline: "3", paddingBlock: "1", fontSize: "12px" },
@@ -43,68 +30,72 @@ export const badgeRecipe = cva({
       visual: "solid",
       status: "default",
       css: {
-        borderColor: "stone.900",
-        bg: "stone.200",
-        color: "stone.900",
+        borderColor: "slate.12",
+        bg: "slate.4",
+        color: "slate.12",
       },
     },
     {
       visual: "outline",
       status: "default",
       css: {
-        borderColor: "stone.200",
+        borderColor: "border.default",
         bg: "transparent",
-        color: "stone.200",
+        color: "fg.muted",
       },
     },
     {
       visual: "solid",
       status: "warning",
       css: {
-        borderColor: "stone.900",
-        bg: "orange.500",
-        color: "stone.900",
+        borderColor: "slate.12",
+        bg: "amber.9",
+        color: "slate.12",
       },
     },
     {
       visual: "outline",
       status: "warning",
       css: {
-        borderColor: "orange.500",
+        borderColor: "amber.9",
         bg: "transparent",
-        color: "orange.500",
+        color: "amber.9",
       },
     },
     {
       visual: "solid",
       status: "success",
       css: {
-        borderColor: "stone.900",
-        bg: "green.500",
-        color: "stone.900",
+        borderColor: "slate.12",
+        bg: "green.9",
+        color: "slate.12",
       },
     },
     {
       visual: "outline",
       status: "success",
       css: {
-        borderColor: "green.500",
+        borderColor: "green.9",
         bg: "transparent",
-        color: "green.500",
+        color: "green.9",
       },
     },
     {
       visual: "solid",
       status: "danger",
-      css: { borderColor: "stone.900", bg: "red.500", color: "stone.900" },
+      css: {
+        borderColor: "slate.12",
+        bg: "red.9",
+        color: "slate.12",
+      },
     },
     {
       visual: "outline",
       status: "danger",
       css: {
-        borderColor: "red.400",
+        borderColor: "red.8",
         bg: "transparent",
-        color: "red.400",
+        color: "red.8",
       },
     },
   ],

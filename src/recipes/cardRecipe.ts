@@ -5,9 +5,9 @@ export const cardRecipe = cva({
     padding: "5",
     rounded: "sm",
     borderWidth: "thin",
-    borderColor: "stone.200",
+    borderColor: "border.default",
     borderStyle: "solid",
-    bgColor: "white",
+    bgColor: "bg.default",
     shadow: "md",
   },
 });

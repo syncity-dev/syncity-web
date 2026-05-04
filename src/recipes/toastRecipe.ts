@@ -60,10 +60,6 @@ export const toast = sva({
       transition: "colors",
       cursor: "pointer",
 
-      _hover: {
-        bg: "secondary",
-      },
-
       _focus: {
         outline: "2px solid transparent",
         outlineOffset: "2px",
@@ -82,10 +78,6 @@ export const toast = sva({
       opacity: "0",
       transition: "opacity",
       cursor: "pointer",
-
-      _hover: {
-        color: "foreground",
-      },
 
       _groupHover: {
         opacity: "1",
@@ -110,131 +102,95 @@ export const toast = sva({
     variant: {
       default: {
         root: {
-          bg: "stone.50",
+          bg: "bg.subtle",
+          color: "fg.default",
         },
       },
       success: {
         root: {
-          bg: "success.400",
-          color: "success.950",
+          bg: "green.3",
+          color: "green.12",
         },
         action: {
-          border: "1px solid",
-          borderColor: "success.950",
-
+          borderColor: "green.7",
           _hover: {
-            bg: "success.950",
-            color: "success.50",
+            bg: "green.9",
+            color: "white",
           },
-
           _focus: {
-            focusRingColor: "success.950",
+            focusRingColor: "green.9",
           },
         },
         close: {
-          color: "success.950",
-
+          color: "green.11",
           _hover: {
-            color: "success.900",
-          },
-
-          _focus: {
-            focusRingColor: "success.50",
-            focusRingOffsetColor: "success.100",
+            color: "green.12",
           },
         },
       },
-
       danger: {
         root: {
-          bg: "danger.500",
-          color: "danger.950",
+          bg: "red.3",
+          color: "red.12",
         },
         action: {
-          border: "1px solid",
-          borderColor: "danger.950",
-
+          borderColor: "red.7",
           _hover: {
-            bg: "danger.950",
-            color: "danger.50",
+            bg: "red.9",
+            color: "white",
           },
-
           _focus: {
-            focusRingColor: "danger.950",
+            focusRingColor: "red.9",
           },
         },
         close: {
-          color: "danger.950",
-
+          color: "red.11",
           _hover: {
-            color: "danger.900",
-          },
-
-          _focus: {
-            focusRingColor: "danger.400",
-            focusRingOffsetColor: "danger.600",
+            color: "red.12",
           },
         },
       },
       warning: {
         root: {
-          bg: "warning.500",
-          color: "warning.950",
+          bg: "amber.3",
+          color: "amber.12",
         },
         action: {
-          border: "1px solid",
-          borderColor: "warning.950",
-
+          borderColor: "amber.7",
           _hover: {
-            bg: "warning.950",
-            color: "warning.50",
+            bg: "amber.9",
+            color: "white",
           },
-
           _focus: {
-            focusRingColor: "warning.950",
+            focusRingColor: "amber.9",
           },
         },
         close: {
-          color: "warning.950",
-
+          color: "amber.11",
           _hover: {
-            color: "warning.900",
-          },
-
-          _focus: {
-            focusRingColor: "warning.400",
-            focusRingOffsetColor: "warning.600",
+            color: "amber.12",
           },
         },
       },
       info: {
         root: {
-          bg: "info.500",
-          color: "info.950",
+          bg: "sky.3",
+          color: "sky.12",
         },
         action: {
-          border: "1px solid",
-          borderColor: "info.950",
-
+          borderColor: "sky.7",
           _hover: {
-            bg: "info.950",
-            color: "info.50",
+            bg: "sky.9",
+            color: "slate.12",
           },
-
           _focus: {
-            focusRingColor: "info.950",
+            focusRingColor: "sky.9",
           },
         },
         close: {
-          color: "info.950",
-
+          color: "sky.11",
           _hover: {
-            color: "info.900",
-          },
-
-          _focus: {
-            focusRingColor: "info.400",
-            focusRingOffsetColor: "info.600",
+            color: "sky.12",
           },
         },
       },

@@ -5,9 +5,9 @@ export const checkboxRecipe = sva({
   base: {
     control: {
       fontFamily: "body",
-      accentColor: "stone.900",
+      accentColor: "fg.default",
       outlineOffset: "0.5",
-      outlineColor: "brand.600",
+      outlineColor: "accent.emphasis",
     },
   },
   variants: {
@@ -24,7 +24,7 @@ export const checkboxRecipe = sva({
     },
     checked: {
       true: {
-        control: { backgroundColor: "stone.900" },
+        control: { backgroundColor: "accent.default" },
       },
     },
   },

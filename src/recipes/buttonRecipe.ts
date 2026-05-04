@@ -12,7 +12,7 @@ export const buttonRecipe = cva({
     borderWidth: "2px",
     transition: "all 0.3s var(--ease-in)",
     outlineOffset: "1",
-    outlineColor: "brand.600",
+    outlineColor: "accent.emphasis",
   },
   variants: {
     visual: {
@@ -37,12 +37,12 @@ export const buttonRecipe = cva({
       visual: "solid",
       color: "brand",
       css: {
-        borderColor: "brand.600",
-        bg: "brand.600",
+        borderColor: "accent.emphasis",
+        bg: "accent.emphasis",
         color: "white",
         _hover: {
-          borderColor: "brand.500",
-          bg: "brand.500",
+          borderColor: "accent.default",
+          bg: "accent.default",
         },
       },
     },
@@ -50,42 +50,40 @@ export const buttonRecipe = cva({
       visual: "outline",
       color: "brand",
       css: {
-        borderColor: "brand.600",
+        borderColor: "accent.emphasis",
         bg: "transparent",
-        color: "brand.600",
+        color: "accent.emphasis",
         _hover: {
-          borderColor: "brand.600",
-          bg: "brand.600",
+          borderColor: "accent.emphasis",
+          bg: "accent.emphasis",
           color: "white",
         },
       },
     },
-
     {
       visual: "link",
       color: "brand",
       css: {
         border: "none",
         bg: "transparent",
-        color: "brand.700",
+        color: "blue.11",
         shadow: "none",
         _hover: {
-          color: "brand.800",
+          color: "blue.12",
           shadow: "none",
         },
       },
     },
-
     {
       visual: "solid",
       color: "red",
       css: {
-        borderColor: "red.700",
-        bg: "red.700",
+        borderColor: "red.11",
+        bg: "red.11",
         color: "white",
         _hover: {
-          bg: "red.600",
-          borderColor: "red.600",
+          bg: "red.10",
+          borderColor: "red.10",
         },
       },
     },
@@ -93,12 +91,12 @@ export const buttonRecipe = cva({
       visual: "outline",
       color: "red",
       css: {
-        borderColor: "red.700",
+        borderColor: "red.11",
         bg: "transparent",
-        color: "red.700",
+        color: "red.11",
         _hover: {
-          bg: "red.600",
-          borderColor: "red.600",
+          bg: "red.10",
+          borderColor: "red.10",
           color: "white",
         },
       },
@@ -109,9 +107,9 @@ export const buttonRecipe = cva({
       css: {
         border: "none",
         bg: "transparent",
-        color: "red.700",
+        color: "red.11",
         _hover: {
-          color: "red.600",
+          color: "red.10",
         },
       },
     },
@@ -119,12 +117,12 @@ export const buttonRecipe = cva({
       visual: "solid",
       color: "black",
       css: {
-        borderColor: "stone.900",
-        bg: "stone.900",
-        color: "stone.50",
+        borderColor: "slate.12",
+        bg: "slate.12",
+        color: "slate.1",
         _hover: {
-          bg: "stone.700",
-          borderColor: "stone.700",
+          bg: "slate.11",
+          borderColor: "slate.11",
         },
       },
     },
@@ -132,13 +130,13 @@ export const buttonRecipe = cva({
       visual: "outline",
       color: "black",
       css: {
-        borderColor: "stone.900",
+        borderColor: "slate.12",
         bg: "transparent",
-        color: "stone.900",
+        color: "slate.12",
         _hover: {
-          bg: "stone.700",
-          borderColor: "stone.700",
-          color: "stone.50",
+          bg: "slate.11",
+          borderColor: "slate.11",
+          color: "slate.1",
         },
       },
     },
@@ -148,10 +146,10 @@ export const buttonRecipe = cva({
       css: {
         border: "none",
         bg: "transparent",
-        color: "stone.900",
+        color: "fg.default",
         shadow: "none",
         _hover: {
-          color: "stone.700",
+          color: "fg.muted",
           shadow: "none",
         },
       },
@@ -160,12 +158,12 @@ export const buttonRecipe = cva({
       visual: "solid",
       color: "yellow",
       css: {
-        borderColor: "yellow.300",
-        bg: "yellow.300",
-        color: "stone.900",
+        borderColor: "amber.5",
+        bg: "amber.5",
+        color: "slate.12",
         _hover: {
-          borderColor: "yellow.200",
-          bg: "yellow.200",
+          borderColor: "amber.4",
+          bg: "amber.4",
         },
       },
     },
@@ -173,26 +171,25 @@ export const buttonRecipe = cva({
       visual: "outline",
       color: "yellow",
       css: {
-        borderColor: "yellow.300",
+        borderColor: "amber.5",
         bg: "transparent",
-        color: "stone.900",
+        color: "slate.12",
         _hover: {
-          borderColor: "yellow.200",
-          bg: "yellow.200",
+          borderColor: "amber.4",
+          bg: "amber.4",
         },
       },
     },
-
     {
       visual: "link",
       color: "yellow",
       css: {
         border: "none",
         bg: "transparent",
-        color: "yellow.700",
+        color: "amber.10",
         shadow: "none",
         _hover: {
-          color: "yellow.800",
+          color: "amber.11",
           shadow: "none",
         },
       },
