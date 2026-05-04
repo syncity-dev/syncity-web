@@ -9,7 +9,7 @@ import { Text } from "@/components/core/Text/Text";
 import { Button } from "@/components/core/Button/Button";
 import { PiSpinnerBold } from "react-icons/pi";
 import { VStack, styled } from "@/styled-system/jsx";
-import { useToast } from "@/hooks/useToast";
+import { useToast } from "@/components/core/Toast/Toast.hooks";
 
 const defaultValues = {
   name: "",

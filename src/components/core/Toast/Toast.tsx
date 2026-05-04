@@ -23,7 +23,7 @@ export const ToastClose = withContext(styled(ToastPrimitive.Close), "close", {
 export const ToastTitle = withContext(styled(ToastPrimitive.Title), "title");
 export const ToastDescription = withContext(
   styled(ToastPrimitive.Description),
-  "description"
+  "description",
 );
 
 export type ToastProps = React.ComponentPropsWithoutRef<typeof Toast>;
