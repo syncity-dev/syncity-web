@@ -35,7 +35,8 @@ jobs:
       - name: Build
         run: pnpm build
         env:
-          NODE_ENV: production
+          NODE_ENV: ${{ vars.NODE_ENV }}
+          VITE_CONTACT_FORM_ID: ${{ secrets.VITE_CONTACT_FORM_ID }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
