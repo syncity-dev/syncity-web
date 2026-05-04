@@ -3,10 +3,8 @@ import { defineConfig } from "vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 
-const isProd = process.env.NODE_ENV === "production";
-
 export default defineConfig({
-  base: isProd ? "/syncity-web/" : "/",
+  base: "/",
   server: { port: 3000 },
   resolve: {
     alias: { "@": path.resolve("./src") },
@@ -16,12 +14,16 @@ export default defineConfig({
       srcDirectory: "src",
       router: {
         routesDirectory: "app",
-        basepath: isProd ? "/syncity-web" : "/",
+        basepath: "/",
       },
       prerender: {
         enabled: true,
         crawlLinks: true,
         autoSubfolderIndex: true,
+      },
+      sitemap: {
+        enabled: true,
+        host: "https://syncity.dev",
       },
     }),
     viteReact(),
