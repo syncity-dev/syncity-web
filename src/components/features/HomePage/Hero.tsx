@@ -1,5 +1,6 @@
 import { Section } from "@/components/core/Section/Section";
 import { Text } from "@/components/core/Text/Text";
+import { Heading } from "@/components/core/Heading/Heading";
 import { Logo } from "@/components/core/Logo/Logo";
 import { Box, Flex } from "@/styled-system/jsx";
 
@@ -22,21 +23,20 @@ export const Hero = () => {
           gap={{ base: "2.5", sm: "5" }}
           mb={{ base: "5", sm: "2.5" }}
         >
-          <Text
+          <Heading
             as="h1"
             fontSize={{ base: "6xl", md: "7xl" }}
-            color="brand.950"
-            fontWeight="bold"
+            color="blue.12"
             m="0"
           >
             Welcome to
-          </Text>
+          </Heading>
           <Logo width={96} height={96} />
         </Flex>
         <Text
           as="p"
           fontSize="xl"
-          color="brand.950"
+          color="blue.12"
           maxW="sm"
           textAlign="center"
           mb="5"

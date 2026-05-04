@@ -19,7 +19,7 @@ export const HeaderWrapper = ({
       zIndex="header"
       justifyContent="center"
       alignItems="center"
-      bg="white"
+      bg="bg.default"
       isolation="isolate"
       {...restProps}
     >

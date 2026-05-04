@@ -12,7 +12,7 @@ export const Footer = () => {
       justifyContent="center"
       shadow="5px 5px 15px rgb(0 0 0 / 0.1), 2px 5px 10px rgb(0 0 0 / 0.1), 0 5px 10px rgb(0 0 0 / 0.1)"
     >
-      <Text color="stone.500" fontSize="sm" fontWeight="semibold">
+      <Text color="fg.muted" fontSize="sm" fontWeight="semibold">
         © {currentYear} Syncity
       </Text>
     </styled.footer>
