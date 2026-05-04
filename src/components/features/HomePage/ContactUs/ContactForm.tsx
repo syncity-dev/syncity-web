@@ -43,7 +43,7 @@ export const ContactForm = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     const result = await client.submitForm(
-      process.env.NEXT_PUBLIC_CONTACT_FORM_ID ?? "",
+      import.meta.env.VITE_CONTACT_FORM_ID ?? "",
       data,
     );
     if (result.kind === "success") {
