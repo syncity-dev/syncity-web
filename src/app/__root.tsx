@@ -1,16 +1,9 @@
-import {
-  Outlet,
-  createRootRoute,
-  HeadContent,
-  Scripts,
-} from "@tanstack/react-router";
+import { createRootRoute } from "@tanstack/react-router";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/700.css";
 import "@fontsource/roboto/900.css";
 import "@fontsource/roboto-condensed/500.css";
-import { Main } from "@/components/core/Main/Main";
-import { Footer } from "@/components/shared/Footer";
-import { Toaster } from "@/components/shared/Toaster";
+import { RootLayout } from "@/components/shared/RootLayout/RootLayout";
 import appCss from "./globals.css?url";
 
 export const Route = createRootRoute({
@@ -32,21 +25,3 @@ export const Route = createRootRoute({
   }),
   component: RootLayout,
 });
-
-function RootLayout() {
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        <Main>
-          <Outlet />
-          <Footer />
-        </Main>
-        <Toaster />
-        <Scripts />
-      </body>
-    </html>
-  );
-}

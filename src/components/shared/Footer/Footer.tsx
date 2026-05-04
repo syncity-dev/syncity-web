@@ -1,5 +1,5 @@
 import { styled } from "@/styled-system/jsx";
-import { Text } from "../core/Text/Text";
+import { Text } from "@/components/core/Text/Text";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
