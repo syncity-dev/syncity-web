@@ -15,12 +15,7 @@ export const MembersWrapper = ({
       pb={{ base: "12", sm: "16" }}
       {...restProps}
     >
-      <Heading
-        as="h2"
-        fontSize={{ base: "3xl", md: "4xl" }}
-        textAlign="center"
-        mb="12"
-      >
+      <Heading as="h2" textAlign="center" mb="12">
         Who We Are
       </Heading>
       <Grid
