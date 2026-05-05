@@ -7,4 +7,4 @@ import { slate } from "./slate";
 
 export { amber, blue, green, red, sky, slate };
 
-export const colorPalettes = { amber, blue, green, red, sky, slate };
+export const colorPalettes = { amber, blue, green, gray: slate, red, sky, slate };

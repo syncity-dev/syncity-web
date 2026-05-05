@@ -2,29 +2,29 @@ import { defineSemanticTokens } from "@pandacss/dev";
 
 export const colors = defineSemanticTokens.colors({
   bg: {
-    default: { value: { _light: "{colors.white}", _dark: "{colors.slate.1}" } },
+    default: { value: { _light: "{colors.white}", _dark: "{colors.gray.1}" } },
     subtle: {
-      value: { _light: "{colors.slate.2}", _dark: "{colors.slate.2}" },
+      value: { _light: "{colors.gray.2}", _dark: "{colors.gray.2}" },
     },
-    muted: { value: { _light: "{colors.slate.3}", _dark: "{colors.slate.3}" } },
+    muted: { value: { _light: "{colors.gray.3}", _dark: "{colors.gray.3}" } },
   },
   fg: {
     default: {
-      value: { _light: "{colors.slate.12}", _dark: "{colors.slate.12}" },
+      value: { _light: "{colors.gray.12}", _dark: "{colors.gray.12}" },
     },
     muted: {
-      value: { _light: "{colors.slate.11}", _dark: "{colors.slate.11}" },
+      value: { _light: "{colors.gray.11}", _dark: "{colors.gray.11}" },
     },
     subtle: {
-      value: { _light: "{colors.slate.10}", _dark: "{colors.slate.10}" },
+      value: { _light: "{colors.gray.10}", _dark: "{colors.gray.10}" },
     },
   },
   border: {
     default: {
-      value: { _light: "{colors.slate.2}", _dark: "{colors.slate.2}" },
+      value: { _light: "{colors.gray.2}", _dark: "{colors.gray.2}" },
     },
     strong: {
-      value: { _light: "{colors.slate.8}", _dark: "{colors.slate.8}" },
+      value: { _light: "{colors.gray.8}", _dark: "{colors.gray.8}" },
     },
   },
   accent: {

@@ -66,7 +66,7 @@ export default defineConfig({
     css: [
       {
         properties: {
-          colorPalette: ["blue", "red", "slate", "amber", "green", "sky"],
+          colorPalette: ["blue", "red", "slate", "gray", "amber", "green", "sky"],
         },
       },
     ],
