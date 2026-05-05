@@ -1,14 +1,13 @@
-import { cardRecipe } from "@/recipes/cardRecipe";
-import { HTMLStyledProps, styled } from "@/styled-system/jsx";
-import { ReactNode } from "react";
+import type { ComponentProps } from "react";
+import { createStyleContext } from "@/styled-system/jsx";
+import { card } from "@/styled-system/recipes";
 
-interface ICardProps extends HTMLStyledProps<"div"> {
-  as?: "div" | "section" | "article";
-  children: ReactNode;
-}
+const { withProvider, withContext } = createStyleContext(card);
 
-export const Card = ({ as = "div", children, ...restProps }: ICardProps) => {
-  const StyledCard = styled(as, cardRecipe);
-
-  return <StyledCard {...restProps}>{children}</StyledCard>;
-};
+export type CardRootProps = ComponentProps<typeof CardRoot>;
+export const CardRoot = withProvider("div", "root");
+export const CardHeader = withContext("div", "header");
+export const CardBody = withContext("div", "body");
+export const CardFooter = withContext("h3", "footer");
+export const CardTitle = withContext("h3", "title");
+export const CardDescription = withContext("div", "description");
