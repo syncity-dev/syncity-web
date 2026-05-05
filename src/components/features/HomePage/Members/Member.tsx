@@ -4,6 +4,7 @@ import { Heading } from "@/components/core/Heading/Heading";
 import { Flex, styled } from "@/styled-system/jsx";
 import { Link } from "@/components/core/Link/Link";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
+import { Image } from "@unpic/react";
 
 type MemberProps = {
   name: string;
@@ -38,7 +39,7 @@ export const Member = ({
         mb="4"
         justifyContent="center"
         alignItems="center"
-        bg="slate.4"
+        bg="gray.plain.fg"
         shadow="xl"
         outlineOffset={0.5}
         outlineColor="accent.emphasis"
@@ -48,11 +49,7 @@ export const Member = ({
         }}
       >
         {imgSrc ? (
-          <img
-            src={imgSrc}
-            alt={name}
-            style={{ objectFit: "cover", width: "100%", height: "100%" }}
-          />
+          <Image src={imgSrc} alt={name} objectFit="cover" layout="fullWidth" />
         ) : null}
       </Avatar>
 
