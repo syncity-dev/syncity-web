@@ -1,6 +1,6 @@
 import { cva } from "@/styled-system/css";
 
-export const headingRecipe = cva({
+export const heading = cva({
   base: {
     fontFamily: "heading",
     fontWeight: "bold",

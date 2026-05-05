@@ -1,6 +1,6 @@
 import { cva } from "@/styled-system/css";
 
-export const badgeRecipe = cva({
+export const badge = cva({
   base: {
     fontFamily: "body",
     rounded: "sm",

@@ -1,6 +1,6 @@
 import { sva } from "@/styled-system/css";
 
-export const drawerRecipe = sva({
+export const drawer = sva({
   slots: [
     "overlay",
     "content",

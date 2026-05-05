@@ -1,6 +1,6 @@
 import { sva } from "@/styled-system/css";
 
-export const textInputRecipe = sva({
+export const textInput = sva({
   slots: ["control"],
   base: {
     control: {

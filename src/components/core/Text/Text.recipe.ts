@@ -1,6 +1,6 @@
 import { cva } from "@/styled-system/css";
 
-export const textRecipe = cva({
+export const text = cva({
   base: {},
   variants: {
     size: {

@@ -1,6 +1,6 @@
 import { sva } from "@/styled-system/css";
 
-export const checkboxRecipe = sva({
+export const checkbox = sva({
   slots: ["control"],
   base: {
     control: {
@@ -8,6 +8,7 @@ export const checkboxRecipe = sva({
       accentColor: "fg.default",
       outlineOffset: "0.5",
       outlineColor: "accent.emphasis",
+      borderColor: "border.default",
     },
   },
   variants: {
@@ -24,7 +25,10 @@ export const checkboxRecipe = sva({
     },
     checked: {
       true: {
-        control: { backgroundColor: "accent.default" },
+        control: {
+          accentColor: "accent.default",
+          borderColor: "accent.default",
+        },
       },
     },
   },

@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import { textAreaRecipe } from "@/recipes/textAreaRecipe";
+import { textArea } from "@/components/core/TextArea/TextArea.recipe";
 import { styled, HTMLStyledProps } from "@/styled-system/jsx";
 import { Size } from "@/types/core";
 
@@ -13,12 +13,12 @@ const StyledTextArea = styled.textarea;
 
 export const TextArea = forwardRef<Ref, ICheckboxProps>(
   ({ size, ...restProps }, ref) => {
-    const classes = textAreaRecipe({ size });
+    const classes = textArea({ size });
 
     return (
       <StyledTextArea ref={ref} className={classes.control} {...restProps} />
     );
-  }
+  },
 );
 
 TextArea.displayName = "TextArea";

@@ -1,6 +1,6 @@
 import { cva } from "@/styled-system/css";
 
-export const iconRecipe = cva({
+export const icon = cva({
   base: {},
   variants: {
     size: {

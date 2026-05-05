@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import { textInputRecipe } from "@/recipes/textInputRecipe";
+import { textInput } from "@/components/core/TextInput/TextInput.recipe";
 import { styled, HTMLStyledProps } from "@/styled-system/jsx";
 import { Size } from "@/types/core";
 
@@ -13,10 +13,10 @@ const StyledInput = styled("input");
 
 export const TextInput = forwardRef<Ref, ITextInputProps>(
   ({ size, ...restProps }, ref) => {
-    const classes = textInputRecipe({ size });
+    const classes = textInput({ size });
 
     return <StyledInput ref={ref} className={classes.control} {...restProps} />;
-  }
+  },
 );
 
 TextInput.displayName = "TextInput";
