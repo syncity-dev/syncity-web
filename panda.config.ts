@@ -16,6 +16,7 @@ import {
   zIndex,
 } from "@/theme/tokens";
 import { colors, easings, radii, shadows } from "@/theme/semanticTokens";
+import { slotRecipes } from "@/recipes";
 
 export default defineConfig({
   preflight: true,
@@ -56,8 +57,19 @@ export default defineConfig({
       },
       layerStyles,
       textStyles,
+      slotRecipes,
     },
     keyframes,
+  },
+
+  staticCss: {
+    css: [
+      {
+        properties: {
+          colorPalette: ["blue", "red", "slate", "amber", "green", "sky"],
+        },
+      },
+    ],
   },
 
   jsxFramework: "react",
