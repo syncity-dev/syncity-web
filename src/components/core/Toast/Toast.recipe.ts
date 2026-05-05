@@ -181,7 +181,7 @@ export const toast = sva({
           borderColor: "sky.7",
           _hover: {
             bg: "sky.9",
-            color: "slate.12",
+            color: "gray.plain.fg",
           },
           _focus: {
             focusRingColor: "sky.9",

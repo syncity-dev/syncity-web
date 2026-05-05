@@ -30,9 +30,9 @@ export const badge = cva({
       visual: "solid",
       status: "default",
       css: {
-        borderColor: "slate.12",
-        bg: "slate.4",
-        color: "slate.12",
+        borderColor: "gray.plain.fg",
+        bg: "gray.4",
+        color: "gray.plain.fg",
       },
     },
     {
@@ -48,9 +48,9 @@ export const badge = cva({
       visual: "solid",
       status: "warning",
       css: {
-        borderColor: "slate.12",
+        borderColor: "gray.plain.fg",
         bg: "amber.9",
-        color: "slate.12",
+        color: "gray.plain.fg",
       },
     },
     {
@@ -66,9 +66,9 @@ export const badge = cva({
       visual: "solid",
       status: "success",
       css: {
-        borderColor: "slate.12",
+        borderColor: "gray.plain.fg",
         bg: "green.9",
-        color: "slate.12",
+        color: "gray.plain.fg",
       },
     },
     {
@@ -84,9 +84,9 @@ export const badge = cva({
       visual: "solid",
       status: "danger",
       css: {
-        borderColor: "slate.12",
+        borderColor: "gray.plain.fg",
         bg: "red.9",
-        color: "slate.12",
+        color: "gray.plain.fg",
       },
     },
     {

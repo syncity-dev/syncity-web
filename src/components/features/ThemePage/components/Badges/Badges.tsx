@@ -12,12 +12,12 @@ export const Badges = () => {
           <Flex flexWrap="wrap" gap="10">
             <VStack
               alignItems="flex-start"
-              bg="slate.12"
+              bg="gray.plain.fg"
               p="5"
               rounded="sm"
               w="full"
             >
-              <Heading as="h4" color="slate.1">
+              <Heading as="h4" color="bg.default">
                 Outline
               </Heading>
               <HStack
