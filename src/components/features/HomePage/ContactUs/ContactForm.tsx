@@ -75,7 +75,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <Form maxW="md" mx="auto" spaceY="5" onSubmit={handleSubmit(onSubmit)}>
+    <Form spaceY="5" onSubmit={handleSubmit(onSubmit)}>
       <VStack alignItems="flex-start" gap="1">
         <Text as="label" htmlFor="name" fontWeight="semibold">
           Name
@@ -146,7 +146,7 @@ export const ContactForm = () => {
           </Text>
         ) : null}
       </VStack>
-      <Button type="submit" w="full" p="0" disabled={isSubmitting}>
+      <Button type="submit" w="full" size="lg" disabled={isSubmitting}>
         {isSubmitting ? (
           <styled.div animation="spin" animationDelay="faster">
             <PiSpinnerBold size={21} />

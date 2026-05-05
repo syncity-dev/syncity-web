@@ -23,20 +23,15 @@ export const Hero = () => {
           gap={{ base: "2.5", sm: "5" }}
           mb={{ base: "5", sm: "2.5" }}
         >
-          <Heading
-            as="h1"
-            fontSize={{ base: "6xl", md: "7xl" }}
-            color="blue.12"
-            m="0"
-          >
+          <Heading as="h1" fontSize={{ base: "6xl", md: "7xl" }}>
             Welcome to
           </Heading>
-          <Logo width={96} height={96} />
+          <Logo size="md" />
         </Flex>
         <Text
           as="p"
+          color="fg.muted"
           fontSize="xl"
-          color="blue.12"
           maxW="sm"
           textAlign="center"
           mb="5"
