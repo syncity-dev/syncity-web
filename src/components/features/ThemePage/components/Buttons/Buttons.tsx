@@ -18,44 +18,44 @@ export const Buttons = () => {
                 gap="4"
               >
                 <VStack flexDir="column-reverse" gap="4" flex={1}>
-                  <Button visual="outline" color="blue" size="sm">
+                  <Button visual="outline" color="accent" size="sm">
                     Label
                   </Button>
-                  <Button visual="outline" color="slate" size="sm">
+                  <Button visual="outline" color="gray" size="sm">
                     Label
                   </Button>
-                  <Button visual="outline" color="red" size="sm">
+                  <Button visual="outline" color="danger" size="sm">
                     Label
                   </Button>
-                  <Button visual="outline" color="green" size="sm">
-                    Label
-                  </Button>
-                </VStack>
-                <VStack flexDir="column-reverse" gap="4" flex={1}>
-                  <Button visual="outline" color="blue" size="md">
-                    Label
-                  </Button>
-                  <Button visual="outline" color="slate" size="md">
-                    Label
-                  </Button>
-                  <Button visual="outline" color="red" size="md">
-                    Label
-                  </Button>
-                  <Button visual="outline" color="green" size="md">
+                  <Button visual="outline" color="success" size="sm">
                     Label
                   </Button>
                 </VStack>
                 <VStack flexDir="column-reverse" gap="4" flex={1}>
-                  <Button visual="outline" color="blue" size="lg">
+                  <Button visual="outline" color="accent" size="md">
                     Label
                   </Button>
-                  <Button visual="outline" color="slate" size="lg">
+                  <Button visual="outline" color="gray" size="md">
                     Label
                   </Button>
-                  <Button visual="outline" color="red" size="lg">
+                  <Button visual="outline" color="danger" size="md">
                     Label
                   </Button>
-                  <Button visual="outline" color="green" size="lg">
+                  <Button visual="outline" color="success" size="md">
+                    Label
+                  </Button>
+                </VStack>
+                <VStack flexDir="column-reverse" gap="4" flex={1}>
+                  <Button visual="outline" color="accent" size="lg">
+                    Label
+                  </Button>
+                  <Button visual="outline" color="gray" size="lg">
+                    Label
+                  </Button>
+                  <Button visual="outline" color="danger" size="lg">
+                    Label
+                  </Button>
+                  <Button visual="outline" color="success" size="lg">
                     Label
                   </Button>
                 </VStack>
@@ -70,44 +70,44 @@ export const Buttons = () => {
                 gap="4"
               >
                 <VStack flexDir="column-reverse" gap="4" flex={1}>
-                  <Button visual="solid" color="blue" size="sm">
+                  <Button visual="solid" color="accent" size="sm">
                     Label
                   </Button>
-                  <Button visual="solid" color="slate" size="sm">
+                  <Button visual="solid" color="gray" size="sm">
                     Label
                   </Button>
-                  <Button visual="solid" color="red" size="sm">
+                  <Button visual="solid" color="danger" size="sm">
                     Label
                   </Button>
-                  <Button visual="solid" color="green" size="sm">
-                    Label
-                  </Button>
-                </VStack>
-                <VStack flexDir="column-reverse" gap="4" flex={1}>
-                  <Button visual="solid" color="blue" size="md">
-                    Label
-                  </Button>
-                  <Button visual="solid" color="slate" size="md">
-                    Label
-                  </Button>
-                  <Button visual="solid" color="red" size="md">
-                    Label
-                  </Button>
-                  <Button visual="solid" color="green" size="md">
+                  <Button visual="solid" color="success" size="sm">
                     Label
                   </Button>
                 </VStack>
                 <VStack flexDir="column-reverse" gap="4" flex={1}>
-                  <Button visual="solid" color="blue" size="lg">
+                  <Button visual="solid" color="accent" size="md">
                     Label
                   </Button>
-                  <Button visual="solid" color="slate" size="lg">
+                  <Button visual="solid" color="gray" size="md">
                     Label
                   </Button>
-                  <Button visual="solid" color="red" size="lg">
+                  <Button visual="solid" color="danger" size="md">
                     Label
                   </Button>
-                  <Button visual="solid" color="green" size="lg">
+                  <Button visual="solid" color="success" size="md">
+                    Label
+                  </Button>
+                </VStack>
+                <VStack flexDir="column-reverse" gap="4" flex={1}>
+                  <Button visual="solid" color="accent" size="lg">
+                    Label
+                  </Button>
+                  <Button visual="solid" color="gray" size="lg">
+                    Label
+                  </Button>
+                  <Button visual="solid" color="danger" size="lg">
+                    Label
+                  </Button>
+                  <Button visual="solid" color="success" size="lg">
                     Label
                   </Button>
                 </VStack>
@@ -122,44 +122,44 @@ export const Buttons = () => {
                 gap="4"
               >
                 <VStack flexDir="column-reverse" gap="4" flex={1}>
-                  <Button visual="link" color="blue" size="sm">
+                  <Button visual="link" color="accent" size="sm">
                     Label
                   </Button>
-                  <Button visual="link" color="slate" size="sm">
+                  <Button visual="link" color="gray" size="sm">
                     Label
                   </Button>
-                  <Button visual="link" color="red" size="sm">
+                  <Button visual="link" color="danger" size="sm">
                     Label
                   </Button>
-                  <Button visual="link" color="green" size="sm">
-                    Label
-                  </Button>
-                </VStack>
-                <VStack flexDir="column-reverse" gap="4" flex={1}>
-                  <Button visual="link" color="blue" size="md">
-                    Label
-                  </Button>
-                  <Button visual="link" color="slate" size="md">
-                    Label
-                  </Button>
-                  <Button visual="link" color="red" size="md">
-                    Label
-                  </Button>
-                  <Button visual="link" color="green" size="md">
+                  <Button visual="link" color="success" size="sm">
                     Label
                   </Button>
                 </VStack>
                 <VStack flexDir="column-reverse" gap="4" flex={1}>
-                  <Button visual="link" color="blue" size="lg">
+                  <Button visual="link" color="accent" size="md">
                     Label
                   </Button>
-                  <Button visual="link" color="slate" size="lg">
+                  <Button visual="link" color="gray" size="md">
                     Label
                   </Button>
-                  <Button visual="link" color="red" size="lg">
+                  <Button visual="link" color="danger" size="md">
                     Label
                   </Button>
-                  <Button visual="link" color="green" size="lg">
+                  <Button visual="link" color="success" size="md">
+                    Label
+                  </Button>
+                </VStack>
+                <VStack flexDir="column-reverse" gap="4" flex={1}>
+                  <Button visual="link" color="accent" size="lg">
+                    Label
+                  </Button>
+                  <Button visual="link" color="gray" size="lg">
+                    Label
+                  </Button>
+                  <Button visual="link" color="danger" size="lg">
+                    Label
+                  </Button>
+                  <Button visual="link" color="success" size="lg">
                     Label
                   </Button>
                 </VStack>

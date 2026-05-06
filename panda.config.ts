@@ -5,7 +5,7 @@ import { globalCss } from "@/theme/global-css";
 import { keyframes } from "@/theme/keyframes";
 import { layerStyles } from "@/theme/layer-styles";
 import { textStyles } from "@/theme/text-styles";
-import { colorPalettes } from "@/theme/colors";
+import { colorPalettes, blue, red, green, amber, sky } from "@/theme/colors";
 import {
   animations,
   colors as colorPrimitives,
@@ -50,6 +50,11 @@ export default defineConfig({
         colors: {
           ...colorPalettes,
           ...colors,
+          accent: { ...blue, ...colors.accent },
+          danger: { ...red, ...colors.danger },
+          success: { ...green, ...colors.success },
+          warning: { ...amber, ...colors.warning },
+          info: { ...sky, ...colors.info },
         },
         shadows,
         radii,
@@ -66,7 +71,20 @@ export default defineConfig({
     css: [
       {
         properties: {
-          colorPalette: ["blue", "red", "slate", "gray", "amber", "green", "sky"],
+          colorPalette: [
+            "blue",
+            "accent",
+            "red",
+            "danger",
+            "slate",
+            "gray",
+            "amber",
+            "warning",
+            "green",
+            "success",
+            "sky",
+            "info",
+          ],
         },
       },
     ],
