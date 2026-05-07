@@ -17,7 +17,7 @@ export const RootLayout = () => {
       </head>
       <body>
         <ToastProvider>
-          <Main>
+          <Main display="flex" flexDir="column" minHeight="[100dvh]">
             <Outlet />
             <Footer />
           </Main>
