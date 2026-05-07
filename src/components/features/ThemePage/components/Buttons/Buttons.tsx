@@ -1,187 +1,173 @@
-import { CoreSectionWrapper } from "../CoreSectionWrapper/CoreSectionWrapper";
-import { Card } from "@/components/core/Card/Card";
+import { CoreSectionWrapper } from "@/components/features/ThemePage/components/CoreSectionWrapper/CoreSectionWrapper";
+import { CardBody, CardRoot } from "@/components/core/Card/Card";
 import { Button } from "@/components/core/Button/Button";
+import { Heading } from "@/components/core/Heading/Heading";
 import { Flex, HStack, VStack } from "@/styled-system/jsx";
-import { css } from "@/styled-system/css";
 
 export const Buttons = () => {
   return (
     <CoreSectionWrapper title="Buttons">
-      <Card>
-        <Flex flexWrap="wrap" gap="10">
-          <VStack alignItems="flex-start">
-            <h4
-              className={css({
-                fontSize: "xl",
-                fontFamily: "heading",
-                fontWeight: "bold",
-                bgColor: "",
-                color: "",
-              })}
-            >
-              Outline
-            </h4>
-            <HStack justifyContent="flex-start" alignItems="flex-start" gap="4">
-              <VStack flexDir="column-reverse" gap="4" flex={1}>
-                <Button visual="outline" color="brand" size="sm">
-                  Label
-                </Button>
-                <Button visual="outline" color="black" size="sm">
-                  Label
-                </Button>
-                <Button visual="outline" color="red" size="sm">
-                  Label
-                </Button>
-                <Button visual="outline" color="yellow" size="sm">
-                  Label
-                </Button>
-              </VStack>
-              <VStack flexDir="column-reverse" gap="4" flex={1}>
-                <Button visual="outline" color="brand" size="md">
-                  Label
-                </Button>
-                <Button visual="outline" color="black" size="md">
-                  Label
-                </Button>
-                <Button visual="outline" color="red" size="md">
-                  Label
-                </Button>
-                <Button visual="outline" color="yellow" size="md">
-                  Label
-                </Button>
-              </VStack>
-              <VStack flexDir="column-reverse" gap="4" flex={1}>
-                <Button visual="outline" color="brand" size="lg">
-                  Label
-                </Button>
-                <Button visual="outline" color="black" size="lg">
-                  Label
-                </Button>
-                <Button visual="outline" color="red" size="lg">
-                  Label
-                </Button>
-                <Button visual="outline" color="yellow" size="lg">
-                  Label
-                </Button>
-              </VStack>
-            </HStack>
-          </VStack>
-          <VStack alignItems="flex-start">
-            <h4
-              className={css({
-                fontSize: "xl",
-                fontFamily: "heading",
-                fontWeight: "bold",
-                bgColor: "",
-                color: "",
-              })}
-            >
-              Solid
-            </h4>
-            <HStack justifyContent="flex-start" alignItems="flex-start" gap="4">
-              <VStack flexDir="column-reverse" gap="4" flex={1}>
-                <Button visual="solid" color="brand" size="sm">
-                  Label
-                </Button>
-                <Button visual="solid" color="black" size="sm">
-                  Label
-                </Button>
-                <Button visual="solid" color="red" size="sm">
-                  Label
-                </Button>
-                <Button visual="solid" color="yellow" size="sm">
-                  Label
-                </Button>
-              </VStack>
-              <VStack flexDir="column-reverse" gap="4" flex={1}>
-                <Button visual="solid" color="brand" size="md">
-                  Label
-                </Button>
-                <Button visual="solid" color="black" size="md">
-                  Label
-                </Button>
-                <Button visual="solid" color="red" size="md">
-                  Label
-                </Button>
-                <Button visual="solid" color="yellow" size="md">
-                  Label
-                </Button>
-              </VStack>
-              <VStack flexDir="column-reverse" gap="4" flex={1}>
-                <Button visual="solid" color="brand" size="lg">
-                  Label
-                </Button>
-                <Button visual="solid" color="black" size="lg">
-                  Label
-                </Button>
-                <Button visual="solid" color="red" size="lg">
-                  Label
-                </Button>
-                <Button visual="solid" color="yellow" size="lg">
-                  Label
-                </Button>
-              </VStack>
-            </HStack>
-          </VStack>
-          <VStack alignItems="flex-start">
-            <h4
-              className={css({
-                fontSize: "xl",
-                fontFamily: "heading",
-                fontWeight: "bold",
-                bgColor: "",
-                color: "",
-              })}
-            >
-              Link
-            </h4>
-            <HStack justifyContent="flex-start" alignItems="flex-start" gap="4">
-              <VStack flexDir="column-reverse" gap="4" flex={1}>
-                <Button visual="link" color="brand" size="sm">
-                  Label
-                </Button>
-                <Button visual="link" color="black" size="sm">
-                  Label
-                </Button>
-                <Button visual="link" color="red" size="sm">
-                  Label
-                </Button>
-                <Button visual="link" color="yellow" size="sm">
-                  Label
-                </Button>
-              </VStack>
-              <VStack flexDir="column-reverse" gap="4" flex={1}>
-                <Button visual="link" color="brand" size="md">
-                  Label
-                </Button>
-                <Button visual="link" color="black" size="md">
-                  Label
-                </Button>
-                <Button visual="link" color="red" size="md">
-                  Label
-                </Button>
-                <Button visual="link" color="yellow" size="md">
-                  Label
-                </Button>
-              </VStack>
-              <VStack flexDir="column-reverse" gap="4" flex={1}>
-                <Button visual="link" color="brand" size="lg">
-                  Label
-                </Button>
-                <Button visual="link" color="black" size="lg">
-                  Label
-                </Button>
-                <Button visual="link" color="red" size="lg">
-                  Label
-                </Button>
-                <Button visual="link" color="yellow" size="lg">
-                  Label
-                </Button>
-              </VStack>
-            </HStack>
-          </VStack>
-        </Flex>
-      </Card>
+      <CardRoot>
+        <CardBody pt="6">
+          <Flex flexWrap="wrap" gap="10">
+            <VStack alignItems="flex-start">
+              <Heading as="h4">Outline</Heading>
+              <HStack
+                justifyContent="flex-start"
+                alignItems="flex-start"
+                gap="4"
+              >
+                <VStack flexDir="column-reverse" gap="4" flex={1}>
+                  <Button visual="outline" color="accent" size="sm">
+                    Label
+                  </Button>
+                  <Button visual="outline" color="gray" size="sm">
+                    Label
+                  </Button>
+                  <Button visual="outline" color="danger" size="sm">
+                    Label
+                  </Button>
+                  <Button visual="outline" color="success" size="sm">
+                    Label
+                  </Button>
+                </VStack>
+                <VStack flexDir="column-reverse" gap="4" flex={1}>
+                  <Button visual="outline" color="accent" size="md">
+                    Label
+                  </Button>
+                  <Button visual="outline" color="gray" size="md">
+                    Label
+                  </Button>
+                  <Button visual="outline" color="danger" size="md">
+                    Label
+                  </Button>
+                  <Button visual="outline" color="success" size="md">
+                    Label
+                  </Button>
+                </VStack>
+                <VStack flexDir="column-reverse" gap="4" flex={1}>
+                  <Button visual="outline" color="accent" size="lg">
+                    Label
+                  </Button>
+                  <Button visual="outline" color="gray" size="lg">
+                    Label
+                  </Button>
+                  <Button visual="outline" color="danger" size="lg">
+                    Label
+                  </Button>
+                  <Button visual="outline" color="success" size="lg">
+                    Label
+                  </Button>
+                </VStack>
+              </HStack>
+            </VStack>
+
+            <VStack alignItems="flex-start">
+              <Heading as="h4">Solid</Heading>
+              <HStack
+                justifyContent="flex-start"
+                alignItems="flex-start"
+                gap="4"
+              >
+                <VStack flexDir="column-reverse" gap="4" flex={1}>
+                  <Button visual="solid" color="accent" size="sm">
+                    Label
+                  </Button>
+                  <Button visual="solid" color="gray" size="sm">
+                    Label
+                  </Button>
+                  <Button visual="solid" color="danger" size="sm">
+                    Label
+                  </Button>
+                  <Button visual="solid" color="success" size="sm">
+                    Label
+                  </Button>
+                </VStack>
+                <VStack flexDir="column-reverse" gap="4" flex={1}>
+                  <Button visual="solid" color="accent" size="md">
+                    Label
+                  </Button>
+                  <Button visual="solid" color="gray" size="md">
+                    Label
+                  </Button>
+                  <Button visual="solid" color="danger" size="md">
+                    Label
+                  </Button>
+                  <Button visual="solid" color="success" size="md">
+                    Label
+                  </Button>
+                </VStack>
+                <VStack flexDir="column-reverse" gap="4" flex={1}>
+                  <Button visual="solid" color="accent" size="lg">
+                    Label
+                  </Button>
+                  <Button visual="solid" color="gray" size="lg">
+                    Label
+                  </Button>
+                  <Button visual="solid" color="danger" size="lg">
+                    Label
+                  </Button>
+                  <Button visual="solid" color="success" size="lg">
+                    Label
+                  </Button>
+                </VStack>
+              </HStack>
+            </VStack>
+
+            <VStack alignItems="flex-start">
+              <Heading as="h4">Link</Heading>
+              <HStack
+                justifyContent="flex-start"
+                alignItems="flex-start"
+                gap="4"
+              >
+                <VStack flexDir="column-reverse" gap="4" flex={1}>
+                  <Button visual="link" color="accent" size="sm">
+                    Label
+                  </Button>
+                  <Button visual="link" color="gray" size="sm">
+                    Label
+                  </Button>
+                  <Button visual="link" color="danger" size="sm">
+                    Label
+                  </Button>
+                  <Button visual="link" color="success" size="sm">
+                    Label
+                  </Button>
+                </VStack>
+                <VStack flexDir="column-reverse" gap="4" flex={1}>
+                  <Button visual="link" color="accent" size="md">
+                    Label
+                  </Button>
+                  <Button visual="link" color="gray" size="md">
+                    Label
+                  </Button>
+                  <Button visual="link" color="danger" size="md">
+                    Label
+                  </Button>
+                  <Button visual="link" color="success" size="md">
+                    Label
+                  </Button>
+                </VStack>
+                <VStack flexDir="column-reverse" gap="4" flex={1}>
+                  <Button visual="link" color="accent" size="lg">
+                    Label
+                  </Button>
+                  <Button visual="link" color="gray" size="lg">
+                    Label
+                  </Button>
+                  <Button visual="link" color="danger" size="lg">
+                    Label
+                  </Button>
+                  <Button visual="link" color="success" size="lg">
+                    Label
+                  </Button>
+                </VStack>
+              </HStack>
+            </VStack>
+          </Flex>
+        </CardBody>
+      </CardRoot>
     </CoreSectionWrapper>
   );
 };

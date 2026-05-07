@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Text } from "@/components/core/Text/Text";
+import { Heading } from "@/components/core/Heading/Heading";
 import { Container, VStack } from "@/styled-system/jsx";
 
 export const CoreWrapper = ({ children }: { children: ReactNode }) => {
@@ -12,15 +12,9 @@ export const CoreWrapper = ({ children }: { children: ReactNode }) => {
       maxWidth={{ base: "5xl" }}
       w="full"
     >
-      <Text
-        as="h2"
-        fontSize="3xl"
-        fontFamily="heading"
-        fontWeight="bold"
-        mb="2"
-      >
+      <Heading as="h2" mb="2">
         Core Components
-      </Text>
+      </Heading>
       <VStack gap="4" alignItems="flex-start">
         {children}
       </VStack>

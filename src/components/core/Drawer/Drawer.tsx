@@ -1,12 +1,12 @@
 import * as React from "react";
 import { Drawer as DrawerPrimitive } from "vaul";
 import { HTMLStyledProps, styled } from "@/styled-system/jsx";
-import { drawerRecipe } from "@/recipes/drawerRecipe";
+import { drawer } from "@/components/core/Drawer/Drawer.recipe";
 
 export type DrawerProps = HTMLStyledProps<"div"> &
   React.ComponentProps<typeof DrawerPrimitive.Root>;
 
-const classes = drawerRecipe();
+const classes = drawer();
 
 const StyledDrawerPrimitiveRootWrapper = styled("div");
 const StyledDrawerOverlay = styled(DrawerPrimitive.Overlay);

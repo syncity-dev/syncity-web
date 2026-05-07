@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { HTMLStyledProps } from "@/styled-system/types";
-import { Text } from "@/components/core/Text/Text";
+import { Heading } from "@/components/core/Heading/Heading";
 import { Section } from "@/components/core/Section/Section";
 
 interface ICoreSectionWrapperProps extends HTMLStyledProps<"section"> {
@@ -15,9 +15,9 @@ export const CoreSectionWrapper = ({
 }: ICoreSectionWrapperProps) => {
   return (
     <Section {...restProps} w="full">
-      <Text as="h3" fontSize="2xl" fontFamily="heading" fontWeight="bold">
+      <Heading as="h3">
         {title}
-      </Text>
+      </Heading>
       {children}
     </Section>
   );

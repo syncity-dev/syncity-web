@@ -1,6 +1,6 @@
 import { Section } from "@/components/core/Section/Section";
 import { Flex, styled } from "@/styled-system/jsx";
-import { Text } from "@/components/core/Text/Text";
+import { Heading } from "@/components/core/Heading/Heading";
 import {
   SiTypescript,
   SiReact,
@@ -46,19 +46,19 @@ const LOGOS = [
 export const TechStack = ({ ...restProps }) => {
   return (
     <Section pt="16" pb="6" {...restProps}>
-      <Text
+      <Heading
         as="h2"
         fontSize={{ base: "3xl", md: "4xl" }}
         textAlign="center"
         mb="12"
       >
         Our Tech Stack
-      </Text>
+      </Heading>
       <Flex
         gap={{ base: "10", sm: "16" }}
         className="group"
         maskImage="linear-gradient(to right, transparent, white 15%, white 90%, transparent)"
-        color="stone.900"
+        color="fg.default"
         _motionSafe={{ overflowX: "hidden" }}
         _motionReduce={{ overflowX: "scroll", px: "20" }}
         pb="10"

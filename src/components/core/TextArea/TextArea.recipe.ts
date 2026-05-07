@@ -1,20 +1,19 @@
 import { sva } from "@/styled-system/css";
 
-export const textInputRecipe = sva({
+export const textArea = sva({
   slots: ["control"],
   base: {
     control: {
-      accentColor: "black",
+      fontFamily: "body",
       borderWidth: "1px",
-      borderColor: "stone.200",
-      bgColor: "white",
-      color: "stone.900",
+      borderColor: "border.default",
+      bgColor: "bg.default",
+      color: "fg.default",
       rounded: "sm",
       outlineOffset: "1",
-      outlineColor: "brand.600",
-      shadow: "md",
+      outlineColor: "accent.emphasis",
       _placeholder: {
-        color: "stone.400",
+        color: "fg.subtle",
       },
     },
   },

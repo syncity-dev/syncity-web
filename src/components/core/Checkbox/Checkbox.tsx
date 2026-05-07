@@ -1,4 +1,4 @@
-import { checkboxRecipe } from "@/recipes/checkboxRecipe";
+import { checkbox } from "@/components/core/Checkbox/Checkbox.recipe";
 import { styled, HTMLStyledProps } from "@/styled-system/jsx";
 import { Size } from "@/types/core";
 
@@ -13,7 +13,7 @@ export const Checkbox = ({
   checked,
   ...restProps
 }: ICheckboxProps) => {
-  const classes = checkboxRecipe({ size: size, checked });
+  const classes = checkbox({ size, checked });
 
   return (
     <StyledInput

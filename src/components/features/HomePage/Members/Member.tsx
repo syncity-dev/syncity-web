@@ -1,8 +1,11 @@
 import { GridItem } from "@/styled-system/jsx";
 import { Text } from "@/components/core/Text/Text";
+import { Heading } from "@/components/core/Heading/Heading";
 import { Flex, styled } from "@/styled-system/jsx";
 import { Link } from "@/components/core/Link/Link";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
+import { Image } from "@unpic/react";
+import { css } from "@/styled-system/css";
 
 type MemberProps = {
   name: string;
@@ -28,52 +31,50 @@ export const Member = ({
       alignItems="center"
       flexDir="column"
     >
-      <Avatar
-        position="relative"
-        rounded="full"
-        w="32"
-        h="32"
-        mx="auto"
-        mb="4"
-        justifyContent="center"
-        alignItems="center"
-        bg="stone.200"
-        shadow="xl"
-        outlineOffset={0.5}
-        outlineColor="brand.600"
-        overflow="hidden"
-        _hover={{
-          translateX: "100px",
-        }}
-      >
-        {imgSrc ? (
-          <img
-            src={imgSrc}
-            alt={name}
-            style={{ objectFit: "cover", width: "100%", height: "100%" }}
-          />
-        ) : null}
-      </Avatar>
+      <AvatarWrapper rounded="full" w="32" h="32" mx="auto" mb="4" shadow="xl">
+        <Avatar
+          rounded="full"
+          w="full"
+          h="full"
+          justifyContent="center"
+          alignItems="center"
+          outlineOffset={0.5}
+          outlineColor="accent.emphasis"
+          overflow="hidden"
+          _hover={{
+            translateX: "100px",
+          }}
+        >
+          {imgSrc ? (
+            <Image
+              src={imgSrc}
+              alt={name}
+              width={128}
+              height={128}
+              className={css({ objectFit: "cover", w: "100%", h: "100%" })}
+              layout="constrained"
+            />
+          ) : null}
+        </Avatar>
+      </AvatarWrapper>
 
-      <Text as="h3" fontSize="xl" mb="2">
+      <Heading as="h3" textStyle="lg" mb="2">
         {name}
-      </Text>
-      <Text color="stone.600" mb="1">
+      </Heading>
+      <Text color="fg.muted" mb="1">
         {title}
       </Text>
-      <Text fontSize="sm" color="stone.500" flex="1">
+      <Text fontSize="sm" color="fg.muted" flex="1">
         {description}
       </Text>
       <Flex flexDir="row" gap="1">
         <Link
           href={githubLink}
           target="_blank"
+          visual="plain"
           display="flex"
           alignItems="center"
-          gap="1"
           fontSize="sm"
-          color="brand.950"
-          _hover={{ color: "brand.600", textDecoration: "underline" }}
           p="2"
         >
           <BsGithub size="1em" />
@@ -81,11 +82,10 @@ export const Member = ({
         <Link
           href={linkedinLink}
           target="_blank"
+          visual="plain"
           display="flex"
           alignItems="center"
-          gap="1"
           fontSize="sm"
-          _hover={{ color: "sky.600" }}
           p="2"
         >
           <BsLinkedin size="1em" />
@@ -95,4 +95,5 @@ export const Member = ({
   );
 };
 
+const AvatarWrapper = styled.div;
 const Avatar = styled.button;

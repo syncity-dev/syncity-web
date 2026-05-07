@@ -7,4 +7,5 @@ export const animations = {
   slideInFromBottom: { value: "slideInFromBottom 0.6s var(--ease-out)" },
   slideOutToRight: { value: "slideOutToRight 0.9s var(--elastic-out)" },
   spin: { value: "spin 1s linear infinite" },
+  "infinite-scroll": { value: "infinite-scroll 50s linear infinite" },
 } as const;

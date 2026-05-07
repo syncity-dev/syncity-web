@@ -1,6 +1,6 @@
 import { cva } from "@/styled-system/css";
 
-export const textRecipe = cva({
+export const text = cva({
   base: {},
   variants: {
     size: {
@@ -17,12 +17,7 @@ export const textRecipe = cva({
     as: {
       p: { fontFamily: "body" },
       label: { fontFamily: "body" },
-      h1: { fontFamily: "heading", color: "stone.900" },
-      h2: { fontFamily: "heading", color: "stone.900" },
-      h3: { fontFamily: "heading", color: "stone.900" },
-      h4: { fontFamily: "heading", color: "stone.900" },
-      h5: { fontFamily: "heading", color: "stone.900" },
-      h6: { fontFamily: "heading", color: "stone.900" },
+      small: { fontFamily: "body" },
     },
   },
   defaultVariants: {

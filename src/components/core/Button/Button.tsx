@@ -1,37 +1,41 @@
-import { buttonRecipe } from "@/recipes/buttonRecipe";
+import { button } from "@/components/core/Button/Button.recipe";
 import { styled, HTMLStyledProps } from "@/styled-system/jsx";
 import { Size } from "@/types/core";
+
+export type ButtonColor = "accent" | "danger" | "gray" | "info" | "success" | "warning";
 
 type ButtonBaseProps = {
   visual?: "solid" | "outline" | "link";
   size?: Size;
-  color?: "red" | "yellow" | "black" | "brand";
+  color?: ButtonColor;
 };
 
 type ButtonProps = ButtonBaseProps & HTMLStyledProps<"button">;
 type LinkProps = ButtonBaseProps & HTMLStyledProps<"a"> & { href: string };
 
-const StyledButton = styled("button");
-const StyledLink = styled("a");
+const BaseButton = styled("button");
+const BaseLink = styled("a");
 
 export const Button = (props: ButtonProps | LinkProps) => {
-  const { visual, size, color, ...restProps } = props;
+  const { visual, size, color = "accent", ...restProps } = props;
 
   if ("href" in props && typeof props.href === "string") {
     const { href, ...linkProps } = restProps as HTMLStyledProps<"a">;
     return (
-      <StyledLink
+      <BaseLink
         href={href}
-        className={buttonRecipe({ visual, size, color })}
+        className={button({ visual, size })}
+        colorPalette={color}
         {...linkProps}
       />
     );
   }
 
   return (
-    <StyledButton
+    <BaseButton
       {...(restProps as HTMLStyledProps<"button">)}
-      className={buttonRecipe({ visual, size, color })}
+      className={button({ visual, size })}
+      colorPalette={color}
     />
   );
 };

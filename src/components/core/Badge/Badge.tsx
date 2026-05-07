@@ -1,6 +1,6 @@
 import { Size } from "@/types/core";
 import { styled, HTMLStyledProps } from "@/styled-system/jsx";
-import { badgeRecipe } from "@/recipes/badgeRecipe";
+import { badge } from "@/components/core/Badge/Badge.recipe";
 
 interface IBadgeProps extends HTMLStyledProps<"span"> {
   status?: "default" | "success" | "warning" | "danger";
@@ -8,7 +8,7 @@ interface IBadgeProps extends HTMLStyledProps<"span"> {
   visual?: "solid" | "outline";
 }
 
-const StyledBadge = styled("span");
+const BaseBadge = styled("span");
 
 export const Badge = ({
   status = "default",
@@ -17,9 +17,6 @@ export const Badge = ({
   ...restProps
 }: IBadgeProps) => {
   return (
-    <StyledBadge
-      className={badgeRecipe({ status, size, visual })}
-      {...restProps}
-    />
+    <BaseBadge className={badge({ status, size, visual })} {...restProps} />
   );
 };
