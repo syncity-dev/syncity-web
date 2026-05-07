@@ -3,7 +3,7 @@ import { interactiveTransition } from "@/theme/motion/transitions";
 
 export const button = cva({
   base: {
-    display: "flex",
+    display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
     fontFamily: "body",
