@@ -15,7 +15,7 @@ import {
   zIndex,
 } from "@/theme/tokens";
 import { colors, easings, radii, shadows } from "@/theme/semanticTokens";
-import { slotRecipes } from "@/recipes";
+import { slotRecipes, recipes } from "@/recipes";
 
 export default defineConfig({
   preflight: true,
@@ -60,6 +60,7 @@ export default defineConfig({
       },
       layerStyles,
       textStyles,
+      recipes,
       slotRecipes,
     },
     keyframes,

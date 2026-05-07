@@ -1,64 +1,25 @@
-import { cva } from "@/styled-system/css";
+import { defineRecipe } from "@pandacss/dev";
 
-export const icon = cva({
-  base: {},
-  variants: {
-    size: {
-      xl: {
-        h: "6",
-        w: "6",
-      },
-      lg: {
-        h: "5",
-        w: "5",
-      },
-      md: {
-        h: "4",
-        w: "4",
-      },
-      sm: {
-        h: "3",
-        w: "3",
-      },
-      xs: {
-        h: "2",
-        w: "2",
-      },
-    },
-    left: {
-      none: {},
-      sm: {
-        ml: "2",
-      },
-      auto: {
-        ml: "auto",
-      },
-    },
-    right: {
-      none: {},
-      sm: {
-        mr: "2",
-      },
-      auto: {
-        mr: "auto",
-      },
-    },
-    fillCurrent: {
-      true: {
-        fill: "currentColor",
-      },
-    },
-    dimmed: {
-      true: {
-        opacity: "0.5",
-      },
-    },
+export const icon = defineRecipe({
+  className: "icon",
+  base: {
+    color: "currentcolor",
+    display: "inline-block",
+    flexShrink: "0",
+    verticalAlign: "middle",
+    lineHeight: "1em",
   },
   defaultVariants: {
     size: "md",
-    left: "none",
-    right: "none",
-    fillCurrent: false,
-    dimmed: false,
+  },
+  variants: {
+    size: {
+      "2xs": { boxSize: "3" },
+      xs: { boxSize: "4" },
+      sm: { boxSize: "4.5" },
+      md: { boxSize: "5" },
+      lg: { boxSize: "5.5" },
+      xl: { boxSize: "6" },
+    },
   },
 });
