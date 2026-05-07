@@ -27,7 +27,7 @@ export const Logo = ({ size = "md", ...restProps }: LogoProps) => {
       <Image
         src="/logos/logo-dark.png"
         layout="fullWidth"
-        alt=""
+        alt="Syncity Logo"
         className={darkVariant}
       />
     </RouteLink>
