@@ -1,10 +1,10 @@
 import * as React from "react";
 import * as ToastPrimitive from "@radix-ui/react-toast";
-import { LuX } from "react-icons/lu";
+import { X } from "lucide-react";
 import { styled } from "@/styled-system/jsx";
 import { toast, toastViewport } from "@/components/core/Toast/Toast.recipe";
 import { createStyleContext } from "@/utils/style-context";
-import { icon } from "@/recipes/icon";
+import { icon } from "@/styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(toast);
 
@@ -16,7 +16,7 @@ export const Toast = withProvider(styled(ToastPrimitive.Root), "root", {
 
 export const ToastAction = withContext(styled(ToastPrimitive.Action), "action");
 export const ToastClose = withContext(styled(ToastPrimitive.Close), "close", {
-  children: <LuX className={icon({ size: "lg" })} />,
+  children: <X className={icon({ size: "lg" })} />,
 });
 
 export const ToastTitle = withContext(styled(ToastPrimitive.Title), "title");
