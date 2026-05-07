@@ -5,6 +5,7 @@ import { Flex, styled } from "@/styled-system/jsx";
 import { Link } from "@/components/core/Link/Link";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { Image } from "@unpic/react";
+import { css } from "@/styled-system/css";
 
 type MemberProps = {
   name: string;
@@ -30,33 +31,37 @@ export const Member = ({
       alignItems="center"
       flexDir="column"
     >
-      <Avatar
-        position="relative"
-        rounded="full"
-        w="32"
-        h="32"
-        mx="auto"
-        mb="4"
-        justifyContent="center"
-        alignItems="center"
-        bg="gray.plain.fg"
-        shadow="xl"
-        outlineOffset={0.5}
-        outlineColor="accent.emphasis"
-        overflow="hidden"
-        _hover={{
-          translateX: "100px",
-        }}
-      >
-        {imgSrc ? (
-          <Image src={imgSrc} alt={name} objectFit="cover" layout="fullWidth" />
-        ) : null}
-      </Avatar>
+      <AvatarWrapper rounded="full" w="32" h="32" mx="auto" mb="4" shadow="xl">
+        <Avatar
+          rounded="full"
+          w="full"
+          h="full"
+          justifyContent="center"
+          alignItems="center"
+          outlineOffset={0.5}
+          outlineColor="accent.emphasis"
+          overflow="hidden"
+          _hover={{
+            translateX: "100px",
+          }}
+        >
+          {imgSrc ? (
+            <Image
+              src={imgSrc}
+              alt={name}
+              width={128}
+              height={128}
+              className={css({ objectFit: "cover", w: "100%", h: "100%" })}
+              layout="constrained"
+            />
+          ) : null}
+        </Avatar>
+      </AvatarWrapper>
 
-      <Heading as="h3" mb="2">
+      <Heading as="h3" textStyle="lg" mb="2">
         {name}
       </Heading>
-      <Text color="fg.muted" textStyle="lg" mb="1">
+      <Text color="fg.muted" mb="1">
         {title}
       </Text>
       <Text fontSize="sm" color="fg.muted" flex="1">
@@ -90,4 +95,5 @@ export const Member = ({
   );
 };
 
+const AvatarWrapper = styled.div;
 const Avatar = styled.button;

@@ -12,7 +12,6 @@ import {
   durations,
   easings as easingPrimitives,
   fonts,
-  shadows as shadowPrimitives,
   zIndex,
 } from "@/theme/tokens";
 import { colors, easings, radii, shadows } from "@/theme/semanticTokens";
@@ -42,7 +41,6 @@ export default defineConfig({
         fonts,
         durations,
         easings: easingPrimitives,
-        shadows: shadowPrimitives,
         zIndex,
         animations,
       },
