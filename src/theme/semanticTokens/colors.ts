@@ -2,75 +2,47 @@ import { defineSemanticTokens } from "@pandacss/dev";
 
 export const colors = defineSemanticTokens.colors({
   bg: {
-    default: { value: { _light: "{colors.white}", _dark: "{colors.gray.1}" } },
-    subtle: {
-      value: { _light: "{colors.gray.2}", _dark: "{colors.gray.2}" },
-    },
-    muted: { value: { _light: "{colors.gray.3}", _dark: "{colors.gray.3}" } },
+    default: { value: { _light: "{colors.gray.1}", _dark: "{colors.gray.1}" } },
+    subtle: { value: { _light: "{colors.gray.2}", _dark: "{colors.gray.3}" } },
+    muted: { value: { _light: "{colors.gray.3}", _dark: "{colors.gray.4}" } },
   },
   fg: {
-    default: {
-      value: { _light: "{colors.gray.12}", _dark: "{colors.gray.12}" },
-    },
-    muted: {
-      value: { _light: "{colors.gray.11}", _dark: "{colors.gray.11}" },
-    },
-    subtle: {
-      value: { _light: "{colors.gray.10}", _dark: "{colors.gray.10}" },
-    },
+    default: { value: "{colors.gray.12}" },
+    muted: { value: "{colors.gray.11}" },
+    subtle: { value: "{colors.gray.10}" },
   },
   border: {
-    default: {
-      value: { _light: "{colors.gray.2}", _dark: "{colors.gray.2}" },
-    },
-    strong: {
-      value: { _light: "{colors.gray.8}", _dark: "{colors.gray.8}" },
-    },
+    default: { value: "{colors.gray.6}" },
+    strong: { value: "{colors.gray.8}" },
   },
   accent: {
-    default: { value: { _light: "{colors.blue.9}", _dark: "{colors.blue.9}" } },
-    emphasis: {
-      value: { _light: "{colors.blue.10}", _dark: "{colors.blue.10}" },
-    },
-    muted: { value: { _light: "{colors.blue.3}", _dark: "{colors.blue.3}" } },
-    fg: { value: { _light: "{colors.white}", _dark: "{colors.white}" } },
+    default: { value: "{colors.blue.9}" },
+    emphasis: { value: "{colors.blue.10}" },
+    muted: { value: "{colors.blue.3}" },
+    fg: { value: "{colors.white}" },
   },
   danger: {
-    default: { value: { _light: "{colors.red.9}", _dark: "{colors.red.9}" } },
-    emphasis: {
-      value: { _light: "{colors.red.10}", _dark: "{colors.red.10}" },
-    },
-    muted: { value: { _light: "{colors.red.3}", _dark: "{colors.red.3}" } },
-    fg: { value: { _light: "{colors.red.11}", _dark: "{colors.red.11}" } },
+    default: { value: "{colors.red.9}" },
+    emphasis: { value: "{colors.red.10}" },
+    muted: { value: "{colors.red.3}" },
+    fg: { value: "{colors.red.11}" },
   },
   success: {
-    default: {
-      value: { _light: "{colors.green.9}", _dark: "{colors.green.9}" },
-    },
-    emphasis: {
-      value: { _light: "{colors.green.10}", _dark: "{colors.green.10}" },
-    },
-    muted: { value: { _light: "{colors.green.3}", _dark: "{colors.green.3}" } },
-    fg: { value: { _light: "{colors.green.11}", _dark: "{colors.green.11}" } },
+    default: { value: "{colors.green.9}" },
+    emphasis: { value: "{colors.green.10}" },
+    muted: { value: "{colors.green.3}" },
+    fg: { value: "{colors.green.11}" },
   },
   warning: {
-    default: {
-      value: { _light: "{colors.amber.9}", _dark: "{colors.amber.9}" },
-    },
-    emphasis: {
-      value: { _light: "{colors.amber.10}", _dark: "{colors.amber.10}" },
-    },
-    muted: {
-      value: { _light: "{colors.amber.3}", _dark: "{colors.amber.3}" },
-    },
-    fg: { value: { _light: "{colors.amber.11}", _dark: "{colors.amber.11}" } },
+    default: { value: "{colors.amber.9}" },
+    emphasis: { value: "{colors.amber.10}" },
+    muted: { value: "{colors.amber.3}" },
+    fg: { value: "{colors.amber.11}" },
   },
   info: {
-    default: { value: { _light: "{colors.sky.9}", _dark: "{colors.sky.9}" } },
-    emphasis: {
-      value: { _light: "{colors.sky.10}", _dark: "{colors.sky.10}" },
-    },
-    muted: { value: { _light: "{colors.sky.3}", _dark: "{colors.sky.3}" } },
-    fg: { value: { _light: "{colors.sky.11}", _dark: "{colors.sky.11}" } },
+    default: { value: "{colors.sky.9}" },
+    emphasis: { value: "{colors.sky.10}" },
+    muted: { value: "{colors.sky.3}" },
+    fg: { value: "{colors.sky.11}" },
   },
 });
