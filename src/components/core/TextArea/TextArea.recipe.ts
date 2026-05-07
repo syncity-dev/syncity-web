@@ -12,7 +12,6 @@ export const textArea = sva({
       rounded: "sm",
       outlineOffset: "1",
       outlineColor: "accent.emphasis",
-      shadow: "md",
       _placeholder: {
         color: "fg.subtle",
       },
