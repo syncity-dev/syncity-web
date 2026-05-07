@@ -1,16 +1,35 @@
-import { RouteLink } from "@/components/core/RouteLink/RouteLink";
-import { logo } from "@/components/core/Logo/Logo.recipe";
+import {
+  RouteLink,
+  RouteLinkProps,
+} from "@/components/core/RouteLink/RouteLink";
+import {
+  logo,
+  lightVariant,
+  darkVariant,
+} from "@/components/core/Logo/Logo.recipe";
+
 import { Size } from "@/types/core";
 import { Image } from "@unpic/react";
 
-type LogoProps = {
+type LogoProps = Omit<RouteLinkProps, "to"> & {
   size?: Size;
 };
 
-export const Logo = ({ size = "md" }: LogoProps) => {
+export const Logo = ({ size = "md", ...restProps }: LogoProps) => {
   return (
-    <RouteLink to="/" className={logo({ size })}>
-      <Image src="/Logo.png" layout="fullWidth" alt="Syncity Logo" />
+    <RouteLink to="/" className={logo({ size })} {...restProps}>
+      <Image
+        src="/logos/logo-light.png"
+        layout="fullWidth"
+        alt="Syncity Logo"
+        className={lightVariant}
+      />
+      <Image
+        src="/logos/logo-dark.png"
+        layout="fullWidth"
+        alt=""
+        className={darkVariant}
+      />
     </RouteLink>
   );
 };
