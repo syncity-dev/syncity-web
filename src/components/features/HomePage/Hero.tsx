@@ -26,7 +26,7 @@ export const Hero = () => {
           <Heading as="h1" fontSize={{ base: "6xl", md: "7xl" }}>
             Welcome to
           </Heading>
-          <Logo size="md" />
+          <Logo size="lg" />
         </Flex>
         <Text
           as="p"
