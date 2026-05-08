@@ -41,9 +41,6 @@ export const Member = ({
           outlineOffset={0.5}
           outlineColor="accent.emphasis"
           overflow="hidden"
-          _hover={{
-            translateX: "100px",
-          }}
         >
           {imgSrc ? (
             <Image
