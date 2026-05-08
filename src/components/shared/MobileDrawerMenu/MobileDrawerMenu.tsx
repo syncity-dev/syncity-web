@@ -7,9 +7,10 @@ import {
   DrawerProps,
   DrawerTrigger,
 } from "@/components/core/Drawer/Drawer";
-import { LuX, LuMenu } from "react-icons/lu";
+import { X, Menu as MenuIcon } from "lucide-react";
 import { Logo } from "@/components/core/Logo/Logo";
 import { NavItems } from "@/components/features/Navigation/NavItems";
+import { Icon } from "@/components/core/Icon/Icon";
 
 type MobileDrawerMenuProps = DrawerProps;
 
@@ -23,7 +24,9 @@ export const MobileDrawerMenu = ({ ...restProps }: MobileDrawerMenuProps) => {
       {...restProps}
     >
       <DrawerTrigger asChild cursor="pointer">
-        <LuMenu size={36} />
+        <Icon size="lg">
+          <MenuIcon />
+        </Icon>
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader
@@ -34,7 +37,9 @@ export const MobileDrawerMenu = ({ ...restProps }: MobileDrawerMenuProps) => {
         >
           <Logo />
           <DrawerClose mr={-2} cursor="pointer">
-            <LuX size={36} />
+            <Icon size="lg">
+              <X />
+            </Icon>
           </DrawerClose>
         </DrawerHeader>
         <NavItems orientation="vertical" haveIcons={true} size="lg" />

@@ -7,7 +7,7 @@ import { TextInput } from "@/components/core/TextInput/TextInput";
 import { TextArea } from "@/components/core/TextArea/TextArea";
 import { Text } from "@/components/core/Text/Text";
 import { Button } from "@/components/core/Button/Button";
-import { PiSpinnerBold } from "react-icons/pi";
+import { LoaderCircle } from "lucide-react";
 import { VStack, styled } from "@/styled-system/jsx";
 import { useToast } from "@/components/core/Toast/Toast.hooks";
 
@@ -56,8 +56,7 @@ export const ContactForm = () => {
       reset(defaultValues);
     } else {
       const formErrs = result.getFormErrors();
-      console.log({ formErrs });
-      for (const { code, message } of formErrs) {
+for (const { code, message } of formErrs) {
         setError(`root.${code}`, { type: code, message });
       }
       const fieldErrs = result.getAllFieldErrors();
@@ -149,7 +148,7 @@ export const ContactForm = () => {
       <Button type="submit" w="full" size="lg" disabled={isSubmitting}>
         {isSubmitting ? (
           <styled.div animation="spin" animationDelay="faster">
-            <PiSpinnerBold size={21} />
+            <LoaderCircle size={21} />
           </styled.div>
         ) : (
           "Send Message"
