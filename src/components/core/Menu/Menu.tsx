@@ -6,40 +6,40 @@ import { menu } from "@/styled-system/recipes";
 
 const { withRootProvider, withContext } = createStyleContext(menu);
 
-export type RootProps = ComponentProps<typeof Root>;
-export const Root = withRootProvider(ReactMenu.Root, {
+export type MenuRootProps = ComponentProps<typeof MenuRoot>;
+export const MenuRoot = withRootProvider(ReactMenu.Root, {
   defaultProps: { unmountOnExit: true, lazyMount: true },
 });
-export const RootProvider = withRootProvider(ReactMenu.Root, {
+export const MenuRootProvider = withRootProvider(ReactMenu.Root, {
   defaultProps: { unmountOnExit: true, lazyMount: true },
 });
-export const Arrow = withContext(ReactMenu.Arrow, "arrow");
-export const ArrowTip = withContext(ReactMenu.ArrowTip, "arrowTip");
-export const CheckboxItem = withContext(ReactMenu.CheckboxItem, "item");
-export const Content = withContext(ReactMenu.Content, "content");
-export const ContextTrigger = withContext(
+export const MenuArrow = withContext(ReactMenu.Arrow, "arrow");
+export const MenuArrowTip = withContext(ReactMenu.ArrowTip, "arrowTip");
+export const MenuCheckboxItem = withContext(ReactMenu.CheckboxItem, "item");
+export const MenuContent = withContext(ReactMenu.Content, "content");
+export const MenuContextTrigger = withContext(
   ReactMenu.ContextTrigger,
   "contextTrigger",
 );
-export const Indicator = withContext(ReactMenu.Indicator, "indicator", {
+export const MenuIndicator = withContext(ReactMenu.Indicator, "indicator", {
   defaultProps: { children: <ChevronDown /> },
 });
-export const Item = withContext(ReactMenu.Item, "item");
-export const ItemGroup = withContext(ReactMenu.ItemGroup, "itemGroup");
-export const ItemGroupLabel = withContext(
+export const MenuItem = withContext(ReactMenu.Item, "item");
+export const MenuItemGroup = withContext(ReactMenu.ItemGroup, "itemGroup");
+export const MenuItemGroupLabel = withContext(
   ReactMenu.ItemGroupLabel,
   "itemGroupLabel",
 );
-export const ItemText = withContext(ReactMenu.ItemText, "itemText");
-export const Positioner = withContext(ReactMenu.Positioner, "positioner");
-export const RadioItem = withContext(ReactMenu.RadioItem, "item");
-export const RadioItemGroup = withContext(
+export const MenuItemText = withContext(ReactMenu.ItemText, "itemText");
+export const MenuPositioner = withContext(ReactMenu.Positioner, "positioner");
+export const MenuRadioItem = withContext(ReactMenu.RadioItem, "item");
+export const MenuRadioItemGroup = withContext(
   ReactMenu.RadioItemGroup,
   "itemGroup",
 );
-export const Separator = withContext(ReactMenu.Separator, "separator");
-export const Trigger = withContext(ReactMenu.Trigger, "trigger");
-export const TriggerItem = withContext(ReactMenu.TriggerItem, "item");
+export const MenuSeparator = withContext(ReactMenu.Separator, "separator");
+export const MenuTrigger = withContext(ReactMenu.Trigger, "trigger");
+export const MenuTriggerItem = withContext(ReactMenu.TriggerItem, "item");
 
 export {
   MenuContext as Context,
@@ -51,38 +51,17 @@ const StyledItemIndicator = withContext(
   "itemIndicator",
 );
 
-export const ItemIndicator = forwardRef<HTMLDivElement, HTMLStyledProps<"div">>(
-  function ItemIndicator(props, ref) {
-    const item = useMenuItemContext();
+export const MenuItemIndicator = forwardRef<
+  HTMLDivElement,
+  HTMLStyledProps<"div">
+>(function MenuItemIndicator(props, ref) {
+  const item = useMenuItemContext();
 
-    return item.checked ? (
-      <StyledItemIndicator ref={ref} {...props}>
-        <Check />
-      </StyledItemIndicator>
-    ) : (
-      <svg aria-hidden="true" focusable="false" />
-    );
-  },
-);
-
-export const Menu = {
-  Root,
-  RootProvider,
-  Arrow,
-  ArrowTip,
-  CheckboxItem,
-  Content,
-  ContextTrigger,
-  Indicator,
-  Item,
-  ItemGroup,
-  ItemGroupLabel,
-  ItemText,
-  Positioner,
-  RadioItem,
-  RadioItemGroup,
-  Separator,
-  Trigger,
-  TriggerItem,
-  ItemIndicator,
-};
+  return item.checked ? (
+    <StyledItemIndicator ref={ref} {...props}>
+      <Check />
+    </StyledItemIndicator>
+  ) : (
+    <svg aria-hidden="true" focusable="false" />
+  );
+});

@@ -1,16 +1,14 @@
 import {
-  Root as MenuRoot,
-  Trigger as MenuTrigger,
-  Positioner as MenuPositioner,
-  Content as MenuContent,
-  RadioItemGroup as MenuRadioItemGroup,
-  RadioItem as MenuRadioItem,
-  ItemText as MenuItemText,
+  MenuRoot,
+  MenuTrigger,
+  MenuPositioner,
+  MenuContent,
+  MenuRadioItemGroup,
+  MenuRadioItem,
+  MenuItemText,
 } from "@/components/core/Menu/Menu";
-import { useRef } from "react";
 import { useColorModeSwitcher } from "@/components/shared/ColorModeSwitcher/ColorModeSwitcher.hooks";
-import type { ColorModePreference, ResolvedColorMode } from "@/utils/colorMode";
-import { applyColorMode, resolveColorMode } from "@/utils/colorMode";
+import type { ColorModePreference } from "@/utils/colorMode";
 import { css } from "@/styled-system/css";
 import {
   OPTIONS,
