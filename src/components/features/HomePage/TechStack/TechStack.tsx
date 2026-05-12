@@ -59,7 +59,7 @@ export const TechStack = ({ ...restProps }) => {
         className="group"
         maskImage="linear-gradient(to right, transparent, white 15%, white 90%, transparent)"
         color="fg.default"
-        _motionSafe={{ overflowX: "hidden" }}
+        overflowX="hidden"
         _motionReduce={{ overflowX: "scroll", px: "20" }}
         pb="10"
       >
