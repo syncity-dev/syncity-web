@@ -90,6 +90,28 @@ updates:
           - "minor"
           - "patch"
 
+      # Linting & Formatting
+      eslint:
+        patterns:
+          - "eslint"
+          - "eslint-*"
+          - "@eslint*"
+          - "typescript-eslint"
+          - "prettier"
+        update-types:
+          - "minor"
+          - "patch"
+
+      # Commit & Git Hooks
+      commitlint:
+        patterns:
+          - "@commitlint/*"
+          - "husky"
+          - "lint-staged"
+        update-types:
+          - "minor"
+          - "patch"
+
     # Ignore major version updates (require manual review)
     ignore:
       - dependency-name: "react"
@@ -106,3 +128,13 @@ updates:
         update-types: ["version-update:semver-major"]
       - dependency-name: "vite"
         update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    target-branch: "develop"
+    schedule:
+      interval: "weekly"
+      time: "06:00"
+    labels:
+      - "dependencies"
+      - "ci"
