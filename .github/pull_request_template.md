@@ -19,6 +19,7 @@ Add a link or reference to the Jira ticket associated with this PR (e.g., ES-1).
 - [ ] ✅ `test:` Adding or updating tests
 - [ ] 🔧 `chore:` Maintenance tasks (dependencies, configs, etc)
 - [ ] 🔄 `ci:` CI/CD changes
+- [ ] ↩️ `revert:` Revert a previous commit
 
 ## Checklist
 
