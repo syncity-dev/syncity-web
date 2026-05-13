@@ -6138,7 +6138,7 @@ snapshots:
       on-finished: 2.4.1
       qs: 6.15.1
       raw-body: 3.0.2
-      type-is: 2.1.0
+      type-is: 2.0.1
     transitivePeerDependencies:
       - supports-color
 
@@ -6834,7 +6834,7 @@ snapshots:
       send: 1.2.1
       serve-static: 2.2.1
       statuses: 2.0.2
-      type-is: 2.1.0
+      type-is: 2.0.1
       vary: 1.1.2
     transitivePeerDependencies:
       - supports-color
@@ -8210,9 +8210,9 @@ snapshots:
     dependencies:
       prelude-ls: 1.2.1
 
-  type-is@2.1.0:
+  type-is@2.0.1:
     dependencies:
-      content-type: 2.0.0
+      content-type: 1.0.5
       media-typer: 1.1.0
       mime-types: 3.0.2
 
