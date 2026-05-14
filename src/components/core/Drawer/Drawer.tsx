@@ -1,14 +1,17 @@
-import * as React from "react";
-import { Drawer as DrawerPrimitive } from "vaul";
-import { HTMLStyledProps, styled } from "@/styled-system/jsx";
-import { drawer } from "@/components/core/Drawer/Drawer.recipe";
+/* eslint-disable unused-imports/no-unused-vars */
+import * as React from 'react';
+import { Drawer as DrawerPrimitive } from 'vaul';
 
-export type DrawerProps = HTMLStyledProps<"div"> &
+import { drawer } from '@/components/core/Drawer/Drawer.recipe';
+import type { HTMLStyledProps } from '@/styled-system/jsx';
+import { styled } from '@/styled-system/jsx';
+
+export type DrawerProps = HTMLStyledProps<'div'> &
   React.ComponentProps<typeof DrawerPrimitive.Root>;
 
 const classes = drawer();
 
-const StyledDrawerPrimitiveRootWrapper = styled("div");
+const StyledDrawerPrimitiveRootWrapper = styled('div');
 const StyledDrawerOverlay = styled(DrawerPrimitive.Overlay);
 const StyledDrawerContent = styled(DrawerPrimitive.Content);
 const DrawerTrigger = styled(DrawerPrimitive.Trigger);
@@ -24,15 +27,12 @@ const Drawer = ({
   ...restProps
 }: DrawerProps) => (
   <StyledDrawerPrimitiveRootWrapper {...restProps}>
-    <DrawerPrimitive.Root
-      direction={direction}
-      shouldScaleBackground={shouldScaleBackground}
-    >
+    <DrawerPrimitive.Root direction={direction} shouldScaleBackground={shouldScaleBackground}>
       {children}
     </DrawerPrimitive.Root>
   </StyledDrawerPrimitiveRootWrapper>
 );
-Drawer.displayName = "Drawer";
+Drawer.displayName = 'Drawer';
 
 const DrawerOverlay = React.forwardRef<
   React.ElementRef<typeof StyledDrawerOverlay>,
@@ -54,17 +54,17 @@ const DrawerContent = React.forwardRef<
     </StyledDrawerContent>
   </DrawerPortal>
 ));
-DrawerContent.displayName = "DrawerContent";
+DrawerContent.displayName = 'DrawerContent';
 
-const DrawerHeader = ({ className, ...restProps }: HTMLStyledProps<"div">) => (
+const DrawerHeader = ({ className, ...restProps }: HTMLStyledProps<'div'>) => (
   <styled.div className={classes.header} {...restProps} />
 );
-DrawerHeader.displayName = "DrawerHeader";
+DrawerHeader.displayName = 'DrawerHeader';
 
-const DrawerFooter = ({ className, ...restProps }: HTMLStyledProps<"div">) => (
+const DrawerFooter = ({ className, ...restProps }: HTMLStyledProps<'div'>) => (
   <styled.div className={classes.footer} {...restProps} />
 );
-DrawerFooter.displayName = "DrawerFooter";
+DrawerFooter.displayName = 'DrawerFooter';
 
 const DrawerTitle = React.forwardRef<
   React.ElementRef<typeof StyledDrawerTitle>,
@@ -78,23 +78,19 @@ const DrawerDescription = React.forwardRef<
   React.ElementRef<typeof StyledDrawerDescription>,
   React.ComponentPropsWithoutRef<typeof StyledDrawerDescription>
 >(({ className, ...props }, ref) => (
-  <StyledDrawerDescription
-    ref={ref}
-    className={classes.description}
-    {...props}
-  />
+  <StyledDrawerDescription ref={ref} className={classes.description} {...props} />
 ));
 DrawerDescription.displayName = DrawerPrimitive.Description.displayName;
 
 export {
   Drawer,
-  DrawerPortal,
-  DrawerOverlay,
-  DrawerTrigger,
   DrawerClose,
   DrawerContent,
-  DrawerHeader,
-  DrawerFooter,
-  DrawerTitle,
   DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerPortal,
+  DrawerTitle,
+  DrawerTrigger,
 };

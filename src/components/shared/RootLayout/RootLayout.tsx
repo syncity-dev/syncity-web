@@ -1,11 +1,12 @@
-import { Outlet, HeadContent, Scripts } from "@tanstack/react-router";
-import { Main } from "@/components/core/Main/Main";
-import { Footer } from "@/components/shared/Footer/Footer";
-import { Toaster } from "@/components/shared/Toaster/Toaster";
-import { ToastProvider } from "@/components/core/Toast/Toast.context";
-import { COLOR_MODE_INIT_SCRIPT } from "@/utils/colorMode";
-import { ColorModeSwitcher } from "@/components/shared/ColorModeSwitcher/ColorModeSwitcher";
-import { Box } from "@/styled-system/jsx";
+import { HeadContent, Outlet, Scripts } from '@tanstack/react-router';
+
+import { Main } from '@/components/core/Main/Main';
+import { ToastProvider } from '@/components/core/Toast/Toast.context';
+import { ColorModeSwitcher } from '@/components/shared/ColorModeSwitcher/ColorModeSwitcher';
+import { Footer } from '@/components/shared/Footer/Footer';
+import { Toaster } from '@/components/shared/Toaster/Toaster';
+import { Box } from '@/styled-system/jsx';
+import { COLOR_MODE_INIT_SCRIPT } from '@/utils/colorMode';
 
 export const RootLayout = () => {
   return (

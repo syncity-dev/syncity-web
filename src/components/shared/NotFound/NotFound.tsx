@@ -1,18 +1,11 @@
-import { VStack } from "@/styled-system/jsx";
-import { Heading } from "@/components/core/Heading/Heading";
-import { Text } from "@/components/core/Text/Text";
-import { Button } from "@/components/core/Button/Button";
+import { Button } from '@/components/core/Button/Button';
+import { Heading } from '@/components/core/Heading/Heading';
+import { Text } from '@/components/core/Text/Text';
+import { VStack } from '@/styled-system/jsx';
 
 export const NotFound = () => {
   return (
-    <VStack
-      flex="1"
-      justifyContent="center"
-      alignItems="center"
-      gap="6"
-      textAlign="center"
-      px="6"
-    >
+    <VStack flex="1" justifyContent="center" alignItems="center" gap="6" textAlign="center" px="6">
       <Text textStyle="4xl" color="accent.default" fontFamily="heading">
         404
       </Text>

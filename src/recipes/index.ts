@@ -1,6 +1,6 @@
-import { card } from "./card";
-import { menu } from "./menu";
-import { icon } from "./icon";
+import { card } from './card';
+import { icon } from './icon';
+import { menu } from './menu';
 
 export const slotRecipes = {
   card,

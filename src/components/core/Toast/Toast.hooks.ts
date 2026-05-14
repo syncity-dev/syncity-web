@@ -1,16 +1,15 @@
-import { useToastContext } from "@/components/core/Toast/Toast.context";
-import { actionTypes } from "@/components/core/Toast/Toast.constants";
-import type { ToasterToast } from "@/components/core/Toast/Toast.types";
+import { actionTypes } from '@/components/core/Toast/Toast.constants';
+import { useToastContext } from '@/components/core/Toast/Toast.context';
+import type { ToasterToast } from '@/components/core/Toast/Toast.types';
 
-type Toast = Omit<ToasterToast, "id">;
+type Toast = Omit<ToasterToast, 'id'>;
 
 export function useToast() {
   const { state, dispatch } = useToastContext();
 
   function toast(props: Toast) {
     const id = crypto.randomUUID();
-    const dismiss = () =>
-      dispatch({ type: actionTypes.DISMISS_TOAST, toastId: id });
+    const dismiss = () => dispatch({ type: actionTypes.DISMISS_TOAST, toastId: id });
 
     dispatch({
       type: actionTypes.ADD_TOAST,
@@ -35,7 +34,6 @@ export function useToast() {
   return {
     toasts: state.toasts,
     toast,
-    dismiss: (toastId?: string) =>
-      dispatch({ type: actionTypes.DISMISS_TOAST, toastId }),
+    dismiss: (toastId?: string) => dispatch({ type: actionTypes.DISMISS_TOAST, toastId }),
   };
 }

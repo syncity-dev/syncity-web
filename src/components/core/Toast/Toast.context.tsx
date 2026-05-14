@@ -1,17 +1,12 @@
+import type { Dispatch, ReactNode } from 'react';
+import { createContext, useContext, useEffect, useReducer, useRef } from 'react';
+
 import {
-  createContext,
-  useContext,
-  useReducer,
-  useEffect,
-  useRef,
-} from "react";
-import type { Dispatch, ReactNode } from "react";
-import {
+  actionTypes,
   TOAST_LIMIT,
   TOAST_REMOVE_DELAY,
-  actionTypes,
-} from "@/components/core/Toast/Toast.constants";
-import type { Action, State } from "@/components/core/Toast/Toast.types";
+} from '@/components/core/Toast/Toast.constants';
+import type { Action, State } from '@/components/core/Toast/Toast.types';
 
 const reducer = (state: State, action: Action): State => {
   switch (action.type) {
@@ -23,21 +18,18 @@ const reducer = (state: State, action: Action): State => {
     case actionTypes.UPDATE_TOAST:
       return {
         ...state,
-        toasts: state.toasts.map((t) =>
-          t.id === action.toast.id ? { ...t, ...action.toast } : t,
-        ),
+        toasts: state.toasts.map((t) => (t.id === action.toast.id ? { ...t, ...action.toast } : t)),
       };
     case actionTypes.DISMISS_TOAST:
       return {
         ...state,
         toasts: state.toasts.map((t) =>
-          t.id === action.toastId || action.toastId === undefined
-            ? { ...t, open: false }
-            : t,
+          t.id === action.toastId || action.toastId === undefined ? { ...t, open: false } : t,
         ),
       };
     case actionTypes.REMOVE_TOAST:
       if (action.toastId === undefined) return { ...state, toasts: [] };
+
       return {
         ...state,
         toasts: state.toasts.filter((t) => t.id !== action.toastId),
@@ -72,15 +64,12 @@ export function ToastProvider({ children }: ToastProviderProps) {
     }
   }, [state.toasts]);
 
-  return (
-    <ToastContext.Provider value={{ state, dispatch }}>
-      {children}
-    </ToastContext.Provider>
-  );
+  return <ToastContext.Provider value={{ state, dispatch }}>{children}</ToastContext.Provider>;
 }
 
 export function useToastContext() {
   const ctx = useContext(ToastContext);
-  if (!ctx) throw new Error("useToast must be used within ToastProvider");
+  if (!ctx) throw new Error('useToast must be used within ToastProvider');
+
   return ctx;
 }
