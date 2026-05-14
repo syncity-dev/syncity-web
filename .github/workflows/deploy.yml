@@ -19,9 +19,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: "22"
       - name: Install pnpm
@@ -29,7 +29,7 @@ jobs:
           npm install -g pnpm
           echo "pnpm version: $(pnpm --version)"
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Build
@@ -38,7 +38,7 @@ jobs:
           NODE_ENV: ${{ vars.NODE_ENV }}
           VITE_CONTACT_FORM_ID: ${{ secrets.VITE_CONTACT_FORM_ID }}
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./dist/client
 
@@ -51,4 +51,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
