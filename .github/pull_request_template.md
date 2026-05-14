@@ -8,13 +8,18 @@ Add a link or reference to the Jira ticket associated with this PR (e.g., ES-1).
 
 ## Type of Change
 
-- [ ] 🐛 Bug fix
-- [ ] ✨ New feature
-- [ ] 🔥 Breaking change
-- [ ] 📚 Documentation update
-- [ ] 🛠️ Refactor / Code improvement
-- [ ] 🚀 Performance optimization
-- [ ] ✅ Test enhancement
+- [ ] 🐛 `fix:` Bug fix (non-breaking change which fixes an issue)
+- [ ] ✨ `feat:` New feature (non-breaking change which adds functionality)
+- [ ] 🔥 `feat!:` or `fix!:` Breaking change (fix or feature that would cause
+      existing functionality to not work as expected)
+- [ ] 📚 `docs:` Documentation update
+- [ ] 🛠️ `refactor:` Code refactoring (no functional changes)
+- [ ] 🎨 `style:` Code style changes (formatting, missing semi-colons, etc)
+- [ ] 🚀 `perf:` Performance improvement
+- [ ] ✅ `test:` Adding or updating tests
+- [ ] 🔧 `chore:` Maintenance tasks (dependencies, configs, etc)
+- [ ] 🔄 `ci:` CI/CD changes
+- [ ] ↩️ `revert:` Revert a previous commit
 
 ## Checklist
 
