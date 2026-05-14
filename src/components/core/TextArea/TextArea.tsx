@@ -5,15 +5,15 @@ import type { HTMLStyledProps } from '@/styled-system/jsx';
 import { styled } from '@/styled-system/jsx';
 import type { Size } from '@/types/core';
 
-interface ICheckboxProps extends Omit<HTMLStyledProps<'textarea'>, 'size'> {
+type TextAreaProps = Omit<HTMLStyledProps<'textarea'>, 'size'> & {
   size?: Size;
-}
+};
 
 type Ref = HTMLTextAreaElement;
 
 const StyledTextArea = styled.textarea;
 
-export const TextArea = forwardRef<Ref, ICheckboxProps>(({ size, ...restProps }, ref) => {
+export const TextArea = forwardRef<Ref, TextAreaProps>(({ size, ...restProps }, ref) => {
   const classes = textArea({ size });
 
   return <StyledTextArea ref={ref} className={classes.control} {...restProps} />;

@@ -1,11 +1,11 @@
 import type { HstackProps } from '@/styled-system/jsx';
 import { Container, styled } from '@/styled-system/jsx';
 
-interface IHeaderWrapperProps extends HstackProps {
+type HeaderWrapperProps = HstackProps & {
   children: React.ReactNode;
-}
+};
 
-export const HeaderWrapper = ({ children, ...restProps }: IHeaderWrapperProps) => {
+export const HeaderWrapper = ({ children, ...restProps }: HeaderWrapperProps) => {
   return (
     <styled.header
       display="flex"

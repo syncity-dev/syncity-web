@@ -6,18 +6,19 @@ import type { Size } from '@/types/core';
 
 type NavItem = (typeof NAV_ITEMS)[number];
 
-interface INavItemsProps extends HstackProps, VstackProps {
-  orientation?: 'vertical' | 'horizontal';
-  haveIcons?: boolean;
-  size?: Size;
-}
+type NavItemsProps = HstackProps &
+  VstackProps & {
+    orientation?: 'vertical' | 'horizontal';
+    haveIcons?: boolean;
+    size?: Size;
+  };
 
 export const NavItems = ({
   orientation = 'horizontal',
   haveIcons = false,
   size = 'md',
   ...restProps
-}: INavItemsProps) => {
+}: NavItemsProps) => {
   const Stack = orientation === 'vertical' ? VStack : HStack;
   const navItems: NavItem[] | [] = [];
 

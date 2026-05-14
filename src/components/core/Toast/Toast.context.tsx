@@ -37,16 +37,16 @@ const reducer = (state: State, action: Action): State => {
   }
 };
 
-interface ToastContextValue {
+type ToastContextValue = {
   state: State;
   dispatch: Dispatch<Action>;
-}
+};
 
 const ToastContext = createContext<ToastContextValue | null>(null);
 
-interface ToastProviderProps {
+type ToastProviderProps = {
   children: ReactNode;
-}
+};
 
 export function ToastProvider({ children }: ToastProviderProps) {
   const [state, dispatch] = useReducer(reducer, { toasts: [] });
