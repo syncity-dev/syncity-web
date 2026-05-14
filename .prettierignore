@@ -1,0 +1,12 @@
+node_modules
+pnpm-lock.yaml
+dist
+.output
+public
+.husky
+*.ico
+*.woff
+package.json
+tsconfig.json
+src/styled-system
+src/routeTree.gen.ts
