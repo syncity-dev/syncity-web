@@ -11,10 +11,10 @@ importers:
       '@ark-ui/react':
         specifier: ^5.36.2
         version: 5.36.2(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
-      '@fontsource/roboto':
-        specifier: ^5.2.10
-        version: 5.2.10
-      '@fontsource/roboto-condensed':
+      '@fontsource/saira':
+        specifier: ^5.2.11
+        version: 5.2.11
+      '@fontsource/saira-condensed':
         specifier: ^5.2.8
         version: 5.2.8
       '@formspree/react':
@@ -525,11 +525,11 @@ packages:
   '@floating-ui/utils@0.2.11':
     resolution: {integrity: sha512-RiB/yIh78pcIxl6lLMG0CgBXAZ2Y0eVHqMPYugu+9U0AeT6YBeiJpf7lbdJNIugFP5SIjwNRgo4DhR1Qxi26Gg==}
 
-  '@fontsource/roboto-condensed@5.2.8':
-    resolution: {integrity: sha512-M2OxXXGJQeif+LhxHjWiCEX3BHIYeZf64CcUTeh9AQFGp7DXo2UAXZiZUUOalVdOiuUtQSIi2CDHLDWFiyoECQ==}
+  '@fontsource/saira-condensed@5.2.8':
+    resolution: {integrity: sha512-wRNl7O45JWSB5TUVRhJFXZ4QXD/rATKkM1XMUJvPIZjIqIqIzXdcZs55iAMZ8BV0GMHVpoQ3Oa1W4ydHrRrs3Q==}
 
-  '@fontsource/roboto@5.2.10':
-    resolution: {integrity: sha512-8HlA5FtSfz//oFSr2eL7GFXAiE7eIkcGOtx7tjsLKq+as702x9+GU7K95iDeWFapHC4M2hv9RrpXKRTGGBI8Zg==}
+  '@fontsource/saira@5.2.11':
+    resolution: {integrity: sha512-fA76YU6cQBN73uOfVsipUc1nuN0Jfy9BBjoIc8s1y8ogIv2rX0hHC4kj3CIp38ED8s7hyOmeIQyAHWhQS3mN/A==}
 
   '@formspree/core@4.0.0':
     resolution: {integrity: sha512-geNlUut5nME1Ztej5Pzx1BrlQ1fFIcJYIqmF+Vm0jaUbpZxjXvt7SDOGeQVkuxn80QJiIHlwBGGjSBFjPX/KDw==}
@@ -4434,9 +4434,9 @@ snapshots:
 
   '@floating-ui/utils@0.2.11': {}
 
-  '@fontsource/roboto-condensed@5.2.8': {}
+  '@fontsource/saira-condensed@5.2.8': {}
 
-  '@fontsource/roboto@5.2.10': {}
+  '@fontsource/saira@5.2.11': {}
 
   '@formspree/core@4.0.0':
     dependencies:

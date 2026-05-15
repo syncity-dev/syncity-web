@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "@ark-ui/react": "^5.36.2",
-    "@fontsource/roboto": "^5.2.10",
-    "@fontsource/roboto-condensed": "^5.2.8",
+    "@fontsource/saira": "^5.2.11",
+    "@fontsource/saira-condensed": "^5.2.8",
     "@formspree/react": "^3.0.0",
     "@hookform/resolvers": "^5.2.2",
     "@pandacss/types": "^1.10.0",
