@@ -1,26 +1,28 @@
-import { button } from "@/components/core/Button/Button.recipe";
-import { styled, HTMLStyledProps } from "@/styled-system/jsx";
-import { Size } from "@/types/core";
+import { button } from '@/components/core/Button/Button.recipe';
+import type { HTMLStyledProps } from '@/styled-system/jsx';
+import { styled } from '@/styled-system/jsx';
+import type { Size } from '@/types/core';
 
-export type ButtonColor = "accent" | "danger" | "gray" | "info" | "success" | "warning";
+export type ButtonColor = 'accent' | 'danger' | 'gray' | 'info' | 'success' | 'warning';
 
 type ButtonBaseProps = {
-  visual?: "solid" | "outline" | "link";
+  visual?: 'solid' | 'outline' | 'link';
   size?: Size;
   color?: ButtonColor;
 };
 
-type ButtonProps = ButtonBaseProps & HTMLStyledProps<"button">;
-type LinkProps = ButtonBaseProps & HTMLStyledProps<"a"> & { href: string };
+type ButtonProps = ButtonBaseProps & HTMLStyledProps<'button'>;
+type LinkProps = ButtonBaseProps & HTMLStyledProps<'a'> & { href: string };
 
-const BaseButton = styled("button");
-const BaseLink = styled("a");
+const BaseButton = styled('button');
+const BaseLink = styled('a');
 
 export const Button = (props: ButtonProps | LinkProps) => {
-  const { visual, size, color = "accent", ...restProps } = props;
+  const { visual, size, color = 'accent', ...restProps } = props;
 
-  if ("href" in props && typeof props.href === "string") {
-    const { href, ...linkProps } = restProps as HTMLStyledProps<"a">;
+  if ('href' in props && typeof props.href === 'string') {
+    const { href, ...linkProps } = restProps as HTMLStyledProps<'a'>;
+
     return (
       <BaseLink
         href={href}
@@ -33,7 +35,7 @@ export const Button = (props: ButtonProps | LinkProps) => {
 
   return (
     <BaseButton
-      {...(restProps as HTMLStyledProps<"button">)}
+      {...(restProps as HTMLStyledProps<'button'>)}
       className={button({ visual, size })}
       colorPalette={color}
     />

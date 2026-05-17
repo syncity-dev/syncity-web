@@ -1,11 +1,12 @@
-import { GridItem } from "@/styled-system/jsx";
-import { Text } from "@/components/core/Text/Text";
-import { Heading } from "@/components/core/Heading/Heading";
-import { Flex, styled } from "@/styled-system/jsx";
-import { Link } from "@/components/core/Link/Link";
-import { BsGithub, BsLinkedin } from "react-icons/bs";
-import { Image } from "@unpic/react";
-import { css } from "@/styled-system/css";
+import { Image } from '@unpic/react';
+import { BsGithub, BsLinkedin } from 'react-icons/bs';
+
+import { Heading } from '@/components/core/Heading/Heading';
+import { Link } from '@/components/core/Link/Link';
+import { Text } from '@/components/core/Text/Text';
+import { css } from '@/styled-system/css';
+import { GridItem } from '@/styled-system/jsx';
+import { Flex, styled } from '@/styled-system/jsx';
 
 type MemberProps = {
   name: string;
@@ -25,12 +26,7 @@ export const Member = ({
   linkedinLink,
 }: MemberProps) => {
   return (
-    <GridItem
-      display="flex"
-      textAlign="center"
-      alignItems="center"
-      flexDir="column"
-    >
+    <GridItem display="flex" textAlign="center" alignItems="center" flexDir="column">
       <AvatarWrapper rounded="full" w="32" h="32" mx="auto" mb="4" shadow="xl">
         <Avatar
           rounded="full"
@@ -48,7 +44,7 @@ export const Member = ({
               alt={name}
               width={128}
               height={128}
-              className={css({ objectFit: "cover", w: "100%", h: "100%" })}
+              className={css({ objectFit: 'cover', w: '100%', h: '100%' })}
               layout="constrained"
             />
           ) : null}

@@ -1,22 +1,22 @@
-import { forwardRef } from "react";
-import { textInput } from "@/components/core/TextInput/TextInput.recipe";
-import { styled, HTMLStyledProps } from "@/styled-system/jsx";
-import { Size } from "@/types/core";
+import { forwardRef } from 'react';
 
-interface ITextInputProps extends Omit<HTMLStyledProps<"input">, "size"> {
+import { textInput } from '@/components/core/TextInput/TextInput.recipe';
+import type { HTMLStyledProps } from '@/styled-system/jsx';
+import { styled } from '@/styled-system/jsx';
+import type { Size } from '@/types/core';
+
+type TextInputProps = Omit<HTMLStyledProps<'input'>, 'size'> & {
   size?: Size;
-}
+};
 
 type Ref = HTMLInputElement;
 
-const StyledInput = styled("input");
+const StyledInput = styled('input');
 
-export const TextInput = forwardRef<Ref, ITextInputProps>(
-  ({ size, ...restProps }, ref) => {
-    const classes = textInput({ size });
+export const TextInput = forwardRef<Ref, TextInputProps>(({ size, ...restProps }, ref) => {
+  const classes = textInput({ size });
 
-    return <StyledInput ref={ref} className={classes.control} {...restProps} />;
-  },
-);
+  return <StyledInput ref={ref} className={classes.control} {...restProps} />;
+});
 
-TextInput.displayName = "TextInput";
+TextInput.displayName = 'TextInput';

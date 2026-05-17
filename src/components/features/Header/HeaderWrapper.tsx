@@ -1,13 +1,11 @@
-import { Container, HstackProps, styled } from "@/styled-system/jsx";
+import type { HstackProps } from '@/styled-system/jsx';
+import { Container, styled } from '@/styled-system/jsx';
 
-interface IHeaderWrapperProps extends HstackProps {
+type HeaderWrapperProps = HstackProps & {
   children: React.ReactNode;
-}
+};
 
-export const HeaderWrapper = ({
-  children,
-  ...restProps
-}: IHeaderWrapperProps) => {
+export const HeaderWrapper = ({ children, ...restProps }: HeaderWrapperProps) => {
   return (
     <styled.header
       display="flex"
@@ -24,7 +22,7 @@ export const HeaderWrapper = ({
       {...restProps}
     >
       <Container
-        maxWidth={{ base: "5xl" }}
+        maxWidth={{ base: '5xl' }}
         display="flex"
         justifyContent="space-between"
         w="full"
