@@ -1,26 +1,27 @@
-import * as z from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useFormspree } from "@formspree/react";
-import { useForm, Controller } from "react-hook-form";
-import { Form } from "@/components/core/Form/Form";
-import { TextInput } from "@/components/core/TextInput/TextInput";
-import { TextArea } from "@/components/core/TextArea/TextArea";
-import { Text } from "@/components/core/Text/Text";
-import { Button } from "@/components/core/Button/Button";
-import { LoaderCircle } from "lucide-react";
-import { VStack, styled } from "@/styled-system/jsx";
-import { useToast } from "@/components/core/Toast/Toast.hooks";
+import { useFormspree } from '@formspree/react';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { LoaderCircle } from 'lucide-react';
+import { Controller, useForm } from 'react-hook-form';
+import * as z from 'zod';
+
+import { Button } from '@/components/core/Button/Button';
+import { Form } from '@/components/core/Form/Form';
+import { Text } from '@/components/core/Text/Text';
+import { TextArea } from '@/components/core/TextArea/TextArea';
+import { TextInput } from '@/components/core/TextInput/TextInput';
+import { useToast } from '@/components/core/Toast/Toast.hooks';
+import { styled, VStack } from '@/styled-system/jsx';
 
 const defaultValues = {
-  name: "",
-  email: "",
-  message: "",
+  name: '',
+  email: '',
+  message: '',
 };
 
 const ContactFormSchema = z.object({
-  name: z.string().min(1, { message: "Name is required" }),
-  email: z.email({ error: "Invalid email address" }),
-  message: z.string().min(1, { message: "Message is required" }),
+  name: z.string().min(1, { message: 'Name is required' }),
+  email: z.email({ error: 'Invalid email address' }),
+  message: z.string().min(1, { message: 'Message is required' }),
 });
 
 type ContactFormData = z.infer<typeof ContactFormSchema>;
@@ -42,32 +43,28 @@ export const ContactForm = () => {
   const { client } = useFormspree();
 
   const onSubmit = async (data: ContactFormData) => {
-    const result = await client.submitForm(
-      import.meta.env.VITE_CONTACT_FORM_ID ?? "",
-      data,
-    );
-    if (result.kind === "success") {
+    const result = await client.submitForm(import.meta.env.VITE_CONTACT_FORM_ID ?? '', data);
+    if (result.kind === 'success') {
       toast({
-        title: "Success!",
-        description:
-          "Your message has been sent successfully. We will get back to you soon.",
-        variant: "success",
+        title: 'Success!',
+        description: 'Your message has been sent successfully. We will get back to you soon.',
+        variant: 'success',
       });
       reset(defaultValues);
     } else {
       const formErrs = result.getFormErrors();
-for (const { code, message } of formErrs) {
+      for (const { code, message } of formErrs) {
         setError(`root.${code}`, { type: code, message });
       }
       const fieldErrs = result.getAllFieldErrors();
       for (const [field, errs] of fieldErrs) {
-        setError(field, { message: errs.map((e) => e.message).join(", ") });
+        setError(field, { message: errs.map((e) => e.message).join(', ') });
       }
       if (!formErrs.length) {
         toast({
-          title: "Error!",
-          description: "Something went wrong. Please try again later",
-          variant: "danger",
+          title: 'Error!',
+          description: 'Something went wrong. Please try again later',
+          variant: 'danger',
         });
       }
     }
@@ -83,13 +80,7 @@ for (const { code, message } of formErrs) {
           name="name"
           control={control}
           render={({ field }) => (
-            <TextInput
-              {...field}
-              type="text"
-              id="name"
-              placeholder="Enter your name"
-              w="full"
-            />
+            <TextInput {...field} type="text" id="name" placeholder="Enter your name" w="full" />
           )}
         />
         {errors?.name?.message ? (
@@ -106,13 +97,7 @@ for (const { code, message } of formErrs) {
           name="email"
           control={control}
           render={({ field }) => (
-            <TextInput
-              {...field}
-              type="email"
-              id="email"
-              placeholder="Enter your email"
-              w="full"
-            />
+            <TextInput {...field} type="email" id="email" placeholder="Enter your email" w="full" />
           )}
         />
         {errors?.email?.message ? (
@@ -129,13 +114,7 @@ for (const { code, message } of formErrs) {
           name="message"
           control={control}
           render={({ field }) => (
-            <TextArea
-              {...field}
-              id="reason"
-              placeholder="Enter your message"
-              w="full"
-              zIndex="2"
-            />
+            <TextArea {...field} id="reason" placeholder="Enter your message" w="full" zIndex="2" />
           )}
         />
 
@@ -151,7 +130,7 @@ for (const { code, message } of formErrs) {
             <LoaderCircle size={21} />
           </styled.div>
         ) : (
-          "Send Message"
+          'Send Message'
         )}
       </Button>
     </Form>

@@ -1,4 +1,5 @@
-import { styled } from "@/styled-system/jsx";
-import { link } from "./Link.recipe";
+import { styled } from '@/styled-system/jsx';
 
-export const Link = styled("a", link);
+import { link } from './Link.recipe';
+
+export const Link = styled('a', link);
