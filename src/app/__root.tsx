@@ -1,7 +1,7 @@
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/700.css';
-import '@fontsource/roboto/900.css';
-import '@fontsource/roboto-condensed/500.css';
+import '@fontsource/saira/400.css';
+import '@fontsource/saira/700.css';
+import '@fontsource/saira/900.css';
+import '@fontsource/saira-condensed/500.css';
 
 import { createRootRoute } from '@tanstack/react-router';
 

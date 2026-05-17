@@ -1,4 +1,4 @@
 export const fonts = {
-  body: { value: "var(--font-roboto), sans-serif" },
-  heading: { value: "var(--font-roboto-condensed), sans-serif" },
+  body: { value: 'var(--font-saira), sans-serif' },
+  heading: { value: 'var(--font-saira-condensed), sans-serif' },
 } as const;
