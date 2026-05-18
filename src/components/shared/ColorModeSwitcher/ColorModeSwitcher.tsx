@@ -1,3 +1,4 @@
+import { iconButton } from '@/components/core/IconButton/IconButton.recipe';
 import {
   MenuContent,
   MenuItemText,
@@ -28,24 +29,7 @@ export const ColorModeSwitcher = () => {
 
   return (
     <MenuRoot onOpenChange={onOpenChange} onHighlightChange={onHighlightChange}>
-      <MenuTrigger
-        className={css({
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          w: '9',
-          h: '9',
-          rounded: 'md',
-          color: 'fg.muted',
-          cursor: 'pointer',
-          border: 'none',
-          bg: 'transparent',
-          fontSize: 'md',
-          transition: 'colors',
-          _hover: { bg: 'bg.subtle', color: 'fg.default' },
-        })}
-        aria-label="Toggle color mode"
-      >
+      <MenuTrigger className={iconButton({ size: 'md' })} aria-label="Toggle color mode">
         <TriggerIcon />
       </MenuTrigger>
 

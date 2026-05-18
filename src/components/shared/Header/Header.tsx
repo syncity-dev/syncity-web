@@ -84,8 +84,8 @@ export const Header = () => {
           <Button
             href="#contact"
             visual="solid"
-            color="accent"
-            size="sm"
+            color="gray"
+            size="md"
             display={{ base: 'none', sm: 'inline-flex' }}
           >
             Start a project →
@@ -94,7 +94,7 @@ export const Header = () => {
             aria-label="Open menu"
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
-            size="md"
+            size="lg"
             display={{ base: 'inline-flex', sm: 'none' }}
             onClick={() => setMenuOpen(true)}
           >

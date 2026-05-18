@@ -7,7 +7,7 @@ export const iconButton = cva({
     alignItems: 'center',
     justifyContent: 'center',
     cursor: 'pointer',
-    rounded: 'l2',
+    rounded: 'l4',
     bg: 'transparent',
     color: 'fg.muted',
     borderWidth: 'thin',
@@ -35,8 +35,9 @@ export const iconButton = cva({
   variants: {
     size: {
       sm: { w: '9', h: '9', _icon: { boxSize: '4' } },
-      md: { w: '11', h: '11', _icon: { boxSize: '5' } },
-      lg: { w: '12', h: '12', _icon: { boxSize: '5.5' } },
+      md: { w: '10', h: '10', _icon: { boxSize: '4.5' } },
+      lg: { w: '11', h: '11', _icon: { boxSize: '5' } },
+      xl: { w: '12', h: '12', _icon: { boxSize: '5.5' } },
     },
   },
 });

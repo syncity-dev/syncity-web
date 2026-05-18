@@ -1,11 +1,12 @@
 import type { HTMLStyledProps } from '@/styled-system/jsx';
 import { styled } from '@/styled-system/jsx';
-import type { Size } from '@/types/core';
 
 import { iconButton } from './IconButton.recipe';
 
+type IconButtonSize = 'sm' | 'md' | 'lg' | 'xl';
+
 type IconButtonBaseProps = {
-  size?: Size;
+  size?: IconButtonSize;
   'aria-label': string;
 };
 
