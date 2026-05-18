@@ -11,17 +11,17 @@ type LogoProps = Omit<RouteLinkProps, 'to'> & {
 
 export const Logo = ({ size = 'md', ...restProps }: LogoProps) => {
   return (
-    <RouteLink to="/" className={logo({ size })} {...restProps}>
+    <RouteLink to="/" className={logo({ size })} aria-label="Syncity home" {...restProps}>
       <Image
-        src="/logos/logo-light.png"
+        src="/logos/logo-primary.svg"
         layout="fullWidth"
-        alt="Syncity Logo"
+        alt="Syncity"
         className={lightVariant}
       />
       <Image
-        src="/logos/logo-dark.png"
+        src="/logos/logo-primary.svg"
         layout="fullWidth"
-        alt="Syncity Logo"
+        alt="Syncity"
         className={darkVariant}
       />
     </RouteLink>

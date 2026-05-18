@@ -1,36 +1,38 @@
-import type { HstackProps } from '@/styled-system/jsx';
-import { Container, styled } from '@/styled-system/jsx';
+import type { ReactNode } from 'react';
 
-type HeaderWrapperProps = HstackProps & {
-  children: React.ReactNode;
-};
+import { css } from '@/styled-system/css';
+import { styled } from '@/styled-system/jsx';
 
-export const HeaderWrapper = ({ children, ...restProps }: HeaderWrapperProps) => {
-  return (
-    <styled.header
-      display="flex"
-      shadow="md"
-      w="full"
-      p={2.5}
-      position="sticky"
-      top={0}
-      zIndex="header"
-      justifyContent="center"
-      alignItems="center"
-      bg="bg.default"
-      isolation="isolate"
-      {...restProps}
+const StickyHeader = styled('header');
+
+export const HeaderWrapper = ({ children }: { children: ReactNode }) => (
+  <StickyHeader
+    position="sticky"
+    top="3"
+    mt="3"
+    mx="auto"
+    px={{ base: '5', md: '7' }}
+    maxW="6xl"
+    zIndex="header"
+  >
+    <div
+      className={css({
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        bg: 'bg.default/80',
+        backdropFilter: 'blur(14px) saturate(120%)',
+        borderWidth: '1px',
+        borderStyle: 'solid',
+        borderColor: 'border.default',
+        rounded: 'l4',
+        shadow: 'sm',
+        py: '2',
+        pl: '5',
+        pr: '2',
+      })}
     >
-      <Container
-        maxWidth={{ base: '5xl' }}
-        display="flex"
-        justifyContent="space-between"
-        w="full"
-        padding={0}
-        bgColor="inherit"
-      >
-        {children}
-      </Container>
-    </styled.header>
-  );
-};
+      {children}
+    </div>
+  </StickyHeader>
+);
