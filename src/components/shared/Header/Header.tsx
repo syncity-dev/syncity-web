@@ -84,7 +84,6 @@ export const Header = () => {
           <Button
             href="#contact"
             visual="solid"
-            color="gray"
             size="md"
             display={{ base: 'none', sm: 'inline-flex' }}
           >

@@ -28,12 +28,12 @@ export const button = cva({
     visual: {
       solid: {
         shadow: 'md',
-        bg: 'colorPalette.solid.bg',
-        borderColor: 'colorPalette.solid.bg',
-        color: 'colorPalette.solid.fg',
+        bg: 'fg.default',
+        borderColor: 'fg.default',
+        color: 'bg.default',
         _hover: {
-          bg: 'colorPalette.solid.bg.hover',
-          borderColor: 'colorPalette.solid.bg.hover',
+          bg: 'fg.muted',
+          borderColor: 'fg.muted',
         },
       },
       outline: {
