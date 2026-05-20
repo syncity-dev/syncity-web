@@ -49,7 +49,7 @@ src/
     features/        # Page sections — HomePage/Hero, Members, TechStack, ContactUs
   constants/         # Static data — team.ts, navigation.ts
   hooks/             # useColorMode
-  recipes/           # Panda slot recipes registered in panda.config — card, menu, icon
+  recipes/           # All config recipes registered in panda.config — defineRecipe (atoms) and defineSlotRecipe (compound)
   theme/             # All design tokens — see Token System below
   types/             # core.ts: Size = 'sm' | 'md' | 'lg'
   utils/             # seo.ts, colorMode.ts
@@ -70,23 +70,26 @@ src/
 
 ### File pattern for core atoms
 
-Every core component that has visual variants gets two files:
+Core components with visual variants keep the component file in `core/` and the recipe in `src/recipes/`:
 
 ```
 src/components/core/ComponentName/
   ComponentName.tsx         # React component
-  ComponentName.recipe.ts   # cva / sva recipe
+src/recipes/
+  componentName.ts          # defineRecipe or defineSlotRecipe, registered in panda.config.ts
 ```
 
-Components that are compound (multiple named slots) use `defineSlotRecipe` in `src/recipes/` and are registered in `panda.config.ts` via the `slotRecipes` key. The component file then uses `createStyleContext` from `@/styled-system/jsx`.
+- **Single-element atoms** → `defineRecipe()` in `src/recipes/componentName.ts`, registered under `recipes` in `panda.config.ts`
+- **Compound components** (multiple named slots, like Card) → `defineSlotRecipe()` in `src/recipes/componentName.ts`, registered under `slotRecipes` in `panda.config.ts`; use `createStyleContext` from `@/styled-system/jsx` in the component file
+
+Run `pnpm prepare` after adding or changing any recipe in `src/recipes/`.
 
 ### Styling inside components
 
 - Use `styled` from `@/styled-system/jsx` for polymorphic styled elements
 - Use `css()` from `@/styled-system/css` for one-off class strings
-- Use `cva()` for single-element recipes with variants
-- Use `sva()` for multi-slot recipes without context propagation
-- Use `defineSlotRecipe` + `createStyleContext` for compound components that need slot context (like Card)
+- Use `defineRecipe()` in `src/recipes/` for single-element recipes with variants (register under `recipes` in `panda.config.ts`)
+- Use `defineSlotRecipe()` + `createStyleContext` for compound components that need slot context (like Card) (register under `slotRecipes`)
 - Never use `style={{}}` for anything covered by tokens
 
 ---

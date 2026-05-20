@@ -10,13 +10,13 @@ Read CLAUDE.md before starting. Follow these conventions exactly.
 
 Create `src/components/core/$ARGUMENTS/` with:
 - `$ARGUMENTS.tsx` — the React component
-- `$ARGUMENTS.recipe.ts` — the Panda CSS recipe (if it has visual variants)
+
+If the component has visual variants, also create `src/recipes/$ARGUMENTS.ts` and register it in `panda.config.ts`. Run `pnpm prepare` after.
 
 ### Recipe choice
 
-- **Single element, visual variants** → `cva()` from `@/styled-system/css` in a `Component.recipe.ts` file
-- **Multiple slots, no context needed** → `sva()` in a `Component.recipe.ts` file
-- **Compound component with slot context** (like Card) → `defineSlotRecipe` in `src/recipes/ComponentName.ts`, register it in `src/recipes/index.ts` under `slotRecipes`, then use `createStyleContext` from `@/styled-system/jsx` in the component file. Run `pnpm prepare` after.
+- **Single element, visual variants** → `defineRecipe()` in `src/recipes/$ARGUMENTS.ts`, registered under `recipes` in `panda.config.ts`
+- **Compound component with slot context** (like Card) → `defineSlotRecipe()` in `src/recipes/$ARGUMENTS.ts`, registered under `slotRecipes` in `panda.config.ts`; use `createStyleContext` from `@/styled-system/jsx` in the component file
 
 ### Component conventions
 
