@@ -6,7 +6,7 @@ import type { Size } from '@/types/core';
 export type ButtonColor = 'accent' | 'danger' | 'gray' | 'info' | 'success' | 'warning';
 
 type ButtonBaseProps = {
-  visual?: 'solid' | 'outline' | 'link';
+  visual?: 'solid' | 'outline' | 'link' | 'surface' | 'inverted';
   size?: Size;
   color?: ButtonColor;
 };

@@ -6,4 +6,10 @@ export const NAV_ITEMS = [
   { id: 3, label: 'Contact', path: '/contact', Icon: Mail },
 ];
 
-// export const NAV_LINKS = [];
+export const NAV_LINKS = [
+  { id: 'work', label: 'Work', href: '#work' },
+  { id: 'team', label: 'Team', href: '#team' },
+  { id: 'process', label: 'Process', href: '#process' },
+  { id: 'stack', label: 'Stack', href: '#stack' },
+  { id: 'contact', label: 'Contact', href: '#contact' },
+] as const;

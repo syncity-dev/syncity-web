@@ -4,6 +4,13 @@ export const logo = cva({
   base: {
     display: 'block',
     flexShrink: '0',
+    rounded: 'l2',
+    _focusVisible: {
+      outlineWidth: '2px',
+      outlineStyle: 'solid',
+      outlineColor: 'accent.default',
+      outlineOffset: '2px',
+    },
   },
   variants: {
     size: {
