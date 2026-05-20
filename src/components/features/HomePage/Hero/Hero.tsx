@@ -1,36 +1,37 @@
 import { Button } from '@/components/core/Button/Button';
 import { DisplayItalic } from '@/components/core/DisplayItalic/DisplayItalic';
 import { HairlineGrid } from '@/components/core/HairlineGrid/HairlineGrid';
+import { Heading } from '@/components/core/Heading/Heading';
 import { Section } from '@/components/core/Section/Section';
 import { HERO_STATS } from '@/components/features/HomePage/Hero/Hero.constants';
 import { IsoDeco } from '@/components/features/HomePage/Hero/IsoDeco';
 import { teamMembers } from '@/constants/team';
 import { Box, Grid, HStack, Stack, styled } from '@/styled-system/jsx';
 
-const H1 = styled('h1');
 const StyledImg = styled('img');
 
 export const Hero = () => {
   return (
-    <Section overflow="hidden" py={{ base: '14', md: '22' }} position="relative">
+    <Section overflow="hidden" position="relative">
       <HairlineGrid />
 
       <Box position="relative">
         <IsoDeco />
 
-        <H1
+        <Heading
+          as="h1"
           fontFamily="heading"
           fontWeight="bold"
-          fontSize={{ base: '5xl', md: '6xl', lg: '7xl' }}
+          fontSize={{ base: '5xl', md: '8xl', lg: '9xl' }}
           lineHeight="0.95"
-          letterSpacing="-0.03em"
+          letterSpacing="-0.01em"
           color="fg.default"
-          mb={{ base: '6', md: '7' }}
+          mb={{ base: '7', md: '10' }}
         >
           Software
           <br />
           for the <DisplayItalic>long</DisplayItalic> haul.
-        </H1>
+        </Heading>
 
         <Box
           as="p"
@@ -75,9 +76,7 @@ export const Hero = () => {
             ))}
           </HStack>
           <Box as="span" fontFamily="body" fontSize="sm" color="fg.muted" lineHeight="1.4">
-            Three senior consultants.
-            <br />
-            One direct conversation away.
+            Three senior consultants. One direct conversation away.
           </Box>
         </HStack>
 
@@ -89,25 +88,22 @@ export const Hero = () => {
           borderBottomWidth="1px"
           borderBottomStyle="solid"
           borderBottomColor="border.default"
+          bg="bg.default"
+          mt="24"
         >
           {HERO_STATS.map(({ num, unit, label }, i) => (
             <Stack
               key={label}
-              gap="1.5"
+              gap="4"
               px="5"
-              py="5"
+              py="8"
               borderRightWidth="1px"
               borderRightStyle="solid"
               borderRightColor="border.default"
               borderBottomWidth={{ base: i < 2 ? '1px' : '0', md: '0' }}
               borderBottomStyle="solid"
               borderBottomColor="border.default"
-              css={{
-                '&:nth-child(2n)': {
-                  borderRightWidth: { base: '0', md: '1px' },
-                },
-                '&:last-child': { borderRightWidth: '0' },
-              }}
+              _last={{ borderRightWidth: '0' }}
             >
               <HStack gap="1" alignItems="baseline">
                 <Box
@@ -125,9 +121,8 @@ export const Hero = () => {
                   <Box
                     as="span"
                     fontFamily="heading"
-                    fontWeight="medium"
                     fontSize="xl"
-                    color="fg.muted"
+                    color="fg.subtle"
                     lineHeight="1"
                   >
                     {unit}
@@ -137,11 +132,11 @@ export const Hero = () => {
               <Box
                 as="span"
                 fontFamily="body"
-                fontSize="2xs"
-                letterSpacing="0.1em"
+                fontSize="xs"
                 textTransform="uppercase"
                 fontWeight="medium"
                 color="fg.muted"
+                letterSpacing="wider"
               >
                 {label}
               </Box>

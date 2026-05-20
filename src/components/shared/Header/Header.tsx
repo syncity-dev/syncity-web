@@ -1,4 +1,4 @@
-import { Menu } from 'lucide-react';
+import { ArrowRight, Menu } from 'lucide-react';
 import { useState } from 'react';
 
 import { Button } from '@/components/core/Button/Button';
@@ -21,7 +21,7 @@ const navLinkClass = css({
   px: '3.5',
   rounded: 'l4',
   ...interactiveTransition,
-  _hover: { bg: 'bg.subtle', color: 'fg.default' },
+  _hover: { bg: 'bg.muted', color: 'fg.default' },
   _focusVisible: {
     outlineWidth: '2px',
     outlineStyle: 'solid',
@@ -62,7 +62,7 @@ export const Header = () => {
       </a>
 
       <HeaderWrapper>
-        <Logo size="sm" />
+        <Logo size="md" />
 
         <nav
           aria-label="Main navigation"
@@ -84,10 +84,11 @@ export const Header = () => {
           <Button
             href="#contact"
             visual="solid"
-            size="md"
+            size="lg"
             display={{ base: 'none', sm: 'inline-flex' }}
+            gap="2"
           >
-            Start a project →
+            Start a project <ArrowRight size={10} />
           </Button>
           <IconButton
             aria-label="Open menu"

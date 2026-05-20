@@ -61,12 +61,14 @@ export const IsoDeco = () => (
     </svg>
     <span
       className={css({
-        textStyle: 'eyebrow',
+        textTransform: 'uppercase',
         color: 'fg.subtle',
         fontSize: '2xs',
+        letterSpacing: '0.2em',
+        textAlign: 'center',
       })}
     >
-      FIG.01 / Codebase that compounds
+      FIG.01 / Codebase that <br /> compounds
     </span>
   </Box>
 );
