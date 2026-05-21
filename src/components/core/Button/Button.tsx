@@ -1,6 +1,6 @@
-import { button } from '@/components/core/Button/Button.recipe';
 import type { HTMLStyledProps } from '@/styled-system/jsx';
 import { styled } from '@/styled-system/jsx';
+import { button } from '@/styled-system/recipes';
 import type { Size } from '@/types/core';
 
 export type ButtonColor = 'accent' | 'danger' | 'gray' | 'info' | 'success' | 'warning';

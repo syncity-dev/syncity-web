@@ -1,8 +1,8 @@
 import { forwardRef } from 'react';
 
-import { textInput } from '@/components/core/TextInput/TextInput.recipe';
 import type { HTMLStyledProps } from '@/styled-system/jsx';
 import { styled } from '@/styled-system/jsx';
+import { textInput } from '@/styled-system/recipes';
 import type { Size } from '@/types/core';
 
 type TextInputProps = Omit<HTMLStyledProps<'input'>, 'size'> & {

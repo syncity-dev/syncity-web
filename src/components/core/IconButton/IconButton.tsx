@@ -1,7 +1,6 @@
 import type { HTMLStyledProps } from '@/styled-system/jsx';
 import { styled } from '@/styled-system/jsx';
-
-import { iconButton } from './IconButton.recipe';
+import { iconButton } from '@/styled-system/recipes';
 
 type IconButtonSize = 'sm' | 'md' | 'lg' | 'xl';
 

@@ -1,7 +1,6 @@
 import type { HTMLStyledProps } from '@/styled-system/jsx';
 import { styled } from '@/styled-system/jsx';
-
-import { section } from './Section.recipe';
+import { section } from '@/styled-system/recipes';
 
 type SectionProps = HTMLStyledProps<'section'> & {
   divided?: boolean;
