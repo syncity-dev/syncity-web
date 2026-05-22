@@ -7,8 +7,8 @@ import { PageContainer } from '@/components/shared/PageContainer/PageContainer';
 export const Home = () => (
   <PageContainer>
     <Hero />
-    <Members />
-    <TechStack />
-    <ContactUs />
+    <Members id="team" />
+    <TechStack id="stack" />
+    <ContactUs id="contact" />
   </PageContainer>
 );
