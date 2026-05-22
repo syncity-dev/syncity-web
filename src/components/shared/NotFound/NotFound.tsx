@@ -1,5 +1,5 @@
-import { Button } from '@/components/core/Button/Button';
 import { Heading } from '@/components/core/Heading/Heading';
+import { LinkButton } from '@/components/core/LinkButton/LinkButton';
 import { Text } from '@/components/core/Text/Text';
 import { VStack } from '@/styled-system/jsx';
 
@@ -15,9 +15,9 @@ export const NotFound = () => {
           The page you're looking for doesn't exist or has been moved.
         </Text>
       </VStack>
-      <Button asChild variant="solid" colorPalette="accent">
-        <a href="/">Go home</a>
-      </Button>
+      <LinkButton href="/" variant="solid" colorPalette="accent">
+        Go home
+      </LinkButton>
     </VStack>
   );
 };

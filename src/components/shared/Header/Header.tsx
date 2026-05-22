@@ -1,9 +1,9 @@
 import { ArrowRight, Menu } from 'lucide-react';
 import { useState } from 'react';
 
-import { Button } from '@/components/core/Button/Button';
 import { Icon } from '@/components/core/Icon/Icon';
 import { IconButton } from '@/components/core/IconButton/IconButton';
+import { LinkButton } from '@/components/core/LinkButton/LinkButton';
 import { Logo } from '@/components/core/Logo/Logo';
 import { HeaderWrapper } from '@/components/features/Header/HeaderWrapper';
 import { ColorModeSwitcher } from '@/components/shared/ColorModeSwitcher/ColorModeSwitcher';
@@ -82,14 +82,17 @@ export const Header = () => {
 
         <HStack gap="2">
           <ColorModeSwitcher />
-          <Button asChild variant="solid" size="lg" display={{ base: 'none', sm: 'inline-flex' }}>
-            <a href="#contact">
-              Start a project{' '}
-              <Icon asChild>
-                <ArrowRight />
-              </Icon>
-            </a>
-          </Button>
+          <LinkButton
+            href="#contact"
+            variant="solid"
+            size="lg"
+            display={{ base: 'none', sm: 'inline-flex' }}
+          >
+            Start a project{' '}
+            <Icon asChild>
+              <ArrowRight />
+            </Icon>
+          </LinkButton>
           <IconButton
             aria-label="Open menu"
             aria-expanded={menuOpen}
