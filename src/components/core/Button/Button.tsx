@@ -62,9 +62,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       type="button"
       ref={ref}
       colorPalette={colorPalette}
+      data-loading={isLoading ?? undefined}
+      disabled={isLoading ?? rest.disabled}
       {...rest}
-      data-loading={isLoading ? '' : undefined}
-      disabled={isLoading || rest.disabled}
     >
       {!props.asChild && isLoading ? (
         <Loader spinner={spinner} text={loadingText} spinnerPlacement={spinnerPlacement}>
