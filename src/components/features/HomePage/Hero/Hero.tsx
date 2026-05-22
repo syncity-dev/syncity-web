@@ -1,6 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 
-import { Button } from '@/components/core/Button/Button';
+import { Button, ButtonGroup } from '@/components/core/Button/Button';
 import { DisplayItalic } from '@/components/core/DisplayItalic/DisplayItalic';
 import { HairlineGrid } from '@/components/core/HairlineGrid/HairlineGrid';
 import { Heading } from '@/components/core/Heading/Heading';
@@ -49,7 +49,7 @@ export const Hero = () => {
           multi-year engagements — building software that outlasts trends, fads, and rewrites.
         </Box>
 
-        <HStack gap="3" flexWrap="wrap" mb={{ base: '10', md: '12' }}>
+        <ButtonGroup flexWrap="wrap" mb={{ base: '10', md: '12' }}>
           <Button asChild variant="solid" size="lg">
             <a href="#contact">
               Start a project{' '}
@@ -61,7 +61,7 @@ export const Hero = () => {
           <Button asChild variant="surface" size="lg">
             <a href="#team">Meet the team</a>
           </Button>
-        </HStack>
+        </ButtonGroup>
 
         <HStack gap="4" mb={{ base: '16', md: '22' }}>
           <HStack gap="0">

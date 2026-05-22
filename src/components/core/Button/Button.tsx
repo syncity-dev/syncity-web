@@ -7,6 +7,13 @@ import { Loader } from '@/components/core/Loader/Loader';
 import { styled } from '@/styled-system/jsx';
 import { button, type ButtonVariantProps } from '@/styled-system/recipes';
 
+const [ButtonPropsProvider, useButtonPropsContext] = createContext<ButtonVariantProps>({
+  name: 'ButtonPropsContext',
+  hookName: 'useButtonPropsContext',
+  providerName: '<PropsProvider />',
+  strict: false,
+});
+
 interface ButtonLoadingProps {
   /**
    * If `true`, the button will show a loading spinner.
@@ -83,10 +90,3 @@ export const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
     );
   },
 );
-
-const [ButtonPropsProvider, useButtonPropsContext] = createContext<ButtonVariantProps>({
-  name: 'ButtonPropsContext',
-  hookName: 'useButtonPropsContext',
-  providerName: '<PropsProvider />',
-  strict: false,
-});

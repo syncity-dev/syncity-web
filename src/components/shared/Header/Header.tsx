@@ -82,13 +82,7 @@ export const Header = () => {
 
         <HStack gap="2">
           <ColorModeSwitcher />
-          <Button
-            asChild
-            variant="solid"
-            size="lg"
-            display={{ base: 'none', sm: 'inline-flex' }}
-            gap="2"
-          >
+          <Button asChild variant="solid" size="lg" display={{ base: 'none', sm: 'inline-flex' }}>
             <a href="#contact">
               Start a project{' '}
               <Icon asChild>

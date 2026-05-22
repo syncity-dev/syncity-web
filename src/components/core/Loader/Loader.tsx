@@ -30,41 +30,30 @@ export interface LoaderProps extends HTMLStyledProps<'span'> {
 const Span = styled('span');
 
 export const Loader = forwardRef<HTMLSpanElement, LoaderProps>(function Loader(props, ref) {
-  const {
-    spinner = <Spinner size="inherit" borderWidth="0.125em" color="inherit" />,
-    spinnerPlacement = 'start',
-    children,
-    text,
-    visible = true,
-    ...rest
-  } = props;
+  const { spinner, spinnerPlacement = 'start', children, text, visible = true, ...rest } = props;
 
   if (!visible) return children;
+
+  const resolvedSpinner = spinner ?? (
+    <Spinner size="inherit" borderWidth="0.125em" color="inherit" />
+  );
 
   if (text) {
     return (
       <Span ref={ref} display="contents" {...rest}>
-        {spinnerPlacement === 'start' && spinner}
+        {spinnerPlacement === 'start' && resolvedSpinner}
         {text}
-        {spinnerPlacement === 'end' && spinner}
-      </Span>
-    );
-  }
-
-  if (spinner) {
-    return (
-      <Span ref={ref} display="contents" {...rest}>
-        <AbsoluteCenter display="inline-flex">{spinner}</AbsoluteCenter>
-        <Span visibility="hidden" display="contents">
-          {children}
-        </Span>
+        {spinnerPlacement === 'end' && resolvedSpinner}
       </Span>
     );
   }
 
   return (
     <Span ref={ref} display="contents" {...rest}>
-      {children}
+      <AbsoluteCenter display="inline-flex">{resolvedSpinner}</AbsoluteCenter>
+      <Span visibility="hidden" display="contents">
+        {children}
+      </Span>
     </Span>
   );
 });
