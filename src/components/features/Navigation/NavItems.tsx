@@ -25,9 +25,11 @@ export const NavItems = ({
   return (
     <Stack {...restProps}>
       {navItems?.map(({ id, label, path, Icon }) => (
-        <Button key={id} href={path} visual={'link'} size={size} gap={2.5} w="fit">
-          {haveIcons ? <Icon /> : null}
-          {label}
+        <Button key={id} asChild variant={'plain'} size={size} gap={2.5} w="fit">
+          <a href={path}>
+            {haveIcons ? <Icon /> : null}
+            {label}
+          </a>
         </Button>
       ))}
     </Stack>

@@ -15,8 +15,8 @@ export const NotFound = () => {
           The page you're looking for doesn't exist or has been moved.
         </Text>
       </VStack>
-      <Button visual="solid" color="accent" href="/">
-        Go home
+      <Button asChild variant="solid" colorPalette="accent">
+        <a href="/">Go home</a>
       </Button>
     </VStack>
   );

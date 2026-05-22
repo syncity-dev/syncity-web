@@ -2,6 +2,7 @@ import { ArrowRight, Menu } from 'lucide-react';
 import { useState } from 'react';
 
 import { Button } from '@/components/core/Button/Button';
+import { Icon } from '@/components/core/Icon/Icon';
 import { IconButton } from '@/components/core/IconButton/IconButton';
 import { Logo } from '@/components/core/Logo/Logo';
 import { HeaderWrapper } from '@/components/features/Header/HeaderWrapper';
@@ -82,13 +83,18 @@ export const Header = () => {
         <HStack gap="2">
           <ColorModeSwitcher />
           <Button
-            href="#contact"
-            visual="solid"
+            asChild
+            variant="solid"
             size="lg"
             display={{ base: 'none', sm: 'inline-flex' }}
             gap="2"
           >
-            Start a project <ArrowRight size={10} />
+            <a href="#contact">
+              Start a project{' '}
+              <Icon asChild>
+                <ArrowRight />
+              </Icon>
+            </a>
           </Button>
           <IconButton
             aria-label="Open menu"

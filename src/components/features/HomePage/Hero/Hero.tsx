@@ -1,7 +1,10 @@
+import { ArrowRight } from 'lucide-react';
+
 import { Button } from '@/components/core/Button/Button';
 import { DisplayItalic } from '@/components/core/DisplayItalic/DisplayItalic';
 import { HairlineGrid } from '@/components/core/HairlineGrid/HairlineGrid';
 import { Heading } from '@/components/core/Heading/Heading';
+import { Icon } from '@/components/core/Icon/Icon';
 import { Section } from '@/components/core/Section/Section';
 import { HERO_STATS } from '@/components/features/HomePage/Hero/Hero.constants';
 import { IsoDeco } from '@/components/features/HomePage/Hero/IsoDeco';
@@ -47,11 +50,16 @@ export const Hero = () => {
         </Box>
 
         <HStack gap="3" flexWrap="wrap" mb={{ base: '10', md: '12' }}>
-          <Button href="#contact" visual="solid" size="lg">
-            Start a project →
+          <Button asChild variant="solid" size="lg">
+            <a href="#contact">
+              Start a project{' '}
+              <Icon asChild>
+                <ArrowRight />
+              </Icon>
+            </a>
           </Button>
-          <Button href="#team" visual="surface" color="gray" size="lg">
-            Meet the team
+          <Button asChild variant="surface" size="lg">
+            <a href="#team">Meet the team</a>
           </Button>
         </HStack>
 
