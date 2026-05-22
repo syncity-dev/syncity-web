@@ -1,4 +1,4 @@
-import { Button } from '@/components/core/Button/Button';
+import { LinkButton } from '@/components/core/LinkButton/LinkButton';
 import type { NAV_ITEMS } from '@/constants/navigation';
 import type { HstackProps, VstackProps } from '@/styled-system/jsx';
 import { HStack, VStack } from '@/styled-system/jsx';
@@ -25,10 +25,10 @@ export const NavItems = ({
   return (
     <Stack {...restProps}>
       {navItems?.map(({ id, label, path, Icon }) => (
-        <Button key={id} href={path} visual={'link'} size={size} gap={2.5} w="fit">
+        <LinkButton key={id} href={path} variant="plain" size={size} gap="2.5" w="fit">
           {haveIcons ? <Icon /> : null}
           {label}
-        </Button>
+        </LinkButton>
       ))}
     </Stack>
   );

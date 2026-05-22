@@ -1,43 +1,92 @@
-import type { HTMLStyledProps } from '@/styled-system/jsx';
+import { ark } from '@ark-ui/react/factory';
+import { createContext, mergeProps } from '@ark-ui/react/utils';
+import { type ComponentProps, forwardRef, useMemo } from 'react';
+
+import { Group, type GroupProps } from '@/components/core/Group/Group';
+import { Loader } from '@/components/core/Loader/Loader';
 import { styled } from '@/styled-system/jsx';
-import { button } from '@/styled-system/recipes';
-import type { Size } from '@/types/core';
+import { button, type ButtonVariantProps } from '@/styled-system/recipes';
 
-export type ButtonColor = 'accent' | 'danger' | 'gray' | 'info' | 'success' | 'warning';
+const [ButtonPropsProvider, useButtonPropsContext] = createContext<ButtonVariantProps>({
+  name: 'ButtonPropsContext',
+  hookName: 'useButtonPropsContext',
+  providerName: '<PropsProvider />',
+  strict: false,
+});
 
-type ButtonBaseProps = {
-  visual?: 'solid' | 'outline' | 'link' | 'surface' | 'inverted';
-  size?: Size;
-  color?: ButtonColor;
-};
+interface ButtonLoadingProps {
+  /**
+   * If `true`, the button will show a loading spinner.
+   * @default false
+   */
+  isLoading?: boolean | undefined;
+  /**
+   * The text to show while loading.
+   */
+  loadingText?: React.ReactNode | undefined;
+  /**
+   * The spinner to show while loading.
+   */
+  spinner?: React.ReactNode | undefined;
+  /**
+   * The placement of the spinner
+   * @default "start"
+   */
+  spinnerPlacement?: 'start' | 'end' | undefined;
+}
 
-type ButtonProps = ButtonBaseProps & HTMLStyledProps<'button'>;
-type LinkProps = ButtonBaseProps & HTMLStyledProps<'a'> & { href: string };
+type BaseButtonProps = ComponentProps<typeof BaseButton>;
+const BaseButton = styled(ark.button, button);
 
-const BaseButton = styled('button');
-const BaseLink = styled('a');
+export interface ButtonProps extends BaseButtonProps, ButtonLoadingProps {}
 
-export const Button = (props: ButtonProps | LinkProps) => {
-  const { visual, size, color = 'accent', ...restProps } = props;
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(props, ref) {
+  const propsContext = useButtonPropsContext();
+  const buttonProps = useMemo(
+    () => mergeProps<ButtonProps>(propsContext, props),
+    [propsContext, props],
+  );
 
-  if ('href' in props && typeof props.href === 'string') {
-    const { href, ...linkProps } = restProps as HTMLStyledProps<'a'>;
-
-    return (
-      <BaseLink
-        href={href}
-        className={button({ visual, size })}
-        colorPalette={color}
-        {...linkProps}
-      />
-    );
-  }
+  const {
+    isLoading,
+    loadingText,
+    children,
+    spinner,
+    spinnerPlacement,
+    colorPalette = 'gray',
+    ...rest
+  } = buttonProps;
 
   return (
     <BaseButton
-      {...(restProps as HTMLStyledProps<'button'>)}
-      className={button({ visual, size })}
-      colorPalette={color}
-    />
+      type="button"
+      ref={ref}
+      colorPalette={colorPalette}
+      data-loading={isLoading ?? undefined}
+      disabled={isLoading ?? rest.disabled}
+      {...rest}
+    >
+      {!props.asChild && isLoading ? (
+        <Loader spinner={spinner} text={loadingText} spinnerPlacement={spinnerPlacement}>
+          {children}
+        </Loader>
+      ) : (
+        children
+      )}
+    </BaseButton>
   );
-};
+});
+
+export interface ButtonGroupProps extends GroupProps, ButtonVariantProps {}
+
+export const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
+  function ButtonGroup(props, ref) {
+    const [variantProps, otherProps] = useMemo(() => button.splitVariantProps(props), [props]);
+
+    return (
+      <ButtonPropsProvider value={variantProps}>
+        <Group ref={ref} {...otherProps} />
+      </ButtonPropsProvider>
+    );
+  },
+);

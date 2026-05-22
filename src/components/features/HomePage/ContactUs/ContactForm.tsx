@@ -1,6 +1,5 @@
 import { useFormspree } from '@formspree/react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { LoaderCircle } from 'lucide-react';
 import { Controller, useForm } from 'react-hook-form';
 import * as z from 'zod';
 
@@ -10,7 +9,7 @@ import { Text } from '@/components/core/Text/Text';
 import { TextArea } from '@/components/core/TextArea/TextArea';
 import { TextInput } from '@/components/core/TextInput/TextInput';
 import { useToast } from '@/components/core/Toast/Toast.hooks';
-import { styled, VStack } from '@/styled-system/jsx';
+import { VStack } from '@/styled-system/jsx';
 
 const defaultValues = {
   name: '',
@@ -124,14 +123,8 @@ export const ContactForm = () => {
           </Text>
         ) : null}
       </VStack>
-      <Button type="submit" w="full" size="lg" disabled={isSubmitting}>
-        {isSubmitting ? (
-          <styled.div animation="spin" animationDelay="faster">
-            <LoaderCircle size={21} />
-          </styled.div>
-        ) : (
-          'Send Message'
-        )}
+      <Button type="submit" w="full" size="lg" isLoading={isSubmitting} loadingText="Sending...">
+        Send Message
       </Button>
     </Form>
   );

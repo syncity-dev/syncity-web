@@ -1,18 +1,11 @@
-import type { HTMLStyledProps } from '@/styled-system/jsx';
-import { styled } from '@/styled-system/jsx';
-import { iconButton } from '@/styled-system/recipes';
+import { forwardRef } from 'react';
 
-type IconButtonSize = 'sm' | 'md' | 'lg' | 'xl';
+import { Button, type ButtonProps } from '@/components/core/Button/Button';
 
-type IconButtonBaseProps = {
-  size?: IconButtonSize;
-  'aria-label': string;
-};
+export type IconButtonProps = ButtonProps;
 
-type IconButtonProps = IconButtonBaseProps & HTMLStyledProps<'button'>;
-
-const StyledButton = styled('button');
-
-export const IconButton = ({ size = 'md', ...props }: IconButtonProps) => (
-  <StyledButton type="button" className={iconButton({ size })} {...props} />
+export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
+  function IconButton(props, ref) {
+    return <Button aspectRatio="1" px="0" py="0" ref={ref} {...props} />;
+  },
 );

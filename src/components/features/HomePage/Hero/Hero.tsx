@@ -1,7 +1,11 @@
-import { Button } from '@/components/core/Button/Button';
+import { ArrowRight } from 'lucide-react';
+
+import { ButtonGroup } from '@/components/core/Button/Button';
 import { DisplayItalic } from '@/components/core/DisplayItalic/DisplayItalic';
 import { HairlineGrid } from '@/components/core/HairlineGrid/HairlineGrid';
 import { Heading } from '@/components/core/Heading/Heading';
+import { Icon } from '@/components/core/Icon/Icon';
+import { LinkButton } from '@/components/core/LinkButton/LinkButton';
 import { Section } from '@/components/core/Section/Section';
 import { HERO_STATS } from '@/components/features/HomePage/Hero/Hero.constants';
 import { IsoDeco } from '@/components/features/HomePage/Hero/IsoDeco';
@@ -46,14 +50,17 @@ export const Hero = () => {
           multi-year engagements — building software that outlasts trends, fads, and rewrites.
         </Box>
 
-        <HStack gap="3" flexWrap="wrap" mb={{ base: '10', md: '12' }}>
-          <Button href="#contact" visual="solid" size="lg">
-            Start a project →
-          </Button>
-          <Button href="#team" visual="surface" color="gray" size="lg">
+        <ButtonGroup flexWrap="wrap" mb={{ base: '10', md: '12' }}>
+          <LinkButton href="#contact" variant="solid" size="lg">
+            Start a project{' '}
+            <Icon asChild>
+              <ArrowRight />
+            </Icon>
+          </LinkButton>
+          <LinkButton href="#team" variant="surface" size="lg">
             Meet the team
-          </Button>
-        </HStack>
+          </LinkButton>
+        </ButtonGroup>
 
         <HStack gap="4" mb={{ base: '16', md: '22' }}>
           <HStack gap="0">

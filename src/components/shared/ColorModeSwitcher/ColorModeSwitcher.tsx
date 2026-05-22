@@ -1,3 +1,4 @@
+import { IconButton } from '@/components/core/IconButton/IconButton';
 import {
   MenuContent,
   MenuItemText,
@@ -13,7 +14,6 @@ import {
 } from '@/components/shared/ColorModeSwitcher/ColorModeSwitcher.constants';
 import { useColorModeSwitcher } from '@/components/shared/ColorModeSwitcher/ColorModeSwitcher.hooks';
 import { css } from '@/styled-system/css';
-import { iconButton } from '@/styled-system/recipes';
 import type { ColorModePreference } from '@/utils/colorMode';
 
 export const ColorModeSwitcher = () => {
@@ -29,8 +29,10 @@ export const ColorModeSwitcher = () => {
 
   return (
     <MenuRoot onOpenChange={onOpenChange} onHighlightChange={onHighlightChange}>
-      <MenuTrigger className={iconButton({ size: 'md' })} aria-label="Toggle color mode">
-        <TriggerIcon />
+      <MenuTrigger asChild aria-label="Toggle color mode">
+        <IconButton variant="outline" size="lg">
+          <TriggerIcon />
+        </IconButton>
       </MenuTrigger>
 
       <MenuPositioner>
