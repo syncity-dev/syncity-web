@@ -4,10 +4,8 @@ import * as React from 'react';
 
 import { dialog } from '@/components/core/Dialog/Dialog.recipe';
 
-export type DialogPlacement = 'right';
-
 export type DialogRootProps = React.ComponentProps<typeof ArkDialog.Root> & {
-  placement?: DialogPlacement;
+  placement?: NonNullable<Parameters<typeof dialog>[0]>['placement'];
 };
 
 type ClassesContextValue = ReturnType<typeof dialog>;
