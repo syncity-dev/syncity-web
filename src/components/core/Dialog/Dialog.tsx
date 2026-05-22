@@ -3,18 +3,12 @@ import { Portal } from '@ark-ui/react/portal';
 import * as React from 'react';
 
 import { dialog } from '@/components/core/Dialog/Dialog.recipe';
-import { styled } from '@/styled-system/jsx';
 
 export type DialogPlacement = 'right';
 
 export type DialogRootProps = React.ComponentProps<typeof ArkDialog.Root> & {
   placement?: DialogPlacement;
 };
-
-const StyledBackdrop = styled(ArkDialog.Backdrop);
-const StyledPositioner = styled(ArkDialog.Positioner);
-const StyledContent = styled(ArkDialog.Content);
-const StyledTitle = styled(ArkDialog.Title);
 
 type ClassesContextValue = ReturnType<typeof dialog>;
 const ClassesContext = React.createContext<ClassesContextValue>(dialog());
@@ -32,31 +26,31 @@ DialogRoot.displayName = 'DialogRoot';
 
 export const DialogBackdrop = React.forwardRef<
   HTMLDivElement,
-  React.ComponentPropsWithoutRef<typeof StyledBackdrop>
+  React.ComponentPropsWithoutRef<typeof ArkDialog.Backdrop>
 >((props, ref) => {
   const classes = React.useContext(ClassesContext);
 
-  return <StyledBackdrop ref={ref} className={classes.backdrop} {...props} />;
+  return <ArkDialog.Backdrop ref={ref} className={classes.backdrop} {...props} />;
 });
 DialogBackdrop.displayName = 'DialogBackdrop';
 
 export const DialogPositioner = React.forwardRef<
   HTMLDivElement,
-  React.ComponentPropsWithoutRef<typeof StyledPositioner>
+  React.ComponentPropsWithoutRef<typeof ArkDialog.Positioner>
 >((props, ref) => {
   const classes = React.useContext(ClassesContext);
 
-  return <StyledPositioner ref={ref} className={classes.positioner} {...props} />;
+  return <ArkDialog.Positioner ref={ref} className={classes.positioner} {...props} />;
 });
 DialogPositioner.displayName = 'DialogPositioner';
 
 export const DialogContent = React.forwardRef<
   HTMLDivElement,
-  React.ComponentPropsWithoutRef<typeof StyledContent>
+  React.ComponentPropsWithoutRef<typeof ArkDialog.Content>
 >((props, ref) => {
   const classes = React.useContext(ClassesContext);
 
-  return <StyledContent ref={ref} className={classes.content} {...props} />;
+  return <ArkDialog.Content ref={ref} className={classes.content} {...props} />;
 });
 DialogContent.displayName = 'DialogContent';
 
@@ -83,11 +77,11 @@ DialogFooter.displayName = 'DialogFooter';
 
 export const DialogTitle = React.forwardRef<
   HTMLHeadingElement,
-  React.ComponentPropsWithoutRef<typeof StyledTitle>
+  React.ComponentPropsWithoutRef<typeof ArkDialog.Title>
 >((props, ref) => {
   const classes = React.useContext(ClassesContext);
 
-  return <StyledTitle ref={ref} className={classes.title} {...props} />;
+  return <ArkDialog.Title ref={ref} className={classes.title} {...props} />;
 });
 DialogTitle.displayName = 'DialogTitle';
 
