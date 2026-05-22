@@ -4,7 +4,7 @@ import { interactiveTransition } from '@/theme/motion/transitions';
 
 export const button = defineRecipe({
   className: 'button',
-  jsx: ['Button', 'IconButton', 'CloseButton', 'ButtonGroup'],
+  jsx: ['Button', 'IconButton', 'LinkButton', 'CloseButton', 'ButtonGroup'],
   base: {
     display: 'inline-flex',
     alignItems: 'center',
