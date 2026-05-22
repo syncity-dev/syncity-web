@@ -1,14 +1,16 @@
+import { absoluteCenter } from './absolute-center';
 import { button } from './button';
 import { card } from './card';
 import { diamond } from './diamond';
 import { drawer } from './drawer';
+import { group } from './group';
 import { heading } from './heading';
 import { icon } from './icon';
-import { iconButton } from './iconButton';
 import { link } from './link';
 import { logo } from './logo';
 import { menu } from './menu';
 import { section } from './section';
+import { spinner } from './spinner';
 import { text } from './text';
 import { textArea } from './textArea';
 import { textInput } from './textInput';
@@ -24,14 +26,16 @@ export const slotRecipes = {
 };
 
 export const recipes = {
+  absoluteCenter,
+  spinner,
   button,
   diamond,
   heading,
   icon,
-  iconButton,
   link,
   logo,
   section,
   text,
   toastViewport,
+  group,
 };
