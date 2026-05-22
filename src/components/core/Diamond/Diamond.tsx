@@ -1,7 +1,6 @@
 import type { HTMLStyledProps } from '@/styled-system/jsx';
 import { styled } from '@/styled-system/jsx';
-
-import { diamond } from './Diamond.recipe';
+import { diamond } from '@/styled-system/recipes';
 
 type DiamondVariant = 'solid' | 'outline';
 

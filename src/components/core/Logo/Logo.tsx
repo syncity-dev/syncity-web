@@ -1,9 +1,13 @@
 import { Image } from '@unpic/react';
 
-import { darkVariant, lightVariant, logo } from '@/components/core/Logo/Logo.recipe';
 import type { RouteLinkProps } from '@/components/core/RouteLink/RouteLink';
 import { RouteLink } from '@/components/core/RouteLink/RouteLink';
+import { css } from '@/styled-system/css';
+import { logo } from '@/styled-system/recipes';
 import type { Size } from '@/types/core';
+
+const lightVariant = css({ _dark: { display: 'none' } });
+const darkVariant = css({ display: 'none', _dark: { display: 'block' } });
 
 type LogoProps = Omit<RouteLinkProps, 'to'> & {
   size?: Size;

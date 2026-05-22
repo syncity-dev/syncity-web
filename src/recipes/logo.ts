@@ -1,6 +1,7 @@
-import { css, cva } from '@/styled-system/css';
+import { defineRecipe } from '@pandacss/dev';
 
-export const logo = cva({
+export const logo = defineRecipe({
+  className: 'logo',
   base: {
     display: 'block',
     flexShrink: '0',
@@ -12,6 +13,9 @@ export const logo = cva({
       outlineOffset: '2px',
     },
   },
+  defaultVariants: {
+    size: 'md',
+  },
   variants: {
     size: {
       sm: { width: '28' },
@@ -19,13 +23,4 @@ export const logo = cva({
       lg: { width: '72' },
     },
   },
-  defaultVariants: {
-    size: 'md',
-  },
-});
-
-export const lightVariant = css({ _dark: { display: 'none' } });
-export const darkVariant = css({
-  display: 'none',
-  _dark: { display: 'block' },
 });

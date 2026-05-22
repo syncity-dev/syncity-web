@@ -1,7 +1,9 @@
-import { cva } from '@/styled-system/css';
+import { defineRecipe } from '@pandacss/dev';
+
 import { interactiveTransition } from '@/theme/motion/transitions';
 
-export const iconButton = cva({
+export const iconButton = defineRecipe({
+  className: 'icon-button',
   base: {
     display: 'inline-flex',
     alignItems: 'center',

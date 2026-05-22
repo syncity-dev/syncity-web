@@ -1,4 +1,3 @@
-import { iconButton } from '@/components/core/IconButton/IconButton.recipe';
 import {
   MenuContent,
   MenuItemText,
@@ -14,6 +13,7 @@ import {
 } from '@/components/shared/ColorModeSwitcher/ColorModeSwitcher.constants';
 import { useColorModeSwitcher } from '@/components/shared/ColorModeSwitcher/ColorModeSwitcher.hooks';
 import { css } from '@/styled-system/css';
+import { iconButton } from '@/styled-system/recipes';
 import type { ColorModePreference } from '@/utils/colorMode';
 
 export const ColorModeSwitcher = () => {

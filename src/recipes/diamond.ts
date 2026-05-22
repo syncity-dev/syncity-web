@@ -1,6 +1,7 @@
-import { cva } from '@/styled-system/css';
+import { defineRecipe } from '@pandacss/dev';
 
-export const diamond = cva({
+export const diamond = defineRecipe({
+  className: 'diamond',
   base: {
     display: 'inline-block',
     w: '2',

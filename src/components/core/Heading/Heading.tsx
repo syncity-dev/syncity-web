@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/static-components */
-import { heading } from '@/components/core/Heading/Heading.recipe';
 import type { HTMLStyledProps } from '@/styled-system/jsx';
 import { styled } from '@/styled-system/jsx';
+import { heading } from '@/styled-system/recipes';
 
 export type HeadingElement = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 

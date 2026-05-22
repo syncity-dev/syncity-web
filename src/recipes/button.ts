@@ -1,7 +1,9 @@
-import { cva } from '@/styled-system/css';
+import { defineRecipe } from '@pandacss/dev';
+
 import { interactiveTransition } from '@/theme/motion/transitions';
 
-export const button = cva({
+export const button = defineRecipe({
+  className: 'button',
   base: {
     display: 'inline-flex',
     alignItems: 'center',
