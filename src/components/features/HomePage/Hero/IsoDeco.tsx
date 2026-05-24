@@ -1,5 +1,6 @@
 import { css } from '@/styled-system/css';
 import { Box } from '@/styled-system/jsx';
+import { range } from '@/utils/range';
 
 export const IsoDeco = () => (
   <Box
@@ -32,7 +33,7 @@ export const IsoDeco = () => (
         strokeOpacity="0.3"
         strokeDasharray="2 3"
       />
-      {[0, 1, 2, 3].map((i) => {
+      {range(4).map((i) => {
         const isTop = i === 3;
 
         return (
