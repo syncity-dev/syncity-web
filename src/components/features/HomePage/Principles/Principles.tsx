@@ -1,4 +1,5 @@
 import { Eyebrow } from '@/components/core/Eyebrow/Eyebrow';
+import { HairlineGrid } from '@/components/core/HairlineGrid/HairlineGrid';
 import { Heading } from '@/components/core/Heading/Heading';
 import { Section } from '@/components/core/Section/Section';
 import { Text } from '@/components/core/Text/Text';
@@ -17,37 +18,13 @@ const SectionHeader = styled('div', {
   },
 });
 
-const CardGrid = styled('div', {
-  base: {
-    display: 'grid',
-    gridTemplateColumns: '1fr',
-    borderTopWidth: 'thin',
-    borderTopColor: 'border.default',
-    md: {
-      gridTemplateColumns: 'repeat(3, 1fr)',
-    },
-  },
-});
-
 const Card = styled('div', {
   base: {
     position: 'relative',
     pt: '9',
     px: '8',
     pb: '10',
-    borderBottomWidth: 'thin',
-    borderBottomColor: 'border.default',
-    _last: {
-      borderBottomWidth: '0',
-    },
-    md: {
-      borderBottomWidth: '0',
-      borderRightWidth: 'thin',
-      borderRightColor: 'border.default',
-      _last: {
-        borderRightWidth: '0',
-      },
-    },
+    bg: 'bg.default',
   },
 });
 
@@ -104,7 +81,7 @@ export const Principles = () => (
       </Text>
     </SectionHeader>
 
-    <CardGrid>
+    <HairlineGrid gridTemplateColumns={{ base: '1fr', md: 'repeat(3, 1fr)' }}>
       <Card>
         <Eyebrow mb="2">EMBED</Eyebrow>
         <EmbedGlyph />
@@ -146,6 +123,6 @@ export const Principles = () => (
           say yes to actually compound.
         </Text>
       </Card>
-    </CardGrid>
+    </HairlineGrid>
   </Section>
 );
