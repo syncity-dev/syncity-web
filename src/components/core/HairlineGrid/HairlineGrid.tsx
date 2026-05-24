@@ -8,6 +8,7 @@ export const HairlineGrid = ({ gridTemplateColumns, children, ...props }: Hairli
   if (gridTemplateColumns !== undefined) {
     return (
       <Box
+        position="relative"
         borderTopWidth="1px"
         borderTopStyle="solid"
         borderTopColor="border.default"
