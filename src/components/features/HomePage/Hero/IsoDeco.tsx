@@ -11,11 +11,22 @@ export const IsoDeco = () => (
     display={{ base: 'none', xl: 'flex' }}
     flexDir="column"
     alignItems="center"
-    gap="3"
     pointerEvents="none"
   >
     <svg width="240" height="290" viewBox="-100 -130 200 280" fill="none">
       <circle cx="0" cy="-110" r="6" fill="var(--colors-accent-default)" />
+      <circle
+        cx="0"
+        cy="-110"
+        r="6"
+        fill="var(--colors-accent-default)"
+        className={css({
+          transformBox: 'fill-box',
+          transformOrigin: 'center',
+          animation: 'ping',
+          _motionReduce: { animation: 'none' },
+        })}
+      />
       <circle
         cx="0"
         cy="-110"
@@ -64,7 +75,7 @@ export const IsoDeco = () => (
       className={css({
         textTransform: 'uppercase',
         color: 'fg.subtle',
-        fontSize: '2xs',
+        fontSize: 'xs',
         letterSpacing: '0.2em',
         textAlign: 'center',
       })}
