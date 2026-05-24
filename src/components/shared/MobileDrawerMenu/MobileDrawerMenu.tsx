@@ -14,7 +14,7 @@ import {
   DialogRoot,
   DialogTitle,
 } from '@/components/core/Dialog/Dialog';
-import { iconButton } from '@/components/core/IconButton/IconButton.recipe';
+import { IconButton } from '@/components/core/IconButton/IconButton';
 import { Logo } from '@/components/core/Logo/Logo';
 import { NAV_LINKS } from '@/constants/navigation';
 import { css } from '@/styled-system/css';
@@ -68,12 +68,10 @@ export const MobileDrawerMenu = ({ isOpen, onOpenChange }: MobileDrawerMenuProps
 
             <DialogHeader>
               <Logo />
-              <DialogCloseTrigger
-                ref={closeButtonRef}
-                aria-label="Close menu"
-                className={iconButton({ size: 'lg' })}
-              >
-                <X size={18} />
+              <DialogCloseTrigger ref={closeButtonRef} asChild>
+                <IconButton aria-label="Close menu" size="lg">
+                  <X size={18} />
+                </IconButton>
               </DialogCloseTrigger>
             </DialogHeader>
 
