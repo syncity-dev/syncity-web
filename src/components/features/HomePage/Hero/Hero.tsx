@@ -24,7 +24,7 @@ export const Hero = () => {
           <Heading
             as="h1"
             textStyle="display"
-            fontSize={{ base: '5xl', md: '8xl', lg: '9xl' }}
+            fontSize={{ base: '6xl', md: '8xl', lg: '9xl' }}
             lineHeight="0.95"
             letterSpacing="-0.01em"
             mb={{ base: '7', md: '10' }}
