@@ -1,6 +1,7 @@
 import { absoluteCenter } from './absolute-center';
 import { button } from './button';
 import { card } from './card';
+import { dialog } from './dialog';
 import { diamond } from './diamond';
 import { drawer } from './drawer';
 import { group } from './group';
@@ -18,6 +19,7 @@ import { toast, toastViewport } from './toast';
 
 export const slotRecipes = {
   card,
+  dialog,
   drawer,
   menu,
   textArea,
