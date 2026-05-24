@@ -1,7 +1,6 @@
-import { X } from 'lucide-react';
+import { ArrowRight, X } from 'lucide-react';
 import { useRef } from 'react';
 
-import { Button } from '@/components/core/Button/Button';
 import {
   DialogBackdrop,
   DialogBody,
@@ -14,7 +13,9 @@ import {
   DialogRoot,
   DialogTitle,
 } from '@/components/core/Dialog/Dialog';
+import { Icon } from '@/components/core/Icon/Icon';
 import { IconButton } from '@/components/core/IconButton/IconButton';
+import { LinkButton } from '@/components/core/LinkButton/LinkButton';
 import { Logo } from '@/components/core/Logo/Logo';
 import { NAV_LINKS } from '@/constants/navigation';
 import { css } from '@/styled-system/css';
@@ -70,7 +71,7 @@ export const MobileDrawerMenu = ({ isOpen, onOpenChange }: MobileDrawerMenuProps
               <Logo />
               <DialogCloseTrigger ref={closeButtonRef} asChild>
                 <IconButton aria-label="Close menu" size="lg">
-                  <X size={18} />
+                  <X />
                 </IconButton>
               </DialogCloseTrigger>
             </DialogHeader>
@@ -89,15 +90,18 @@ export const MobileDrawerMenu = ({ isOpen, onOpenChange }: MobileDrawerMenuProps
             </DialogBody>
 
             <DialogFooter>
-              <Button
-                visual="solid"
+              <LinkButton
+                variant="solid"
                 size="lg"
                 href="#contact"
                 w="full"
                 onClick={() => onOpenChange(false)}
               >
-                Start a project →
-              </Button>
+                Start a project{' '}
+                <Icon asChild>
+                  <ArrowRight />
+                </Icon>
+              </LinkButton>
             </DialogFooter>
           </DialogContent>
         </DialogPositioner>
