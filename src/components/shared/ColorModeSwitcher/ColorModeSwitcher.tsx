@@ -1,4 +1,4 @@
-import { iconButton } from '@/components/core/IconButton/IconButton.recipe';
+import { IconButton } from '@/components/core/IconButton/IconButton';
 import {
   MenuContent,
   MenuItemText,
@@ -29,8 +29,10 @@ export const ColorModeSwitcher = () => {
 
   return (
     <MenuRoot onOpenChange={onOpenChange} onHighlightChange={onHighlightChange}>
-      <MenuTrigger className={iconButton({ size: 'md' })} aria-label="Toggle color mode">
-        <TriggerIcon />
+      <MenuTrigger asChild aria-label="Toggle color mode">
+        <IconButton variant="outline" size="lg">
+          <TriggerIcon />
+        </IconButton>
       </MenuTrigger>
 
       <MenuPositioner>

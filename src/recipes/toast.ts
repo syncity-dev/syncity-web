@@ -1,6 +1,7 @@
-import { cva, sva } from '@/styled-system/css';
+import { defineRecipe, defineSlotRecipe } from '@pandacss/dev';
 
-export const toast = sva({
+export const toast = defineSlotRecipe({
+  className: 'toast',
   slots: ['root', 'viewport', 'action', 'close', 'title', 'description'],
   base: {
     root: {
@@ -97,6 +98,9 @@ export const toast = sva({
       textStyle: 'sm',
       opacity: '0.9',
     },
+  },
+  defaultVariants: {
+    variant: 'info',
   },
   variants: {
     variant: {
@@ -196,12 +200,10 @@ export const toast = sva({
       },
     },
   },
-  defaultVariants: {
-    variant: 'info',
-  },
 });
 
-export const toastViewport = cva({
+export const toastViewport = defineRecipe({
+  className: 'toast-viewport',
   base: {
     position: 'fixed',
     top: '0',

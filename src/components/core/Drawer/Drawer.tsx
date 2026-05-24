@@ -1,13 +1,13 @@
-/* eslint-disable unused-imports/no-unused-vars */
-import * as React from 'react';
+import type { ComponentProps, ComponentPropsWithoutRef, ComponentRef } from 'react';
+import { forwardRef } from 'react';
 import { Drawer as DrawerPrimitive } from 'vaul';
 
-import { drawer } from '@/components/core/Drawer/Drawer.recipe';
+import { cx } from '@/styled-system/css';
 import type { HTMLStyledProps } from '@/styled-system/jsx';
 import { styled } from '@/styled-system/jsx';
+import { drawer } from '@/styled-system/recipes';
 
-export type DrawerProps = HTMLStyledProps<'div'> &
-  React.ComponentProps<typeof DrawerPrimitive.Root>;
+export type DrawerProps = HTMLStyledProps<'div'> & ComponentProps<typeof DrawerPrimitive.Root>;
 
 const classes = drawer();
 
@@ -34,21 +34,21 @@ const Drawer = ({
 );
 Drawer.displayName = 'Drawer';
 
-const DrawerOverlay = React.forwardRef<
-  React.ElementRef<typeof StyledDrawerOverlay>,
-  React.ComponentPropsWithoutRef<typeof StyledDrawerOverlay>
+const DrawerOverlay = forwardRef<
+  ComponentRef<typeof StyledDrawerOverlay>,
+  ComponentPropsWithoutRef<typeof StyledDrawerOverlay>
 >(({ className, ...props }, ref) => (
-  <StyledDrawerOverlay ref={ref} className={classes.overlay} {...props} />
+  <StyledDrawerOverlay ref={ref} className={cx(classes.overlay, className)} {...props} />
 ));
 DrawerOverlay.displayName = DrawerPrimitive.Overlay.displayName;
 
-const DrawerContent = React.forwardRef<
-  React.ElementRef<typeof StyledDrawerContent>,
-  React.ComponentPropsWithoutRef<typeof StyledDrawerContent>
+const DrawerContent = forwardRef<
+  ComponentRef<typeof StyledDrawerContent>,
+  ComponentPropsWithoutRef<typeof StyledDrawerContent>
 >(({ className, children, ...restProps }, ref) => (
   <DrawerPortal>
     <DrawerOverlay />
-    <StyledDrawerContent ref={ref} className={classes.content} {...restProps}>
+    <StyledDrawerContent ref={ref} className={cx(classes.content, className)} {...restProps}>
       <div className={classes.contentInner} />
       {children}
     </StyledDrawerContent>
@@ -57,28 +57,28 @@ const DrawerContent = React.forwardRef<
 DrawerContent.displayName = 'DrawerContent';
 
 const DrawerHeader = ({ className, ...restProps }: HTMLStyledProps<'div'>) => (
-  <styled.div className={classes.header} {...restProps} />
+  <styled.div className={cx(classes.header, className)} {...restProps} />
 );
 DrawerHeader.displayName = 'DrawerHeader';
 
 const DrawerFooter = ({ className, ...restProps }: HTMLStyledProps<'div'>) => (
-  <styled.div className={classes.footer} {...restProps} />
+  <styled.div className={cx(classes.footer, className)} {...restProps} />
 );
 DrawerFooter.displayName = 'DrawerFooter';
 
-const DrawerTitle = React.forwardRef<
-  React.ElementRef<typeof StyledDrawerTitle>,
-  React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Title>
+const DrawerTitle = forwardRef<
+  ComponentRef<typeof StyledDrawerTitle>,
+  ComponentPropsWithoutRef<typeof DrawerPrimitive.Title>
 >(({ className, ...restProps }, ref) => (
-  <StyledDrawerTitle ref={ref} className={classes.title} {...restProps} />
+  <StyledDrawerTitle ref={ref} className={cx(classes.title, className)} {...restProps} />
 ));
 DrawerTitle.displayName = DrawerPrimitive.Title.displayName;
 
-const DrawerDescription = React.forwardRef<
-  React.ElementRef<typeof StyledDrawerDescription>,
-  React.ComponentPropsWithoutRef<typeof StyledDrawerDescription>
+const DrawerDescription = forwardRef<
+  ComponentRef<typeof StyledDrawerDescription>,
+  ComponentPropsWithoutRef<typeof StyledDrawerDescription>
 >(({ className, ...props }, ref) => (
-  <StyledDrawerDescription ref={ref} className={classes.description} {...props} />
+  <StyledDrawerDescription ref={ref} className={cx(classes.description, className)} {...props} />
 ));
 DrawerDescription.displayName = DrawerPrimitive.Description.displayName;
 

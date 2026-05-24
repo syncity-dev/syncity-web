@@ -1,8 +1,9 @@
-import { Menu } from 'lucide-react';
+import { ArrowRight, Menu } from 'lucide-react';
 import { useState } from 'react';
 
-import { Button } from '@/components/core/Button/Button';
+import { Icon } from '@/components/core/Icon/Icon';
 import { IconButton } from '@/components/core/IconButton/IconButton';
+import { LinkButton } from '@/components/core/LinkButton/LinkButton';
 import { Logo } from '@/components/core/Logo/Logo';
 import { HeaderWrapper } from '@/components/features/Header/HeaderWrapper';
 import { ColorModeSwitcher } from '@/components/shared/ColorModeSwitcher/ColorModeSwitcher';
@@ -22,7 +23,7 @@ const navLinkClass = css({
   px: '3.5',
   rounded: 'l4',
   ...interactiveTransition,
-  _hover: { bg: 'bg.subtle', color: 'fg.default' },
+  _hover: { bg: 'bg.muted', color: 'fg.default' },
   _focusVisible: {
     outlineWidth: '2px',
     outlineStyle: 'solid',
@@ -63,7 +64,7 @@ export const Header = () => {
       </a>
 
       <HeaderWrapper>
-        <Logo size="sm" />
+        <Logo size="md" />
 
         <nav
           aria-label="Main navigation"
@@ -82,14 +83,17 @@ export const Header = () => {
 
         <HStack gap="2">
           <ColorModeSwitcher />
-          <Button
+          <LinkButton
             href="#contact"
-            visual="solid"
-            size="md"
+            variant="solid"
+            size="lg"
             display={{ base: 'none', sm: 'inline-flex' }}
           >
-            Start a project →
-          </Button>
+            Start a project{' '}
+            <Icon asChild>
+              <ArrowRight />
+            </Icon>
+          </LinkButton>
           <IconButton
             aria-label="Open menu"
             aria-expanded={isMenuOpen}

@@ -24,7 +24,7 @@ export const createStyleContext = <R extends Recipe>(recipe: R) => {
 
   const withRootProvider = <P extends object>(Component: ElementType) => {
     const StyledComponent = (props: P) => {
-      const [variantProps, otherProps] = recipe.splitVariantProps(props);
+      const [variantProps, otherProps] = recipe.splitVariantProps(props as Props);
       const slotStyles = useMemo(
         () => recipe(variantProps) as Record<Slot<R>, string>,
         [variantProps],
@@ -54,7 +54,7 @@ export const createStyleContext = <R extends Recipe>(recipe: R) => {
     const StyledComponent = styled(Component);
 
     const StyledSlotProvider = forwardRef<T, P>((props, ref) => {
-      const [variantProps, otherProps] = recipe.splitVariantProps(props);
+      const [variantProps, otherProps] = recipe.splitVariantProps(props as Props);
       const { className = '', ...restProps } = otherProps;
       const slotStyles = recipe(variantProps) as Record<Slot<R>, string>;
       const slotClassName = slotStyles?.[slot];

@@ -1,6 +1,7 @@
-import { cva } from '@/styled-system/css';
+import { defineRecipe } from '@pandacss/dev';
 
-export const section = cva({
+export const section = defineRecipe({
+  className: 'section',
   base: {
     position: 'relative',
     py: { base: '16', md: '24' },
