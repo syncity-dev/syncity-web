@@ -1,46 +1,111 @@
-import { Menu as MenuIcon, X } from 'lucide-react';
+import { ArrowRight, X } from 'lucide-react';
+import { useRef } from 'react';
 
-import type { DrawerProps } from '@/components/core/Drawer/Drawer';
 import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTrigger,
-} from '@/components/core/Drawer/Drawer';
+  DialogBackdrop,
+  DialogBody,
+  DialogCloseTrigger,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogPortal,
+  DialogPositioner,
+  DialogRoot,
+  DialogTitle,
+} from '@/components/core/Dialog/Dialog';
 import { Icon } from '@/components/core/Icon/Icon';
+import { IconButton } from '@/components/core/IconButton/IconButton';
+import { LinkButton } from '@/components/core/LinkButton/LinkButton';
 import { Logo } from '@/components/core/Logo/Logo';
-import { NavItems } from '@/components/features/Navigation/NavItems';
+import { NAV_LINKS } from '@/constants/navigation';
+import { css } from '@/styled-system/css';
+import { interactiveTransition } from '@/theme/motion/transitions';
 
-type MobileDrawerMenuProps = DrawerProps;
+type MobileDrawerMenuProps = {
+  isOpen: boolean;
+  onOpenChange: (open: boolean) => void;
+};
 
-export const MobileDrawerMenu = ({ ...restProps }: MobileDrawerMenuProps) => {
+const navLinkClass = css({
+  display: 'flex',
+  alignItems: 'center',
+  px: '4',
+  py: '5',
+  textStyle: '2xl',
+  fontFamily: 'heading',
+  fontWeight: 'semibold',
+  letterSpacing: '-0.005em',
+  color: 'fg.default',
+  textDecoration: 'none',
+  rounded: 'l3',
+  ...interactiveTransition,
+  _hover: { bg: 'bg.subtle' },
+  _focusVisible: {
+    outlineWidth: '2px',
+    outlineStyle: 'solid',
+    outlineColor: 'accent.default',
+    outlineOffset: '2px',
+  },
+});
+
+export const MobileDrawerMenu = ({ isOpen, onOpenChange }: MobileDrawerMenuProps) => {
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
   return (
-    <Drawer
-      direction="right"
-      display={{ base: 'block', md: 'none' }}
-      alignSelf="center"
-      backgroundColor="transparent"
-      {...restProps}
+    <DialogRoot
+      open={isOpen}
+      onOpenChange={({ open }) => onOpenChange(open)}
+      placement="right"
+      modal
+      lazyMount
+      unmountOnExit
+      initialFocusEl={() => closeButtonRef.current}
     >
-      <DrawerTrigger asChild cursor="pointer">
-        <Icon size="lg">
-          <MenuIcon />
-        </Icon>
-      </DrawerTrigger>
-      <DrawerContent>
-        <DrawerHeader display="flex" mt={-8} alignItems="center" justifyContent="flex-end">
-          <Logo />
-          <DrawerClose mr={-2} cursor="pointer">
-            <Icon size="lg">
-              <X />
-            </Icon>
-          </DrawerClose>
-        </DrawerHeader>
-        <NavItems orientation="vertical" haveIcons={true} size="lg" />
-        <DrawerFooter gap={5} />
-      </DrawerContent>
-    </Drawer>
+      <DialogPortal>
+        <DialogBackdrop />
+        <DialogPositioner>
+          <DialogContent id="mobile-menu">
+            <DialogTitle>Site menu</DialogTitle>
+
+            <DialogHeader>
+              <Logo />
+              <DialogCloseTrigger ref={closeButtonRef} asChild>
+                <IconButton aria-label="Close menu" size="lg">
+                  <X />
+                </IconButton>
+              </DialogCloseTrigger>
+            </DialogHeader>
+
+            <DialogBody aria-label="Mobile navigation">
+              {NAV_LINKS.map(({ id, href, label }) => (
+                <a
+                  key={id}
+                  href={href}
+                  onClick={() => onOpenChange(false)}
+                  className={navLinkClass}
+                >
+                  {label}
+                </a>
+              ))}
+            </DialogBody>
+
+            <DialogFooter>
+              <LinkButton
+                variant="solid"
+                size="lg"
+                href="#contact"
+                w="full"
+                onClick={() => onOpenChange(false)}
+              >
+                Start a project{' '}
+                <Icon asChild>
+                  <ArrowRight />
+                </Icon>
+              </LinkButton>
+            </DialogFooter>
+          </DialogContent>
+        </DialogPositioner>
+      </DialogPortal>
+    </DialogRoot>
   );
 };

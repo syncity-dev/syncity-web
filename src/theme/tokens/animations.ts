@@ -5,6 +5,7 @@ export const animations = {
   fadeOut: { value: 'fadeOut 0.5s var(--elastic-out)' },
   slideInFromTop: { value: 'slideInFromTop 0.6s var(--ease-out)' },
   slideInFromBottom: { value: 'slideInFromBottom 0.6s var(--ease-out)' },
+  slideInFromRight: { value: 'slideInFromRight 0.28s cubic-bezier(0.2, 0.8, 0.2, 1)' },
   slideOutToRight: { value: 'slideOutToRight 0.9s var(--elastic-out)' },
   spin: { value: 'spin 1s linear infinite' },
   'infinite-scroll': { value: 'infinite-scroll 50s linear infinite' },

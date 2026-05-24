@@ -7,6 +7,7 @@ import { LinkButton } from '@/components/core/LinkButton/LinkButton';
 import { Logo } from '@/components/core/Logo/Logo';
 import { HeaderWrapper } from '@/components/features/Header/HeaderWrapper';
 import { ColorModeSwitcher } from '@/components/shared/ColorModeSwitcher/ColorModeSwitcher';
+import { MobileDrawerMenu } from '@/components/shared/MobileDrawerMenu/MobileDrawerMenu';
 import { NAV_LINKS } from '@/constants/navigation';
 import { css } from '@/styled-system/css';
 import { HStack } from '@/styled-system/jsx';
@@ -32,7 +33,7 @@ const navLinkClass = css({
 });
 
 export const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <>
@@ -95,16 +96,17 @@ export const Header = () => {
           </LinkButton>
           <IconButton
             aria-label="Open menu"
-            aria-expanded={menuOpen}
+            aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
             size="lg"
             display={{ base: 'inline-flex', sm: 'none' }}
-            onClick={() => setMenuOpen(true)}
+            onClick={() => setIsMenuOpen(true)}
           >
             <Menu size={18} />
           </IconButton>
         </HStack>
       </HeaderWrapper>
+      <MobileDrawerMenu isOpen={isMenuOpen} onOpenChange={setIsMenuOpen} />
     </>
   );
 };

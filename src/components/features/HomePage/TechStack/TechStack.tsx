@@ -46,7 +46,7 @@ const LOGOS = [
 
 export const TechStack = ({ ...restProps }) => {
   return (
-    <Section pt="16" pb="6" {...restProps}>
+    <Section id="stack" pt="16" pb="6" {...restProps}>
       <Heading as="h2" fontSize={{ base: '3xl', md: '4xl' }} textAlign="center" mb="12">
         Our Tech Stack
       </Heading>

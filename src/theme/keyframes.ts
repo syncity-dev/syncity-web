@@ -29,6 +29,10 @@ export const keyframes = {
     '0%': { transform: 'translateY(1000%)' },
     '100%': { transform: 'translateY(0)' },
   },
+  slideInFromRight: {
+    '0%': { transform: 'translateX(100%)' },
+    '100%': { transform: 'translateX(0)' },
+  },
   slideOutToRight: {
     '0%': { transform: 'translateX(0)' },
     '100%': { transform: 'translateX(120%)' },
