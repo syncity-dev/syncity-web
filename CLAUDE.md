@@ -226,3 +226,20 @@ When adding `og:image`, provide an absolute URL.
 - The app is SSR via Nitro. Avoid `window` / `document` access outside `useEffect` or after a `typeof window !== 'undefined'` guard.
 - `COLOR_MODE_INIT_SCRIPT` runs as an inline script before hydration to avoid color mode flash.
 - Images via `@unpic/react` handle responsive sizing and lazy loading — use `layout="constrained"` for fixed-size images, `layout="fullWidth"` for full-container images.
+
+---
+
+## v3 Redesign Workflow
+
+### Before implementing any `features/HomePage` section
+
+1. Read `~/Workspace/syncity-assistant/resources/syncity-web/implementation-status.md` — check what's done and what's next.
+2. Read the relevant section spec in `~/Workspace/syncity-assistant/resources/syncity-web/handoff/06-sections.md`.
+3. Open `~/Workspace/syncity-assistant/resources/syncity-web/handoff/design-reference/syncity-app-v3.jsx` to extract copy, SVGs, and structure for the target section.
+
+### After a section PR is created
+
+Update `~/Workspace/syncity-assistant/resources/syncity-web/implementation-status.md`:
+- Mark the completed section ✅ with its PR number.
+- Mark the next section as "Next".
+- Add any new key decisions that aren't already documented (API changes, gotchas, token workarounds).

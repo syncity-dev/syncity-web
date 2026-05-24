@@ -8,7 +8,7 @@ type MembersWrapperProps = ComponentProps<typeof Section>;
 
 export const MembersWrapper = ({ children, ...restProps }: MembersWrapperProps) => {
   return (
-    <Section py={{ base: '0', sm: '16' }} pb={{ base: '12', sm: '16' }} {...restProps}>
+    <Section id="team" py={{ base: '0', sm: '16' }} pb={{ base: '12', sm: '16' }} {...restProps}>
       <Heading as="h2" textAlign="center" mb="12">
         Who We Are
       </Heading>

@@ -6,7 +6,7 @@ import { ContactForm } from './ContactForm';
 
 export const ContactUs = ({ ...restProps }) => {
   return (
-    <Section py="16" {...restProps}>
+    <Section id="contact" py="16" {...restProps}>
       <CardRoot maxW="md" mx="auto" variant="elevated">
         <CardHeader w="full">
           <Heading as="h2" fontSize={{ base: '3xl', md: '4xl' }} textAlign="center" mb="6">
