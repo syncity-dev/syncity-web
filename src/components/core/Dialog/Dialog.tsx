@@ -2,7 +2,7 @@ import { Dialog as ArkDialog } from '@ark-ui/react/dialog';
 import { Portal } from '@ark-ui/react/portal';
 import * as React from 'react';
 
-import { dialog } from '@/components/core/Dialog/Dialog.recipe';
+import { dialog } from '@/styled-system/recipes';
 
 export type DialogRootProps = React.ComponentProps<typeof ArkDialog.Root> & {
   placement?: NonNullable<Parameters<typeof dialog>[0]>['placement'];

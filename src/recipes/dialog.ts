@@ -1,6 +1,7 @@
-import { sva } from '@/styled-system/css';
+import { defineSlotRecipe } from '@pandacss/dev';
 
-export const dialog = sva({
+export const dialog = defineSlotRecipe({
+  className: 'dialog',
   slots: ['backdrop', 'positioner', 'content', 'header', 'body', 'footer', 'title'],
   base: {
     backdrop: {
