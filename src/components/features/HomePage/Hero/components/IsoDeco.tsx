@@ -6,7 +6,7 @@ export const IsoDeco = () => (
   <Box
     aria-hidden="true"
     position="absolute"
-    right="-4"
+    right="6"
     top="10"
     display={{ base: 'none', xl: 'flex' }}
     flexDir="column"
