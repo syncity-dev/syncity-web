@@ -56,4 +56,7 @@ export const keyframes = {
       boxShadow: '0 0 0 0 color-mix(in srgb, var(--colors-success-default) 0%, transparent)',
     },
   },
+  ping: {
+    '75%, 100%': { transform: 'scale(2.5)', opacity: '0' },
+  },
 } as const;

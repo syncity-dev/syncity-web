@@ -10,4 +10,5 @@ export const animations = {
   spin: { value: 'spin 1s linear infinite' },
   'infinite-scroll': { value: 'infinite-scroll 50s linear infinite' },
   pulse: { value: 'pulse 2.2s ease-out infinite' },
+  ping: { value: 'ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite' },
 } as const;
