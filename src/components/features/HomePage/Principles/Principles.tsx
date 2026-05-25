@@ -21,9 +21,8 @@ const SectionHeader = styled('div', {
 const Card = styled('div', {
   base: {
     position: 'relative',
-    pt: '9',
-    px: '8',
-    pb: '10',
+    px: { base: '0', md: '10' },
+    py: { base: '4', md: '10' },
     bg: 'bg.default',
   },
 });
@@ -71,7 +70,7 @@ export const Principles = () => (
     <SectionHeader>
       <div>
         <Eyebrow mb="3">HOW WE WORK</Eyebrow>
-        <Heading as="h2">
+        <Heading as="h2" textStyle="sectionTitle">
           Built to stay, <em className={italicAccent}>not</em> to ship & run.
         </Heading>
       </div>

@@ -9,7 +9,7 @@ export const textStyles = defineTextStyles({
   '2xl': { value: { fontSize: '2xl', lineHeight: '2rem' } },
   '3xl': { value: { fontSize: '3xl', lineHeight: '2.375rem' } },
   '4xl': {
-    value: { fontSize: '4xl', lineHeight: '2.75rem', letterSpacing: '-0.02em' },
+    value: { fontSize: '4xl', lineHeight: '2.75rem', letterSpacing: '-0.01em' },
   },
   '5xl': {
     value: { fontSize: '5xl', lineHeight: '3.75rem', letterSpacing: '-0.02em' },
@@ -34,9 +34,17 @@ export const textStyles = defineTextStyles({
   },
   display: {
     value: {
-      fontSize: '7xl',
-      lineHeight: '5rem',
-      letterSpacing: '-0.03em',
+      fontSize: { base: '6xl', md: '8xl', lg: '9xl' },
+      lineHeight: '0.95',
+      letterSpacing: '-0.01em',
+      fontWeight: 'bold',
+    },
+  },
+  sectionTitle: {
+    value: {
+      fontSize: { base: '4xl', md: '5xl', lg: '6xl' },
+      lineHeight: '0.95',
+      letterSpacing: '-0.02em',
       fontWeight: 'bold',
     },
   },

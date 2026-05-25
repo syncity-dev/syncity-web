@@ -21,14 +21,7 @@ export const Hero = () => {
         <Box position="relative">
           <IsoDeco />
 
-          <Heading
-            as="h1"
-            textStyle="display"
-            fontSize={{ base: '6xl', md: '8xl', lg: '9xl' }}
-            lineHeight="0.95"
-            letterSpacing="-0.01em"
-            mb={{ base: '7', md: '10' }}
-          >
+          <Heading as="h1" textStyle="display" mb={{ base: '7', md: '10' }}>
             Software
             <br />
             for the <DisplayItalic>long</DisplayItalic> haul.
