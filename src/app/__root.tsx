@@ -5,6 +5,10 @@ import '@fontsource/saira/700.css';
 import '@fontsource/saira/800.css';
 import '@fontsource/saira/900.css';
 import '@fontsource/saira-condensed/500.css';
+import '@fontsource/saira-condensed/600.css';
+import '@fontsource/saira-condensed/700.css';
+import '@fontsource/saira-condensed/800.css';
+import '@fontsource/saira-condensed/900.css';
 
 import { createRootRoute } from '@tanstack/react-router';
 
