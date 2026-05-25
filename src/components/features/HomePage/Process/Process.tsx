@@ -6,7 +6,7 @@ import { Text } from '@/components/core/Text/Text';
 import { Steps } from '@/components/features/HomePage/Process/components/Steps';
 
 export const Process = () => (
-  <Section id="process" divided>
+  <Section id="process">
     <SectionHeader eyebrow="ENGAGEMENT">
       <Heading as="h2" textStyle="sectionTitle">
         From hello to <DisplayItalic>handover.</DisplayItalic>
