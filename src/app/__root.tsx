@@ -10,6 +10,8 @@ import '@fontsource/saira-condensed/700.css';
 import '@fontsource/saira-condensed/800.css';
 import '@fontsource/saira-condensed/900.css';
 
+import sairaRegular from '@fontsource/saira/files/saira-latin-400-normal.woff2?url';
+import sairaCondensedBold from '@fontsource/saira-condensed/files/saira-condensed-latin-700-normal.woff2?url';
 import { createRootRoute } from '@tanstack/react-router';
 
 import { NotFound } from '@/components/shared/NotFound/NotFound';
@@ -30,6 +32,20 @@ export const Route = createRootRoute({
       }),
     ],
     links: [
+      {
+        rel: 'preload',
+        as: 'font',
+        type: 'font/woff2',
+        href: sairaRegular,
+        crossOrigin: 'anonymous',
+      },
+      {
+        rel: 'preload',
+        as: 'font',
+        type: 'font/woff2',
+        href: sairaCondensedBold,
+        crossOrigin: 'anonymous',
+      },
       { rel: 'stylesheet', href: appCss },
       { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico', sizes: '32x32' },
