@@ -8,7 +8,7 @@ export const HeaderWrapper = ({ children, ...props }: HTMLStyledProps<'div'>) =>
     top="3"
     mt="3"
     mx="auto"
-    px="4"
+    px={{ base: '4', md: '8' }}
     maxWidth="7xl"
     zIndex="header"
     {...props}
