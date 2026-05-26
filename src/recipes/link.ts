@@ -41,7 +41,7 @@ export const link = defineRecipe({
         color: 'fg.muted',
         textDecoration: 'none',
         _hover: {
-          color: 'fg.default',
+          color: 'accent.default',
         },
       },
     },
