@@ -4,7 +4,6 @@ import { Principles } from '@/components/features/HomePage/Principles/Principles
 import { Process } from '@/components/features/HomePage/Process/Process';
 import { Stack } from '@/components/features/HomePage/Stack/Stack';
 import { Team } from '@/components/features/HomePage/Team/Team';
-import { TechStack } from '@/components/features/HomePage/TechStack/TechStack';
 import { PageContainer } from '@/components/shared/PageContainer/PageContainer';
 
 export const Home = () => (
@@ -14,7 +13,6 @@ export const Home = () => (
     <Team />
     <Process />
     <Stack />
-    <TechStack />
     <ContactUs />
   </PageContainer>
 );
