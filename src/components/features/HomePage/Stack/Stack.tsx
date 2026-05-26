@@ -25,6 +25,7 @@ import { Section } from '@/components/core/Section/Section';
 import { SectionHeader } from '@/components/core/SectionHeader/SectionHeader';
 import { Text } from '@/components/core/Text/Text';
 import { styled } from '@/styled-system/jsx';
+import { textTransition } from '@/theme/motion/transitions';
 
 type StackItem = {
   label: string;
@@ -92,7 +93,7 @@ const ItemRow = styled('div', {
     py: '7px',
     color: 'fg.default',
     cursor: 'default',
-    transition: 'color 0.15s ease',
+    ...textTransition,
     textStyle: 'sm',
     _hover: {
       color: 'accent.default',

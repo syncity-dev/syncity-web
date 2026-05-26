@@ -9,8 +9,18 @@ export const dialog = defineSlotRecipe({
       inset: 0,
       zIndex: 'overlay',
       bg: 'black.a6',
-      _open: { animation: 'fade-in 0.25s ease both' },
-      _closed: { animation: 'fade-out 0.25s ease both' },
+      _open: {
+        animationName: 'fade-in',
+        animationDuration: 'fast',
+        animationTimingFunction: 'enter',
+        animationFillMode: 'both',
+      },
+      _closed: {
+        animationName: 'fade-out',
+        animationDuration: 'fast',
+        animationTimingFunction: 'exit',
+        animationFillMode: 'both',
+      },
       _motionReduce: { animation: 'none' },
     },
     positioner: {
