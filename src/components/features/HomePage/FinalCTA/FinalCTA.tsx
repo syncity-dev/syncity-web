@@ -38,7 +38,7 @@ const RightCol = styled('div', {
 });
 
 export const FinalCTA = () => (
-  <Section id="cta" pt={{ base: '16', md: '20' }} pb="0">
+  <Section id="cta" mb="0">
     <Card>
       <div>
         <Heading as="h3" textStyle={{ base: '5xl', md: '6xl' }} lineHeight="1" color="inherit">

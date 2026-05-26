@@ -8,7 +8,7 @@ import { teamMembers } from '@/constants/team';
 import { Grid } from '@/styled-system/jsx';
 
 export const Team = () => (
-  <Section id="team" py={{ base: '16', md: '20' }}>
+  <Section id="team">
     <SectionHeader eyebrow="THE TEAM">
       <Heading as="h2" textStyle="sectionTitle">
         Three of us. <DisplayItalic>That&rsquo;s it.</DisplayItalic>

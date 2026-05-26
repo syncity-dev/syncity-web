@@ -55,7 +55,7 @@ const italicAccent = css({
 });
 
 export const Principles = () => (
-  <Section id="work" py={{ base: '16', md: '20' }}>
+  <Section id="work">
     <SectionHeader eyebrow="HOW WE WORK">
       <Heading as="h2" textStyle="sectionTitle">
         Built to stay, <em className={italicAccent}>not</em> to ship & run.
