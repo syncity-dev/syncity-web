@@ -1,34 +1,19 @@
 import { DisplayItalic } from '@/components/core/DisplayItalic/DisplayItalic';
-import { Eyebrow } from '@/components/core/Eyebrow/Eyebrow';
 import { Heading } from '@/components/core/Heading/Heading';
 import { Section } from '@/components/core/Section/Section';
+import { SectionHeader } from '@/components/core/SectionHeader/SectionHeader';
 import { Text } from '@/components/core/Text/Text';
 import { TeamCard } from '@/components/features/HomePage/Team/TeamCard';
 import { teamMembers } from '@/constants/team';
-import { Grid, styled } from '@/styled-system/jsx';
-
-const SectionHeader = styled('div', {
-  base: {
-    display: 'grid',
-    gap: '10',
-    mb: '10',
-    gridTemplateColumns: '1fr',
-    md: {
-      gridTemplateColumns: '1fr 1fr',
-    },
-  },
-});
+import { Grid } from '@/styled-system/jsx';
 
 export const Team = () => (
   <Section id="team" py={{ base: '16', md: '20' }}>
-    <SectionHeader>
-      <div>
-        <Eyebrow mb="3">THE TEAM</Eyebrow>
-        <Heading as="h2">
-          Three of us. <DisplayItalic>That&rsquo;s it.</DisplayItalic>
-        </Heading>
-      </div>
-      <Text size="lg" color="fg.muted" alignSelf="center">
+    <SectionHeader eyebrow="THE TEAM">
+      <Heading as="h2">
+        Three of us. <DisplayItalic>That&rsquo;s it.</DisplayItalic>
+      </Heading>
+      <Text size="lg" color="fg.muted">
         Syncity is intentionally small. The people you meet on the first call are the people writing
         your code on day 400.
       </Text>

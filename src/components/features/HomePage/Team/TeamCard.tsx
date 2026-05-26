@@ -36,7 +36,6 @@ export const TeamCard = ({
     _motionReduce={{ transition: 'none', _hover: { transform: 'none', shadow: 'none' } }}
   >
     <article data-group>
-      {/* Image area — flush, no padding; aspect 4:4.6 via padding-top */}
       <Box position="relative" overflow="hidden" aspectRatio="4 / 4.6">
         <Img
           src={imgSrc}
@@ -69,7 +68,6 @@ export const TeamCard = ({
         </Eyebrow>
       </Box>
 
-      {/* Body */}
       <CardBody pt="5" gap="1">
         <Heading as="h4" textStyle="lg" fontWeight="semibold">
           {name}
@@ -82,7 +80,6 @@ export const TeamCard = ({
         </Text>
       </CardBody>
 
-      {/* Footer */}
       <CardFooter
         justifyContent="flex-start"
         borderTopWidth="1px"
