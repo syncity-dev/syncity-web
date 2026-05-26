@@ -17,6 +17,7 @@ export const Footer = () => {
       borderTopWidth="1px"
       borderTopStyle="solid"
       borderTopColor="border.default"
+      mt="8"
     >
       <Box maxWidth="7xl" mx="auto" px={{ base: '4', md: '7' }}>
         <Grid
