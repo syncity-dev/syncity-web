@@ -18,8 +18,7 @@ export const HeaderWrapper = ({ children, ...props }: HTMLStyledProps<'div'>) =>
       alignItems="center"
       justifyContent="space-between"
       bg="bg.default/80"
-      backdropFilter="blur(14px)"
-      style={{ WebkitBackdropFilter: 'blur(14px)' }}
+      style={{ backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)' }}
       borderWidth="1px"
       borderStyle="solid"
       borderColor="border.default"
