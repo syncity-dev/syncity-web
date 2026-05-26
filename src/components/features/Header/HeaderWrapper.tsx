@@ -27,9 +27,7 @@ export const HeaderWrapper = ({ children }: { children: ReactNode }) => (
         borderColor: 'border.default',
         rounded: 'l4',
         shadow: 'xs',
-        py: '2',
-        pl: '5',
-        pr: '2',
+        p: '2',
       })}
     >
       {children}
