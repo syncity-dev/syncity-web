@@ -6,7 +6,6 @@ export const heading = defineRecipe({
     fontFamily: 'heading',
     fontWeight: 'bold',
     color: 'fg.default',
-    letterSpacing: 'wide',
   },
   defaultVariants: {
     as: 'h2',

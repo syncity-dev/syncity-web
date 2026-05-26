@@ -1,20 +1,32 @@
 import { css } from '@/styled-system/css';
 import { Box } from '@/styled-system/jsx';
+import { range } from '@/utils/range';
 
 export const IsoDeco = () => (
   <Box
     aria-hidden="true"
     position="absolute"
-    right="-4"
+    right="6"
     top="10"
     display={{ base: 'none', xl: 'flex' }}
     flexDir="column"
     alignItems="center"
-    gap="3"
     pointerEvents="none"
   >
     <svg width="240" height="290" viewBox="-100 -130 200 280" fill="none">
       <circle cx="0" cy="-110" r="6" fill="var(--colors-accent-default)" />
+      <circle
+        cx="0"
+        cy="-110"
+        r="6"
+        fill="var(--colors-accent-default)"
+        className={css({
+          transformBox: 'fill-box',
+          transformOrigin: 'center',
+          animation: 'ping',
+          _motionReduce: { animation: 'none' },
+        })}
+      />
       <circle
         cx="0"
         cy="-110"
@@ -32,7 +44,7 @@ export const IsoDeco = () => (
         strokeOpacity="0.3"
         strokeDasharray="2 3"
       />
-      {[0, 1, 2, 3].map((i) => {
+      {range(4).map((i) => {
         const isTop = i === 3;
 
         return (
@@ -63,7 +75,7 @@ export const IsoDeco = () => (
       className={css({
         textTransform: 'uppercase',
         color: 'fg.subtle',
-        fontSize: '2xs',
+        fontSize: 'xs',
         letterSpacing: '0.2em',
         textAlign: 'center',
       })}

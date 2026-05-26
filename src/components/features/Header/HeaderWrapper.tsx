@@ -12,7 +12,7 @@ export const HeaderWrapper = ({ children }: { children: ReactNode }) => (
     mt="3"
     mx="auto"
     px={{ base: '5', md: '7' }}
-    maxW="6xl"
+    maxWidth="7xl"
     zIndex="header"
   >
     <div

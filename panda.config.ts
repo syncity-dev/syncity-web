@@ -1,11 +1,14 @@
-import { defineConfig } from "@pandacss/dev";
-import { breakpoints } from "@/theme/breakpoints";
-import { conditions } from "@/theme/conditions";
-import { globalCss } from "@/theme/global-css";
-import { keyframes } from "@/theme/keyframes";
-import { layerStyles } from "@/theme/layer-styles";
-import { textStyles } from "@/theme/text-styles";
-import { colorPalettes, blue, red, green, amber, sky } from "@/theme/colors";
+import { defineConfig } from '@pandacss/dev';
+
+import { recipes, slotRecipes } from '@/recipes';
+import { breakpoints } from '@/theme/breakpoints';
+import { amber, blue, colorPalettes, green, red, sky } from '@/theme/colors';
+import { conditions } from '@/theme/conditions';
+import { globalCss } from '@/theme/global-css';
+import { keyframes } from '@/theme/keyframes';
+import { layerStyles } from '@/theme/layer-styles';
+import { colors, easings, radii, shadows } from '@/theme/semanticTokens';
+import { textStyles } from '@/theme/text-styles';
 import {
   animations,
   colors as colorPrimitives,
@@ -13,18 +16,16 @@ import {
   easings as easingPrimitives,
   fonts,
   zIndex,
-} from "@/theme/tokens";
-import { colors, easings, radii, shadows } from "@/theme/semanticTokens";
-import { slotRecipes, recipes } from "@/recipes";
+} from '@/theme/tokens';
 
 export default defineConfig({
   preflight: true,
 
   include: [
-    "./src/components/**/*.{ts,tsx,js,jsx}",
-    "./src/constants/**/*.{ts,tsx,js,jsx}",
-    "./src/recipes/**/*.{ts,tsx,js,jsx}",
-    "./src/app/**/*.{ts,tsx,js,jsx}",
+    './src/components/**/*.{ts,tsx,js,jsx}',
+    './src/constants/**/*.{ts,tsx,js,jsx}',
+    './src/recipes/**/*.{ts,tsx,js,jsx}',
+    './src/app/**/*.{ts,tsx,js,jsx}',
   ],
 
   exclude: [],
@@ -71,26 +72,26 @@ export default defineConfig({
       {
         properties: {
           colorPalette: [
-            "blue",
-            "accent",
-            "red",
-            "danger",
-            "slate",
-            "gray",
-            "amber",
-            "warning",
-            "green",
-            "success",
-            "sky",
-            "info",
+            'blue',
+            'accent',
+            'red',
+            'danger',
+            'slate',
+            'gray',
+            'amber',
+            'warning',
+            'green',
+            'success',
+            'sky',
+            'info',
           ],
         },
       },
     ],
   },
 
-  jsxFramework: "react",
+  jsxFramework: 'react',
 
-  outdir: "src/styled-system",
+  outdir: 'src/styled-system',
   globalCss,
 });

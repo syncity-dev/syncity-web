@@ -1,53 +1,18 @@
 import { Eyebrow } from '@/components/core/Eyebrow/Eyebrow';
+import { HairlineGrid } from '@/components/core/HairlineGrid/HairlineGrid';
 import { Heading } from '@/components/core/Heading/Heading';
 import { Section } from '@/components/core/Section/Section';
+import { SectionHeader } from '@/components/core/SectionHeader/SectionHeader';
 import { Text } from '@/components/core/Text/Text';
 import { css } from '@/styled-system/css';
 import { styled } from '@/styled-system/jsx';
 
-const SectionHeader = styled('div', {
-  base: {
-    display: 'grid',
-    gap: '10',
-    mb: '10',
-    gridTemplateColumns: '1fr',
-    md: {
-      gridTemplateColumns: '1fr 1fr',
-    },
-  },
-});
-
-const CardGrid = styled('div', {
-  base: {
-    display: 'grid',
-    gridTemplateColumns: '1fr',
-    borderTopWidth: 'thin',
-    borderTopColor: 'border.default',
-    md: {
-      gridTemplateColumns: 'repeat(3, 1fr)',
-    },
-  },
-});
-
 const Card = styled('div', {
   base: {
     position: 'relative',
-    pt: '9',
-    px: '8',
-    pb: '10',
-    borderBottomWidth: 'thin',
-    borderBottomColor: 'border.default',
-    _last: {
-      borderBottomWidth: '0',
-    },
-    md: {
-      borderBottomWidth: '0',
-      borderRightWidth: 'thin',
-      borderRightColor: 'border.default',
-      _last: {
-        borderRightWidth: '0',
-      },
-    },
+    px: { base: '0', md: '10' },
+    py: { base: '4', md: '10' },
+    bg: 'bg.default',
   },
 });
 
@@ -91,20 +56,17 @@ const italicAccent = css({
 
 export const Principles = () => (
   <Section id="work" py={{ base: '16', md: '20' }}>
-    <SectionHeader>
-      <div>
-        <Eyebrow mb="3">HOW WE WORK</Eyebrow>
-        <Heading as="h2">
-          Built to stay, <em className={italicAccent}>not</em> to ship & run.
-        </Heading>
-      </div>
+    <SectionHeader eyebrow="HOW WE WORK">
+      <Heading as="h2" textStyle="sectionTitle">
+        Built to stay, <em className={italicAccent}>not</em> to ship & run.
+      </Heading>
       <Text size="lg" color="fg.muted" alignSelf="center">
         Most agencies optimize for velocity. We optimize for the codebase you'll be working in three
         years from now — and the team you'll be hiring around it.
       </Text>
     </SectionHeader>
 
-    <CardGrid>
+    <HairlineGrid gridTemplateColumns={{ base: '1fr', md: 'repeat(3, 1fr)' }}>
       <Card>
         <Eyebrow mb="2">EMBED</Eyebrow>
         <EmbedGlyph />
@@ -146,6 +108,6 @@ export const Principles = () => (
           say yes to actually compound.
         </Text>
       </Card>
-    </CardGrid>
+    </HairlineGrid>
   </Section>
 );
