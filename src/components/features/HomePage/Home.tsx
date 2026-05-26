@@ -1,4 +1,5 @@
 import { ContactUs } from '@/components/features/HomePage/ContactUs/ContactUs';
+import { FinalCTA } from '@/components/features/HomePage/FinalCTA/FinalCTA';
 import { Hero } from '@/components/features/HomePage/Hero/Hero';
 import { Principles } from '@/components/features/HomePage/Principles/Principles';
 import { Process } from '@/components/features/HomePage/Process/Process';
@@ -14,5 +15,6 @@ export const Home = () => (
     <Process />
     <TechStack />
     <ContactUs />
+    <FinalCTA />
   </PageContainer>
 );
