@@ -112,7 +112,8 @@ text-styles.ts   typography scale
 breakpoints.ts   custom breakpoints (adds 3xl: 1800px)
 conditions.ts    custom Panda conditions
 global-css.ts    :root CSS vars, html/body base styles
-motion/          interactiveTransition, textTransition helpers
+motion/          interactiveTransition, textTransition, motionReduceAnimation helpers
+animation-styles.ts  placement-aware animation bindings (defineAnimationStyles)
 ```
 
 ### Semantic color tokens (use these in components)
@@ -176,7 +177,18 @@ fontFamily: "heading"  → Saira Condensed (use for all headings)
 
 ### Animations
 
-`animation`: `fadeIn` `fadeOut` `enter` `exit` `slideInFromTop` `slideInFromBottom` `slideOutToRight` `spin` `infinite-scroll`
+Animation tokens (`animation` prop): `fade-in` `fade-out` `slide-in-from-top` `slide-in-from-bottom` `slide-in-from-right` `slide-out-to-right` `spin` `infinite-scroll` `pulse` `ping`
+
+Animation styles (`animationStyle` prop — placement-aware, includes `_motionReduce`): `slide-fade-in` `slide-fade-out` `scale-fade-in` `scale-fade-out`
+
+Use `animationStyle` for overlay/popover open/close states. Use `animation` tokens for one-shot element animations (toasts, spinners).
+
+Keyframes use the CSS `translate` and `scale` individual transform properties — use these in components too instead of `transform: 'translateY(...)'` / `transform: 'scale(...)'`.
+
+Motion helpers in `src/theme/motion/`:
+- `interactiveTransition` — bg, border, color, shadow transitions with `_motionReduce`
+- `textTransition` — color-only transition with `_motionReduce`
+- `motionReduceAnimation` — `{ animationDuration: 'fastest' }` for `_motionReduce` fallbacks in animation styles
 
 ### Responsive syntax
 
