@@ -1,6 +1,7 @@
 import { defineConfig } from '@pandacss/dev';
 
 import { recipes, slotRecipes } from '@/recipes';
+import { animationStyles } from '@/theme/animation-styles';
 import { breakpoints } from '@/theme/breakpoints';
 import { amber, blue, colorPalettes, green, red, sky } from '@/theme/colors';
 import { conditions } from '@/theme/conditions';
@@ -36,6 +37,7 @@ export default defineConfig({
 
   theme: {
     extend: {
+      animationStyles,
       breakpoints,
       tokens: {
         colors: colorPrimitives,

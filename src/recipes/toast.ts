@@ -26,7 +26,7 @@ export const toast = defineSlotRecipe({
 
       '&[data-swipe=end]': {
         transform: 'translateX(var(--radix-toast-swipe-end-x))',
-        animation: 'slideOutToRight',
+        animation: 'slide-out-to-right',
       },
 
       '&[data-swipe=move]': {
@@ -35,15 +35,15 @@ export const toast = defineSlotRecipe({
       },
 
       '&[data-state=open]': {
-        animation: 'slideInFromTop',
+        animation: 'slide-in-from-top',
 
         sm: {
-          animation: 'slideInFromBottom',
+          animation: 'slide-in-from-bottom',
         },
       },
 
       '&[data-state=closed]': {
-        animation: 'slideOutToRight',
+        animation: 'slide-out-to-right',
       },
     },
     action: {
