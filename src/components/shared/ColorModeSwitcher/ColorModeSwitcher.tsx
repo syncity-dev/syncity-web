@@ -1,3 +1,6 @@
+import { Moon, Sun } from 'lucide-react';
+
+import { Icon } from '@/components/core/Icon/Icon';
 import { IconButton } from '@/components/core/IconButton/IconButton';
 import {
   MenuContent,
@@ -8,30 +11,25 @@ import {
   MenuRoot,
   MenuTrigger,
 } from '@/components/core/Menu/Menu';
-import {
-  OPTIONS,
-  resolvedIcon,
-} from '@/components/shared/ColorModeSwitcher/ColorModeSwitcher.constants';
+import { OPTIONS } from '@/components/shared/ColorModeSwitcher/ColorModeSwitcher.constants';
 import { useColorModeSwitcher } from '@/components/shared/ColorModeSwitcher/ColorModeSwitcher.hooks';
 import { css } from '@/styled-system/css';
 import type { ColorModePreference } from '@/utils/colorMode';
 
 export const ColorModeSwitcher = () => {
-  const {
-    preference,
-    resolved,
-    setPreference,
-    committedPreferenceRef,
-    onOpenChange,
-    onHighlightChange,
-  } = useColorModeSwitcher();
-  const TriggerIcon = resolvedIcon[resolved];
+  const { preference, setPreference, committedPreferenceRef, onOpenChange, onHighlightChange } =
+    useColorModeSwitcher();
 
   return (
     <MenuRoot onOpenChange={onOpenChange} onHighlightChange={onHighlightChange}>
       <MenuTrigger asChild aria-label="Toggle color mode">
         <IconButton variant="outline" size="lg">
-          <TriggerIcon />
+          <Icon asChild display="block" _dark={{ display: 'none' }}>
+            <Sun />
+          </Icon>
+          <Icon asChild display="none" _dark={{ display: 'block' }}>
+            <Moon />
+          </Icon>
         </IconButton>
       </MenuTrigger>
 
