@@ -17,36 +17,12 @@ import { Icon } from '@/components/core/Icon/Icon';
 import { IconButton } from '@/components/core/IconButton/IconButton';
 import { LinkButton } from '@/components/core/LinkButton/LinkButton';
 import { Logo } from '@/components/core/Logo/Logo';
-import { NAV_LINKS } from '@/constants/navigation';
-import { css } from '@/styled-system/css';
-import { interactiveTransition } from '@/theme/motion/transitions';
+import { NavLinks } from '@/components/shared/MobileDrawerMenu/components/NavLinks';
 
 type MobileDrawerMenuProps = {
   isOpen: boolean;
   onOpenChange: (open: boolean) => void;
 };
-
-const navLinkClass = css({
-  display: 'flex',
-  alignItems: 'center',
-  px: '4',
-  py: '5',
-  textStyle: '2xl',
-  fontFamily: 'heading',
-  fontWeight: 'semibold',
-  letterSpacing: '-0.005em',
-  color: 'fg.default',
-  textDecoration: 'none',
-  rounded: 'l3',
-  ...interactiveTransition,
-  _hover: { bg: 'bg.subtle' },
-  _focusVisible: {
-    outlineWidth: '2px',
-    outlineStyle: 'solid',
-    outlineColor: 'accent.default',
-    outlineOffset: '2px',
-  },
-});
 
 export const MobileDrawerMenu = ({ isOpen, onOpenChange }: MobileDrawerMenuProps) => {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -68,7 +44,7 @@ export const MobileDrawerMenu = ({ isOpen, onOpenChange }: MobileDrawerMenuProps
             <DialogTitle>Site menu</DialogTitle>
 
             <DialogHeader>
-              <Logo />
+              <Logo onClick={() => onOpenChange(false)} />
               <DialogCloseTrigger ref={closeButtonRef} asChild>
                 <IconButton aria-label="Close menu" size="lg">
                   <X />
@@ -77,16 +53,7 @@ export const MobileDrawerMenu = ({ isOpen, onOpenChange }: MobileDrawerMenuProps
             </DialogHeader>
 
             <DialogBody aria-label="Mobile navigation">
-              {NAV_LINKS.map(({ id, href, label }) => (
-                <a
-                  key={id}
-                  href={href}
-                  onClick={() => onOpenChange(false)}
-                  className={navLinkClass}
-                >
-                  {label}
-                </a>
-              ))}
+              <NavLinks onNavLinkClick={() => onOpenChange(false)} />
             </DialogBody>
 
             <DialogFooter>

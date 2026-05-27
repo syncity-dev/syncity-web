@@ -10,6 +10,7 @@ import { icon } from './icon';
 import { link } from './link';
 import { logo } from './logo';
 import { menu } from './menu';
+import { navLink } from './navLink';
 import { section } from './section';
 import { spinner } from './spinner';
 import { text } from './text';
@@ -36,6 +37,7 @@ export const recipes = {
   icon,
   link,
   logo,
+  navLink,
   section,
   text,
   toastViewport,
