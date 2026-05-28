@@ -90,6 +90,9 @@ export default defineConfig({
         },
       },
     ],
+    recipes: {
+      select: ['*'],
+    },
   },
 
   jsxFramework: 'react',

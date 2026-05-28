@@ -12,6 +12,7 @@ import { logo } from './logo';
 import { menu } from './menu';
 import { navLink } from './navLink';
 import { section } from './section';
+import { select } from './select';
 import { spinner } from './spinner';
 import { text } from './text';
 import { textArea } from './textArea';
@@ -26,6 +27,7 @@ export const slotRecipes = {
   textArea,
   textInput,
   toast,
+  select,
 };
 
 export const recipes = {
