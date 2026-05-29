@@ -10,11 +10,15 @@ export const textArea = defineSlotRecipe({
       borderColor: 'border.default',
       bgColor: 'bg.default',
       color: 'fg.default',
-      rounded: 'sm',
-      outlineOffset: '1',
-      outlineColor: 'accent.emphasis',
+      rounded: 'l4',
       _placeholder: {
         color: 'fg.subtle',
+      },
+      _focusVisible: {
+        outlineWidth: '2px',
+        outlineStyle: 'solid',
+        outlineColor: 'accent.default',
+        outlineOffset: '2px',
       },
     },
   },
@@ -24,13 +28,13 @@ export const textArea = defineSlotRecipe({
   variants: {
     size: {
       sm: {
-        control: { paddingInline: '1', paddingBlock: '1', fontSize: 'sm' },
+        control: { paddingInline: '2', paddingBlock: '2', fontSize: 'sm' },
       },
       md: {
-        control: { paddingInline: '2', paddingBlock: '2', fontSize: 'md' },
+        control: { paddingInline: '3', paddingBlock: '4', fontSize: 'md' },
       },
       lg: {
-        control: { paddingInline: '4', paddingBlock: '4', fontSize: 'lg' },
+        control: { paddingInline: '4', paddingBlock: '5', fontSize: 'lg' },
       },
     },
   },

@@ -93,6 +93,7 @@ export const select = defineSlotRecipe({
       justifyContent: 'space-between',
       minWidth: '0',
       outline: '0',
+      outlineColor: 'accent.default',
       textAlign: 'start',
       transition: 'common',
       userSelect: 'none',
@@ -120,7 +121,12 @@ export const select = defineSlotRecipe({
         trigger: {
           borderWidth: '1px',
           borderColor: 'border.default',
-          focusVisibleRing: 'inside',
+          _focusVisible: {
+            outlineWidth: '2px',
+            outlineStyle: 'solid',
+            outlineColor: 'accent.default',
+            outlineOffset: '2px',
+          },
         },
       },
       surface: {
@@ -128,7 +134,12 @@ export const select = defineSlotRecipe({
           bg: 'bg.subtle',
           borderWidth: '1px',
           borderColor: 'border.default',
-          focusVisibleRing: 'inside',
+          _focusVisible: {
+            outlineWidth: '2px',
+            outlineStyle: 'solid',
+            outlineColor: 'accent.default',
+            outlineOffset: '2px',
+          },
         },
       },
     },
