@@ -17,7 +17,7 @@ import { spinner } from './spinner';
 import { text } from './text';
 import { textArea } from './textArea';
 import { textInput } from './textInput';
-import { toast, toastViewport } from './toast';
+import { toast } from './toast';
 
 export const slotRecipes = {
   card,
@@ -42,6 +42,5 @@ export const recipes = {
   navLink,
   section,
   text,
-  toastViewport,
   group,
 };

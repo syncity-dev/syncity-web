@@ -1,228 +1,78 @@
-import { defineRecipe, defineSlotRecipe } from '@pandacss/dev';
+import { toastAnatomy } from '@ark-ui/react/anatomy';
+import { defineSlotRecipe } from '@pandacss/dev';
 
 export const toast = defineSlotRecipe({
   className: 'toast',
-  slots: ['root', 'viewport', 'action', 'close', 'title', 'description'],
+  slots: toastAnatomy.keys(),
   base: {
-    root: {
-      pointerEvents: 'auto',
-      position: 'relative',
+    group: {
       display: 'flex',
-      w: 'full',
-      alignItems: 'center',
-      justifyContent: 'space-between',
+      flexDirection: 'column',
+      gap: '3',
+      maxWidth: 'sm',
+      width: 'full',
+      p: '4',
+      zIndex: 'toast',
+    },
+    root: {
+      alignItems: 'start',
+      background: 'bg.default',
+      borderWidth: '1px',
+      borderColor: 'border.default',
+      borderRadius: 'l4',
+      boxShadow: 'lg',
+      '&[data-type=success]': { backgroundColor: 'success.muted' },
+      '&[data-type=error]': { backgroundColor: 'danger.muted' },
+      '&[data-type=warning]': { backgroundColor: 'warning.muted' },
+      '&[data-type=info]': { backgroundColor: 'info.muted' },
+      '&[data-type=loading]': { backgroundColor: 'bg.muted' },
+      '&[data-type=success] svg': { color: 'success.default' },
+      '&[data-type=error] svg': { color: 'danger.default' },
+      '&[data-type=warning] svg': { color: 'warning.default' },
+      '&[data-type=info] svg': { color: 'info.default' },
+      display: 'flex',
       gap: '4',
-      overflow: 'hidden',
-      rounded: 'md',
-      border: 'base',
-      p: '6',
-      pr: '8',
-      shadow: 'lg',
-      transition: 'all',
-
-      '&[data-swipe=cancel]': {
-        transform: 'translateX(0)',
-      },
-
-      '&[data-swipe=end]': {
-        transform: 'translateX(var(--radix-toast-swipe-end-x))',
-        animation: 'slide-out-to-right',
-      },
-
-      '&[data-swipe=move]': {
-        transform: 'translateX(var(--radix-toast-swipe-move-x))',
-        transition: 'none',
-      },
-
-      '&[data-state=open]': {
-        animation: 'slide-in-from-top',
-
-        sm: {
-          animation: 'slide-in-from-bottom',
-        },
-      },
-
-      '&[data-state=closed]': {
-        animation: 'slide-out-to-right',
-      },
-    },
-    action: {
-      display: 'inline-flex',
-      h: '8',
-      flexShrink: '0',
-      alignItems: 'center',
-      justifyContent: 'center',
-      rounded: 'md',
-      border: 'base',
-      bg: 'transparent',
-      px: '3',
-      textStyle: 'sm',
-      fontWeight: 'medium',
-      transition: 'colors',
-      cursor: 'pointer',
-
-      _focus: {
-        outline: '2px solid transparent',
-        outlineOffset: '2px',
-      },
-
-      _disabled: {
-        pointerEvents: 'none',
-        opacity: '0.5',
-      },
-    },
-    close: {
-      position: 'absolute',
-      right: '2',
-      top: '2',
-      rounded: 'md',
-      opacity: '0',
-      transition: 'opacity',
-      cursor: 'pointer',
-
-      _groupHover: {
-        opacity: '1',
-      },
-
-      _focus: {
-        opacity: '1',
-        outline: '2px solid transparent',
-        outlineOffset: '2px',
-      },
+      height: 'var(--height)',
+      minWidth: 'xs',
+      opacity: 'var(--opacity)',
+      overflowWrap: 'anywhere',
+      p: '4',
+      position: 'relative',
+      scale: 'var(--scale)',
+      transitionDuration: 'slow',
+      transitionProperty: 'translate, scale, opacity, height',
+      transitionTimingFunction: 'default',
+      translate: 'var(--x) var(--y)',
+      width: 'full',
+      willChange: 'translate, opacity, scale',
+      zIndex: 'var(--z-index)',
     },
     title: {
+      color: 'fg.default',
+      '[data-type=success] &': { color: 'success.default' },
+      '[data-type=error] &': { color: 'danger.default' },
+      '[data-type=warning] &': { color: 'warning.default' },
+      '[data-type=info] &': { color: 'info.default' },
+      fontWeight: 'medium',
       textStyle: 'sm',
-      fontWeight: 'semibold',
     },
     description: {
+      color: 'fg.muted',
       textStyle: 'sm',
-      opacity: '0.9',
     },
-  },
-  defaultVariants: {
-    variant: 'info',
-  },
-  variants: {
-    variant: {
-      default: {
-        root: {
-          bg: 'bg.subtle',
-          color: 'fg.default',
-        },
-      },
-      success: {
-        root: {
-          bg: 'green.3',
-          color: 'green.12',
-        },
-        action: {
-          borderColor: 'green.7',
-          _hover: {
-            bg: 'green.9',
-            color: 'white',
-          },
-          _focus: {
-            focusRingColor: 'green.9',
-          },
-        },
-        close: {
-          color: 'green.11',
-          _hover: {
-            color: 'green.12',
-          },
-        },
-      },
-      danger: {
-        root: {
-          bg: 'red.3',
-          color: 'red.12',
-        },
-        action: {
-          borderColor: 'red.7',
-          _hover: {
-            bg: 'red.9',
-            color: 'white',
-          },
-          _focus: {
-            focusRingColor: 'red.9',
-          },
-        },
-        close: {
-          color: 'red.11',
-          _hover: {
-            color: 'red.12',
-          },
-        },
-      },
-      warning: {
-        root: {
-          bg: 'amber.3',
-          color: 'amber.12',
-        },
-        action: {
-          borderColor: 'amber.7',
-          _hover: {
-            bg: 'amber.9',
-            color: 'white',
-          },
-          _focus: {
-            focusRingColor: 'amber.9',
-          },
-        },
-        close: {
-          color: 'amber.11',
-          _hover: {
-            color: 'amber.12',
-          },
-        },
-      },
-      info: {
-        root: {
-          bg: 'sky.3',
-          color: 'sky.12',
-        },
-        action: {
-          borderColor: 'sky.7',
-          _hover: {
-            bg: 'sky.9',
-            color: 'gray.plain.fg',
-          },
-          _focus: {
-            focusRingColor: 'sky.9',
-          },
-        },
-        close: {
-          color: 'sky.11',
-          _hover: {
-            color: 'sky.12',
-          },
-        },
-      },
+    actionTrigger: {
+      '[data-type=success] &': { color: 'success.default' },
+      '[data-type=error] &': { color: 'danger.default' },
+      '[data-type=warning] &': { color: 'warning.default' },
+      '[data-type=info] &': { color: 'info.default' },
+      cursor: 'pointer',
+      fontWeight: 'semibold',
+      textStyle: 'sm',
     },
-  },
-});
-
-export const toastViewport = defineRecipe({
-  className: 'toast-viewport',
-  base: {
-    position: 'fixed',
-    top: '0',
-    zIndex: 100,
-    display: 'flex',
-    maxH: 'screen',
-    w: 'full',
-    flexDirection: 'column-reverse',
-    p: '4',
-
-    sm: {
-      bottom: '0',
-      right: '0',
-      top: 'auto',
-      flexDirection: 'column',
-    },
-
-    md: {
-      maxW: '420px',
+    closeTrigger: {
+      position: 'absolute',
+      top: '2',
+      insetEnd: '2',
     },
   },
 });
