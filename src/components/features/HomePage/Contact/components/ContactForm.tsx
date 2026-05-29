@@ -1,7 +1,7 @@
 import { useFormspree } from '@formspree/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Turnstile, type TurnstileInstance } from '@marsidev/react-turnstile';
-import { ArrowRight, CheckCircle } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useCallback, useRef, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import * as z from 'zod';
@@ -13,6 +13,7 @@ import { Label } from '@/components/core/Label/Label';
 import { Text } from '@/components/core/Text/Text';
 import { TextArea } from '@/components/core/TextArea/TextArea';
 import { TextInput } from '@/components/core/TextInput/TextInput';
+import { toaster } from '@/components/core/Toast/Toast';
 import { ProjectTypeSelect } from '@/components/features/HomePage/Contact/components/ProjectTypeSelect';
 import { Grid, VStack } from '@/styled-system/jsx';
 
@@ -34,7 +35,6 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 export const ContactForm = () => {
-  const [submitted, setSubmitted] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const { client } = useFormspree();
   const turnstileRef = useRef<TurnstileInstance>(null);
@@ -58,11 +58,14 @@ export const ContactForm = () => {
     });
     if (result.kind === 'success') {
       reset(defaultValues);
-      setSubmitted(true);
+      toaster.success({
+        title: 'Message sent!',
+        description: "We'll get back to you within 1 business day.",
+      });
     } else {
       turnstileRef.current?.reset();
-      for (const { code, message } of result.getFormErrors()) {
-        setError(`root.${code}`, { type: code, message });
+      for (const { message } of result.getFormErrors()) {
+        toaster.error({ title: 'Submission failed', description: message, closable: true });
       }
       for (const [field, errs] of result.getAllFieldErrors()) {
         setError(field as keyof FormData, { message: errs.map((e) => e.message).join(', ') });
@@ -80,7 +83,11 @@ export const ContactForm = () => {
   const onTurnstileError = () => {
     setIsProcessing(false);
     pendingData.current = null;
-    setError('root.turnstile', { message: 'Security check failed. Please try again.' });
+    toaster.error({
+      title: 'Security check failed',
+      description: 'Please try again.',
+      closable: true,
+    });
   };
 
   const onTurnstileExpire = () => {
@@ -99,20 +106,6 @@ export const ContactForm = () => {
     },
     [handleSubmit],
   );
-
-  if (submitted) {
-    return (
-      <VStack gap="4" py="8" mt="-8" alignItems="center" textAlign="center">
-        <CheckCircle size={48} />
-        <Text fontWeight="semibold" fontSize="lg">
-          Message sent!
-        </Text>
-        <Text color="fg.muted">
-          Thanks for reaching out. We'll get back to you within 1 business day.
-        </Text>
-      </VStack>
-    );
-  }
 
   return (
     <Form spaceY="6" onSubmit={onFormSubmit}>
@@ -191,7 +184,7 @@ export const ContactForm = () => {
             render={({ field: { value, onChange, ...fieldRest } }) => (
               <ProjectTypeSelect
                 {...fieldRest}
-                value={[value]}
+                value={value ? [value] : []}
                 onValueChange={(details) => onChange?.(details.value[0])}
                 id="contact-project-type"
                 aria-required="true"
@@ -230,12 +223,6 @@ export const ContactForm = () => {
           )}
         </VStack>
       </Grid>
-
-      {errors.root?.turnstile && (
-        <Text color="danger.default" fontSize="sm">
-          {errors.root.turnstile.message}
-        </Text>
-      )}
 
       <Turnstile
         ref={turnstileRef}

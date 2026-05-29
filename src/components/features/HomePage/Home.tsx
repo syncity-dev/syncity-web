@@ -15,7 +15,6 @@ export const Home = () => (
     <Process />
     <Stack />
     <Contact />
-
     <FinalCTA />
   </PageContainer>
 );
