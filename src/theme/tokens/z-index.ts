@@ -1,7 +1,40 @@
-export const zIndex = {
-  footer: { value: 5000 },
-  header: { value: 6000 },
-  dropdown: { value: 7000 },
-  overlay: { value: 8000 },
-  modal: { value: 9000 },
-} as const;
+import { defineTokens } from '@pandacss/dev';
+
+export const zIndex = defineTokens.zIndex({
+  hide: {
+    value: -1,
+  },
+  base: {
+    value: 0,
+  },
+  docked: {
+    value: 10,
+  },
+  dropdown: {
+    value: 1000,
+  },
+  sticky: {
+    value: 1100,
+  },
+  banner: {
+    value: 1200,
+  },
+  overlay: {
+    value: 1300,
+  },
+  modal: {
+    value: 1400,
+  },
+  popover: {
+    value: 1500,
+  },
+  skipLink: {
+    value: 1600,
+  },
+  toast: {
+    value: 1700,
+  },
+  tooltip: {
+    value: 1800,
+  },
+});
