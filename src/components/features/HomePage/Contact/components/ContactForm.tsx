@@ -1,7 +1,8 @@
 import { useFormspree } from '@formspree/react';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Turnstile, type TurnstileInstance } from '@marsidev/react-turnstile';
 import { ArrowRight, CheckCircle } from 'lucide-react';
-import { useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import * as z from 'zod';
 
@@ -34,7 +35,10 @@ type FormData = z.infer<typeof schema>;
 
 export const ContactForm = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
   const { client } = useFormspree();
+  const turnstileRef = useRef<TurnstileInstance>(null);
+  const pendingData = useRef<FormData | null>(null);
 
   const {
     handleSubmit,
@@ -46,6 +50,55 @@ export const ContactForm = () => {
     resolver: zodResolver(schema),
     defaultValues,
   });
+
+  const submitToFormspree = async (data: FormData, token: string) => {
+    const result = await client.submitForm(import.meta.env.VITE_CONTACT_FORM_ID ?? '', {
+      ...data,
+      'cf-turnstile-response': token,
+    });
+    if (result.kind === 'success') {
+      reset(defaultValues);
+      setSubmitted(true);
+    } else {
+      turnstileRef.current?.reset();
+      for (const { code, message } of result.getFormErrors()) {
+        setError(`root.${code}`, { type: code, message });
+      }
+      for (const [field, errs] of result.getAllFieldErrors()) {
+        setError(field as keyof FormData, { message: errs.map((e) => e.message).join(', ') });
+      }
+    }
+    setIsProcessing(false);
+    pendingData.current = null;
+  };
+
+  const onTurnstileSuccess = (token: string) => {
+    if (!pendingData.current) return;
+    submitToFormspree(pendingData.current, token);
+  };
+
+  const onTurnstileError = () => {
+    setIsProcessing(false);
+    pendingData.current = null;
+    setError('root.turnstile', { message: 'Security check failed. Please try again.' });
+  };
+
+  const onTurnstileExpire = () => {
+    setIsProcessing(false);
+    pendingData.current = null;
+    turnstileRef.current?.reset();
+  };
+
+  const onFormSubmit = useCallback(
+    (e: React.SubmitEvent<HTMLFormElement>) => {
+      void handleSubmit((data) => {
+        pendingData.current = data;
+        setIsProcessing(true);
+        turnstileRef.current?.execute();
+      })(e);
+    },
+    [handleSubmit],
+  );
 
   if (submitted) {
     return (
@@ -61,23 +114,8 @@ export const ContactForm = () => {
     );
   }
 
-  const onSubmit = async (data: FormData) => {
-    const result = await client.submitForm(import.meta.env.VITE_CONTACT_FORM_ID ?? '', data);
-    if (result.kind === 'success') {
-      reset(defaultValues);
-      setSubmitted(true);
-    } else {
-      for (const { code, message } of result.getFormErrors()) {
-        setError(`root.${code}`, { type: code, message });
-      }
-      for (const [field, errs] of result.getAllFieldErrors()) {
-        setError(field as keyof FormData, { message: errs.map((e) => e.message).join(', ') });
-      }
-    }
-  };
-
   return (
-    <Form spaceY="6" onSubmit={handleSubmit(onSubmit)}>
+    <Form spaceY="6" onSubmit={onFormSubmit}>
       <Grid gridTemplateColumns={{ base: '1fr', sm: '1fr 1fr' }} gap="4">
         <VStack alignItems="flex-start" gap="1.5">
           <Label htmlFor="contact-name">Name</Label>
@@ -126,6 +164,7 @@ export const ContactForm = () => {
             </Text>
           )}
         </VStack>
+
         <VStack alignItems="flex-start" gap="1.5">
           <Label htmlFor="contact-company">Company</Label>
           <Controller
@@ -138,17 +177,12 @@ export const ContactForm = () => {
                 type="text"
                 placeholder="Acme, Inc."
                 w="full"
-                aria-required="true"
                 aria-describedby={errors.company ? 'contact-company-error' : undefined}
               />
             )}
           />
-          {errors.email && (
-            <Text id="contact-email-error" color="danger.default" fontSize="sm">
-              {errors.email.message}
-            </Text>
-          )}
         </VStack>
+
         <VStack alignItems="flex-start" gap="1.5">
           <Label htmlFor="contact-project-type">Project type</Label>
           <Controller
@@ -197,13 +231,29 @@ export const ContactForm = () => {
         </VStack>
       </Grid>
 
+      {errors.root?.turnstile && (
+        <Text color="danger.default" fontSize="sm">
+          {errors.root.turnstile.message}
+        </Text>
+      )}
+
+      <Turnstile
+        ref={turnstileRef}
+        siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY ?? '1x00000000000000000000AA'}
+        options={{ execution: 'execute', appearance: 'interaction-only' }}
+        onSuccess={onTurnstileSuccess}
+        onError={onTurnstileError}
+        onExpire={onTurnstileExpire}
+      />
+
       <Button
         type="submit"
         w="full"
         size="lg"
         variant="solid"
-        isLoading={isSubmitting}
+        isLoading={isSubmitting || isProcessing}
         loadingText="Sending"
+        spinnerPlacement="end"
       >
         Send message{' '}
         <Icon asChild>
