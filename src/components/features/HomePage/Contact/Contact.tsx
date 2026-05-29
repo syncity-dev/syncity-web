@@ -43,7 +43,7 @@ export const Contact = () => (
             </HStack>
           </InfoRow>
           <InfoRow label="Based in">
-            <Text fontWeight="medium">Zagreb, Croatia · CET</Text>
+            <Text fontWeight="medium">Zagreb, Croatia · CET (UTC+1)</Text>
           </InfoRow>
           <InfoRow label="Not a fit for">
             <Text fontSize="sm" color="fg.muted" lineHeight="relaxed">
