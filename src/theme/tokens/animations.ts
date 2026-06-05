@@ -9,6 +9,6 @@ export const animations = {
   'slide-out-to-right': { value: 'slide-to-right-full 0.9s var(--elastic-out)' },
   spin: { value: 'spin 1s linear infinite' },
   'infinite-scroll': { value: 'infinite-scroll 50s linear infinite' },
-  pulse: { value: 'pulse 2.2s ease-out infinite' },
+  pulse: { value: 'pulse 2.5s var(--ease-out) infinite' },
   ping: { value: 'ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite' },
 } as const;

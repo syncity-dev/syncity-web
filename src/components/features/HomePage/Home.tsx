@@ -1,4 +1,4 @@
-import { ContactUs } from '@/components/features/HomePage/ContactUs/ContactUs';
+import { Contact } from '@/components/features/HomePage/Contact/Contact';
 import { FinalCTA } from '@/components/features/HomePage/FinalCTA/FinalCTA';
 import { Hero } from '@/components/features/HomePage/Hero/Hero';
 import { Principles } from '@/components/features/HomePage/Principles/Principles';
@@ -14,7 +14,7 @@ export const Home = () => (
     <Team />
     <Process />
     <Stack />
-    <ContactUs />
+    <Contact />
     <FinalCTA />
   </PageContainer>
 );

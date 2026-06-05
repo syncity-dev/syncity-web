@@ -90,6 +90,10 @@ export default defineConfig({
         },
       },
     ],
+    recipes: {
+      select: ['*'],
+      toast: ['*'],
+    },
   },
 
   jsxFramework: 'react',

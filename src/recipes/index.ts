@@ -12,11 +12,12 @@ import { logo } from './logo';
 import { menu } from './menu';
 import { navLink } from './navLink';
 import { section } from './section';
+import { select } from './select';
 import { spinner } from './spinner';
 import { text } from './text';
 import { textArea } from './textArea';
 import { textInput } from './textInput';
-import { toast, toastViewport } from './toast';
+import { toast } from './toast';
 
 export const slotRecipes = {
   card,
@@ -26,6 +27,7 @@ export const slotRecipes = {
   textArea,
   textInput,
   toast,
+  select,
 };
 
 export const recipes = {
@@ -40,6 +42,5 @@ export const recipes = {
   navLink,
   section,
   text,
-  toastViewport,
   group,
 };
