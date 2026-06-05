@@ -1,7 +1,7 @@
 import { Portal } from '@ark-ui/react/portal';
 import { createToaster, Toast, Toaster as ArkToaster, useToastContext } from '@ark-ui/react/toast';
 import { CheckCircleIcon, CircleAlertIcon, CircleXIcon, InfoIcon } from 'lucide-react';
-import { forwardRef } from 'react';
+import { type ElementType, forwardRef } from 'react';
 
 import { CloseButton } from '@/components/core/CloseButton/CloseButton';
 import { Icon, type IconProps } from '@/components/core/Icon/Icon';
@@ -26,7 +26,7 @@ const colorPaletteMap: Record<string, string> = {
   info: 'info',
 };
 
-const iconMap: Record<string, React.ElementType> = {
+const iconMap: Record<string, ElementType> = {
   success: CheckCircleIcon,
   error: CircleXIcon,
   warning: CircleAlertIcon,

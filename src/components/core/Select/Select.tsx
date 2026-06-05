@@ -1,4 +1,3 @@
-'use client';
 import type { Assign } from '@ark-ui/react';
 import { ark } from '@ark-ui/react/factory';
 import type { SelectRootProps as PrimitiveSelectRootProps } from '@ark-ui/react/select';

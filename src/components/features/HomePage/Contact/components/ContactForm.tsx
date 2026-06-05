@@ -20,6 +20,7 @@ import { Grid, VStack } from '@/styled-system/jsx';
 const defaultValues = {
   name: '',
   email: '',
+  company: '',
   projectType: '',
   message: '',
 };
@@ -52,27 +53,30 @@ export const ContactForm = () => {
   });
 
   const submitToFormspree = async (data: FormData, token: string) => {
-    const result = await client.submitForm(import.meta.env.VITE_CONTACT_FORM_ID ?? '', {
-      ...data,
-      'cf-turnstile-response': token,
-    });
-    if (result.kind === 'success') {
-      reset(defaultValues);
-      toaster.success({
-        title: 'Message sent!',
-        description: "We'll get back to you within 1 business day.",
+    try {
+      const result = await client.submitForm(import.meta.env.VITE_CONTACT_FORM_ID ?? '', {
+        ...data,
+        'cf-turnstile-response': token,
       });
-    } else {
-      turnstileRef.current?.reset();
-      for (const { message } of result.getFormErrors()) {
-        toaster.error({ title: 'Submission failed', description: message, closable: true });
+      if (result.kind === 'success') {
+        reset(defaultValues);
+        toaster.success({
+          title: 'Message sent!',
+          description: "We'll get back to you within 1 business day.",
+        });
+      } else {
+        turnstileRef.current?.reset();
+        for (const { message } of result.getFormErrors()) {
+          toaster.error({ title: 'Submission failed', description: message, closable: true });
+        }
+        for (const [field, errs] of result.getAllFieldErrors()) {
+          setError(field as keyof FormData, { message: errs.map((e) => e.message).join(', ') });
+        }
       }
-      for (const [field, errs] of result.getAllFieldErrors()) {
-        setError(field as keyof FormData, { message: errs.map((e) => e.message).join(', ') });
-      }
+    } finally {
+      setIsProcessing(false);
+      pendingData.current = null;
     }
-    setIsProcessing(false);
-    pendingData.current = null;
   };
 
   const onTurnstileSuccess = (token: string) => {

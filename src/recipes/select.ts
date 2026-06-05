@@ -44,7 +44,6 @@ export const select = defineSlotRecipe({
       _highlighted: {
         background: 'bg.subtle',
       },
-      _selected: {},
       _disabled: {
         layerStyle: 'disabled',
       },
@@ -59,7 +58,7 @@ export const select = defineSlotRecipe({
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      color: { base: 'fg.subtle' },
+      color: 'fg.subtle',
     },
     itemGroupLabel: {
       alignItems: 'flex-start',

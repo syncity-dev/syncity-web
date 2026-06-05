@@ -29,7 +29,7 @@ export const Contact = () => (
         </CardBody>
       </CardRoot>
 
-      <CardRoot variant="outline" size="lg" flexGrow="1">
+      <CardRoot variant="outline" size="lg">
         <CardBody pt="8" gap="6">
           <InfoRow label="Email">
             <Link href="mailto:team@syncity.dev" fontWeight="medium">
