@@ -4,11 +4,14 @@ import { Main } from '@/components/core/Main/Main';
 import { Footer } from '@/components/shared/Footer/Footer';
 import { Header } from '@/components/shared/Header/Header';
 import { Toaster } from '@/components/shared/Toaster/Toaster';
+import { useColorMode } from '@/hooks/useColorMode';
 import { COLOR_MODE_INIT_SCRIPT } from '@/utils/colorMode';
 
 export const RootLayout = () => {
+  const { resolved } = useColorMode();
+
   return (
-    <html lang="en" data-color-mode="light" suppressHydrationWarning>
+    <html lang="en" data-color-mode={resolved} suppressHydrationWarning>
       <head>
         <HeadContent />
         <script dangerouslySetInnerHTML={{ __html: COLOR_MODE_INIT_SCRIPT }} />

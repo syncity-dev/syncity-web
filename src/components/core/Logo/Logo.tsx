@@ -17,17 +17,12 @@ export const Logo = ({ size = 'md', ...restProps }: LogoProps) => {
   return (
     <RouteLink to="/" className={logo({ size })} aria-label="Syncity home" {...restProps}>
       <Image
-        src="/logos/logo-primary.svg"
+        src="/logos/logo-light.svg"
         layout="fullWidth"
         alt="Syncity"
         className={lightVariant}
       />
-      <Image
-        src="/logos/logo-primary.svg"
-        layout="fullWidth"
-        alt="Syncity"
-        className={darkVariant}
-      />
+      <Image src="/logos/logo-dark.svg" layout="fullWidth" alt="Syncity" className={darkVariant} />
     </RouteLink>
   );
 };

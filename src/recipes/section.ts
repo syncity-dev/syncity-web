@@ -4,7 +4,7 @@ export const section = defineRecipe({
   className: 'section',
   base: {
     position: 'relative',
-    py: { base: '16', md: '24' },
+    my: { base: '16', md: '20' },
   },
   variants: {
     divided: {

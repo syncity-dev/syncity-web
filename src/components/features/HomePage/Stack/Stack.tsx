@@ -102,7 +102,7 @@ const ItemRow = styled('div', {
 });
 
 export const Stack = () => (
-  <Section id="stack" py={{ base: '16', md: '20' }}>
+  <Section id="stack">
     <SectionHeader eyebrow="TECH STACK">
       <Heading as="h2" textStyle="sectionTitle">
         Tools we love. <DisplayItalic>Code we trust.</DisplayItalic>
