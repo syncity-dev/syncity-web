@@ -8,7 +8,7 @@ type StatsProps = Omit<HTMLStyledProps<'div'>, 'as'>;
 
 export const Stats = (props: StatsProps) => {
   return (
-    <Box as="dl" mt={{ base: '20', md: '24' }} {...props}>
+    <Box as="dl" mt={{ base: '10', md: '14' }} {...props}>
       <HairlineGrid gridTemplateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }}>
         {HERO_STATS.map(({ num, unit, label }) => (
           <Stack
