@@ -62,7 +62,7 @@ export const ContactForm = () => {
         reset(defaultValues);
         toaster.success({
           title: 'Message sent!',
-          description: "We'll get back to you within 1 business day.",
+          description: "We'll get back to you within 2 business days.",
         });
       } else {
         turnstileRef.current?.reset();
