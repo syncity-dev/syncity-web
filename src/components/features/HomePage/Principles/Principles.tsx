@@ -58,7 +58,7 @@ export const Principles = () => (
   <Section id="work">
     <SectionHeader eyebrow="HOW WE WORK">
       <Heading as="h2" textStyle="sectionTitle">
-        Built to stay, <em className={italicAccent}>not</em> to ship & run.
+        Built to stay, <em className={italicAccent}>not</em> to ship & leave.
       </Heading>
       <Text size="lg" color="fg.muted" alignSelf="center">
         Most agencies optimize for velocity. We optimize for the codebase you'll be working in three
