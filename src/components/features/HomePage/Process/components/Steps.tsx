@@ -23,7 +23,7 @@ export const Steps = () => {
             <Eyebrow>{eyebrow}</Eyebrow>
           </Box>
           <Stack gap="3">
-            <Heading as="h4" textStyle="xl">
+            <Heading as="h3" textStyle="xl">
               {title}
             </Heading>
             <Text size="md" color="fg.muted">

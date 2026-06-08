@@ -1,13 +1,25 @@
+import type { ElementType } from 'react';
+
 import { css } from '@/styled-system/css';
 import type { HTMLStyledProps } from '@/styled-system/jsx';
 import { Box, Grid } from '@/styled-system/jsx';
 
-type HairlineGridProps = HTMLStyledProps<'div'>;
+type HairlineGridProps = HTMLStyledProps<'div'> & {
+  as?: ElementType;
+  innerAs?: ElementType;
+};
 
-export const HairlineGrid = ({ gridTemplateColumns, children, ...props }: HairlineGridProps) => {
+export const HairlineGrid = ({
+  gridTemplateColumns,
+  children,
+  as,
+  innerAs,
+  ...props
+}: HairlineGridProps) => {
   if (gridTemplateColumns !== undefined) {
     return (
       <Box
+        as={as}
         position="relative"
         borderTopWidth="1px"
         borderTopStyle="solid"
@@ -18,7 +30,7 @@ export const HairlineGrid = ({ gridTemplateColumns, children, ...props }: Hairli
         overflow="hidden"
         {...props}
       >
-        <Grid gridTemplateColumns={gridTemplateColumns} gap="1px" bg="border.default">
+        <Grid as={innerAs} gridTemplateColumns={gridTemplateColumns} gap="1px" bg="border.default">
           {children}
         </Grid>
       </Box>

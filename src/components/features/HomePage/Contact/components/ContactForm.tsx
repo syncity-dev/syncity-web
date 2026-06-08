@@ -191,7 +191,6 @@ export const ContactForm = () => {
                 value={value ? [value] : []}
                 onValueChange={(details) => onChange?.(details.value[0])}
                 id="contact-project-type"
-                aria-required="true"
                 aria-describedby={errors.projectType ? 'contact-project-type-error' : undefined}
               />
             )}

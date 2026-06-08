@@ -98,7 +98,7 @@ export const select = defineSlotRecipe({
       userSelect: 'none',
       width: 'full',
       _placeholderShown: {
-        color: 'fg.subtle',
+        color: 'fg.muted',
       },
       _disabled: {
         layerStyle: 'disabled',
