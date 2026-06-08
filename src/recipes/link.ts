@@ -21,12 +21,12 @@ export const link = defineRecipe({
   variants: {
     visual: {
       underline: {
-        color: 'accent.default',
+        color: 'accent.text',
         textDecoration: 'underline',
         textDecorationColor: 'accent.muted',
         textUnderlineOffset: '3px',
         _hover: {
-          color: 'accent.emphasis',
+          color: 'accent.default',
           textDecorationColor: 'accent.default',
         },
       },

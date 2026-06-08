@@ -20,6 +20,7 @@ export const colors = defineSemanticTokens.colors({
     emphasis: { value: '{colors.blue.10}' },
     muted: { value: '{colors.blue.3}' },
     fg: { value: '{colors.white}' },
+    text: { value: '{colors.blue.11}' },
   },
   danger: {
     default: { value: '{colors.red.9}' },
