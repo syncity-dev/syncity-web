@@ -62,7 +62,7 @@ export const Principles = () => (
       </Heading>
       <Text size="lg" color="fg.muted" alignSelf="center">
         Most agencies optimize for velocity. We optimize for the codebase you'll be working in three
-        years from now — and the team you'll be hiring around it.
+        years from now — and the team you'll build around it.
       </Text>
     </SectionHeader>
 
@@ -77,7 +77,7 @@ export const Principles = () => (
         </Heading>
         <Text size="md" color="fg.muted">
           We sit inside your team — same Slack, same standups, same calendar. No tickets thrown over
-          a fence; no monthly status decks.
+          a fence. No monthly status decks.
         </Text>
       </Card>
 
@@ -91,7 +91,7 @@ export const Principles = () => (
         </Heading>
         <Text size="md" color="fg.muted">
           The person who designs your data model writes the migration. The person who writes the API
-          ships the iOS client. Less translation loss, fewer surface seams.
+          ships the iOS client. Less translation loss, fewer seams.
         </Text>
       </Card>
 
