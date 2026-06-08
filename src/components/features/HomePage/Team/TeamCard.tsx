@@ -74,7 +74,7 @@ export const TeamCard = ({
         </Box>
 
         <CardBody pt="5" gap="1">
-          <Heading as="h4" textStyle="lg" fontWeight="semibold">
+          <Heading as="h3" textStyle="lg" fontWeight="semibold">
             {name}
           </Heading>
           <Text size="sm" color="fg.muted">
