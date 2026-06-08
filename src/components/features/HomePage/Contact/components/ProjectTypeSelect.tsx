@@ -35,7 +35,7 @@ export const ProjectTypeSelect = (props: Omit<SelectRootProps<ProjectType>, 'col
     <SelectRoot collection={projectTypes} {...props}>
       <SelectHiddenSelect />
       <SelectControl>
-        <SelectTrigger>
+        <SelectTrigger aria-label="Select project type">
           <SelectValueText placeholder="Select project type" />
           <SelectIndicatorGroup>
             <SelectIndicator />
