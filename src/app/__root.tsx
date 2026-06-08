@@ -20,6 +20,19 @@ import { seo } from '@/utils/seo';
 
 import appCss from './globals.css?url';
 
+const SITE_URL = 'https://syncity.dev';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Syncity',
+  url: SITE_URL,
+  logo: `${SITE_URL}/logos/og-image.png`,
+  description:
+    'Three senior software consultants specializing in long-term product and platform work.',
+  sameAs: ['https://github.com/syncity-dev'],
+};
+
 export const Route = createRootRoute({
   notFoundComponent: NotFound,
   head: () => ({
@@ -27,11 +40,15 @@ export const Route = createRootRoute({
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       ...seo({
-        title: 'Syncity',
-        description: 'A team of independent consultants primarily focused on long-term projects.',
+        title: 'Syncity — Independent Software Consultants',
+        description:
+          'Three senior software consultants. No handoffs, no account managers — we embed in your team and stay for the long haul.',
+        url: SITE_URL,
+        image: `${SITE_URL}/logos/og-image.png`,
       }),
     ],
     links: [
+      { rel: 'canonical', href: SITE_URL },
       {
         rel: 'preload',
         as: 'font',
@@ -51,6 +68,7 @@ export const Route = createRootRoute({
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico', sizes: '32x32' },
       { rel: 'apple-touch-icon', href: '/logos/apple-touch-icon.png' },
     ],
+    scripts: [{ type: 'application/ld+json', children: JSON.stringify(jsonLd) }],
   }),
   component: RootLayout,
 });
