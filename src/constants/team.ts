@@ -4,7 +4,7 @@ export const teamMembers = [
     name: 'Dominik Košćica',
     title: 'Software Engineer',
     description: 'Specializing in Flutter and Mobile Development, with a focus on team leadership.',
-    imgSrc: '/members/dominik-koscica.jpeg',
+    imgSrc: '/members/dominik-koscica.webp',
     about:
       'With over 9 years in the IT industry and a Master’s in Software Engineering, I’ve specialized as a Senior Software Developer and Team Lead in mobile application development. My expertise lies in creating sophisticated software architectures and writing clean code, with a focus on exceptional user experiences.',
     githubLink: 'https://github.com/dkoscica',
@@ -16,7 +16,7 @@ export const teamMembers = [
     name: 'Adrian Bićanić',
     title: 'Senior Front-End Engineer',
     description: 'Building apps with JavaScript, TypeScript, React and other web technologies.',
-    imgSrc: '/members/adrian-bicanic.jpeg',
+    imgSrc: '/members/adrian-bicanic.webp',
     about:
       'I am a Senior Front-End Engineer with a passion for building web applications using JavaScript, TypeScript, and React. I have a strong background in software development and a Bachelor’s degree in Computer Science. My expertise includes creating responsive and user-friendly interfaces, optimizing performance, and ensuring high-quality code. I am dedicated to continuous learning and staying up-to-date with the latest technologies and best practices in the industry. I am also interested in design, photography, and music. In my free time, I enjoy playing the guitar, taking photos, and exploring new places. I am always looking for new challenges and opportunities to grow as a developer and contribute to exciting projects. Feel free to connect with me on LinkedIn to discuss collaboration, projects, or anything related to web development and technology.',
     githubLink: 'https://github.com/adrianbicanic',
@@ -29,7 +29,7 @@ export const teamMembers = [
     title: 'Front-End Developer',
     description:
       'Crafting user-friendly web applications with attention to detail and practical design.',
-    imgSrc: '/members/andrija-kapetanovic.jpg',
+    imgSrc: '/members/andrija-kapetanovic.webp',
     about:
       'I am a Front-End Developer with a passion for creating user-friendly web applications. I specialize in front-end technologies such as HTML, CSS, and JavaScript, with a focus on React and Next.js. I have a Bachelor’s degree in Computer Science and over 5 years of experience in software development. My expertise includes building responsive and accessible interfaces, optimizing performance, and ensuring a seamless user experience. ',
     githubLink: 'https://github.com/akapetano',
