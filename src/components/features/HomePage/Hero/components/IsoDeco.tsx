@@ -4,78 +4,64 @@ import { useColorMode } from '@/hooks/useColorMode';
 import { css } from '@/styled-system/css';
 import { Box } from '@/styled-system/jsx';
 
-const ENTRY_MS = 2500;
-const FADE_MS = 1000;
-const GAP_MS = 500;
-const LAYER_DELAY_MS = FADE_MS + GAP_MS;
+const LAYER_FADE_MS = 650;
+const LAYER_STAGGER_MS = 300;
+const STACK_MS = 700;
 
-// startX: layers begin fanned out horizontally
+// Header element timings (all relative to mount)
+const LINE_DRAW_MS = 400;
+const CIRCLE_FADE_MS = 300;
+const ELEMENT_GAP_MS = 120;
+// LINE_LENGTH = |y2 - y1| = |-60 - (-96)| = 36px
+const LINE_LENGTH = 36;
+
 // Ordered bottom (i=0) to top (i=3) — SVG renders last element on top
 const LAYER_CONFIGS = [
-  { i: 0, startX: 60, startY: 60, finalY: 30, hoverDy: 20 },
-  { i: 1, startX: 44, startY: 20, finalY: 10, hoverDy: 7 },
-  { i: 2, startX: 28, startY: -20, finalY: -10, hoverDy: -7 },
-  { i: 3, startX: 12, startY: -60, finalY: -30, hoverDy: -20 },
+  { i: 0, spreadY: 60, finalY: 30, hoverDy: 20 },
+  { i: 1, spreadY: 20, finalY: 10, hoverDy: 7 },
+  { i: 2, spreadY: -20, finalY: -10, hoverDy: -7 },
+  { i: 3, spreadY: -60, finalY: -30, hoverDy: -20 },
 ];
 
-// Phase 1 (0–60%): spring on X — fan out → overshoot → settle at X=0
-// Phase 2 (65–100%): vertical close on Y into final positions
-function buildKeyframes(): string {
-  return LAYER_CONFIGS.map(({ i, startX, startY, finalY }) => {
-    const overshootX = -startX;
-
-    return `
-      @keyframes iso-layer-${i} {
-        0%   { transform: translate(${startX}px, ${startY}px); animation-timing-function: var(--easings-exit); }
-        45%  { transform: translate(${overshootX}px, ${startY}px); animation-timing-function: var(--easings-snappy); }
-        60%  { transform: translate(0px, ${startY}px); animation-timing-function: var(--easings-snappy); }
-        65%  { transform: translate(0px, ${startY}px); animation-timing-function: var(--easings-snappy); }
-        100% { transform: translate(0px, ${finalY}px); animation-timing-function: var(--easings-snappy); }
-      }`;
-  }).join('\n');
-}
-
 const TOP_LAYER = LAYER_CONFIGS[LAYER_CONFIGS.length - 1];
-const HEADER_OFFSET = TOP_LAYER.startY - TOP_LAYER.finalY; // -30
 
-const HEADER_KEYFRAME = `
-  @keyframes iso-header {
-    0%   { transform: translateY(${HEADER_OFFSET}px); }
-    65%  { transform: translateY(${HEADER_OFFSET}px); }
-    100% { transform: translateY(0px); }
-  }`;
+// ms from mount until the last layer's fade-in completes
+const FADE_TOTAL_MS = LAYER_STAGGER_MS * (LAYER_CONFIGS.length - 1) + LAYER_FADE_MS;
+// ms from mount when the header sequence begins (after stacking)
+const HEADER_START_MS = FADE_TOTAL_MS + STACK_MS;
+const OUTER_CIRCLE_DELAY_MS = HEADER_START_MS + LINE_DRAW_MS + ELEMENT_GAP_MS;
+const INNER_CIRCLE_DELAY_MS = OUTER_CIRCLE_DELAY_MS + CIRCLE_FADE_MS + ELEMENT_GAP_MS;
+// 'done' fires when inner dot is fully visible
+const TOTAL_ENTRY_MS = INNER_CIRCLE_DELAY_MS + CIRCLE_FADE_MS;
 
-// Shadow fill transitions during Y-close phase (layers physically stacking)
-const FILL_KEYFRAME = `
-  [data-color-mode="light"] { --iso-fill-start: 1; --iso-fill-end: 0; }
-  [data-color-mode="dark"]  { --iso-fill-start: 0; --iso-fill-end: 1; }
-  @keyframes iso-fill-layer {
-    0%   { opacity: var(--iso-fill-start, 0); }
-    65%  { opacity: var(--iso-fill-start, 0); }
-    100% { opacity: var(--iso-fill-end, 1); }
-  }`;
+type Phase = 'fade' | 'stack' | 'done';
 
-const FADE_KEYFRAME = `
+const KEYFRAMES_CSS = `@media (prefers-reduced-motion: no-preference) {
   @keyframes iso-fade-in {
     from { opacity: 0; }
     to   { opacity: 1; }
-  }`;
-
-const KEYFRAMES_CSS = `${FILL_KEYFRAME}\n@media (prefers-reduced-motion: no-preference) {\n${buildKeyframes()}\n${HEADER_KEYFRAME}\n${FADE_KEYFRAME}\n}`;
+  }
+  @keyframes iso-line-reveal {
+    from { y: -60px; height: 0px; }
+    to   { y: -96px; height: ${LINE_LENGTH}px; }
+  }
+}`;
 
 export const IsoDeco = () => {
-  const [entryDone, setEntryDone] = useState(false);
+  const [phase, setPhase] = useState<Phase>('fade');
   const [hovered, setHovered] = useState(false);
   const { resolved } = useColorMode();
   const overlayOpacity = resolved === 'light' ? 0 : 1;
 
   useEffect(() => {
-    const delay = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-      ? 0
-      : ENTRY_MS + LAYER_DELAY_MS;
-    const t = setTimeout(() => setEntryDone(true), delay);
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const t1 = setTimeout(() => setPhase('stack'), reduced ? 0 : FADE_TOTAL_MS);
+    const t2 = setTimeout(() => setPhase('done'), reduced ? 0 : TOTAL_ENTRY_MS);
 
-    return () => clearTimeout(t);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
   }, []);
 
   return (
@@ -95,47 +81,36 @@ export const IsoDeco = () => {
         viewBox="-100 -130 200 280"
         fill="none"
         overflow="visible"
-        onMouseEnter={() => entryDone && setHovered(true)}
+        onMouseEnter={() => phase === 'done' && setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        style={
-          entryDone
-            ? undefined
-            : { animation: `iso-fade-in ${FADE_MS}ms var(--easings-enter) forwards` }
-        }
       >
+        <defs>
+          {/* Clip rect grows from 0 to LINE_LENGTH, revealing dashes top-to-bottom */}
+          <clipPath id="iso-line-clip">
+            <rect
+              x="-2"
+              y="-60"
+              width="4"
+              height="0"
+              style={{
+                animation: `iso-line-reveal ${LINE_DRAW_MS}ms linear ${HEADER_START_MS}ms both`,
+              }}
+            />
+          </clipPath>
+        </defs>
+
+        {/* Header: elements animate in sequence after stacking */}
         <g
           style={
-            entryDone
+            phase === 'done'
               ? {
                   transform: `translateY(${hovered ? TOP_LAYER.hoverDy : 0}px)`,
-                  transition: 'transform 1s var(--easings-snappy)',
+                  transition: 'transform 0.5s var(--easings-snappy)',
                 }
-              : {
-                  animation: `iso-header ${ENTRY_MS}ms var(--easings-emphasized) ${LAYER_DELAY_MS}ms both`,
-                }
+              : undefined
           }
         >
-          <circle cx="0" cy="-110" r="6" fill="var(--colors-accent-default)" />
-          <circle
-            cx="0"
-            cy="-110"
-            r="6"
-            fill="var(--colors-accent-default)"
-            className={css({
-              transformBox: 'fill-box',
-              transformOrigin: 'center',
-              animation: 'ping',
-              _motionReduce: { animation: 'none' },
-            })}
-          />
-          <circle
-            cx="0"
-            cy="-110"
-            r="14"
-            stroke="var(--colors-accent-default)"
-            strokeOpacity="0.25"
-            fill="none"
-          />
+          {/* 1. Dashed line draws top-to-bottom via growing clipPath rect */}
           <line
             x1="0"
             y1="-96"
@@ -144,18 +119,67 @@ export const IsoDeco = () => {
             stroke="var(--colors-accent-default)"
             strokeOpacity="0.3"
             strokeDasharray="2 3"
+            clipPath={phase !== 'done' ? 'url(#iso-line-clip)' : undefined}
           />
+          {/* 2. Outer ring fades in after line */}
+          <circle
+            cx="0"
+            cy="-110"
+            r="14"
+            stroke="var(--colors-accent-default)"
+            strokeOpacity="0.25"
+            fill="none"
+            style={{
+              animation: `iso-fade-in ${CIRCLE_FADE_MS}ms var(--easings-enter) ${OUTER_CIRCLE_DELAY_MS}ms both`,
+            }}
+          />
+          {/* 3. Inner solid dot fades in after outer ring */}
+          <circle
+            cx="0"
+            cy="-110"
+            r="6"
+            fill="var(--colors-accent-default)"
+            style={{
+              animation: `iso-fade-in ${CIRCLE_FADE_MS}ms var(--easings-enter) ${INNER_CIRCLE_DELAY_MS}ms both`,
+            }}
+          />
+          {/* 4. Ping mounts once inner dot is fully visible */}
+          {phase === 'done' && (
+            <circle
+              cx="0"
+              cy="-110"
+              r="6"
+              fill="var(--colors-accent-default)"
+              className={css({
+                transformBox: 'fill-box',
+                transformOrigin: 'center',
+                animation: 'ping',
+                _motionReduce: { animation: 'none' },
+              })}
+            />
+          )}
         </g>
-        {LAYER_CONFIGS.map(({ i, finalY, hoverDy }) => {
+
+        {LAYER_CONFIGS.map(({ i, spreadY, finalY, hoverDy }) => {
           const isTop = i === 3;
-          const layerStyle: React.CSSProperties = entryDone
-            ? {
-                transform: `translate(0px, ${finalY + (hovered ? hoverDy : 0)}px)`,
-                transition: 'transform 0.5s var(--easings-snappy)',
-              }
-            : {
-                animation: `iso-layer-${i} ${ENTRY_MS}ms linear ${LAYER_DELAY_MS}ms both`,
-              };
+
+          let layerStyle: React.CSSProperties;
+          if (phase === 'done') {
+            layerStyle = {
+              transform: `translate(0px, ${finalY + (hovered ? hoverDy : 0)}px)`,
+              transition: 'transform 0.5s var(--easings-snappy)',
+            };
+          } else if (phase === 'stack') {
+            layerStyle = {
+              transform: `translate(0px, ${finalY}px)`,
+              transition: `transform ${STACK_MS}ms var(--easings-snappy)`,
+            };
+          } else {
+            layerStyle = {
+              transform: `translate(0px, ${spreadY}px)`,
+              animation: `iso-fade-in ${LAYER_FADE_MS}ms var(--easings-enter) ${i * LAYER_STAGGER_MS}ms both`,
+            };
+          }
 
           return (
             <g key={i} style={layerStyle}>
@@ -181,13 +205,7 @@ export const IsoDeco = () => {
                 <path
                   d="M0 -40 L70 -5 L0 30 L-70 -5 Z"
                   fill="var(--colors-bg-default)"
-                  style={
-                    entryDone
-                      ? { opacity: overlayOpacity }
-                      : {
-                          animation: `iso-fill-layer ${ENTRY_MS}ms var(--easings-emphasized) ${LAYER_DELAY_MS}ms both`,
-                        }
-                  }
+                  style={{ opacity: overlayOpacity }}
                 />
               )}
             </g>
