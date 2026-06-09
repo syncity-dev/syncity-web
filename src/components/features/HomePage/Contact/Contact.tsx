@@ -13,7 +13,7 @@ import { Grid, HStack } from '@/styled-system/jsx';
 
 export const Contact = () => (
   <Section id="contact">
-    <SectionHeader eyebrow="Get In Touch">
+    <SectionHeader eyebrow="GET IN TOUCH">
       <Heading as="h2" textStyle="sectionTitle">
         Let's see if we're <DisplayItalic>a fit.</DisplayItalic>
       </Heading>
