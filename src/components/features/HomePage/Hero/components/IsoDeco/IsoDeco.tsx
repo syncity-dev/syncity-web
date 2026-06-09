@@ -10,7 +10,7 @@ import { useIsoDecoAnimation } from '@/components/features/HomePage/Hero/compone
 import { Box } from '@/styled-system/jsx';
 
 export const IsoDeco = () => {
-  const { phase, hovered, onMouseEnter, onMouseLeave } = useIsoDecoAnimation();
+  const { phase, hovered, reduced, onMouseEnter, onMouseLeave } = useIsoDecoAnimation();
 
   return (
     <Box
@@ -33,21 +33,24 @@ export const IsoDeco = () => {
         onMouseLeave={onMouseLeave}
       >
         <defs>
+          {/* Clip rect scales from 0 to 1 on Y, anchored at bottom, revealing dashes bottom-to-top */}
           <clipPath id="iso-line-clip">
             <rect
               x="-2"
-              y="-60"
+              y="-96"
               width="4"
-              height="0"
+              height="36"
               style={{
+                transformBox: 'fill-box',
+                transformOrigin: 'bottom center',
                 animation: `iso-line-reveal ${LINE_DRAW_MS}ms linear ${HEADER_START_MS}ms both`,
               }}
             />
           </clipPath>
         </defs>
 
-        <Header phase={phase} hovered={hovered} />
-        <Layers phase={phase} hovered={hovered} />
+        <Header phase={phase} hovered={hovered} reduced={reduced} />
+        <Layers phase={phase} hovered={hovered} reduced={reduced} />
       </svg>
       <Caption />
     </Box>

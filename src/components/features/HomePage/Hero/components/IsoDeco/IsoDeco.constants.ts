@@ -33,7 +33,7 @@ export const KEYFRAMES_CSS = `@media (prefers-reduced-motion: no-preference) {
     to   { opacity: 1; }
   }
   @keyframes iso-line-reveal {
-    from { y: -60px; height: 0px; }
-    to   { y: -96px; height: ${LINE_LENGTH}px; }
+    from { transform: scaleY(0); }
+    to   { transform: scaleY(1); }
   }
 }`;

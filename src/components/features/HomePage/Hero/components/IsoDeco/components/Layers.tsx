@@ -1,11 +1,21 @@
 import type { CSSProperties } from 'react';
 
 import { Layer } from '@/components/features/HomePage/Hero/components/IsoDeco/components/Layer';
+import {
+  LAYER_CONFIGS,
+  LAYER_FADE_MS,
+  LAYER_STAGGER_MS,
+  STACK_MS,
+} from '@/components/features/HomePage/Hero/components/IsoDeco/IsoDeco.constants';
 import type { Phase } from '@/components/features/HomePage/Hero/components/IsoDeco/IsoDeco.types';
 
-import { LAYER_CONFIGS, LAYER_FADE_MS, LAYER_STAGGER_MS, STACK_MS } from '../IsoDeco.constants';
+interface LayersProps {
+  phase: Phase;
+  hovered: boolean;
+  reduced: boolean;
+}
 
-export const Layers = ({ phase, hovered }: { phase: Phase; hovered: boolean }) => {
+export const Layers = ({ phase, hovered, reduced }: LayersProps) => {
   return LAYER_CONFIGS.map(({ i, spreadY, finalY, hoverDy }) => {
     const isTop = i === LAYER_CONFIGS.length - 1;
 
@@ -13,7 +23,7 @@ export const Layers = ({ phase, hovered }: { phase: Phase; hovered: boolean }) =
     if (phase === 'done') {
       layerStyle = {
         transform: `translate(0px, ${finalY + (hovered ? hoverDy : 0)}px)`,
-        transition: 'transform 0.5s var(--easings-snappy)',
+        transition: reduced ? undefined : 'transform 0.5s var(--easings-snappy)',
       };
     } else if (phase === 'stack') {
       layerStyle = {
