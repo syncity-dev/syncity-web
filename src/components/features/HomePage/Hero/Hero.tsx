@@ -8,7 +8,7 @@ import { Icon } from '@/components/core/Icon/Icon';
 import { LinkButton } from '@/components/core/LinkButton/LinkButton';
 import { Section } from '@/components/core/Section/Section';
 import { Text } from '@/components/core/Text/Text';
-import { IsoDeco } from '@/components/features/HomePage/Hero/components/IsoDeco';
+import { IsoDeco } from '@/components/features/HomePage/Hero/components/IsoDeco/IsoDeco';
 import { Stats } from '@/components/features/HomePage/Hero/components/Stats';
 import { TeamMembers } from '@/components/features/HomePage/Hero/components/TeamMembers';
 import { Box, HStack } from '@/styled-system/jsx';
