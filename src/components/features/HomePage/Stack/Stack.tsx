@@ -12,8 +12,9 @@ export const Stack = () => (
         Tools we love. <DisplayItalic>Code we trust.</DisplayItalic>
       </Heading>
       <Text size="lg" color="fg.muted">
-        We pick boring, durable technology. Languages and frameworks with a long half-life — so the
-        codebase still reads cleanly five years from now.
+        We pick boring, durable technology. Languages and frameworks with a long half-life, so the
+        codebase still reads cleanly five years from now. AI is part of the daily workflow. To move
+        faster, not to cut corners.
       </Text>
     </SectionHeader>
     <Categories />
