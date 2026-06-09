@@ -15,7 +15,7 @@ export const useInView = <T extends Element>(options?: IntersectionObserverInit)
           observer.disconnect();
         }
       },
-      { threshold: 0.4, ...options },
+      { threshold: 0, rootMargin: '0px 0px -15% 0px', ...options },
     );
 
     observer.observe(el);
