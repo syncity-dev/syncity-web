@@ -62,7 +62,7 @@ export const Principles = () => (
       </Heading>
       <Text size="lg" color="fg.muted" alignSelf="center">
         Most agencies optimize for velocity. We optimize for the codebase you'll be working in three
-        years from now — and the team you'll build around it.
+        years from now, and the team you'll build around it.
       </Text>
     </SectionHeader>
 
@@ -76,7 +76,7 @@ export const Principles = () => (
           at arm's length.
         </Heading>
         <Text size="md" color="fg.muted">
-          We sit inside your team — same Slack, same standups, same calendar. No tickets thrown over
+          We sit inside your team: same Slack, same standups, same calendar. No tickets thrown over
           a fence. No monthly status decks.
         </Text>
       </Card>
@@ -104,8 +104,8 @@ export const Principles = () => (
           compound returns.
         </Heading>
         <Text size="md" color="fg.muted">
-          Engagements run 12–36 months. We say no to projects we can't commit to — so the ones we
-          say yes to actually compound.
+          Engagements run 12–36 months. We say no to projects we can't commit to, so the ones we say
+          yes to actually compound.
         </Text>
       </Card>
     </HairlineGrid>

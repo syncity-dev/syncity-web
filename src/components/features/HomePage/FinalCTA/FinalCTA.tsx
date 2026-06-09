@@ -48,7 +48,7 @@ export const FinalCTA = () => (
           to <DisplayItalic>build well?</DisplayItalic>
         </Heading>
         <Text size="md" mt="4" maxW="50ch" lineHeight="1.5" opacity="0.6">
-          One short email is all it takes. We read every one and reply personally — even if it's not
+          One short email is all it takes. We read every one and reply personally, even if it's not
           the right fit.
         </Text>
       </div>

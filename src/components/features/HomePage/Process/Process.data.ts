@@ -8,7 +8,7 @@ export const STEPS = [
   {
     eyebrow: 'STEP / 02',
     title: 'Two-week discovery.',
-    body: 'We go deep on your codebase, your constraints, and your next twelve months. The output is a written brief and a project roadmap — the document that anchors every decision that follows.',
+    body: 'We go deep on your codebase, your constraints, and your next twelve months. The output is a written brief and a project roadmap, the document that anchors every decision that follows.',
     meta: 'WEEK 1–2 · BRIEF + ROADMAP',
   },
   {
