@@ -1,5 +1,5 @@
-import { Terminal } from 'lucide-react';
 import {
+  SiClaude,
   SiFirebase,
   SiFlutter,
   SiGithub,
@@ -47,9 +47,9 @@ export const STACK_CATEGORIES: StackCategory[] = [
     ],
   },
   {
-    heading: 'TOOLING & AI',
+    heading: 'TOOLING',
     items: [
-      { label: 'Claude Code', Icon: Terminal },
+      { label: 'Claude Code', Icon: SiClaude },
       { label: 'Sentry', Icon: SiSentry },
       { label: 'Firebase', Icon: SiFirebase },
       { label: 'Git / GitHub', Icon: SiGithub },
