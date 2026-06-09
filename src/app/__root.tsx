@@ -42,7 +42,7 @@ export const Route = createRootRoute({
       ...seo({
         title: 'Syncity — Independent Software Consultants',
         description:
-          'Three senior software consultants. No handoffs, no account managers — we embed in your team and stay for the long haul.',
+          'Three senior software consultants. No handoffs, no account managers. We embed in your team and stay for the long haul.',
         url: SITE_URL,
         image: `${SITE_URL}/logos/og-image.png`,
       }),

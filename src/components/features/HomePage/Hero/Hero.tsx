@@ -29,7 +29,7 @@ export const Hero = () => {
 
           <Text size="lg" color="fg.muted" maxW="lg" mb={{ base: '8', md: '9' }}>
             Syncity is a small, independent consultancy. We embed with founders and product teams on
-            multi-year engagements — building software that outlasts trends, fads, and rewrites.
+            multi-year engagements, building software that outlasts trends, fads, and rewrites.
           </Text>
 
           <ButtonGroup flexWrap="wrap" mb={{ base: '10', md: '12' }}>

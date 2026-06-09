@@ -211,7 +211,7 @@ export const ContactForm = () => {
               <TextArea
                 {...field}
                 id="contact-message"
-                placeholder="A few sentences is enough — we'll follow up with the rest."
+                placeholder="A few sentences is enough. We'll follow up with the rest."
                 w="full"
                 aria-required="true"
                 aria-describedby={errors.message ? 'contact-message-error' : undefined}

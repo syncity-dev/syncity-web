@@ -4,6 +4,7 @@ import { Link } from '@/components/core/Link/Link';
 import { Logo } from '@/components/core/Logo/Logo';
 import { Text } from '@/components/core/Text/Text';
 import { Subsection } from '@/components/shared/Footer/components/Subsection';
+import { COMPANY_EMAIL, COMPANY_GITHUB, COMPANY_LINKEDIN } from '@/constants/company';
 import { Box, Grid } from '@/styled-system/jsx';
 
 export const Footer = () => {
@@ -48,11 +49,11 @@ export const Footer = () => {
           </Subsection>
 
           <Subsection title="Contact">
-            <Link fontSize="sm" href="mailto:team@syncity.dev" visual="plain">
-              team@syncity.dev
+            <Link fontSize="sm" href={`mailto:${COMPANY_EMAIL}`} visual="plain">
+              {COMPANY_EMAIL}
             </Link>
             <Link
-              href="https://github.com/syncity-dev"
+              href={COMPANY_GITHUB}
               visual="plain"
               target="_blank"
               rel="noopener noreferrer"
@@ -63,10 +64,20 @@ export const Footer = () => {
             >
               GitHub <BsGithub size="1em" />
             </Link>
-            {/* LinkedIn URL TBD */}
-            <Link fontSize="sm" href="#" visual="plain" display="flex" alignItems="center" gap="2">
-              LinkedIn <BsLinkedin size="1em" />
-            </Link>
+            {COMPANY_LINKEDIN && (
+              <Link
+                href={COMPANY_LINKEDIN}
+                visual="plain"
+                target="_blank"
+                rel="noopener noreferrer"
+                display="flex"
+                alignItems="center"
+                gap="2"
+                fontSize="sm"
+              >
+                LinkedIn <BsLinkedin size="1em" />
+              </Link>
+            )}
           </Subsection>
 
           <Subsection title="Studio">

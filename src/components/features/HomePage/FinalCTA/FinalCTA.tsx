@@ -6,6 +6,7 @@ import { Heading } from '@/components/core/Heading/Heading';
 import { LinkButton } from '@/components/core/LinkButton/LinkButton';
 import { Section } from '@/components/core/Section/Section';
 import { Text } from '@/components/core/Text/Text';
+import { COMPANY_EMAIL } from '@/constants/company';
 import { styled } from '@/styled-system/jsx';
 
 const Card = styled('div', {
@@ -47,14 +48,14 @@ export const FinalCTA = () => (
           to <DisplayItalic>build well?</DisplayItalic>
         </Heading>
         <Text size="md" mt="4" maxW="50ch" lineHeight="1.5" opacity="0.6">
-          One short email is all it takes. We read every one and reply personally — even if it's not
+          One short email is all it takes. We read every one and reply personally, even if it's not
           the right fit.
         </Text>
       </div>
 
       <RightCol>
         <LinkButton
-          href="mailto:team@syncity.dev"
+          href={`mailto:${COMPANY_EMAIL}`}
           variant="solid"
           size="md"
           bg="bg.default"
@@ -66,7 +67,7 @@ export const FinalCTA = () => (
             _hover: { bg: 'fg.muted' },
           }}
         >
-          team@syncity.dev <Mail />
+          {COMPANY_EMAIL} <Mail />
         </LinkButton>
         <Eyebrow color="currentColor" opacity="0.75">
           No forms required · No funnels

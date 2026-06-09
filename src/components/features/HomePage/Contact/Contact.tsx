@@ -8,11 +8,12 @@ import { Text } from '@/components/core/Text/Text';
 import { ContactForm } from '@/components/features/HomePage/Contact/components/ContactForm';
 import { InfoRow } from '@/components/features/HomePage/Contact/components/InfoRow';
 import { Ping } from '@/components/features/HomePage/Contact/components/Ping';
+import { COMPANY_EMAIL } from '@/constants/company';
 import { Grid, HStack } from '@/styled-system/jsx';
 
 export const Contact = () => (
   <Section id="contact">
-    <SectionHeader eyebrow="Get In Touch">
+    <SectionHeader eyebrow="GET IN TOUCH">
       <Heading as="h2" textStyle="sectionTitle">
         Let's see if we're <DisplayItalic>a fit.</DisplayItalic>
       </Heading>
@@ -22,7 +23,7 @@ export const Contact = () => (
       </Text>
     </SectionHeader>
 
-    <Grid gridTemplateColumns={{ base: '1fr', md: '1.1fr 0.9fr' }} gap="12">
+    <Grid gridTemplateColumns={{ base: '1fr', md: '1.1fr 0.9fr' }} gap="4">
       <CardRoot variant="outline" size="lg">
         <CardBody pt="8" justifyContent="center">
           <ContactForm />
@@ -32,8 +33,8 @@ export const Contact = () => (
       <CardRoot variant="outline" size="lg">
         <CardBody pt="8" gap="6">
           <InfoRow label="Email">
-            <Link href="mailto:team@syncity.dev" fontWeight="medium">
-              team@syncity.dev
+            <Link href={`mailto:${COMPANY_EMAIL}`} fontWeight="medium">
+              {COMPANY_EMAIL}
             </Link>
           </InfoRow>
           <InfoRow label="Response time">
