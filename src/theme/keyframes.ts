@@ -142,4 +142,8 @@ export const keyframes = defineKeyframes({
   ping: {
     '75%, 100%': { transform: 'scale(2.5)', opacity: '0' },
   },
+  'section-reveal': {
+    from: { opacity: '0', translate: '0 20px' },
+    to: { opacity: '1', translate: '0 0' },
+  },
 });
