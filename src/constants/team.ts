@@ -17,7 +17,7 @@ export const teamMembers = [
     name: 'Adrian Bićanić',
     title: 'Senior Frontend Engineer · Co-owner',
     description:
-      'Senior React and TypeScript engineer. Owns frontend architecture, from engineering standards to production delivery.',
+      'Drives frontend architecture and engineering standards. Ships production-ready interfaces that set the bar for quality and consistency.',
     imgSrc: '/members/adrian-bicanic.webp',
     about:
       'I am a Senior Front-End Engineer with a passion for building web applications using JavaScript, TypeScript, and React. I have a strong background in software development and a Bachelor’s degree in Computer Science. My expertise includes creating responsive and user-friendly interfaces, optimizing performance, and ensuring high-quality code. I am dedicated to continuous learning and staying up-to-date with the latest technologies and best practices in the industry. I am also interested in design, photography, and music. In my free time, I enjoy playing the guitar, taking photos, and exploring new places. I am always looking for new challenges and opportunities to grow as a developer and contribute to exciting projects. Feel free to connect with me on LinkedIn to discuss collaboration, projects, or anything related to web development and technology.',
