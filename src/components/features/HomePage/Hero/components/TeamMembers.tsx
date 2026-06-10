@@ -14,6 +14,9 @@ export const TeamMembers = () => {
           key={member.id}
           src={member.imgSrc}
           alt={`${member.name}, ${member.title}`}
+          layout="fixed"
+          width={64}
+          height={64}
           w="8"
           h="8"
           rounded="full"
