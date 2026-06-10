@@ -1,36 +1,32 @@
-import type { HstackProps } from '@/styled-system/jsx';
-import { Container, styled } from '@/styled-system/jsx';
+import type { HTMLStyledProps } from '@/styled-system/jsx';
+import { Box } from '@/styled-system/jsx';
 
-type HeaderWrapperProps = HstackProps & {
-  children: React.ReactNode;
-};
-
-export const HeaderWrapper = ({ children, ...restProps }: HeaderWrapperProps) => {
-  return (
-    <styled.header
+export const HeaderWrapper = ({ children, ...props }: HTMLStyledProps<'div'>) => (
+  <Box
+    as="header"
+    position="sticky"
+    top="3"
+    mt="3"
+    mx="auto"
+    px={{ base: '4', md: '8' }}
+    maxWidth="7xl"
+    zIndex="sticky"
+    {...props}
+  >
+    <Box
       display="flex"
-      shadow="md"
-      w="full"
-      p={2.5}
-      position="sticky"
-      top={0}
-      zIndex="header"
-      justifyContent="center"
       alignItems="center"
-      bg="bg.default"
-      isolation="isolate"
-      {...restProps}
+      justifyContent="space-between"
+      bg="bg.default/80"
+      style={{ backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)' }}
+      borderWidth="1px"
+      borderStyle="solid"
+      borderColor="border.default"
+      rounded="l4"
+      shadow="sm"
+      p="2"
     >
-      <Container
-        maxWidth={{ base: '5xl' }}
-        display="flex"
-        justifyContent="space-between"
-        w="full"
-        padding={0}
-        bgColor="inherit"
-      >
-        {children}
-      </Container>
-    </styled.header>
-  );
-};
+      {children}
+    </Box>
+  </Box>
+);

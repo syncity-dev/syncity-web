@@ -1,8 +1,8 @@
 import { forwardRef } from 'react';
 
-import { textArea } from '@/components/core/TextArea/TextArea.recipe';
 import type { HTMLStyledProps } from '@/styled-system/jsx';
 import { styled } from '@/styled-system/jsx';
+import { textArea } from '@/styled-system/recipes';
 import type { Size } from '@/types/core';
 
 type TextAreaProps = Omit<HTMLStyledProps<'textarea'>, 'size'> & {

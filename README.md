@@ -8,7 +8,7 @@ independent consultants focused on long-term projects.
 - **Framework** — [TanStack Start](https://tanstack.com/start) with
   [TanStack Router](https://tanstack.com/router)
 - **Styling** — [Panda CSS](https://panda-css.com) with a custom design system
-  (semantic color tokens, slot recipes)
+  (semantic color tokens, recipes and slot recipes)
 - **Components** — [Ark UI](https://ark-ui.com) for headless primitives
 - **Images** — [@unpic/react](https://unpic.pics) for optimized image handling
 - **Forms** — [React Hook Form](https://react-hook-form.com) +

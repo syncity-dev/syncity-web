@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/static-components */
-import { text } from '@/components/core/Text/Text.recipe';
 import type { HTMLStyledProps } from '@/styled-system/jsx';
 import { styled } from '@/styled-system/jsx';
+import { text } from '@/styled-system/recipes';
 import type { Size } from '@/types/core';
 
 export type TextElement = 'p' | 'label' | 'small';

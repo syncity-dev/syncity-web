@@ -16,6 +16,8 @@ export const globalCss = defineGlobalStyles({
     textRendering: 'optimizeLegibility',
     WebkitFontSmoothing: 'antialiased',
     WebkitTextSizeAdjust: '100%',
+    scrollBehavior: 'smooth',
+    scrollPaddingTop: '5.5rem',
   },
   body: {
     backgroundColor: '{colors.bg.default}',

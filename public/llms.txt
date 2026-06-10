@@ -1,0 +1,30 @@
+# Syncity
+
+> Three senior software consultants specializing in long-term product and platform work. No handoffs, no account managers — we embed in your team and stay.
+
+## About
+
+Syncity is a boutique software consultancy based in Croatia. We take on long-term engagements where we work as an extension of the client's team. We do not do short sprints, handoffs, or fixed-scope deliveries — our model is built around continuity and ownership.
+
+## Team
+
+- **Dominik Košćica** — Mobile & Flutter engineer, team lead. 9+ years in the industry, Master's in Software Engineering. Specializes in mobile architecture and cross-platform development (Flutter, Go).
+- **Adrian Bićanić** — Senior Front-End engineer. Specializes in web application development with JavaScript, TypeScript, and React. Also works on AI-integrated web products.
+- **Andrija Kapetanović** — Front-End developer. Specializes in React, web performance, and accessible UI. Focused on design-accurate, production-quality interfaces.
+
+## Services
+
+- Web application development (React, TypeScript, TanStack)
+- Mobile application development (Flutter, iOS, Android)
+- Long-term team embedding and technical ownership
+- Code review and technical advisory
+
+## How We Work
+
+We prioritize long-term engagements over short projects. We believe in staying with a product long enough to understand it deeply — not shipping and moving on. Clients work directly with the engineers doing the work, not through an account layer.
+
+## Contact
+
+Website: https://syncity.dev
+Contact form: https://syncity.dev/#contact
+GitHub: https://github.com/syncity-dev

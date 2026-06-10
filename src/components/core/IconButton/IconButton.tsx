@@ -1,0 +1,11 @@
+import { forwardRef } from 'react';
+
+import { Button, type ButtonProps } from '@/components/core/Button/Button';
+
+export type IconButtonProps = ButtonProps;
+
+export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
+  function IconButton(props, ref) {
+    return <Button aspectRatio="1" px="0" py="0" ref={ref} {...props} />;
+  },
+);

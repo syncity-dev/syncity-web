@@ -1,3 +1,13 @@
-import { styled } from "@/styled-system/jsx";
+import type { HTMLStyledProps } from '@/styled-system/jsx';
+import { styled } from '@/styled-system/jsx';
+import { section } from '@/styled-system/recipes';
 
-export const Section = styled.section;
+type SectionProps = HTMLStyledProps<'section'> & {
+  divided?: boolean;
+};
+
+const StyledSection = styled('section');
+
+export const Section = ({ divided, ...props }: SectionProps) => (
+  <StyledSection className={section({ divided })} {...props} />
+);
