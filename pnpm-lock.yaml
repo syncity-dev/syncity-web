@@ -16,7 +16,7 @@ importers:
         version: 5.3.0
       '@fontsource/saira-condensed':
         specifier: ^5.2.8
-        version: 5.2.8
+        version: 5.3.0
       '@formspree/react':
         specifier: ^3.0.0
         version: 3.0.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -528,8 +528,8 @@ packages:
   '@floating-ui/utils@0.2.11':
     resolution: {integrity: sha512-RiB/yIh78pcIxl6lLMG0CgBXAZ2Y0eVHqMPYugu+9U0AeT6YBeiJpf7lbdJNIugFP5SIjwNRgo4DhR1Qxi26Gg==}
 
-  '@fontsource/saira-condensed@5.2.8':
-    resolution: {integrity: sha512-wRNl7O45JWSB5TUVRhJFXZ4QXD/rATKkM1XMUJvPIZjIqIqIzXdcZs55iAMZ8BV0GMHVpoQ3Oa1W4ydHrRrs3Q==}
+  '@fontsource/saira-condensed@5.3.0':
+    resolution: {integrity: sha512-e5ZTpIy/pE8CbB23mpm1b+dCmeapNheSrtQDXtbfDbGpm1r2oIfs5TzTpY2nzETEwei3DEFL9smm0rmFURzJtw==}
 
   '@fontsource/saira@5.3.0':
     resolution: {integrity: sha512-Sbc9SUZsXjULjzjDbBYicL+gQSdLlqwEiyHi6Gs5R9PSsdUWTmTa77jH1a8MalWWHafoq6SK/G3ovyIbGEN5Ww==}
@@ -4468,7 +4468,7 @@ snapshots:
 
   '@floating-ui/utils@0.2.11': {}
 
-  '@fontsource/saira-condensed@5.2.8': {}
+  '@fontsource/saira-condensed@5.3.0': {}
 
   '@fontsource/saira@5.3.0': {}
 
