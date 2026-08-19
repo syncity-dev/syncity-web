@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@ark-ui/react':
         specifier: ^5.36.2
-        version: 5.38.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+        version: 5.38.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@fontsource/saira':
         specifier: ^5.2.11
         version: 5.3.0
@@ -129,8 +129,8 @@ importers:
 
 packages:
 
-  '@ark-ui/react@5.38.0':
-    resolution: {integrity: sha512-0tgeBjY8kSynhFhVgtUsev/nAo55d9V1xYoWTCqQeZflKNZpE5nW+9uRM88gjz34CJMKmfMOKkItPDQtHJpktQ==}
+  '@ark-ui/react@5.38.1':
+    resolution: {integrity: sha512-GlDwTFEwR58/2u1M6X8ajWL5hQLf1y90LmIRpPocK3xPT6IVnM7dKQwye9dx+Z268IZCz8smESzcemZ9DDysUg==}
     peerDependencies:
       react: '>=18.0.0'
       react-dom: '>=18.0.0'
@@ -3792,7 +3792,7 @@ packages:
 
 snapshots:
 
-  '@ark-ui/react@5.38.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@ark-ui/react@5.38.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
       '@internationalized/date': 3.12.2
       '@zag-js/accordion': 1.43.0
