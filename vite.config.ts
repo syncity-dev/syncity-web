@@ -1,20 +1,20 @@
-import path from "path";
-import { defineConfig } from "vite";
-import { tanstackStart } from "@tanstack/react-start/plugin/vite";
-import viteReact from "@vitejs/plugin-react";
+import { tanstackStart } from '@tanstack/react-start/plugin/vite';
+import viteReact from '@vitejs/plugin-react';
+import path from 'path';
+import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: "/",
+  base: '/',
   server: { port: 3000 },
   resolve: {
-    alias: { "@": path.resolve("./src") },
+    alias: { '@': path.resolve('./src') },
   },
   plugins: [
     tanstackStart({
-      srcDirectory: "src",
+      srcDirectory: 'src',
       router: {
-        routesDirectory: "app",
-        basepath: "/",
+        routesDirectory: 'app',
+        basepath: '/',
       },
       prerender: {
         enabled: true,
@@ -23,7 +23,7 @@ export default defineConfig({
       },
       sitemap: {
         enabled: true,
-        host: "https://syncity.dev",
+        host: 'https://syncity.dev',
       },
     }),
     viteReact(),
