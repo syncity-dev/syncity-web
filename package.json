@@ -10,7 +10,9 @@
     "start": "node .output/server/index.mjs",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "format": "prettier --write src"
+    "format": "prettier --write src",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@ark-ui/react": "^5.36.2",
