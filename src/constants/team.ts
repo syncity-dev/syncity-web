@@ -38,4 +38,9 @@ export const teamMembers = [
     linkedinLink: 'https://www.linkedin.com/in/andrija-kapetanovi%C4%87/',
     badge: 'FULL-STACK',
   },
-];
+] as const;
+
+/** Display names of the team, derived so a new member is usable everywhere at once. */
+export const teamMemberNames = teamMembers.map((member) => member.name);
+
+export type TeamMemberName = (typeof teamMembers)[number]['name'];

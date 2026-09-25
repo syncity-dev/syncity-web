@@ -10,7 +10,9 @@
     "start": "node .output/server/index.mjs",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "format": "prettier --write src"
+    "format": "prettier --write src",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@ark-ui/react": "^5.36.2",
@@ -24,6 +26,7 @@
     "@tanstack/react-start": "^1.167.59",
     "@unpic/react": "^1.0.2",
     "@vitejs/plugin-react": "^6.0.1",
+    "gray-matter": "^4.0.3",
     "lucide-react": "^1.14.0",
     "nitro": "3.0.260429-beta",
     "react": "^19.2.5",
@@ -53,6 +56,7 @@
     "lint-staged": "^17.0.4",
     "prettier": "^3.8.3",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.59.3"
+    "typescript-eslint": "^8.59.3",
+    "vitest": "^5.0.1"
   }
 }
