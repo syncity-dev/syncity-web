@@ -241,6 +241,23 @@ When adding `og:image`, provide an absolute URL.
 
 ---
 
+## Decision Log
+
+Architecturally significant decisions are recorded in `docs/decisions.md`, newest first.
+
+**When a decision of that kind is made — in conversation or in code — add an entry before moving on.** A decision belongs in the log when it is expensive to reverse, constrains future work, or would otherwise have to be re-litigated by the next person to read the code:
+
+- committing to a framework, renderer, or library (especially an unstable one)
+- a rendering, data-flow, or build-pipeline architecture
+- a risk the team accepted deliberately, and why it was judged acceptable
+- rejecting a plausible alternative, and what made it lose
+
+Do **not** log routine implementation choices — file layout, naming, which atom a component composes from, a token pick. Those are readable from the code.
+
+Entry format: `## YYYY-MM-DD — <decision in one line>`, then **Context**, **Decision**, **Alternative rejected**, **Consequences**, and **Tickets**.
+
+---
+
 ## v3 Redesign Workflow
 
 ### Before implementing any `features/HomePage` section
