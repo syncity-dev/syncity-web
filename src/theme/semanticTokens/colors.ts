@@ -51,7 +51,7 @@ export const colors = defineSemanticTokens.colors({
    * Radix 11-steps (high-contrast text) so every hue resolves per color mode.
    */
   syntax: {
-    comment: { value: '{colors.gray.10}' },
+    comment: { value: '{colors.gray.11}' },
     keyword: { value: '{colors.red.11}' },
     string: { value: '{colors.green.11}' },
     number: { value: '{colors.sky.11}' },
