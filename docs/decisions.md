@@ -9,6 +9,42 @@ deliberately accepted risk. Routine implementation choices do not belong here.
 
 ---
 
+## 2026-10-07 — Filter and paginate the blog index in the browser, via search params
+
+**Context** — The blog will eventually need a topic filter and pagination. The site is
+fully prerendered and hosted on GitHub Pages, which serves only the files in
+`dist/client` and cannot render a page per request. A URL such as `/blog?tag=react`
+is therefore always the one prerendered `/blog` page; any per-request behaviour has to
+run in the browser.
+
+**Decision** — `/blog` stays a single prerendered page that carries the metadata of
+every published post (title, date, author, tags, description — a few KB even at 100
+posts). Filtering and paging happen client-side, with state in typed TanStack Router
+search params: `/blog?tag=frontend&page=2`. Unknown tags and out-of-range pages fall
+back to `/blog`. Post pages stay fully prerendered. Topics come from frontmatter
+`tags`, which should be restricted to a fixed list in the post schema so a typo cannot
+create a topic. The filter appears from roughly eight posts across two or more topics;
+pagination once a list passes ten posts.
+
+**Alternative rejected** — Prerendering one path per state (`/blog/tag/$tag`,
+`/blog/page/$page` and their combinations): every view becomes indexable, but the
+route count grows with topics × pages for a blog expected to stay small. Moving to a
+host with a server (Nitro on Node, Vercel, Netlify, Cloudflare) to render filtered
+views on request: only worth it if content must change without a deploy, and every
+push to `main` already rebuilds the site.
+
+**Consequences** — Filtered and paged views are not separate indexed pages; the
+accepted cost is that search engines index the posts, not topic listings. The index
+page's payload grows with the post count, so revisit this if the archive reaches
+several hundred posts. Moving to a server host later would let the same search params
+render server-side without changing the URLs. The Dockerfile in the repository is
+stale (it copies a Next.js `.next/standalone` build) and must be rewritten before any
+such move.
+
+**Tickets** — none yet; follow-up to SW-36 (Design: Syncity Blog canvas, "Growth" row)
+
+---
+
 ## 2026-10-07 — Parse posts in a static server function, not directly in the loader
 
 **Context** — SW-38 requires `parseMarkdown()` to run in the route loader so parsing
@@ -27,16 +63,21 @@ client. Adding the package required bumping `@tanstack/react-start` to `^1.168.6
 (its peer range).
 
 **Alternative rejected** — A plain `createServerFn`: no new dependency, but client
-navigations would hit the Nitro server and parse at request time, not build time.
-Calling `parseMarkdown()` directly in the loader: matches the ticket's wording, but
-ships the parser and all post sources to the client.
+navigations would call a server endpoint, and production has none: the site deploys to
+GitHub Pages as the static `dist/client` folder. Every client-side navigation to a post
+would fail in production while working in `pnpm dev`. Calling `parseMarkdown()`
+directly in the loader: matches the ticket's wording, but ships the parser and all post
+sources to the client.
 
 **Consequences** — Every blog route (SW-39) and the RSS feed (SW-41) should load post
 bodies through `getPostDocument` rather than importing `posts.ts` from route code.
 Static function results exist only for prerendered inputs, so every post must be
-reachable by the prerender crawl. The syntax highlighter stays isomorphic — it runs
-during render on both sides — which is why it is a small class-emitting library with
-an explicit language list (`src/utils/highlight.ts`).
+reachable by the prerender crawl. This is also what makes the approach work on GitHub
+Pages: the cached results are plain JSON files inside `dist/client`, served like any
+other asset. Any future server function used by a page must be static in the same way
+for as long as the site stays on a static host. The syntax highlighter stays
+isomorphic — it runs during render on both sides — which is why it is a small
+class-emitting library with an explicit language list (`src/utils/highlight.ts`).
 
 **Tickets** — SW-38, SW-39
 
