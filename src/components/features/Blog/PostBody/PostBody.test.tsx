@@ -60,15 +60,15 @@ describe('PostBody against the markdown fixture', () => {
     expect(html).toContain('style="text-align:right"');
   });
 
-  it('distinguishes inline code from highlighted fenced code', () => {
+  it('tells inline code apart from highlighted code blocks', () => {
     expect(html).toMatch(/<code class="ff_mono[^"]*bg_bg\.muted[^"]*">inline code<\/code>/);
     expect(html).toMatch(/<pre[^>]*tabindex="0"[^>]*><code class="[^"]*language-tsx">/);
     expect(html).toContain('<span class="th-token th-keyword">import</span>');
     expect(html).toContain('<span class="th-token th-comment">// Renders a section title.</span>');
   });
 
-  it('falls back to plaintext for a fence with no language', () => {
-    expect(html).toMatch(/<code class="[^"]*language-plaintext">A fence with no language/);
+  it('shows a code block with no language as plain text', () => {
+    expect(html).toMatch(/<code class="[^"]*language-plaintext">A code block with no language/);
   });
 
   it('renders images through @unpic/react', () => {

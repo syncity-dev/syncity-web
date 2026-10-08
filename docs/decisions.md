@@ -75,8 +75,7 @@ Static function results exist only for prerendered inputs, so every post must be
 reachable by the prerender crawl. This is also what makes the approach work on GitHub
 Pages: the cached results are plain JSON files inside `dist/client`, served like any
 other asset. Any future server function used by a page must be static in the same way
-for as long as the site stays on a static host. The syntax highlighter stays
-isomorphic — it runs during render on both sides — which is why it is a small
+for as long as the site stays on a static host. The syntax highlighter runs on both the server and in the browser, which is why it is a small
 class-emitting library with an explicit language list (`src/utils/highlight.ts`).
 
 **Tickets** — SW-38, SW-39
@@ -89,7 +88,7 @@ class-emitting library with an explicit language list (`src/utils/highlight.ts`)
 dependency. Both packages shipped 1.0.0 before SW-38 started (markdown on 2026-10-01,
 highlight on 2026-09-30). SW-38's timeboxed spike rendered a fixture covering nested
 and tight lists, a loose list, an aligned table, numbered and named footnotes, inline
-and fenced code, an image, and a blockquote containing a list. Output was correct on
+and code blocks, an image, and a blockquote containing a list. Output was correct on
 1.0.0, and the parsed AST round-trips through JSON unchanged.
 
 **Decision** — Proceed with TanStack Markdown, exact-pinned at `1.0.0` for both
@@ -103,7 +102,7 @@ a stable release of the same API. Highlight's bundled themes via `createThemeCss
 they hardcode hex colors and a `.dark` selector, bypassing the token system.
 
 **Consequences** — The spike fallback (unified / remark) is not needed. Upgrades stay
-manual because of the exact pin. Code fences in a language not registered in
+manual because of the exact pin. Code blocks in a language not registered in
 `src/utils/highlight.ts` render as escaped plaintext until it is added there.
 
 **Tickets** — SW-38

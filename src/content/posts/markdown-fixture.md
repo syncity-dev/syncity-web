@@ -62,7 +62,7 @@ export const Title = ({ label }: { label: string }) => {
 ```
 
 ```
-A fence with no language falls back to plaintext.
+A code block with no language shows as plain text.
 ```
 
 ## Image
