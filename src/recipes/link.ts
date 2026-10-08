@@ -1,5 +1,6 @@
 import { defineRecipe } from '@pandacss/dev';
 
+import { focusRing } from '@/theme/focus';
 import { textTransition } from '@/theme/motion/transitions';
 
 export const link = defineRecipe({
@@ -8,12 +9,7 @@ export const link = defineRecipe({
     cursor: 'pointer',
     fontFamily: 'body',
     ...textTransition,
-    _focusVisible: {
-      outline: '2px solid',
-      outlineColor: 'accent.default',
-      outlineOffset: '2px',
-      rounded: 'l1',
-    },
+    _focusVisible: { ...focusRing, rounded: 'l1' },
   },
   defaultVariants: {
     visual: 'underline',

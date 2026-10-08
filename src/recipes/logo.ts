@@ -1,17 +1,14 @@
 import { defineRecipe } from '@pandacss/dev';
 
+import { focusRing } from '@/theme/focus';
+
 export const logo = defineRecipe({
   className: 'logo',
   base: {
     display: 'block',
     flexShrink: '0',
     rounded: 'l2',
-    _focusVisible: {
-      outlineWidth: '2px',
-      outlineStyle: 'solid',
-      outlineColor: 'accent.default',
-      outlineOffset: '2px',
-    },
+    _focusVisible: focusRing,
   },
   defaultVariants: {
     size: 'md',

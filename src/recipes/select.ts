@@ -1,6 +1,8 @@
 import { selectAnatomy } from '@ark-ui/react/anatomy';
 import { defineSlotRecipe } from '@pandacss/dev';
 
+import { focusRing } from '@/theme/focus';
+
 export const select = defineSlotRecipe({
   className: 'select',
   slots: selectAnatomy.extendWith('indicatorGroup').keys(),
@@ -120,12 +122,7 @@ export const select = defineSlotRecipe({
         trigger: {
           borderWidth: '1px',
           borderColor: 'border.default',
-          _focusVisible: {
-            outlineWidth: '2px',
-            outlineStyle: 'solid',
-            outlineColor: 'accent.default',
-            outlineOffset: '2px',
-          },
+          _focusVisible: focusRing,
         },
       },
       surface: {
@@ -133,12 +130,7 @@ export const select = defineSlotRecipe({
           bg: 'bg.subtle',
           borderWidth: '1px',
           borderColor: 'border.default',
-          _focusVisible: {
-            outlineWidth: '2px',
-            outlineStyle: 'solid',
-            outlineColor: 'accent.default',
-            outlineOffset: '2px',
-          },
+          _focusVisible: focusRing,
         },
       },
     },
