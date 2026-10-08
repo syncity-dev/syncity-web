@@ -6,44 +6,43 @@ import { Link } from '@/components/core/Link/Link';
 import { Text } from '@/components/core/Text/Text';
 import { css } from '@/styled-system/css';
 import { styled } from '@/styled-system/jsx';
+import { focusRing } from '@/theme/focus';
 
-/*
- * Maps the elements `@tanstack/markdown` emits onto core atoms. Where no atom
- * exists (lists, tables, code) the wrapper is a thin `styled()` element built
- * only from tokens. Typography for headings, paragraphs and links stays owned
- * by their recipes, so posts restyle with the rest of the site.
- */
+// Which component renders each HTML element in a blog post. Headings, paragraphs and
+// links reuse the site's core components; the rest are small styled elements.
+// Font size and text color come from PostBody, so most elements here don't set them.
 
 const List = {
-  base: {
-    ps: '6',
-    '& > li + li': { mt: '2' },
-    '& li > ul, & li > ol': { mt: '2' },
-  },
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '2',
+  ps: '6',
+  // A list inside a list item, e.g. a sub-list under a bullet
+  'li > &': { mt: '2' },
 } as const;
 
-const UnorderedList = styled('ul', { base: { ...List.base, listStyleType: 'disc' } });
+const UnorderedList = styled('ul', { base: { ...List, listStyleType: 'disc' } });
 
-const OrderedList = styled('ol', { base: { ...List.base, listStyleType: 'decimal' } });
+const OrderedList = styled('ol', { base: { ...List, listStyleType: 'decimal' } });
 
 const ListItem = styled('li', {
   base: {
-    textStyle: 'lg',
-    color: 'fg.default',
     ps: '1',
     _marker: { color: 'fg.subtle' },
+    // A list item with several paragraphs
     '& > p + p': { mt: '3' },
   },
 });
 
 const Blockquote = styled('blockquote', {
   base: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '4',
+    ps: '5',
     borderInlineStartWidth: 'medium',
     borderColor: 'accent.default',
-    ps: '5',
     color: 'fg.muted',
-    '& > * + *': { mt: '4' },
-    '& p, & li': { color: 'fg.muted' },
   },
 });
 
@@ -52,7 +51,6 @@ const InlineCode = styled('code', {
     fontFamily: 'mono',
     fontSize: '0.875em',
     bg: 'bg.muted',
-    color: 'fg.default',
     px: '1.5',
     py: '0.5',
     rounded: 'l1',
@@ -67,7 +65,7 @@ const BlockCode = styled('code', {
   },
 });
 
-/** Token classes emitted by `@tanstack/highlight`, mapped onto `syntax.*`. */
+// Code colors are global classes, see `syntax` in src/theme/global-css.ts.
 const CodeBlock = styled('pre', {
   base: {
     layerStyle: 'surfaceRaised',
@@ -76,27 +74,7 @@ const CodeBlock = styled('pre', {
     overflowX: 'auto',
     fontFamily: 'mono',
     textStyle: 'sm',
-    color: 'fg.default',
-    _focusVisible: {
-      outline: '2px solid',
-      outlineColor: 'accent.default',
-      outlineOffset: '2px',
-    },
-    '& .th-line': { display: 'inline-block', minWidth: 'full' },
-    '& .th-line--highlighted': { bg: 'syntax.highlight' },
-    '& .th-comment': { color: 'syntax.comment', fontStyle: 'italic' },
-    '& .th-keyword, & .th-selector': { color: 'syntax.keyword' },
-    '& .th-string, & .th-code-inline': { color: 'syntax.string' },
-    '& .th-number, & .th-literal': { color: 'syntax.number' },
-    '& .th-function, & .th-command': { color: 'syntax.function' },
-    '& .th-type': { color: 'syntax.type' },
-    '& .th-property, & .th-attr, & .th-variable': { color: 'syntax.property' },
-    '& .th-tag': { color: 'syntax.tag' },
-    '& .th-operator, & .th-meta': { color: 'syntax.punctuation' },
-    '& .th-heading': { color: 'syntax.function', fontWeight: 'bold' },
-    '& .th-link': { color: 'syntax.function', textDecoration: 'underline' },
-    '& .th-inserted': { color: 'syntax.inserted.fg', bg: 'syntax.inserted.bg' },
-    '& .th-deleted': { color: 'syntax.deleted.fg', bg: 'syntax.deleted.bg' },
+    _focusVisible: focusRing,
   },
 });
 
@@ -106,32 +84,33 @@ const TableScroll = styled('div', {
     rounded: 'l3',
     borderWidth: 'thin',
     borderColor: 'border.default',
-    _focusVisible: {
-      outline: '2px solid',
-      outlineColor: 'accent.default',
-      outlineOffset: '2px',
-    },
+    _focusVisible: focusRing,
   },
 });
 
 const Table = styled('table', {
+  base: { width: 'full', borderCollapse: 'collapse', textStyle: 'md' },
+});
+
+const TableHeaderCell = styled('th', {
   base: {
-    width: 'full',
-    borderCollapse: 'collapse',
-    textStyle: 'md',
-    '& th, & td': {
-      px: '4',
-      py: '2',
-      borderBottomWidth: 'thin',
-      borderColor: 'border.default',
-    },
-    '& th': { fontWeight: 'semibold', bg: 'bg.subtle', textAlign: 'start' },
-    '& tbody tr:last-child td': { borderBottomWidth: '0' },
+    px: '4',
+    py: '2',
+    fontWeight: 'semibold',
+    textAlign: 'start',
+    bg: 'bg.subtle',
+    borderBottomWidth: 'thin',
+    borderColor: 'border.default',
   },
 });
 
+// A top border on every cell draws the lines between rows and leaves the last row open.
+const TableCell = styled('td', {
+  base: { px: '4', py: '2', borderTopWidth: 'thin', borderColor: 'border.default' },
+});
+
 const ThematicBreak = styled('hr', {
-  base: { borderColor: 'border.default' },
+  base: { my: '4', borderColor: 'border.default' },
 });
 
 const FootnoteRef = styled('sup', {
@@ -140,10 +119,12 @@ const FootnoteRef = styled('sup', {
 
 const Footnotes = styled('section', {
   base: {
+    mt: '10',
     pt: '6',
     borderTopWidth: 'thin',
     borderColor: 'border.default',
-    '& li, & p': { textStyle: 'sm', color: 'fg.muted' },
+    textStyle: 'sm',
+    color: 'fg.muted',
   },
 });
 
@@ -151,17 +132,16 @@ const imageClass = css({ rounded: 'l3' });
 
 const VisuallyHiddenHeading = styled('h2', { base: { srOnly: true } });
 
-const BLOCK_CODE_CLASS = /^language-/;
-
+// Code blocks get a `language-*` class; inline code gets none.
 const Code = ({ className, ...props }: MarkdownComponentProps<'code'>) =>
-  className && BLOCK_CODE_CLASS.test(className) ? (
+  className?.startsWith('language-') ? (
     <BlockCode className={className} {...props} />
   ) : (
     <InlineCode {...props} />
   );
 
+// tabIndex lets keyboard users scroll code that is wider than the page.
 const Pre = ({ className: _libraryClass, ...props }: MarkdownComponentProps<'pre'>) => (
-  // Focusable so keyboard users can scroll code that overflows horizontally.
   <CodeBlock tabIndex={0} {...props} />
 );
 
@@ -171,10 +151,10 @@ const MarkdownTable = (props: MarkdownComponentProps<'table'>) => (
   </TableScroll>
 );
 
+// @unpic/react only resizes images from a known image CDN. Ours are served from the
+// site itself, so it renders a plain <img>; set lazy loading ourselves.
 const MarkdownImage = ({ src, alt, title }: MarkdownComponentProps<'img'>) =>
   src ? (
-    // Self-hosted images match no unpic CDN, so unpic passes props through
-    // untransformed — set lazy loading explicitly rather than relying on it.
     <Image
       src={src}
       alt={alt ?? ''}
@@ -186,19 +166,25 @@ const MarkdownImage = ({ src, alt, title }: MarkdownComponentProps<'img'>) =>
     />
   ) : null;
 
-/** The footnotes label is visually hidden by the library via `.sr-only`. */
+// The library renders a hidden "Footnotes" h2 with class `sr-only`; keep it hidden.
 const H2 = ({ className, ...props }: MarkdownComponentProps<'h2'>) =>
-  className === 'sr-only' ? <VisuallyHiddenHeading {...props} /> : <Heading as="h2" {...props} />;
+  className === 'sr-only' ? (
+    <VisuallyHiddenHeading {...props} />
+  ) : (
+    <Heading as="h2" mt="8" _first={{ mt: '0' }} {...props} />
+  );
 
 const MarkdownSection = (props: MarkdownComponentProps<'section'>) =>
   'data-footnotes' in props ? <Footnotes {...props} /> : <section {...props} />;
 
+// Headings get extra space above them, on top of the gap PostBody sets between blocks.
 export const markdownComponents: MarkdownComponents = {
   h1: (props) => <Heading as="h1" {...props} />,
   h2: H2,
-  h3: (props) => <Heading as="h3" {...props} />,
-  h4: (props) => <Heading as="h4" {...props} />,
-  p: (props) => <Text textStyle="lg" color="fg.default" {...props} />,
+  h3: (props) => <Heading as="h3" mt="4" _first={{ mt: '0' }} {...props} />,
+  h4: (props) => <Heading as="h4" mt="2" _first={{ mt: '0' }} {...props} />,
+  // Text defaults to 16px; inherit so paragraphs follow PostBody (18px) and footnotes (14px).
+  p: (props) => <Text fontSize="inherit" {...props} />,
   a: (props) => <Link {...props} />,
   ul: UnorderedList,
   ol: OrderedList,
@@ -208,6 +194,8 @@ export const markdownComponents: MarkdownComponents = {
   pre: Pre,
   img: MarkdownImage,
   table: MarkdownTable,
+  th: TableHeaderCell,
+  td: TableCell,
   hr: ThematicBreak,
   sup: FootnoteRef,
   section: MarkdownSection,

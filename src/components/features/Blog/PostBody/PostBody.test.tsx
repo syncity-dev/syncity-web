@@ -23,10 +23,10 @@ describe('PostBody against the markdown fixture', () => {
   });
 
   it('routes headings through the Heading recipe with slug ids', () => {
-    expect(html).toMatch(/<h1 class="heading heading--as_h1" id="heading-one">/);
-    expect(html).toMatch(/<h2 class="heading heading--as_h2" id="lists">/);
-    expect(html).toMatch(/<h3 class="heading heading--as_h3" id="table">/);
-    expect(html).toMatch(/<h4 class="heading heading--as_h4" id="code">/);
+    expect(html).toMatch(/<h1 class="[^"]*heading--as_h1[^"]*" id="heading-one">/);
+    expect(html).toMatch(/<h2 class="[^"]*heading--as_h2[^"]*" id="lists">/);
+    expect(html).toMatch(/<h3 class="[^"]*heading--as_h3[^"]*" id="table">/);
+    expect(html).toMatch(/<h4 class="[^"]*heading--as_h4[^"]*" id="code">/);
   });
 
   it('routes paragraphs and links through the Text and Link recipes', () => {

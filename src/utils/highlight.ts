@@ -13,13 +13,13 @@ import { yaml } from '@tanstack/highlight/languages/yaml';
 import { createTanStackMarkdownHighlighter } from '@tanstack/highlight/markdown';
 
 /**
- * Isomorphic on purpose: the same registrations run during SSR and hydration so
- * the highlighted markup matches. Fences in an unregistered language fall back
- * to escaped plaintext — register a language here before a post needs it.
+ * Runs on the server and in the browser with the same settings, so both produce the
+ * same markup. A code block in a language not listed here shows as plain uncolored
+ * text: add the language before a post uses it.
  *
- * Highlighting emits class names only (`th-keyword`, `th-string`, …); colors
- * come from the `syntax.*` semantic tokens, so a color-mode toggle restyles
- * code blocks without re-rendering them.
+ * The highlighter only adds class names (`th-keyword`, `th-string`, …). Their colors
+ * are set in src/theme/global-css.ts from the `syntax.*` tokens, so code switches
+ * color with light and dark mode.
  */
 const highlighter = createHighlighter({
   languages: [css, diff, html, js, json, jsx, markdown, shell, ts, tsx, yaml],

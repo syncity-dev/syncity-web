@@ -7,20 +7,19 @@ import { highlightCode } from '@/utils/highlight';
 import { markdownComponents } from './markdownComponents';
 
 type PostBodyProps = {
-  /** A pre-parsed AST from `getPostDocument` — never raw markdown. */
+  /** The post body as returned by `getPostDocument`, already parsed from markdown. */
   document: MarkdownDocument;
 };
 
+// Sets the text size and color for the whole post, and the space between blocks.
 const Prose = styled('div', {
   base: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '6',
     maxWidth: '3xl',
-    // All vertical rhythm lives here, so atoms in the map stay margin-free.
-    '& > * + *': { mt: '6' },
-    '& > h2:not(:first-child)': { mt: '14' },
-    '& > h3:not(:first-child)': { mt: '10' },
-    '& > h4:not(:first-child)': { mt: '8' },
-    '& > hr': { my: '10' },
-    '& > section[data-footnotes]': { mt: '16' },
+    textStyle: 'lg',
+    color: 'fg.default',
   },
 });
 
