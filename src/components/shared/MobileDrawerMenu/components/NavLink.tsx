@@ -1,6 +1,7 @@
 import { css, cx } from '@/styled-system/css';
 import type { HTMLStyledProps } from '@/styled-system/jsx';
 import { styled } from '@/styled-system/jsx';
+import { focusRing } from '@/theme/focus';
 import { interactiveTransition } from '@/theme/motion/transitions';
 
 const navLinkClass = css({
@@ -18,12 +19,7 @@ const navLinkClass = css({
   rounded: 'l3',
   ...interactiveTransition,
   _hover: { bg: 'bg.muted' },
-  _focusVisible: {
-    outlineWidth: '2px',
-    outlineStyle: 'solid',
-    outlineColor: 'accent.default',
-    outlineOffset: '2px',
-  },
+  _focusVisible: focusRing,
 });
 
 const BaseNavLink = styled('a');

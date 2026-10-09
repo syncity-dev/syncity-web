@@ -24,4 +24,28 @@ export const globalCss = defineGlobalStyles({
     color: '{colors.fg.default}',
     fontFamily: 'body',
   },
+
+  // syntax: colors for code blocks in blog posts. The highlighter in src/utils/highlight.ts
+  // wraps each part of the code in a span with one of these classes.
+  '.th-line': { display: 'inline-block', minWidth: '100%' },
+  '.th-line--highlighted': { backgroundColor: '{colors.syntax.highlight}' },
+  '.th-comment': { color: '{colors.syntax.comment}', fontStyle: 'italic' },
+  '.th-keyword, .th-selector': { color: '{colors.syntax.keyword}' },
+  '.th-string, .th-code-inline': { color: '{colors.syntax.string}' },
+  '.th-number, .th-literal': { color: '{colors.syntax.number}' },
+  '.th-function, .th-command': { color: '{colors.syntax.function}' },
+  '.th-type': { color: '{colors.syntax.type}' },
+  '.th-property, .th-attr, .th-variable': { color: '{colors.syntax.property}' },
+  '.th-tag': { color: '{colors.syntax.tag}' },
+  '.th-operator, .th-meta': { color: '{colors.syntax.punctuation}' },
+  '.th-heading': { color: '{colors.syntax.function}', fontWeight: 'bold' },
+  '.th-link': { color: '{colors.syntax.function}', textDecoration: 'underline' },
+  '.th-inserted': {
+    color: '{colors.syntax.inserted.fg}',
+    backgroundColor: '{colors.syntax.inserted.bg}',
+  },
+  '.th-deleted': {
+    color: '{colors.syntax.deleted.fg}',
+    backgroundColor: '{colors.syntax.deleted.bg}',
+  },
 });

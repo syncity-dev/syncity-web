@@ -9,17 +9,17 @@ Single-page layout: Header → Hero → Members → TechStack → ContactUs → 
 
 ## Stack
 
-| Layer | Technology |
-|---|---|
-| Framework | React 19 + TypeScript |
-| Routing / SSR | TanStack Router + TanStack Start (NOT Next.js) |
-| Styling | **Panda CSS** (NOT Tailwind) |
-| Headless components | Ark UI |
-| Images | `@unpic/react` (NOT `next/image`) |
-| Icons | `lucide-react` + `react-icons` |
-| Forms | react-hook-form + Zod + Formspree |
-| Package manager | pnpm |
-| Build | Vite + Nitro |
+| Layer               | Technology                                     |
+| ------------------- | ---------------------------------------------- |
+| Framework           | React 19 + TypeScript                          |
+| Routing / SSR       | TanStack Router + TanStack Start (NOT Next.js) |
+| Styling             | **Panda CSS** (NOT Tailwind)                   |
+| Headless components | Ark UI                                         |
+| Images              | `@unpic/react` (NOT `next/image`)              |
+| Icons               | `lucide-react` + `react-icons`                 |
+| Forms               | react-hook-form + Zod + Formspree              |
+| Package manager     | pnpm                                           |
+| Build               | Vite + Nitro                                   |
 
 ---
 
@@ -62,11 +62,11 @@ src/
 
 ### Layer rules
 
-| Layer | What belongs here | What does NOT belong |
-|---|---|---|
-| `core/` | Pure atoms with no business logic. Anything used in 2+ features. Has its own recipe. | Feature-specific components, data fetching |
-| `shared/` | Layout primitives used on every page (Header, Footer, PageContainer, RootLayout) | Page-specific sections |
-| `features/` | Page sections and their sub-components. Can compose from `core/` and `shared/`. | Reusable atoms |
+| Layer       | What belongs here                                                                    | What does NOT belong                       |
+| ----------- | ------------------------------------------------------------------------------------ | ------------------------------------------ |
+| `core/`     | Pure atoms with no business logic. Anything used in 2+ features. Has its own recipe. | Feature-specific components, data fetching |
+| `shared/`   | Layout primitives used on every page (Header, Footer, PageContainer, RootLayout)     | Page-specific sections                     |
+| `features/` | Page sections and their sub-components. Can compose from `core/` and `shared/`.      | Reusable atoms                             |
 
 ### File pattern for core atoms
 
@@ -91,6 +91,19 @@ Run `pnpm prepare` after adding or changing any recipe in `src/recipes/`.
 - Use `defineRecipe()` in `src/recipes/` for single-element recipes with variants (register under `recipes` in `panda.config.ts`)
 - Use `defineSlotRecipe()` + `createStyleContext` for compound components that need slot context (like Card) (register under `slotRecipes`)
 - Never use `style={{}}` for anything covered by tokens
+- Prefer flat styles a person can edit by hand: style props, one styled element per HTML element, `gap` on a flex or grid parent for spacing between children. Avoid nested selectors (`'& > * + *'`, `'& th, & td'`). Where one is the only option, add a one-line comment saying in plain words what it targets.
+- Classes added by a library (e.g. the `th-*` syntax highlighting classes) go in `src/theme/global-css.ts` as flat rules, not nested inside a component.
+
+---
+
+## Code Comments
+
+People review every change by hand, so comments exist to make the code easier to understand for a teammate reading it for the first time.
+
+- Explain _why_, or anything surprising. Don't restate what the code already says.
+- Use plain words. No jargon or invented terms: write "spacing between blocks", not "vertical rhythm"; "code block", not "fence"; "runs on the server and in the browser", not "isomorphic".
+- Keep it to one or two short sentences. If it needs a paragraph, the code or a decision-log entry is probably the better place.
+- Don't use em-dashes or "X, not Y" phrasing to sound clever; write a direct sentence.
 
 ---
 
@@ -186,6 +199,7 @@ Use `animationStyle` for overlay/popover open/close states. Use `animation` toke
 Keyframes use the CSS `translate` and `scale` individual transform properties — use these in components too instead of `transform: 'translateY(...)'` / `transform: 'scale(...)'`.
 
 Motion helpers in `src/theme/motion/`:
+
 - `interactiveTransition` — bg, border, color, shadow transitions with `_motionReduce`
 - `textTransition` — color-only transition with `_motionReduce`
 - `motionReduceAnimation` — `{ animationDuration: 'fastest' }` for `_motionReduce` fallbacks in animation styles
@@ -229,7 +243,7 @@ When adding `og:image`, provide an absolute URL.
 - `aria-label` on icon-only interactive elements
 - `aria-hidden="true"` on decorative duplicates (e.g., the duplicate `<ul>` in the TechStack marquee)
 - `_motionReduce` Panda condition used for animations — always provide a `_motionReduce` fallback on animated elements
-- Focus ring: `_focusVisible` with `outlineColor: "accent.default"` — do not suppress focus rings
+- Focus ring: `_focusVisible: focusRing` from `src/theme/focus.ts` (2px `accent.default` outline, 2px offset) — do not suppress focus rings or copy the values by hand
 
 ---
 
@@ -269,6 +283,7 @@ Entry format: `## YYYY-MM-DD — <decision in one line>`, then **Context**, **De
 ### After a section PR is created
 
 Update `~/Workspace/syncity-assistant/resources/syncity-web/implementation-status.md`:
+
 - Mark the completed section ✅ with its PR number.
 - Mark the next section as "Next".
 - Add any new key decisions that aren't already documented (API changes, gotchas, token workarounds).

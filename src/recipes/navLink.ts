@@ -1,5 +1,6 @@
 import { defineRecipe } from '@pandacss/dev';
 
+import { focusRing } from '@/theme/focus';
 import { interactiveTransition } from '@/theme/motion/transitions';
 
 export const navLink = defineRecipe({
@@ -15,11 +16,6 @@ export const navLink = defineRecipe({
     rounded: 'l4',
     ...interactiveTransition,
     _hover: { bg: 'bg.muted', color: 'fg.default' },
-    _focusVisible: {
-      outlineWidth: '2px',
-      outlineStyle: 'solid',
-      outlineColor: 'accent.default',
-      outlineOffset: '2px',
-    },
+    _focusVisible: focusRing,
   },
 });

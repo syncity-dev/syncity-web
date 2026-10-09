@@ -46,4 +46,28 @@ export const colors = defineSemanticTokens.colors({
     muted: { value: '{colors.sky.3}' },
     fg: { value: '{colors.sky.11}' },
   },
+  /**
+   * Syntax highlighting for `@tanstack/highlight` token classes. Built on the
+   * Radix 11-steps (high-contrast text) so every hue resolves per color mode.
+   */
+  syntax: {
+    comment: { value: '{colors.gray.11}' },
+    keyword: { value: '{colors.red.11}' },
+    string: { value: '{colors.green.11}' },
+    number: { value: '{colors.sky.11}' },
+    function: { value: '{colors.blue.11}' },
+    type: { value: '{colors.amber.11}' },
+    property: { value: '{colors.sky.11}' },
+    tag: { value: '{colors.green.11}' },
+    punctuation: { value: '{colors.gray.11}' },
+    inserted: {
+      fg: { value: '{colors.green.11}' },
+      bg: { value: '{colors.green.a3}' },
+    },
+    deleted: {
+      fg: { value: '{colors.red.11}' },
+      bg: { value: '{colors.red.a3}' },
+    },
+    highlight: { value: '{colors.blue.a3}' },
+  },
 });

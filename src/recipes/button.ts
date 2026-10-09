@@ -1,5 +1,6 @@
 import { defineRecipe } from '@pandacss/dev';
 
+import { focusRing } from '@/theme/focus';
 import { interactiveTransition } from '@/theme/motion/transitions';
 
 export const button = defineRecipe({
@@ -30,12 +31,7 @@ export const button = defineRecipe({
     _disabled: {
       layerStyle: 'disabled',
     },
-    _focusVisible: {
-      outlineWidth: '2px',
-      outlineStyle: 'solid',
-      outlineColor: 'accent.default',
-      outlineOffset: '2px',
-    },
+    _focusVisible: focusRing,
   },
   defaultVariants: {
     variant: 'solid',

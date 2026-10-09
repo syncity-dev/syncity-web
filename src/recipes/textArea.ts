@@ -1,5 +1,7 @@
 import { defineSlotRecipe } from '@pandacss/dev';
 
+import { focusRing } from '@/theme/focus';
+
 export const textArea = defineSlotRecipe({
   className: 'text-area',
   slots: ['control'],
@@ -14,12 +16,7 @@ export const textArea = defineSlotRecipe({
       _placeholder: {
         color: 'fg.subtle',
       },
-      _focusVisible: {
-        outlineWidth: '2px',
-        outlineStyle: 'solid',
-        outlineColor: 'accent.default',
-        outlineOffset: '2px',
-      },
+      _focusVisible: focusRing,
     },
   },
   defaultVariants: {
