@@ -9,6 +9,34 @@ deliberately accepted risk. Routine implementation choices do not belong here.
 
 ---
 
+## 2026-10-10 — Show drafts on the develop deploy, and keep it out of search
+
+**Context** — `develop` deploys to Netlify at develop.syncity.dev and `main` to GitHub Pages. Draft posts only appeared in `pnpm dev`, so anyone who doesn't run the code had no way to review a post before it went live.
+
+**Decision** — A `VITE_SHOW_DRAFTS=true` environment variable, set only on the Netlify develop site, makes the build include drafts (`src/utils/env.ts`). When it is set, every page also gets `<meta name="robots" content="noindex">`, so drafts and the duplicate site stay out of search engines. The GitHub Pages build never sets it.
+
+**Alternative rejected** — Per-PR preview deploys: useful later, but the develop deploy already exists and covers reviewing posts. Showing drafts on develop without `noindex`: drafts would become public, indexable pages.
+
+**Consequences** — A draft is public at develop.syncity.dev to anyone with the link, so anything confidential must not go into a draft. The blog appears on the develop deploy even while every post is a draft, and stays hidden in production until one is published.
+
+**Tickets** — SW-39
+
+---
+
+## 2026-10-09 — Production builds must run with `NODE_ENV` unset or `production`
+
+**Context** — SW-39 is the first route to use the static server functions from SW-38. A local `pnpm build` with `NODE_ENV=development` (set in a developer's `.env.local`) produced a site that looked fine but was broken in two ways. Vite reported `import.meta.env.PROD` as false, so draft posts were published. And `staticFunctionMiddleware` only writes its JSON files when `NODE_ENV === 'production'`, so no files were written, and opening a post from `/blog` would have called a server that GitHub Pages does not have.
+
+**Decision** — Draft filtering checks `import.meta.env.MODE`, which stays `production` for any `vite build` whatever `NODE_ENV` says. The static function files can't be fixed the same way, because the library reads `NODE_ENV` itself. So every deploy build must run with `NODE_ENV` unset: GitHub Actions takes it from the `NODE_ENV` repository variable, and the Netlify develop site (develop.syncity.dev) from its environment variables. Netlify had `NODE_ENV=development` set for all contexts, which has to be deleted. Unset is better than `production`, because pnpm skips devDependencies under `NODE_ENV=production`, and `pnpm prepare` needs `@pandacss/dev` to generate `src/styled-system/`.
+
+**Alternative rejected** — Forcing `NODE_ENV=production` in the `build` script: it would hide a misconfigured environment instead of fixing it, and it changes how every developer's local build behaves.
+
+**Consequences** — A build to check locally needs `NODE_ENV=production pnpm build` if `.env.local` sets `NODE_ENV`. A quick check after any build: `dist/client/__tsr/staticServerFnCache/` should contain one JSON file per post plus one for the post list.
+
+**Tickets** — SW-39
+
+---
+
 ## 2026-10-07 — Filter and paginate the blog index in the browser, via search params
 
 **Context** — The blog will eventually need a topic filter and pagination. The site is
