@@ -1,3 +1,6 @@
+/** Title for every page except the homepage, e.g. `Blog — Syncity`. One place for the separator. */
+export const pageTitle = (title: string) => `${title} — Syncity`;
+
 export const seo = ({
   title,
   description,
