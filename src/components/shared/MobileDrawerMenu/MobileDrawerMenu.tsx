@@ -60,7 +60,7 @@ export const MobileDrawerMenu = ({ isOpen, onOpenChange }: MobileDrawerMenuProps
               <LinkButton
                 variant="solid"
                 size="lg"
-                href="#contact"
+                href="/#contact"
                 w="full"
                 onClick={() => onOpenChange(false)}
               >
