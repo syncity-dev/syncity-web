@@ -146,4 +146,9 @@ export const keyframes = defineKeyframes({
     from: { opacity: '0', translate: '0 20px' },
     to: { opacity: '1', translate: '0 0' },
   },
+  // Draws an SVG stroke from nothing to complete. Use with `pathLength="1"` and `strokeDasharray: '1'`.
+  'draw-stroke': {
+    from: { strokeDashoffset: '1' },
+    to: { strokeDashoffset: '0' },
+  },
 });
