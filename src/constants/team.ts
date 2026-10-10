@@ -40,6 +40,9 @@ export const teamMembers = [
   },
 ] as const;
 
+/** The byline for posts written by the company rather than one person. */
+export const TEAM_AUTHOR = 'Syncity Team';
+
 /** Display names of the team, derived so a new member is usable everywhere at once. */
 export const teamMemberNames = teamMembers.map((member) => member.name);
 
