@@ -16,6 +16,7 @@ export const navLink = defineRecipe({
     rounded: 'l4',
     ...interactiveTransition,
     _hover: { bg: 'bg.muted', color: 'fg.default' },
+    _currentPage: { bg: 'bg.muted', color: 'fg.default' },
     _focusVisible: focusRing,
   },
 });
