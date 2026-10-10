@@ -23,6 +23,8 @@ export const globalCss = defineGlobalStyles({
     backgroundColor: '{colors.bg.default}',
     color: '{colors.fg.default}',
     fontFamily: 'body',
+    // Lets the header's reading progress follow the post article, which is not its ancestor.
+    timelineScope: '--post-body',
   },
 
   // syntax: colors for code blocks in blog posts. The highlighter in src/utils/highlight.ts

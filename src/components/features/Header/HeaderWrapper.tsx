@@ -1,6 +1,8 @@
 import type { HTMLStyledProps } from '@/styled-system/jsx';
 import { Box } from '@/styled-system/jsx';
 
+import { ReadingProgress } from './ReadingProgress';
+
 export const HeaderWrapper = ({ children, ...props }: HTMLStyledProps<'div'>) => (
   <Box
     as="header"
@@ -25,8 +27,10 @@ export const HeaderWrapper = ({ children, ...props }: HTMLStyledProps<'div'>) =>
       rounded="l4"
       shadow="sm"
       p="2"
+      position="relative"
     >
       {children}
+      <ReadingProgress />
     </Box>
   </Box>
 );

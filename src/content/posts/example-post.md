@@ -1,4 +1,5 @@
 ---
+# MOCK POST: remove before pushing to production.
 title: Example Post
 description: A format reference for the blog content pipeline. Kept as a draft so it never ships.
 publishedAt: 2026-09-25

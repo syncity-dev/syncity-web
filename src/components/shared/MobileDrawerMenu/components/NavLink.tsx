@@ -19,6 +19,7 @@ const navLinkClass = css({
   rounded: 'l3',
   ...interactiveTransition,
   _hover: { bg: 'bg.muted' },
+  _currentPage: { bg: 'bg.muted' },
   _focusVisible: focusRing,
 });
 

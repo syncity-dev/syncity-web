@@ -51,7 +51,7 @@ export const Header = () => {
         <HStack gap="2">
           <ColorModeSwitcher />
           <LinkButton
-            href="#contact"
+            href="/#contact"
             variant="solid"
             size="lg"
             display={{ base: 'none', sm: 'inline-flex' }}
@@ -66,7 +66,7 @@ export const Header = () => {
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
             size="lg"
-            display={{ base: 'inline-flex', sm: 'none' }}
+            display={{ base: 'inline-flex', lg: 'none' }}
             onClick={() => setIsMenuOpen(true)}
           >
             <Icon asChild>

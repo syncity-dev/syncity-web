@@ -1,13 +1,12 @@
 import matter from 'gray-matter';
 import { z } from 'zod';
 
-import { teamMemberNames } from '@/constants/team';
+import { TEAM_AUTHOR, teamMemberNames } from '@/constants/team';
+import { showDrafts } from '@/utils/env';
 
 const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 /** Posts are bylined to the company or to one team member — nothing else. */
-export const TEAM_AUTHOR = 'Syncity Team';
-
 export const postAuthors = [TEAM_AUTHOR, ...teamMemberNames] as const;
 
 export type PostAuthor = (typeof postAuthors)[number];
@@ -41,6 +40,9 @@ export type Post = PostFrontmatter & {
   slug: string;
   content: string;
 };
+
+/** A post without its body, for lists and links. */
+export type PostSummary = Omit<Post, 'content'>;
 
 type RawPostModules = Record<string, { default: string }>;
 
@@ -81,9 +83,13 @@ export const parsePost = (filePath: string, raw: string): Post => {
   };
 };
 
+// Drafts are hidden in any build unless `showDrafts` is set (the develop deploy). This checks
+// MODE because `PROD` is false whenever NODE_ENV=development is set, even during `vite build`.
 export const collectPosts = (
   modules: RawPostModules,
-  { includeDrafts = !import.meta.env.PROD }: { includeDrafts?: boolean } = {},
+  {
+    includeDrafts = import.meta.env.MODE !== 'production' || showDrafts,
+  }: { includeDrafts?: boolean } = {},
 ): Post[] =>
   Object.entries(modules)
     .map(([filePath, module]) => parsePost(filePath, module.default))
