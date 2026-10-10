@@ -74,6 +74,9 @@ const CodeBlock = styled('pre', {
     overflowX: 'auto',
     fontFamily: 'mono',
     textStyle: 'sm',
+    // fg.default has one value for both modes, so it would keep the page's color here.
+    // gray.12 has a dark value and switches with the block.
+    color: 'gray.12',
     _focusVisible: focusRing,
   },
 });
@@ -141,8 +144,9 @@ const Code = ({ className, ...props }: MarkdownComponentProps<'code'>) =>
   );
 
 // tabIndex lets keyboard users scroll code that is wider than the page.
+// Code blocks are dark in both color modes: the attribute switches every color token inside to its dark value.
 const Pre = ({ className: _libraryClass, ...props }: MarkdownComponentProps<'pre'>) => (
-  <CodeBlock tabIndex={0} {...props} />
+  <CodeBlock tabIndex={0} data-color-mode="dark" {...props} />
 );
 
 const MarkdownTable = (props: MarkdownComponentProps<'table'>) => (
