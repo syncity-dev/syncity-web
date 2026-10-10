@@ -1,4 +1,6 @@
 ---
+# MOCK POST: remove before pushing to production.
+# PostBody.test.tsx reads this file; move it next to the test before deleting it here.
 title: Markdown Fixture
 description: Exercises every markdown node the blog renderer supports. Kept as a draft so it never ships.
 publishedAt: 2026-10-07
