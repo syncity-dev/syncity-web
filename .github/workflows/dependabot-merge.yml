@@ -1,7 +1,9 @@
 name: Dependabot Merge
 on:
   pull_request_target:
-    types: [opened]
+    # Dependabot PRs often conflict in pnpm-lock.yaml right after another one merges.
+    # Running again when Dependabot rebases the PR lets the merge go through then.
+    types: [opened, synchronize, reopened]
 
 permissions:
   contents: write
@@ -30,7 +32,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Flag major updates for manual review
-        if: steps.metadata.outputs.update-type == 'version-update:semver-major'
+        # Only on the first run, so a rebase doesn't post the same comment again.
+        if: github.event.action == 'opened' && steps.metadata.outputs.update-type == 'version-update:semver-major'
         run: |
           gh pr edit ${{ github.event.pull_request.number }} \
             --add-label "needs manual review" \
