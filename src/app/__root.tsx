@@ -16,6 +16,8 @@ import { createRootRoute } from '@tanstack/react-router';
 
 import { NotFound } from '@/components/shared/NotFound/NotFound';
 import { RootLayout } from '@/components/shared/RootLayout/RootLayout';
+import { showDrafts } from '@/utils/env';
+import { getPostSummaries } from '@/utils/posts.functions';
 import { seo } from '@/utils/seo';
 
 import appCss from './globals.css?url';
@@ -34,6 +36,10 @@ const jsonLd = {
 };
 
 export const Route = createRootRoute({
+  // Whether any post is published, so the Blog links only appear when /blog has something to show.
+  // The list only changes with a new build, so it is never reloaded on navigation.
+  loader: async () => ({ hasPosts: (await getPostSummaries()).length > 0 }),
+  staleTime: Infinity,
   notFoundComponent: NotFound,
   head: () => ({
     meta: [
@@ -46,6 +52,8 @@ export const Route = createRootRoute({
         url: SITE_URL,
         image: `${SITE_URL}/logos/og-image.png`,
       }),
+      // The develop deploy shows drafts, so keep it out of search engines.
+      ...(showDrafts ? [{ name: 'robots', content: 'noindex' }] : []),
     ],
     links: [
       { rel: 'canonical', href: SITE_URL },
