@@ -46,7 +46,7 @@ export const PostPage = ({ post, older, newer }: PostPageProps) => (
     </Stack>
 
     <Grid
-      gridTemplateColumns={{ base: 'minmax(0, 1fr)', lg: '14rem minmax(0, 1fr)' }}
+      gridTemplateColumns={{ base: 'minmax(0, 1fr)', lg: 'token(sizes.56) minmax(0, 1fr)' }}
       gap={{ base: '8', lg: '16' }}
       pt="10"
       borderTopWidth="thin"
