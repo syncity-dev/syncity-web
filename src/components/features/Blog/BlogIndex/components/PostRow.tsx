@@ -24,7 +24,10 @@ type PostRowProps = {
 // A class instead of `styled(Link)`, which loses the route types that check `params`.
 const rowClass = css({
   display: 'grid',
-  gridTemplateColumns: { base: 'minmax(0, 1fr)', md: '13rem minmax(0, 1fr) token(sizes.10)' },
+  gridTemplateColumns: {
+    base: 'minmax(0, 1fr)',
+    md: 'token(sizes.52) minmax(0, 1fr) token(sizes.10)',
+  },
   gap: { base: '4', md: '8' },
   py: { base: '6', md: '8' },
   px: { base: '0', md: '4' },
