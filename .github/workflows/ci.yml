@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  pull_request:
+    branches: ["develop", "main"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+      - name: Install pnpm
+        run: npm install -g pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      # The build generates src/routeTree.gen.ts, which the type check and lint need.
+      - name: Build
+        run: pnpm build
+      - name: Type check
+        run: pnpm exec tsc --noEmit
+      - name: Lint
+        run: pnpm lint
+      - name: Test
+        run: pnpm test
