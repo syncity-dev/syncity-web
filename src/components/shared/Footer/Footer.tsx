@@ -3,10 +3,12 @@ import { BsGithub, BsLinkedin } from 'react-icons/bs';
 
 import { Link } from '@/components/core/Link/Link';
 import { Logo } from '@/components/core/Logo/Logo';
+import { RouteLink } from '@/components/core/RouteLink/RouteLink';
 import { Text } from '@/components/core/Text/Text';
 import { Subsection } from '@/components/shared/Footer/components/Subsection';
 import { COMPANY_EMAIL, COMPANY_GITHUB, COMPANY_LINKEDIN } from '@/constants/company';
 import { Box, Grid } from '@/styled-system/jsx';
+import { link } from '@/styled-system/recipes';
 
 const rootRoute = getRouteApi('__root__');
 
@@ -51,9 +53,9 @@ export const Footer = () => {
               Stack
             </Link>
             {hasPosts && (
-              <Link fontSize="sm" href="/blog" visual="plain">
+              <RouteLink to="/blog" className={link({ visual: 'plain' })} fontSize="sm">
                 Blog
-              </Link>
+              </RouteLink>
             )}
           </Subsection>
 
