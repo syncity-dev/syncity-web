@@ -9,7 +9,7 @@ import type { PostSummary } from '@/utils/posts';
 import { PostList } from './components/PostList';
 
 type BlogIndexProps = {
-  /** Published posts, newest first. Never empty: /blog is a 404 without posts. */
+  /** Published posts, newest first. */
   posts: PostSummary[];
 };
 
