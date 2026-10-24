@@ -2,7 +2,7 @@ import { createFileRoute, notFound } from '@tanstack/react-router';
 
 import { BlogIndex } from '@/components/features/Blog/BlogIndex/BlogIndex';
 import { getPostSummaries } from '@/utils/posts.functions';
-import { pageTitle } from '@/utils/seo';
+import { canonicalLink, DEFAULT_OG_IMAGE, pageTitle, seo, siteUrl } from '@/utils/seo';
 
 export const Route = createFileRoute('/blog/')({
   loader: async () => {
@@ -15,7 +15,16 @@ export const Route = createFileRoute('/blog/')({
 
     return posts;
   },
-  head: () => ({ meta: [{ title: pageTitle('Blog') }] }),
+  head: () => ({
+    meta: seo({
+      title: pageTitle('Blog'),
+      description:
+        'What we learn keeping software in production for years, written by the three of us when there is something worth saying.',
+      url: siteUrl('/blog'),
+      image: DEFAULT_OG_IMAGE,
+    }),
+    links: [canonicalLink('/blog')],
+  }),
   component: BlogIndexRoute,
 });
 
