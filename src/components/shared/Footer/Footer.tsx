@@ -1,13 +1,19 @@
+import { getRouteApi } from '@tanstack/react-router';
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
 
 import { Link } from '@/components/core/Link/Link';
 import { Logo } from '@/components/core/Logo/Logo';
+import { RouteLink } from '@/components/core/RouteLink/RouteLink';
 import { Text } from '@/components/core/Text/Text';
 import { Subsection } from '@/components/shared/Footer/components/Subsection';
 import { COMPANY_EMAIL, COMPANY_GITHUB, COMPANY_LINKEDIN } from '@/constants/company';
 import { Box, Grid } from '@/styled-system/jsx';
+import { link } from '@/styled-system/recipes';
+
+const rootRoute = getRouteApi('__root__');
 
 export const Footer = () => {
+  const { hasPosts } = rootRoute.useLoaderData();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -34,18 +40,23 @@ export const Footer = () => {
           </Box>
 
           <Subsection title="Site">
-            <Link fontSize="sm" href="#work" visual="plain">
+            <Link fontSize="sm" href="/#work" visual="plain">
               How We Work
             </Link>
-            <Link fontSize="sm" href="#team" visual="plain">
+            <Link fontSize="sm" href="/#team" visual="plain">
               Team
             </Link>
-            <Link fontSize="sm" href="#process" visual="plain">
+            <Link fontSize="sm" href="/#process" visual="plain">
               Process
             </Link>
-            <Link fontSize="sm" href="#stack" visual="plain">
+            <Link fontSize="sm" href="/#stack" visual="plain">
               Stack
             </Link>
+            {hasPosts && (
+              <RouteLink to="/blog" className={link({ visual: 'plain' })} fontSize="sm">
+                Blog
+              </RouteLink>
+            )}
           </Subsection>
 
           <Subsection title="Contact">

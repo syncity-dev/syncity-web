@@ -49,25 +49,27 @@ export const colors = defineSemanticTokens.colors({
   /**
    * Syntax highlighting for `@tanstack/highlight` token classes. Built on the
    * Radix 11-steps (high-contrast text) so every hue resolves per color mode.
+   * Both modes are listed so a code block can switch to dark colors on its own
+   * with `data-color-mode="dark"`; a single value would only be set on the page root.
    */
   syntax: {
-    comment: { value: '{colors.gray.11}' },
-    keyword: { value: '{colors.red.11}' },
-    string: { value: '{colors.green.11}' },
-    number: { value: '{colors.sky.11}' },
-    function: { value: '{colors.blue.11}' },
-    type: { value: '{colors.amber.11}' },
-    property: { value: '{colors.sky.11}' },
-    tag: { value: '{colors.green.11}' },
-    punctuation: { value: '{colors.gray.11}' },
+    comment: { value: { _light: '{colors.gray.11}', _dark: '{colors.gray.11}' } },
+    keyword: { value: { _light: '{colors.red.11}', _dark: '{colors.red.11}' } },
+    string: { value: { _light: '{colors.green.11}', _dark: '{colors.green.11}' } },
+    number: { value: { _light: '{colors.sky.11}', _dark: '{colors.sky.11}' } },
+    function: { value: { _light: '{colors.blue.11}', _dark: '{colors.blue.11}' } },
+    type: { value: { _light: '{colors.amber.11}', _dark: '{colors.amber.11}' } },
+    property: { value: { _light: '{colors.sky.11}', _dark: '{colors.sky.11}' } },
+    tag: { value: { _light: '{colors.green.11}', _dark: '{colors.green.11}' } },
+    punctuation: { value: { _light: '{colors.gray.11}', _dark: '{colors.gray.11}' } },
     inserted: {
-      fg: { value: '{colors.green.11}' },
-      bg: { value: '{colors.green.a3}' },
+      fg: { value: { _light: '{colors.green.11}', _dark: '{colors.green.11}' } },
+      bg: { value: { _light: '{colors.green.a3}', _dark: '{colors.green.a3}' } },
     },
     deleted: {
-      fg: { value: '{colors.red.11}' },
-      bg: { value: '{colors.red.a3}' },
+      fg: { value: { _light: '{colors.red.11}', _dark: '{colors.red.11}' } },
+      bg: { value: { _light: '{colors.red.a3}', _dark: '{colors.red.a3}' } },
     },
-    highlight: { value: '{colors.blue.a3}' },
+    highlight: { value: { _light: '{colors.blue.a3}', _dark: '{colors.blue.a3}' } },
   },
 });

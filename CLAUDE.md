@@ -251,7 +251,7 @@ When adding `og:image`, provide an absolute URL.
 
 - The app is SSR via Nitro. Avoid `window` / `document` access outside `useEffect` or after a `typeof window !== 'undefined'` guard.
 - `COLOR_MODE_INIT_SCRIPT` runs as an inline script before hydration to avoid color mode flash.
-- Images via `@unpic/react` handle responsive sizing and lazy loading — use `layout="constrained"` for fixed-size images, `layout="fullWidth"` for full-container images.
+- Images via `@unpic/react` handle responsive sizing and lazy loading — use `layout="fixed"` for images with a set size (avatars), `layout="constrained"` for images that can shrink, and `layout="fullWidth"` for images that fill their container.
 
 ---
 

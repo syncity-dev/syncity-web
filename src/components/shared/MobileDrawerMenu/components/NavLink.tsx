@@ -1,3 +1,5 @@
+import { Link } from '@tanstack/react-router';
+
 import { css, cx } from '@/styled-system/css';
 import type { HTMLStyledProps } from '@/styled-system/jsx';
 import { styled } from '@/styled-system/jsx';
@@ -19,11 +21,17 @@ const navLinkClass = css({
   rounded: 'l3',
   ...interactiveTransition,
   _hover: { bg: 'bg.muted' },
+  _currentPage: { bg: 'bg.muted' },
   _focusVisible: focusRing,
 });
 
-const BaseNavLink = styled('a');
+const SectionNavLink = styled('a');
+const RouteNavLink = styled(Link);
 
-export const NavLink = (props: HTMLStyledProps<'a'>) => {
-  return <BaseNavLink className={cx(navLinkClass, props.className)} {...props} />;
-};
+/** Section links (`/#work`) stay plain anchors. Page links like `/blog` navigate in the app without a reload. */
+export const NavLink = ({ href = '', className, ...props }: HTMLStyledProps<'a'>) =>
+  href.startsWith('/#') ? (
+    <SectionNavLink href={href} className={cx(navLinkClass, className)} {...props} />
+  ) : (
+    <RouteNavLink to={href} className={cx(navLinkClass, className)} {...props} />
+  );
