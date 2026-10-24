@@ -18,18 +18,16 @@ import { NotFound } from '@/components/shared/NotFound/NotFound';
 import { RootLayout } from '@/components/shared/RootLayout/RootLayout';
 import { showDrafts } from '@/utils/env';
 import { getPostSummaries } from '@/utils/posts.functions';
-import { seo } from '@/utils/seo';
+import { DEFAULT_OG_IMAGE, seo, SITE_URL } from '@/utils/seo';
 
 import appCss from './globals.css?url';
-
-const SITE_URL = 'https://syncity.dev';
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Syncity',
   url: SITE_URL,
-  logo: `${SITE_URL}/logos/og-image.png`,
+  logo: DEFAULT_OG_IMAGE,
   description:
     'Three senior software consultants specializing in long-term product and platform work.',
   sameAs: ['https://github.com/syncity-dev'],
@@ -45,18 +43,17 @@ export const Route = createRootRoute({
     meta: [
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      // Defaults for every page. Routes override them with their own `seo()` tags and canonical link.
       ...seo({
         title: 'Syncity — Independent Software Consultants',
         description:
           'Three senior software consultants. No handoffs, no account managers. We embed in your team and stay for the long haul.',
-        url: SITE_URL,
-        image: `${SITE_URL}/logos/og-image.png`,
+        image: DEFAULT_OG_IMAGE,
       }),
       // The develop deploy shows drafts, so keep it out of search engines.
       ...(showDrafts ? [{ name: 'robots', content: 'noindex' }] : []),
     ],
     links: [
-      { rel: 'canonical', href: SITE_URL },
       {
         rel: 'preload',
         as: 'font',

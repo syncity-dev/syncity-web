@@ -2,7 +2,7 @@ import { createFileRoute, notFound } from '@tanstack/react-router';
 
 import { PostPage } from '@/components/features/Blog/PostPage/PostPage';
 import { getPostDocument, getPostSummaries } from '@/utils/posts.functions';
-import { pageTitle } from '@/utils/seo';
+import { canonicalLink, DEFAULT_OG_IMAGE, pageTitle, seo, siteUrl } from '@/utils/seo';
 
 export const Route = createFileRoute('/blog/$slug')({
   loader: async ({ params }) => {
@@ -19,9 +19,24 @@ export const Route = createFileRoute('/blog/$slug')({
 
     return { post, older: posts[index + 1], newer: posts[index - 1] };
   },
-  head: ({ loaderData }) => ({
-    meta: loaderData ? [{ title: pageTitle(loaderData.post.title) }] : [],
-  }),
+  head: ({ loaderData, params }) => {
+    if (!loaderData) {
+      return {};
+    }
+
+    const { post } = loaderData;
+    const path = `/blog/${params.slug}`;
+
+    return {
+      meta: seo({
+        title: pageTitle(post.title),
+        description: post.description,
+        url: siteUrl(path),
+        image: post.ogImage ? siteUrl(post.ogImage) : DEFAULT_OG_IMAGE,
+      }),
+      links: [canonicalLink(path)],
+    };
+  },
   component: PostRoute,
 });
 
