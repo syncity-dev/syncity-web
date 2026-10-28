@@ -18,18 +18,32 @@ export const seo = ({
   keywords,
   image,
   url,
+  type = 'website',
+  publishedAt,
+  author,
 }: {
   title: string;
   description?: string;
   image?: string;
   keywords?: string;
   url?: string;
+  /** `article` for blog posts. The `article:*` tags are only added for articles. */
+  type?: 'website' | 'article';
+  /** ISO date, e.g. `2026-09-20`. */
+  publishedAt?: string;
+  author?: string;
 }) => {
+  const isArticle = type === 'article';
+
   const tags = [
     { title },
     { name: 'description', content: description },
     { name: 'keywords', content: keywords },
-    { property: 'og:type', content: 'website' },
+    { property: 'og:type', content: type },
+    ...(isArticle && publishedAt
+      ? [{ property: 'article:published_time', content: publishedAt }]
+      : []),
+    ...(isArticle && author ? [{ property: 'article:author', content: author }] : []),
     { property: 'og:title', content: title },
     { property: 'og:description', content: description },
     { name: 'twitter:card', content: image ? 'summary_large_image' : 'summary' },
