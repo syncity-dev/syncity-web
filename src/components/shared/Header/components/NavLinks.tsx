@@ -1,18 +1,20 @@
 import { NavLink } from '@/components/shared/Header/components/NavLink';
-import { NAV_LINKS } from '@/constants/navigation';
+import { useNavLinks } from '@/hooks/useNavLinks';
 import { Flex } from '@/styled-system/jsx';
 
 export const NavLinks = () => {
+  const navLinks = useNavLinks();
+
   return (
     <Flex
       as="nav"
       aria-label="Main navigation"
       gap="1"
       alignItems="center"
-      display={{ base: 'none', sm: 'flex' }}
+      display={{ base: 'none', lg: 'flex' }}
     >
-      {NAV_LINKS.map(({ id, label, href }) => (
-        <NavLink key={id} href={href}>
+      {navLinks.map(({ id, label, href, isCurrent }) => (
+        <NavLink key={id} href={href} aria-current={isCurrent ? 'page' : undefined}>
           {label}
         </NavLink>
       ))}

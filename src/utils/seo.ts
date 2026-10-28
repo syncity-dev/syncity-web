@@ -1,3 +1,17 @@
+export const SITE_URL = 'https://syncity.dev';
+
+/** The share image for pages that don't set their own. */
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/logos/og-image.png`;
+
+/** Absolute URL for a site path, e.g. `/blog` → `https://syncity.dev/blog`. Absolute URLs pass through unchanged. */
+export const siteUrl = (path: string) => new URL(path, SITE_URL).href;
+
+/** The canonical link for a page, so search engines don't treat it as a copy of another one. */
+export const canonicalLink = (path: string) => ({ rel: 'canonical', href: siteUrl(path) });
+
+/** Title for every page except the homepage, e.g. `Blog — Syncity`. One place for the separator. */
+export const pageTitle = (title: string) => `${title} — Syncity`;
+
 export const seo = ({
   title,
   description,
