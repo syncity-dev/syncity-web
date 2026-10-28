@@ -9,6 +9,9 @@ export const siteUrl = (path: string) => new URL(path, SITE_URL).href;
 /** The canonical link for a page, so search engines don't treat it as a copy of another one. */
 export const canonicalLink = (path: string) => ({ rel: 'canonical', href: siteUrl(path) });
 
+/** Where the build writes a post's generated share card, next to the post's prerendered page. */
+export const postCardPath = (slug: string) => `/blog/${slug}/og.png`;
+
 /** Title for every page except the homepage, e.g. `Blog — Syncity`. One place for the separator. */
 export const pageTitle = (title: string) => `${title} — Syncity`;
 
