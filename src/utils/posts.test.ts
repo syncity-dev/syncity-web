@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
-import { collectPosts, getAllPosts, getPostBySlug, parsePost, postAuthors } from './posts';
+import { parsePost, postAuthors } from './postFrontmatter';
+import { collectPosts, getAllPosts, getPostBySlug } from './posts';
 
 const post = (frontmatter: string, body = 'Body copy.') => `---\n${frontmatter}\n---\n\n${body}\n`;
 

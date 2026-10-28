@@ -44,6 +44,7 @@
     "@commitlint/cli": "^21.0.0",
     "@commitlint/config-conventional": "^21.0.0",
     "@pandacss/dev": "^1.10.0",
+    "@resvg/resvg-js": "^2.6.2",
     "@types/node": "^26.2.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
@@ -58,6 +59,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^17.0.4",
     "prettier": "^3.8.3",
+    "satori": "^0.63.2",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.59.3",
     "vitest": "^5.0.1"
