@@ -1,6 +1,6 @@
 import { HairlineGrid } from '@/components/core/HairlineGrid/HairlineGrid';
 import { styled } from '@/styled-system/jsx';
-import type { PostSummary } from '@/utils/posts';
+import type { PostSummary } from '@/utils/postFrontmatter';
 
 import { PostRow } from './PostRow';
 
