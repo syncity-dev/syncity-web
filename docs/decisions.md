@@ -30,6 +30,10 @@ would stop, but updates would merge with no checks at all.
 **Consequences** — A Dependabot PR that fails CI stays open until someone fixes or
 closes it. CI builds without repository secrets, because Dependabot PRs cannot read
 them. That works only while the `VITE_` variables keep fallback values in the code.
+The ruleset needs the org's GitHub Team plan once this repo is private. "Require
+branches to be up to date" is off, so a Dependabot PR can merge on CI that ran before
+the previous update merged. Porting Estimum's merge job and rebase queue
+(estimum_frontend#518) is the follow-up for that.
 
 **Tickets** — SW-46
 
