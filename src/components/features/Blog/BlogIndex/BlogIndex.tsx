@@ -4,7 +4,7 @@ import { Heading } from '@/components/core/Heading/Heading';
 import { Text } from '@/components/core/Text/Text';
 import { PageContainer } from '@/components/shared/PageContainer/PageContainer';
 import { Stack } from '@/styled-system/jsx';
-import type { PostSummary } from '@/utils/posts';
+import type { PostSummary } from '@/utils/postFrontmatter';
 
 import { PostList } from './components/PostList';
 

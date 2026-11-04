@@ -10,7 +10,7 @@ import { PageContainer } from '@/components/shared/PageContainer/PageContainer';
 import { Grid, Stack, styled } from '@/styled-system/jsx';
 import { link } from '@/styled-system/recipes';
 import { formatPostDate } from '@/utils/date';
-import type { PostSummary } from '@/utils/posts';
+import type { PostSummary } from '@/utils/postFrontmatter';
 
 import { PostAside } from './components/PostAside';
 import { PostNav } from './components/PostNav';
