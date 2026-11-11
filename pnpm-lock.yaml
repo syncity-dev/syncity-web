@@ -30,11 +30,11 @@ importers:
         specifier: ^1.10.0
         version: 1.12.1
       '@tanstack/highlight':
-        specifier: 1.2.0
-        version: 1.2.0
+        specifier: 1.2.11
+        version: 1.2.11
       '@tanstack/markdown':
-        specifier: 1.0.0
-        version: 1.0.0(react@19.3.1)
+        specifier: 1.2.0
+        version: 1.2.0(react@19.3.1)
       '@tanstack/react-router':
         specifier: ^1.170.41
         version: 1.170.46(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -1209,16 +1209,16 @@ packages:
   '@swc/helpers@0.5.23':
     resolution: {integrity: sha512-5lSsMOTXURePglDfvuAQUqkGek9Hg2kksOYay2m0+XR++b2NWYL/4sWyuvVBIs8oKnJaxkdi9whaL/sqN13afw==}
 
-  '@tanstack/highlight@1.2.0':
-    resolution: {integrity: sha512-rC9pPLrZXW6Col4ugZlx6EHfIcrx8p6geKkYdTWH1XFAZ2xTYDIIHoxo0QhqZPBEfrWQobkm8dEVrjW0V9r5YA==}
+  '@tanstack/highlight@1.2.11':
+    resolution: {integrity: sha512-U8Aac/Y/Y4ym6JRi/waDK/D7uce+1feMdOU163KmhNFBdbcilnE9O4RDIdJ31cWcf+Z4esXv/lJyG1P4BOTY7A==}
     engines: {node: '>=18'}
 
   '@tanstack/history@1.162.5':
     resolution: {integrity: sha512-w1+YvwmTkwt5n8yUqEH3IWZ9DsmorCZW/EQ3KYHnqEgIkOZpH54NvW6/Epq3Dzb8H0ifIeYX8PExvrNLIH5FIA==}
     engines: {node: '>=20.19'}
 
-  '@tanstack/markdown@1.0.0':
-    resolution: {integrity: sha512-zE07RepFMbSQlHdnE82twgiVOKy50rP6a/X9UPOOBt8Z8x9lzaPvGpn2zioCnjXMvNt/IQkW5sSalXQ25C/FKw==}
+  '@tanstack/markdown@1.2.0':
+    resolution: {integrity: sha512-8ZaMDLvp7iUuo7R5Ot+yvX/h1ZN8Cq2p38iL+X9uOkIKVFw3IjgP62dXT6+dp/Nk522qsuSDCJNdt2F4fZvVXQ==}
     peerDependencies:
       octane: '>=0.1.12'
       react: '>=18'
@@ -5038,11 +5038,11 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@tanstack/highlight@1.2.0': {}
+  '@tanstack/highlight@1.2.11': {}
 
   '@tanstack/history@1.162.5': {}
 
-  '@tanstack/markdown@1.0.0(react@19.3.1)':
+  '@tanstack/markdown@1.2.0(react@19.3.1)':
     optionalDependencies:
       react: 19.3.1
 
