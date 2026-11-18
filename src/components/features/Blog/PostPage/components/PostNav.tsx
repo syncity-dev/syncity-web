@@ -6,7 +6,7 @@ import { cva, cx } from '@/styled-system/css';
 import { styled } from '@/styled-system/jsx';
 import { focusRing } from '@/theme/focus';
 import { interactiveTransition, textTransition } from '@/theme/motion/transitions';
-import type { PostSummary } from '@/utils/posts';
+import type { PostSummary } from '@/utils/postFrontmatter';
 
 type PostNavProps = {
   older?: PostSummary;

@@ -2,7 +2,7 @@ import { createFileRoute, notFound } from '@tanstack/react-router';
 
 import { PostPage } from '@/components/features/Blog/PostPage/PostPage';
 import { getPostDocument, getPostSummaries } from '@/utils/posts.functions';
-import { canonicalLink, DEFAULT_OG_IMAGE, pageTitle, seo, siteUrl } from '@/utils/seo';
+import { canonicalLink, pageTitle, postCardPath, seo, siteUrl } from '@/utils/seo';
 
 export const Route = createFileRoute('/blog/$slug')({
   loader: async ({ params }) => {
@@ -32,7 +32,11 @@ export const Route = createFileRoute('/blog/$slug')({
         title: pageTitle(post.title),
         description: post.description,
         url: siteUrl(path),
-        image: post.ogImage ? siteUrl(post.ogImage) : DEFAULT_OG_IMAGE,
+        // The build draws a card for every post it prerenders. `ogImage` in frontmatter replaces it.
+        image: siteUrl(post.ogImage ?? postCardPath(params.slug)),
+        type: 'article',
+        publishedAt: post.publishedAt,
+        author: post.author,
       }),
       links: [canonicalLink(path)],
     };

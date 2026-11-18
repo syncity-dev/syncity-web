@@ -3,7 +3,11 @@ import viteReact from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig } from 'vite';
 
+import { writePostCard } from './src/build/postCards';
 import { NAV_LINKS } from './src/constants/navigation';
+
+// TanStack Start's default client output folder, which GitHub Pages serves.
+const clientOutDir = path.resolve('dist/client');
 
 const sectionLinks = NAV_LINKS.map((link) => link.href).filter((href) => href.startsWith('/#'));
 
@@ -31,6 +35,13 @@ export default defineConfig({
         enabled: true,
         crawlLinks: true,
         autoSubfolderIndex: true,
+        // Draws each post's share card as a static PNG next to its page. The prerender step ignores
+        // errors thrown here, so a failed card sets the exit code itself to fail the build.
+        onSuccess: ({ page }) =>
+          writePostCard(page.path, clientOutDir).catch((error: unknown) => {
+            console.error(`[post cards] ${page.path}: could not draw the share card`, error);
+            process.exitCode = 1;
+          }),
       },
       sitemap: {
         enabled: true,

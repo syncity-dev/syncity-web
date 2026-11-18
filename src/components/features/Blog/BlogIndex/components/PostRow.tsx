@@ -13,7 +13,7 @@ import { Flex, Stack, styled } from '@/styled-system/jsx';
 import { focusRing } from '@/theme/focus';
 import { interactiveTransition, textTransition } from '@/theme/motion/transitions';
 import { formatPostDate } from '@/utils/date';
-import type { PostSummary } from '@/utils/posts';
+import type { PostSummary } from '@/utils/postFrontmatter';
 
 type PostRowProps = {
   post: PostSummary;

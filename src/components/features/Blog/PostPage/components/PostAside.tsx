@@ -3,7 +3,7 @@ import { AuthorAvatar } from '@/components/features/Blog/AuthorAvatar/AuthorAvat
 import { getAuthor } from '@/components/features/Blog/authors';
 import { Box, Flex, styled } from '@/styled-system/jsx';
 import { formatPostDate } from '@/utils/date';
-import type { PostSummary } from '@/utils/posts';
+import type { PostSummary } from '@/utils/postFrontmatter';
 
 type PostAsideProps = {
   post: PostSummary;

@@ -3,7 +3,7 @@ import { createServerFn } from '@tanstack/react-start';
 import { staticFunctionMiddleware } from '@tanstack/start-static-server-functions';
 
 import { parsePostMarkdown } from './markdown';
-import type { PostSummary } from './posts';
+import type { PostSummary } from './postFrontmatter';
 import { getAllPosts, getPostBySlug } from './posts';
 
 /**

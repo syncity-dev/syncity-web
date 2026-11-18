@@ -9,6 +9,9 @@ export const siteUrl = (path: string) => new URL(path, SITE_URL).href;
 /** The canonical link for a page, so search engines don't treat it as a copy of another one. */
 export const canonicalLink = (path: string) => ({ rel: 'canonical', href: siteUrl(path) });
 
+/** Where the build writes a post's generated share card, next to the post's prerendered page. */
+export const postCardPath = (slug: string) => `/blog/${slug}/og.png`;
+
 /** Title for every page except the homepage, e.g. `Blog — Syncity`. One place for the separator. */
 export const pageTitle = (title: string) => `${title} — Syncity`;
 
@@ -18,18 +21,32 @@ export const seo = ({
   keywords,
   image,
   url,
+  type = 'website',
+  publishedAt,
+  author,
 }: {
   title: string;
   description?: string;
   image?: string;
   keywords?: string;
   url?: string;
+  /** `article` for blog posts. The `article:*` tags are only added for articles. */
+  type?: 'website' | 'article';
+  /** ISO date, e.g. `2026-09-20`. */
+  publishedAt?: string;
+  author?: string;
 }) => {
+  const isArticle = type === 'article';
+
   const tags = [
     { title },
     { name: 'description', content: description },
     { name: 'keywords', content: keywords },
-    { property: 'og:type', content: 'website' },
+    { property: 'og:type', content: type },
+    ...(isArticle && publishedAt
+      ? [{ property: 'article:published_time', content: publishedAt }]
+      : []),
+    ...(isArticle && author ? [{ property: 'article:author', content: author }] : []),
     { property: 'og:title', content: title },
     { property: 'og:description', content: description },
     { name: 'twitter:card', content: image ? 'summary_large_image' : 'summary' },
