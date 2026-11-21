@@ -6,6 +6,8 @@ import { afterEach, describe, expect, it } from 'vitest';
 
 import { darkColor, renderPostCard, writePostCard } from './postCards';
 
+const fixturesDir = path.join(import.meta.dirname, 'fixtures');
+
 // A PNG stores its width and height as the first two numbers after the 16-byte header.
 const pngSize = (png: Buffer) => ({ width: png.readUInt32BE(16), height: png.readUInt32BE(20) });
 
@@ -48,10 +50,9 @@ describe('writePostCard', () => {
   it('writes the card next to a post page', async () => {
     outDir = await mkdtemp(path.join(tmpdir(), 'post-cards-'));
 
-    // Any committed post works. This one is a draft, which the card doesn't care about.
-    await writePostCard('/blog/example-post', outDir);
+    await writePostCard('/blog/card-fixture', outDir, fixturesDir);
 
-    const png = await readFile(path.join(outDir, 'blog/example-post/og.png'));
+    const png = await readFile(path.join(outDir, 'blog/card-fixture/og.png'));
 
     expect(pngSize(png)).toEqual({ width: 1200, height: 630 });
   });
