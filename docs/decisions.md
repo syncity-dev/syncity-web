@@ -9,6 +9,73 @@ deliberately accepted risk. Routine implementation choices do not belong here.
 
 ---
 
+## 2026-11-21 — Each deploy sets its own site address with `VITE_SITE_URL`
+
+**Context** — Share images, `og:url`, canonical links and the sitemap were all built on a
+hardcoded `https://syncity.dev`. On the develop deploy, where every post is still a draft,
+a post's `og:image` pointed at a production card that doesn't exist, so link previews
+couldn't be checked anywhere before a post went live. The develop site is also moving from
+Netlify to Cloudflare soon.
+
+**Decision** — `VITE_SITE_URL` sets the address a build is deployed to, and it falls back to
+`https://syncity.dev` when empty (`src/utils/seo.ts`; `vite.config.ts` reads it with
+`loadEnv` for the sitemap). The develop deploy sets `VITE_SITE_URL=https://develop.syncity.dev`
+in its host's build settings. Production sets nothing. The production address lives in
+`src/utils/site.ts`, which doesn't read `import.meta.env`, so the Vite config can import it.
+
+**Alternative rejected** — Reading the host's own variables (Netlify's `URL` and
+`DEPLOY_PRIME_URL`, or Cloudflare's `CF_PAGES_URL`): they tie the code to one host, and the
+move to Cloudflare would mean changing it again. One variable we set ourselves works on any
+host. If Cloudflare preview deploys are added later, their build command can set
+`VITE_SITE_URL=$CF_PAGES_URL` without a code change.
+
+**Consequences** — On develop, canonical links and the sitemap point at develop.syncity.dev.
+That is harmless because develop pages are `noindex`. The variable has to be set again when
+the develop site moves to Cloudflare, or develop falls back to production URLs.
+
+**Tickets** — SW-40
+
+## 2026-10-28 — Draw a share card for every post at build time with satori and resvg
+
+**Context** — Every post shared the site-wide `og-image.png`, so links to different posts
+looked the same in Slack, LinkedIn and X. The site is static on GitHub Pages, so nothing
+can draw an image when it is requested.
+
+**Decision** — The build draws a 1200 × 630 PNG for each prerendered post with `satori`
+(layout to SVG) and `@resvg/resvg-js` (SVG to PNG), both devDependencies. The prerender
+step's `onSuccess` hook in `vite.config.ts` calls `src/build/postCards.tsx`, which writes
+`dist/client/blog/<slug>/og.png` next to the post's page. The card uses the dark mode
+values of the semantic color tokens (`bg.default`, `accent.emphasis`, ...), Saira, and the
+Syncity logo. `ogImage` in a post's frontmatter replaces the card.
+Because every prerendered post gets a card and a failed card fails the build, post pages
+never fall back to the site-wide image. That image stays the default for the other pages.
+
+**Alternative rejected** — A main image required for every post: more work for each post,
+and most posts have no natural picture. The site-wide image for every post: free, but
+every post looks the same when shared. A server route prerendered as `og.png`: the
+prerender step saves responses as text, which corrupts a PNG.
+
+**Consequences** — Three workarounds keep this running, each noted in the code:
+
+- **Relative imports:** `postCards.tsx` and `src/utils/postFrontmatter.ts` load with the
+  Vite config, so they can't use the `@/` alias, `import.meta.glob` or `import.meta.env`.
+  That is why the frontmatter parsing moved out of `posts.ts`.
+- **satori loads late:** it is imported when the first card is drawn. A dependency of
+  satori breaks when NODE_ENV changes between loading the config and prerendering.
+- **Failures set the exit code:** the prerender step ignores errors from `onSuccess`, so
+  the hook sets `process.exitCode` itself.
+- **Output folder from TanStack Start:** the hook reads the folder the pages go into from
+  `TSS_CLIENT_OUTPUT_DIR`, which TanStack Start sets before prerendering. It isn't documented,
+  so if it's ever missing the build fails instead of writing cards where the site isn't served.
+
+`pnpm dev` doesn't draw cards, so a post's `og:image` points at a missing file there.
+Run the `postCards` tests or a build to see a card. A redesign of the card means
+changing `postCards.tsx` by hand, because it can't use Panda styles.
+
+**Tickets** — SW-40
+
+---
+
 ## 2026-10-24 — Dependabot updates go to `develop` and merge by themselves once CI passes
 
 **Context** — `develop` deploys to Netlify at develop.syncity.dev, the test site, and

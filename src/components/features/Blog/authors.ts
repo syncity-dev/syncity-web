@@ -1,5 +1,5 @@
 import { TEAM_AUTHOR, teamMembers } from '@/constants/team';
-import type { PostAuthor } from '@/utils/posts';
+import type { PostAuthor } from '@/utils/postFrontmatter';
 
 type Author = {
   name: PostAuthor;

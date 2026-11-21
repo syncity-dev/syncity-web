@@ -1,10 +1,13 @@
-export const SITE_URL = 'https://syncity.dev';
+import { PRODUCTION_SITE_URL } from './site';
 
-/** The share image for pages that don't set their own. */
-export const DEFAULT_OG_IMAGE = `${SITE_URL}/logos/og-image.png`;
+// Each deploy sets its own address, so share images point at files that exist on that site.
+export const SITE_URL = import.meta.env.VITE_SITE_URL || PRODUCTION_SITE_URL;
 
 /** Absolute URL for a site path, e.g. `/blog` → `https://syncity.dev/blog`. Absolute URLs pass through unchanged. */
 export const siteUrl = (path: string) => new URL(path, SITE_URL).href;
+
+/** The share image for pages that don't set their own. */
+export const DEFAULT_OG_IMAGE = siteUrl('/logos/og-image.png');
 
 /** The canonical link for a page, so search engines don't treat it as a copy of another one. */
 export const canonicalLink = (path: string) => ({ rel: 'canonical', href: siteUrl(path) });
@@ -18,18 +21,32 @@ export const seo = ({
   keywords,
   image,
   url,
+  type = 'website',
+  publishedAt,
+  author,
 }: {
   title: string;
   description?: string;
   image?: string;
   keywords?: string;
   url?: string;
+  /** `article` for blog posts. The `article:*` tags are only added for articles. */
+  type?: 'website' | 'article';
+  /** ISO date, e.g. `2026-09-20`. */
+  publishedAt?: string;
+  author?: string;
 }) => {
+  const isArticle = type === 'article';
+
   const tags = [
     { title },
     { name: 'description', content: description },
     { name: 'keywords', content: keywords },
-    { property: 'og:type', content: 'website' },
+    { property: 'og:type', content: type },
+    ...(isArticle && publishedAt
+      ? [{ property: 'article:published_time', content: publishedAt }]
+      : []),
+    ...(isArticle && author ? [{ property: 'article:author', content: author }] : []),
     { property: 'og:title', content: title },
     { property: 'og:description', content: description },
     { name: 'twitter:card', content: image ? 'summary_large_image' : 'summary' },
