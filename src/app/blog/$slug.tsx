@@ -2,7 +2,8 @@ import { createFileRoute, notFound } from '@tanstack/react-router';
 
 import { PostPage } from '@/components/features/Blog/PostPage/PostPage';
 import { getPostDocument, getPostSummaries } from '@/utils/posts.functions';
-import { canonicalLink, pageTitle, postCardPath, seo, siteUrl } from '@/utils/seo';
+import { canonicalLink, pageTitle, seo, siteUrl } from '@/utils/seo';
+import { postCardPath } from '@/utils/site';
 
 export const Route = createFileRoute('/blog/$slug')({
   loader: async ({ params }) => {

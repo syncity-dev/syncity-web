@@ -1,16 +1,16 @@
-export const SITE_URL = 'https://syncity.dev';
+import { PRODUCTION_SITE_URL } from './site';
 
-/** The share image for pages that don't set their own. */
-export const DEFAULT_OG_IMAGE = `${SITE_URL}/logos/og-image.png`;
+// Each deploy sets its own address, so share images point at files that exist on that site.
+export const SITE_URL = import.meta.env.VITE_SITE_URL || PRODUCTION_SITE_URL;
 
 /** Absolute URL for a site path, e.g. `/blog` → `https://syncity.dev/blog`. Absolute URLs pass through unchanged. */
 export const siteUrl = (path: string) => new URL(path, SITE_URL).href;
 
+/** The share image for pages that don't set their own. */
+export const DEFAULT_OG_IMAGE = siteUrl('/logos/og-image.png');
+
 /** The canonical link for a page, so search engines don't treat it as a copy of another one. */
 export const canonicalLink = (path: string) => ({ rel: 'canonical', href: siteUrl(path) });
-
-/** Where the build writes a post's generated share card, next to the post's prerendered page. */
-export const postCardPath = (slug: string) => `/blog/${slug}/og.png`;
 
 /** Title for every page except the homepage, e.g. `Blog — Syncity`. One place for the separator. */
 export const pageTitle = (title: string) => `${title} — Syncity`;

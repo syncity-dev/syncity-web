@@ -9,7 +9,7 @@ import { colors as semanticColors } from '../theme/semanticTokens/colors';
 import { formatPostDate } from '../utils/date';
 import type { Post } from '../utils/postFrontmatter';
 import { parsePost } from '../utils/postFrontmatter';
-import { postCardPath } from '../utils/seo';
+import { postCardPath } from '../utils/site';
 
 // Runs only at build time, from the prerender step in `vite.config.ts`. Nothing in the app imports it.
 // Imports are relative because Vite loads its config before the `@/` alias exists.
@@ -167,14 +167,18 @@ export const renderPostCard = async (post: Post) => {
  * Called for every prerendered page. For a post page, draws its card into `outDir` at
  * `postCardPath(slug)`. Only published posts are prerendered, so drafts never get one.
  */
-export const writePostCard = async (pagePath: string, outDir: string) => {
+export const writePostCard = async (
+  pagePath: string,
+  outDir: string,
+  postsDir = 'src/content/posts',
+) => {
   const slug = pagePath.match(POST_PAGE)?.[1];
 
   if (!slug) {
     return;
   }
 
-  const filePath = `src/content/posts/${slug}.md`;
+  const filePath = path.join(postsDir, `${slug}.md`);
   const post = parsePost(filePath, await readFile(path.resolve(filePath), 'utf8'));
   const cardFile = path.join(outDir, postCardPath(slug));
 
