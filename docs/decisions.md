@@ -38,6 +38,9 @@ prerender step saves responses as text, which corrupts a PNG.
   satori breaks when NODE_ENV changes between loading the config and prerendering.
 - **Failures set the exit code:** the prerender step ignores errors from `onSuccess`, so
   the hook sets `process.exitCode` itself.
+- **Output folder from TanStack Start:** the hook reads the folder the pages go into from
+  `TSS_CLIENT_OUTPUT_DIR`, which TanStack Start sets before prerendering. It isn't documented,
+  so if it's ever missing the build fails instead of writing cards where the site isn't served.
 
 `pnpm dev` doesn't draw cards, so a post's `og:image` points at a missing file there.
 Run the `postCards` tests or a build to see a card. A redesign of the card means
