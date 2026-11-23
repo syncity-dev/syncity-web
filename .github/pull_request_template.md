@@ -21,6 +21,12 @@ Add a link or reference to the Jira ticket associated with this PR (e.g., ES-1).
 - [ ] 🔄 `ci:` CI/CD changes
 - [ ] ↩️ `revert:` Revert a previous commit
 
+## Decisions and AI Setup
+
+- [ ] Decision added or updated in `docs/decisions/` (expensive to reverse, constrains future work, or rejects a plausible alternative)
+- [ ] `CLAUDE.md` or `.claude/` updated where conventions changed
+- [ ] N/A: no new decision or convention
+
 ## Checklist
 
 - [ ] I have tested my changes and verified expected behavior.
