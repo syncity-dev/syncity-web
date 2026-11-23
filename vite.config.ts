@@ -35,11 +35,15 @@ export default defineConfig(({ mode }) => ({
       },
       // Links the crawler would otherwise add to the sitemap as separate pages: the `/#work`
       // style section links (all the homepage) and `/blog/`, the same page as `/blog`.
-      pages: ['/blog/', ...sectionLinks].map((path) => ({
-        path,
-        prerender: { enabled: false },
-        sitemap: { exclude: true },
-      })),
+      pages: [
+        ...['/blog/', ...sectionLinks].map((path) => ({
+          path,
+          prerender: { enabled: false },
+          sitemap: { exclude: true },
+        })),
+        // The crawler only follows `<a>` links, so the feed has to be listed to be prerendered.
+        { path: '/rss.xml', sitemap: { exclude: true } },
+      ],
       prerender: {
         enabled: true,
         crawlLinks: true,

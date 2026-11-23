@@ -16,9 +16,11 @@ import { createRootRoute } from '@tanstack/react-router';
 
 import { NotFound } from '@/components/shared/NotFound/NotFound';
 import { RootLayout } from '@/components/shared/RootLayout/RootLayout';
+import { BLOG_TITLE } from '@/constants/blog';
 import { showDrafts } from '@/utils/env';
+import { FEED_PATH } from '@/utils/feed';
 import { getPostSummaries } from '@/utils/posts.functions';
-import { DEFAULT_OG_IMAGE, seo, SITE_URL } from '@/utils/seo';
+import { DEFAULT_OG_IMAGE, seo, SITE_URL, siteUrl } from '@/utils/seo';
 
 import appCss from './globals.css?url';
 
@@ -36,10 +38,15 @@ const jsonLd = {
 export const Route = createRootRoute({
   // Whether any post is published, so the Blog links only appear when /blog has something to show.
   // The list only changes with a new build, so it is never reloaded on navigation.
-  loader: async () => ({ hasPosts: (await getPostSummaries()).length > 0 }),
+  // `hasFeedItems` leaves out drafts, which the develop deploy lists but the feed never includes.
+  loader: async () => {
+    const posts = await getPostSummaries();
+
+    return { hasPosts: posts.length > 0, hasFeedItems: posts.some((post) => !post.draft) };
+  },
   staleTime: Infinity,
   notFoundComponent: NotFound,
-  head: () => ({
+  head: ({ loaderData }) => ({
     meta: [
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -72,6 +79,16 @@ export const Route = createRootRoute({
       { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico', sizes: '32x32' },
       { rel: 'apple-touch-icon', href: '/logos/apple-touch-icon.png' },
+      ...(loaderData?.hasFeedItems
+        ? [
+            {
+              rel: 'alternate',
+              type: 'application/rss+xml',
+              title: BLOG_TITLE,
+              href: siteUrl(FEED_PATH),
+            },
+          ]
+        : []),
     ],
     scripts: [{ type: 'application/ld+json', children: JSON.stringify(jsonLd) }],
   }),

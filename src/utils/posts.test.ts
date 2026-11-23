@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { parsePost, postAuthors } from './postFrontmatter';
-import { collectPosts, getAllPosts, getPostBySlug } from './posts';
+import { collectPosts, getAllPosts, getPostBySlug, getPublishedPosts } from './posts';
 
 const post = (frontmatter: string, body = 'Body copy.') => `---\n${frontmatter}\n---\n\n${body}\n`;
 
@@ -174,5 +174,11 @@ describe('getAllPosts', () => {
 
     expect(getPostBySlug(first.slug)).toEqual(first);
     expect(getPostBySlug('no-such-post')).toBeUndefined();
+  });
+});
+
+describe('getPublishedPosts', () => {
+  it('leaves out drafts even in a build that shows them', () => {
+    expect(getPublishedPosts().every((post) => !post.draft)).toBe(true);
   });
 });

@@ -3,6 +3,7 @@ import { Eyebrow } from '@/components/core/Eyebrow/Eyebrow';
 import { Heading } from '@/components/core/Heading/Heading';
 import { Text } from '@/components/core/Text/Text';
 import { PageContainer } from '@/components/shared/PageContainer/PageContainer';
+import { BLOG_DESCRIPTION } from '@/constants/blog';
 import { Stack } from '@/styled-system/jsx';
 import type { PostSummary } from '@/utils/postFrontmatter';
 
@@ -21,8 +22,7 @@ export const BlogIndex = ({ posts }: BlogIndexProps) => (
         Notes from the <DisplayItalic>long</DisplayItalic> haul.
       </Heading>
       <Text size="lg" color="fg.muted" maxWidth="xl">
-        What we learn keeping software in production for years, written by the three of us when
-        there is something worth saying.
+        {BLOG_DESCRIPTION}
       </Text>
     </Stack>
 
