@@ -102,7 +102,7 @@ People review every change by hand, so comments exist to make the code easier to
 
 - Explain _why_, or anything surprising. Don't restate what the code already says.
 - Use plain words. No jargon or invented terms: write "spacing between blocks", not "vertical rhythm"; "code block", not "fence"; "runs on the server and in the browser", not "isomorphic".
-- Keep it to one or two short sentences. If it needs a paragraph, the code or a decision-log entry is probably the better place.
+- Keep it to one or two short sentences. If the reasoning needs a paragraph, write it as a decision in [`docs/decisions/`](docs/decisions/README.md) and have the comment point to that file, for example `// See docs/decisions/009-post-share-cards.md`.
 - Don't use em-dashes or "X, not Y" phrasing to sound clever; write a direct sentence.
 
 ---
@@ -257,18 +257,9 @@ When adding `og:image`, provide an absolute URL.
 
 ## Decision Log
 
-Architecturally significant decisions are recorded in `docs/decisions.md`, newest first.
+Each decision that is expensive to reverse, constrains future work, or would otherwise be argued again has its own numbered file in `docs/decisions/`. [`docs/decisions/README.md`](docs/decisions/README.md) says when to add one, how to number it, the format, and lists every decision.
 
-**When a decision of that kind is made — in conversation or in code — add an entry before moving on.** A decision belongs in the log when it is expensive to reverse, constrains future work, or would otherwise have to be re-litigated by the next person to read the code:
-
-- committing to a framework, renderer, or library (especially an unstable one)
-- a rendering, data-flow, or build-pipeline architecture
-- a risk the team accepted deliberately, and why it was judged acceptable
-- rejecting a plausible alternative, and what made it lose
-
-Do **not** log routine implementation choices — file layout, naming, which atom a component composes from, a token pick. Those are readable from the code.
-
-Entry format: `## YYYY-MM-DD — <decision in one line>`, then **Context**, **Decision**, **Alternative rejected**, **Consequences**, and **Tickets**.
+**When a decision of that kind is made, in conversation or in code, add it before moving on.** Decisions are never deleted. When one is replaced, mark it `Superseded by NNN`.
 
 ---
 
