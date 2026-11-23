@@ -25,7 +25,7 @@ export const collectPosts = (
 
 export const getAllPosts = (): Post[] => collectPosts(postModules);
 
-/** Posts that aren't drafts, in every build. The feed uses this so a reader never picks up a draft. */
+/** Leaves out drafts even on the develop deploy, where getAllPosts shows them. The feed uses this so feed readers never pick up a draft. */
 export const getPublishedPosts = (): Post[] => collectPosts(postModules, { includeDrafts: false });
 
 export const getPostBySlug = (slug: string): Post | undefined =>

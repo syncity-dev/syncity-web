@@ -5,7 +5,8 @@ import { siteUrl } from './seo';
 
 export const FEED_PATH = '/rss.xml';
 
-// Numeric references, because feed readers can read `&amp;` in a title as HTML and show it literally.
+// These five are every character XML reserves, so this covers text and attribute values.
+// Numeric references are used because some feed readers show `&amp;` in a title literally.
 const escapeXml = (text: string) =>
   text
     .replace(/&/g, '&#x26;')
@@ -14,7 +15,7 @@ const escapeXml = (text: string) =>
     .replace(/"/g, '&#x22;')
     .replace(/'/g, '&#x27;');
 
-// RSS dates use the RFC 822 format, e.g. `Sun, 20 Sep 2026 00:00:00 GMT`.
+// toUTCString() gives the RFC 822 date RSS expects, e.g. `Sun, 20 Sep 2026 00:00:00 GMT`.
 const rssDate = (isoDate: string) => new Date(isoDate).toUTCString();
 
 const item = (post: PostSummary) => {
